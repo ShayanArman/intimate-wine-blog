@@ -23,7 +23,7 @@ const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 const useStyles = createStyles((theme) => ({
   header: {
     position: 'fixed',
-    backgroundColor: "white",
+    backgroundColor: "#fcf5eb",
     top: 0,
     left: 0,
     zIndex: 9999,
@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   headerColored: {
-    opacity: 0.7,
+    backgroundColor: "rgba(252, 245, 235, .8)",
     transition: 'background-color 0.3s ease',
   },
 

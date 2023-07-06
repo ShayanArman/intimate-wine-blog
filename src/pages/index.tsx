@@ -44,7 +44,7 @@ export default function Home() {
         
         {/* EnterWaypoint  topOffset is height plus 40*/}
         <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20} scrollableAncestor={waypointRef.current}>
-          <Box mih="200px" w={"100%"} style={{ backgroundColor: "black"}} id="section1">
+          <Box mih="200px" w={"100%"} style={{ backgroundColor: "#fcf5eb"}} id="section1">
             First WAYPOINT
           </Box>
         </Waypoint>
