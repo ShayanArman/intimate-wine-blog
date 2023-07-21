@@ -97,10 +97,10 @@ const useStyles = createStyles(
       fontSize: theme.fontSizes.md,
       fontWeight: 400,
       transition: "0.3s ease-in",
-      borderBottom: "2.5px dotted pink",
+      borderBottom: "2.5px double #333333",
 
       "&:hover": {
-        borderBottom: "2.5px dotted #E65E8C",
+        borderBottom: "2.5px double #E65E8C",
         transition: "0.3s ease-out",
       },
     },
