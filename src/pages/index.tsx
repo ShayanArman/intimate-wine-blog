@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
+import HeroSection from "@/Components/HeroSection";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 
 
@@ -27,36 +28,14 @@ export default function Home() {
         
         {/* EnterWaypoint  topOffset is height plus 40*/}
         <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20}>
-          <Box mih="200px" w={"100%"} style={{ backgroundColor: "black"}} id="section1">
-
-          </Box>
         </Waypoint>
+        <HeroSection/>
 
-        <Box mih="50rem" id="section2">
-          Hi HI hi
-        </Box>
-        <Box mih="50rem" id="section3">
-          Hi HI hi
-        </Box>
+        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "black"}} id="section1">
 
-        <Box mih="50rem" id="section5">
-          Hi HI hi
         </Box>
+        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "white"}} id="section2">
 
-        <Box mih="50rem" id="section5">
-          Hi HI hi
-        </Box>
-        <Box mih="50rem" id="section5">
-          Hi HI hi
-        </Box>
-        <Box mih="50rem" id="section5">
-          Hi HI hi
-        </Box>
-        <Box mih="50rem" id="section5">
-          Hi HI hi
-        </Box>
-        <Box mih="50rem" id="section5">
-          Hi HI hi
         </Box>
       </Box>
   )
