@@ -1,8 +1,8 @@
-import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex } from '@mantine/core';
-import { url } from 'node:inspector';
-import { isAbsolute } from 'node:path';
-import { relative } from 'node:path/win32';
-import { title } from 'node:process';
+import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
+// import { url } from 'node:inspector';
+// import { isAbsolute } from 'node:path';
+// import { relative } from 'node:path/win32';
+// import { title } from 'node:process';
 
 const useStyles = createStyles((theme) => ({
 
@@ -13,14 +13,14 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: '100vh'
+    height: '100vh',
   },
   
 
   hero: {
-    top: '5%',
     width: '95%',
-    position: 'absolute',
+    height: '92%',
+    position: 'relative',
     backgroundImage: "url('./testimg-1.jpg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -29,45 +29,28 @@ const useStyles = createStyles((theme) => ({
   },
 
   container: {
-    height: rem(700),
-    display: 'flex',
+    height: '400px',
+    width: '600px',
+    display: 'flex-box',
     flexDirection: 'column',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
-    paddingBottom: `calc(${theme.spacing.xl} * 6)`,
-    zIndex: 1,
-    position: 'relative',
+    left: '12%',
+    top: '19%',
+    position: 'absolute',
+
 
     [theme.fn.smallerThan('sm')]: {
       height: rem(500),
-      paddingBottom: `calc(${theme.spacing.xl} * 3)`,
+      // paddingBottom: `calc(${theme.spacing.xl} * 3)`,
     },
   },
 
 
-  title1: {
+  title: {
     color: theme.white,
-    fontSize: rem(45),
-    fontWeight: 900,
+    fontSize: rem(80),
+    fontWeight: 300,
     lineHeight: 1.1,
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: rem(40),
-      lineHeight: 1.2,
-    },
-
-    [theme.fn.smallerThan('xs')]: {
-      fontSize: rem(28),
-      lineHeight: 1.3,
-    },
-  },
-
-  title2: {
-    
-    color: theme.white,
-    fontSize: rem(45),
-    fontWeight: 900,
-    lineHeight: 1.1,
+    padding: '5px',
 
     [theme.fn.smallerThan('sm')]: {
       fontSize: rem(40),
@@ -81,20 +64,27 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: theme.white,
+    color: "white",
     maxWidth: 400,
+    padding: '5px',
+    fontWeight: 300,
 
     [theme.fn.smallerThan('sm')]: {
-      maxWidth: '100%',
+      maxWidth: '50%',
       fontSize: theme.fontSizes.sm,
     },
   },
 
   control: {
     marginTop: `calc(${theme.spacing.xl} * 1.5)`,
+    display: 'flex-box',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight: 300,
+    color: 'pink',
 
     [theme.fn.smallerThan('sm')]: {
-      width: '100%',
+      width: '50%',
     },
   },
 }));
@@ -106,15 +96,12 @@ export default function HeroSection() {
     <div className={classes.wrapper}>
       <div className={classes.hero}>
         <Container className={classes.container}>
-          <Title className={classes.title1}>Clear your inbox</Title>
-          <Title className={classes.title2}>Clear your mind</Title>
+          <Title className={classes.title}>Clear your inbox</Title>
+          <Title className={classes.title}>Clear your mind</Title>
           <Text className={classes.description} size="xl" mt="xl">
-
             AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.
           </Text>
-          
-
-          <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
+          <Button variant="outline" size="xl" radius="xl" className={classes.control}>
             Learn more
           </Button>   
         </Container>

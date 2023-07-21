@@ -70,6 +70,7 @@ const useStyles = createStyles(
         display: "none",
       },
       paddingRight: "15px",
+      color: "pink",
     },
 
     mobileButton: {
