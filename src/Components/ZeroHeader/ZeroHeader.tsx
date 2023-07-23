@@ -25,12 +25,12 @@ const useStyles = createStyles(
   (theme, { backgroundColor }: { backgroundColor: string }) => ({
     header: {
       position: "fixed",
-      borderBottom: 0,
       backgroundColor: '#333333',
       top: 0,
       left: 0,
       zIndex: 9999,
       transition: "background-color 0.3s ease",
+      borderBottom: ".5px solid grey",
     },
 
     headerColored: {

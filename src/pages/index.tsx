@@ -22,7 +22,7 @@ export default function Home() {
         <Waypoint
           onLeave={onLeave}
         >
-          <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "white"}}>
+          <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "#333333"}}>
           </Box>
         </Waypoint>
         
