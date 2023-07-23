@@ -39,24 +39,35 @@ const useStyles = createStyles(
     },
 
     inner: {
+      [theme.fn.smallerThan("sm")]:{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      },
       height: HEADER_HEIGHT,
+      width: "90%",
       display: "flex",
-      justifyContent: "space-between",
+      justifyContent: "right",
       alignItems: "center",
+      position: 'relative',
     },
 
     links: {
       [theme.fn.smallerThan("sm")]: {
         display: "none",
       },
+      marginRight: "5%",
     },
 
     logo: {
       [theme.fn.smallerThan("sm")]: {
         marginLeft: "1rem",
         marginTop: "0.3rem",
+        position: 'relative',
       },
-      paddingLeft: "15px",
+      marginTop: "0.3rem",
+      position: "absolute",
+      left: 0,
     },
 
     burger: {
@@ -69,8 +80,6 @@ const useStyles = createStyles(
       [theme.fn.smallerThan("sm")]: {
         display: "none",
       },
-      paddingRight: "15px",
-      color: "pink",
     },
 
     mobileButton: {
@@ -157,9 +166,22 @@ function ActionButton({
       component="a"
       target="_blank"
       href="https://app.zeroinbox.ai"
-      radius="xl"
+      radius="lg"
       size={buttonSize}
-      color="pink"
+      variant='outline'
+      styles={(theme) => ({
+        root: {
+          backgroundColor: "grey",
+          border: 0,
+          color:"white",
+          transition: "0.3s ease",
+        "&:hover": {
+          transition: "0.3s ease",
+          backgroundColor: "#E65E8C",
+          color: 'white',
+        }
+      }
+      })}
     >
       {innerText}
     </Button>
@@ -183,6 +205,7 @@ type Links = {
 }[];
 
 const zeroLinks: Links = [
+  { link: "/", label: 'Features', newTab: false },
   {
     link: "https://google.com",
     label: "Privacy",
@@ -208,8 +231,10 @@ const zeroLinks: Links = [
       },
     ],
   },
-  { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: false },
-  { link: "https://stumbleupon.com", label: "StumbleUpon", newTab: true },
+  { link: "/", label: 'Business', newTab: false },
+  { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
+  { link: "/", label: 'Contact Us', newTab: false },
+  // { link: "https://stumbleupon.com", label: "StumbleUpon", newTab: true },
 ];
 
 function LinksToItems({}) {

@@ -30,24 +30,23 @@ const useStyles = createStyles((theme) => ({
 
   container: {
     height: '400px',
-    width: '600px',
+    width: '50%',
     display: 'flex-box',
     flexDirection: 'column',
-    left: '12%',
-    top: '19%',
+    left: '10%',
+    top: '15%',
     position: 'absolute',
 
 
     [theme.fn.smallerThan('sm')]: {
       height: rem(500),
-      // paddingBottom: `calc(${theme.spacing.xl} * 3)`,
     },
   },
 
 
   title: {
     color: theme.white,
-    fontSize: rem(80),
+    fontSize: rem(90),
     fontWeight: 300,
     lineHeight: 1.1,
     padding: '5px',
@@ -67,7 +66,8 @@ const useStyles = createStyles((theme) => ({
     color: "white",
     maxWidth: 400,
     padding: '5px',
-    fontWeight: 300,
+    fontWeight: 200,
+    fontSize: rem(25),
 
     [theme.fn.smallerThan('sm')]: {
       maxWidth: '50%',
@@ -82,9 +82,16 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     fontWeight: 300,
     color: 'pink',
+    borderColor: 'pink',
+    transition: "0.3s ease",
+
+    "&:hover": {
+      backgroundColor: "#e0e0e050",
+      transition: "0.3s ease",
+    },
 
     [theme.fn.smallerThan('sm')]: {
-      width: '50%',
+      width: '25%',
     },
   },
 }));
@@ -101,7 +108,7 @@ export default function HeroSection() {
           <Text className={classes.description} size="xl" mt="xl">
             AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.
           </Text>
-          <Button variant="outline" size="xl" radius="xl" className={classes.control}>
+          <Button variant="outline" size="xl" radius="lg" className={classes.control}>
             Learn more
           </Button>   
         </Container>
