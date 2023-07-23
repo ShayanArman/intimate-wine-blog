@@ -135,7 +135,7 @@ export default function ZeroHeader({
           <LinksToItems />
         </Group>
         <Box className={classes.desktopActionButton}>
-          <ActionButton buttonSize={"md"} innerText="Click + Unsubscribe" />
+          <ActionButton buttonSize={"md"} innerText="Sign In" />
         </Box>
         <Box className={classes.mobileButton}>
           <ActionButton buttonSize={"xs"} innerText="Start" />
@@ -157,7 +157,6 @@ function ActionButton({
       component="a"
       target="_blank"
       href="https://app.zeroinbox.ai"
-      leftIcon={<FcEmptyFilter />}
       radius="xl"
       size={buttonSize}
       color="pink"
