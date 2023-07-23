@@ -31,10 +31,10 @@ export default function Home() {
         </Waypoint>
         <HeroSection/>
 
-        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "black"}} id="section1">
+        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "white"}} id="section1">
 
         </Box>
-        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "white"}} id="section2">
+        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "#333333"}} id="section2">
 
         </Box>
       </Box>

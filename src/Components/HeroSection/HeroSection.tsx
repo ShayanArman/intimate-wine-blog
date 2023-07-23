@@ -82,7 +82,6 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 300,
     color: 'pink',
     border: "2px solid pink",
-    // borderColor: 'pink',
     transition: "0.3s ease",
 
     "&:hover": {
