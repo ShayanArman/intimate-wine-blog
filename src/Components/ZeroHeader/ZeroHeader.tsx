@@ -26,7 +26,7 @@ const useStyles = createStyles(
     header: {
       position: "fixed",
       borderBottom: 0,
-      backgroundColor: backgroundColor,
+      backgroundColor: '#333333',
       top: 0,
       left: 0,
       zIndex: 9999,
@@ -34,7 +34,7 @@ const useStyles = createStyles(
     },
 
     headerColored: {
-      backgroundColor: "rgba(255, 255, 255, .8)",
+      backgroundColor: "#333333",
       transition: "background-color 0.3s ease",
     },
 
@@ -56,6 +56,7 @@ const useStyles = createStyles(
         marginLeft: "1rem",
         marginTop: "0.3rem",
       },
+      paddingLeft: "15px",
     },
 
     burger: {
@@ -68,6 +69,7 @@ const useStyles = createStyles(
       [theme.fn.smallerThan("sm")]: {
         display: "none",
       },
+      paddingRight: "15px",
     },
 
     mobileButton: {
@@ -82,10 +84,7 @@ const useStyles = createStyles(
       padding: `${rem(8)} ${rem(12)}`,
       borderRadius: theme.radius.sm,
       textDecoration: "none",
-      color:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[0]
-          : theme.colors.gray[7],
+      color: 'white',
       fontSize: theme.fontSizes.sm,
       fontWeight: 500,
 
@@ -138,7 +137,7 @@ export default function ZeroHeader({
           <ActionButton buttonSize={"md"} innerText="Sign In" />
         </Box>
         <Box className={classes.mobileButton}>
-          <ActionButton buttonSize={"xs"} innerText="Start" />
+          <ActionButton buttonSize={"xs"} innerText="Sign In" />
         </Box>
       </Container>
     </Header>
@@ -169,7 +168,7 @@ function ActionButton({
 function Logo({ className }: { className: string }) {
   return (
     <Link href="/" className={className}>
-      <Image width={150} height={50} alt="zeroInbox" src="/horizontal.svg" />
+      <Image width={150} height={40} alt="zeroInbox" src="/horizLogo.png" />
     </Link>
   );
 }
