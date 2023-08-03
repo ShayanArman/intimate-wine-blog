@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Box } from '@mantine/core';
+import { Box, Footer } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import HeroSection from "@/Components/HeroSection";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import Features from "@/Components/Features";
+import FooterSection from "@/Components/Footer";
 
 
 export default function Home() {
@@ -32,10 +33,10 @@ export default function Home() {
         </Waypoint>
         <HeroSection/>
         <Features/>
-        {/* <Footer/> */}
         <Box mih="100vh" w={"100%"} style={{ backgroundColor: "white"}} id="section2">
 
         </Box>
+        <FooterSection />
       </Box>
   )
 }

@@ -3,6 +3,7 @@ import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 import { createStyles, Box, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
 import { useState } from "react";
 import { Waypoint } from "react-waypoint";
+import FooterSection from "@/Components/Footer";
 
 const useStyles = createStyles((theme) => ({
 
@@ -57,9 +58,10 @@ export default function Security() {
     </Box>
     <div className={classes.wrapper}>
       <Container className={classes.container}>
-        <Title className={classes.title}>Big time security page</Title>
+        <Title className={classes.title}>Big time privacy page</Title>
       </Container>
     </div>
+    <FooterSection />
     </>
 
   );

@@ -25,7 +25,7 @@ const useStyles = createStyles(
   (theme, { backgroundColor }: { backgroundColor: string }) => ({
     header: {
       position: "fixed",
-      backgroundColor: '#333333',
+      backgroundColor: '#333',
       top: 0,
       left: 0,
       zIndex: 9999,
@@ -34,7 +34,7 @@ const useStyles = createStyles(
     },
 
     headerColored: {
-      backgroundColor: "#333333",
+      backgroundColor: "#333",
       transition: "background-color 0.3s ease",
     },
 
@@ -207,7 +207,7 @@ type Links = {
 const zeroLinks: Links = [
   { link: "/", label: 'Features', newTab: false },
   {
-    link: "https://google.com",
+    link: "/privacy",
     label: "Privacy",
     newTab: false,},
     // links: [
@@ -231,9 +231,9 @@ const zeroLinks: Links = [
   //     },
   //   ],
   // },
-  { link: "/", label: 'Business', newTab: false },
+  { link: "/business", label: 'Business', newTab: false },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
-  { link: "/", label: 'Contact Us', newTab: false },
+  { link: "/contact", label: 'Contact Us', newTab: false },
   // { link: "https://stumbleupon.com", label: "StumbleUpon", newTab: true },
 ];
 
