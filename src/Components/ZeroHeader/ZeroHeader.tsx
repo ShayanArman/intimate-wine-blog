@@ -97,7 +97,7 @@ const useStyles = createStyles(
       fontSize: theme.fontSizes.md,
       fontWeight: 400,
       transition: "0.3s ease-in",
-      borderBottom: "2.5px double #3DBCF8",
+      borderBottom: "2.5px double #333",
 
       "&:hover": {
         borderBottom: "2.5px double #E65E8C",
@@ -209,28 +209,28 @@ const zeroLinks: Links = [
   {
     link: "https://google.com",
     label: "Privacy",
-    newTab: true,
-    links: [
-      {
-        link: "/security",
-        label: "Security",
-        newTab: false,
-        Icon: <FcEmptyFilter />,
-      },
-      {
-        link: "https://zeroinbox.ai/datafaq.pdf",
-        label: "Terms",
-        newTab: true,
-        Icon: <FcEmptyFilter />,
-      },
-      {
-        link: "https://zeroinbox.ai/privacy.pdf",
-        label: "Privacy",
-        newTab: true,
-        Icon: <FcEmptyFilter />,
-      },
-    ],
-  },
+    newTab: false,},
+    // links: [
+  //     {
+  //       link: "/security",
+  //       label: "Security",
+  //       newTab: false,
+  //       Icon: <FcEmptyFilter />,
+  //     },
+  //     {
+  //       link: "https://zeroinbox.ai/datafaq.pdf",
+  //       label: "Terms",
+  //       newTab: true,
+  //       Icon: <FcEmptyFilter />,
+  //     },
+  //     {
+  //       link: "https://zeroinbox.ai/privacy.pdf",
+  //       label: "Privacy",
+  //       newTab: true,
+  //       Icon: <FcEmptyFilter />,
+  //     },
+  //   ],
+  // },
   { link: "/", label: 'Business', newTab: false },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
   { link: "/", label: 'Contact Us', newTab: false },

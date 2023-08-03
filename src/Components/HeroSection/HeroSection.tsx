@@ -7,7 +7,7 @@ import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } fro
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    backgroundColor: '#333333',
+    backgroundColor: 'white',
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -21,10 +21,8 @@ const useStyles = createStyles((theme) => ({
     width: '100%',
     height: '100%',
     position: 'relative',
-    backgroundImage: "url('./testimg-1.jpg')",
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    border: '1px solid #333',
   },
 
   container: {
@@ -44,7 +42,7 @@ const useStyles = createStyles((theme) => ({
 
 
   title: {
-    color: theme.white,
+    color: '#333',
     fontSize: rem(90),
     fontWeight: 300,
     lineHeight: 1.1,
@@ -62,7 +60,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: "white",
+    color: "#333",
     maxWidth: 400,
     padding: '5px',
     fontWeight: 200,
@@ -80,12 +78,13 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     fontWeight: 300,
-    color: 'pink',
-    border: "2px solid pink",
+    color: 'white',
+    border: "none",
     transition: "0.3s ease",
+    backgroundColor: '#E65E8C',
 
     "&:hover": {
-      backgroundColor: "#e0e0e050",
+      backgroundColor: "#333",
       transition: "0.3s ease",
     },
 
