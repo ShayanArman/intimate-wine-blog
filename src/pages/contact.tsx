@@ -11,12 +11,16 @@ import {
   rem,
 } from '@mantine/core';
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
-// import { ContactIconsList } from '../ContactIcons/ContactIcons';
+import ContactIcons from '@/Components/ContactIcons';
 import FooterSection from "@/Components/Footer";
 import { useState } from "react";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 
 const useStyles = createStyles((theme) => ({
+
+  '*:focus': {
+    outline: 'none',
+  },
 
   wrapper: {
     width: '100%',
@@ -30,7 +34,7 @@ const useStyles = createStyles((theme) => ({
   container: {
     minHeight: 400,
     boxSizing: 'border-box',
-    backgroundColor: 'white',
+    backgroundColor: '#3b3b3b',
     borderRadius: theme.radius.lg,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
 
@@ -39,14 +43,29 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  titlediv: {
+    width: '100%',
+    height: 'auto',
+    textAlign: 'center',
+  },
+
   title: {
-    color: '#333',
-    lineHeight: 1,
+    color: 'white',
+    paddingBottom: '10px',
+    fontWeight: 400,
+  },
+
+  underline: {
+    position: 'relative',
+    width: '100px',
+    height: '1px',
+    backgroundColor: '#e65e8c',
+    margin: '0 auto',
   },
 
   description: {
-    color: '#333',
-    maxWidth: rem(300),
+    color: 'white',
+    fontWeight: 225,
 
     [theme.fn.smallerThan('sm')]: {
       maxWidth: '100%',
@@ -54,24 +73,30 @@ const useStyles = createStyles((theme) => ({
   },
 
   form: {
-    backgroundColor: '#333',
+    backgroundColor: '#3b3b3b',
     padding: theme.spacing.xl,
     borderRadius: theme.radius.lg,
-    boxShadow: theme.shadows.lg,
   },
 
   social: {
     color: '#333',
 
     '&:hover': {
-      color: theme.colors[theme.primaryColor][1],
+      color: theme.colors[theme.primaryColor][7],
     },
   },
 
   input: {
-    backgroundColor: theme.white,
-    borderColor: theme.colors.gray[4],
-    color: theme.black,
+    backgroundColor: 'white',
+    border: 'none',
+    color: 'black',
+    fontWeight: 300,
+    outline: 'none',
+    borderRadius: '5px',
+    
+    '&:focus': {
+      outline: 'none',
+    },
 
     '&::placeholder': {
       color: theme.colors.gray[5],
@@ -80,20 +105,20 @@ const useStyles = createStyles((theme) => ({
 
   inputLabel: {
     color: 'white',
+    fontWeight: 225,
   },
 
   control: {
-    border: '2px solid #E65E8C',
     color: 'white',
     transition: '0.3s ease-out',
     fontSize: theme.fontSizes.md,
-    fontWeight: 400,
-    backgroundColor: '#333',
-    borderRadius: '',
+    fontWeight: 300,
+    backgroundColor: '#e65e8c',
+    borderRadius: '11px',
 
     "&:hover": {
       transition: '0.3s ease-in',
-      backgroundColor: "#E65E8C"
+      backgroundColor: "#333"
     },
 
   },
@@ -128,12 +153,15 @@ export default function ContactUs() {
         <div className={classes.container}>
           <SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
             <div>
-              <Title className={classes.title}>Contact us</Title>
-              <Text className={classes.description} mt="sm" mb={30}>
-                Leave your email and we will get back to you within 24 hours
-              </Text>
+              <div className={classes.titlediv}>
+                <Title className={classes.title}>Require further information?</Title>
+                <div className={classes.underline}></div>
+                <Text className={classes.description} mt="sm" mb={30}>
+                  Send us a message and we'll get back to you!
+                </Text>
+              </div>
 
-              {/* <ContactIconsList variant="white" /> */}
+              <ContactIcons />
 
               <Group mt="xl">{icons}</Group>
             </div>
@@ -153,14 +181,14 @@ export default function ContactUs() {
               <Textarea
                 required
                 label="Your message"
-                placeholder="I want to order your goods"
-                minRows={4}
+                placeholder="Tell me more about.."
+                minRows={6}
                 mt="md"
                 classNames={{ input: classes.input, label: classes.inputLabel }}
               />
 
-              <Group position="right" mt="md">
-                <Button className={classes.control} radius='lg'>Send message</Button>
+              <Group position="center" mt="md">
+                <Button className={classes.control}>Send message</Button>
               </Group>
             </div>
           </SimpleGrid>
