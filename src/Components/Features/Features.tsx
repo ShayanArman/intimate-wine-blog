@@ -10,45 +10,33 @@ import {
     rem,
   } from '@mantine/core';
   import React from 'react';
-  import { Activity } from 'tabler-icons-react';
+  import { Axe, Coin, HourglassHigh, Files } from 'tabler-icons-react';
   
   const mockdata = [
     {
-      title: 'Extreme performance',
+      title: 'Organize',
       description:
-        'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
-      icon: Activity,
+        'Seamlessly organize thousands of emails into custom folders with a simple click.',
+      icon: Files,
     },
     {
-      title: 'Privacy focused',
+      title: 'Unsubscribe',
       description:
-        'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
-      icon: Activity,
+        'Overwhelmed by junk emails? Instantly opt-out from every unwanted message in your junk folder.',
+      icon: Axe,
     },
     {
-      title: 'No third parties',
+      title: 'Save Time',
       description:
-        "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-      icon: Activity,
+        'Streamline your email sorting process from hours to minutes with Zero Inbox.',
+      icon: HourglassHigh,
     },
     {
-        title: 'Random',
-        description:
-          'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
-        icon: Activity,
-      },
-      {
-        title: 'Also random',
-        description:
-          'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
-        icon: Activity,
-      },
-      {
-        title: 'blahblah',
-        description:
-          "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-        icon: Activity,
-      },
+      title: 'Cost Effective',
+      description:
+        'Our pricing is carefully calibrated to offer our customers the value they deserve.',
+      icon: Coin,
+    },
   ];
   
   const useStyles = createStyles((theme) => ({
@@ -63,7 +51,7 @@ import {
 
     wrapper: {
       backgroundColor: "#333",
-      height: '100vh',
+      height: '90vh',
       width: '100%',
       display: 'flex',
       justifyContent: 'center',
@@ -126,7 +114,7 @@ import {
             Relax and let those emails do their thing; we'll swoop in to tidy up the mess whenever you want
             </Text>
     
-            <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+            <SimpleGrid cols={4} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
             {features}
             </SimpleGrid>
         </Container>

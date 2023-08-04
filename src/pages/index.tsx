@@ -5,6 +5,7 @@ import HeroSection from "@/Components/HeroSection";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import Features from "@/Components/Features";
 import FooterSection from "@/Components/Footer";
+import StartNow from "@/Components/StartNow";
 
 
 export default function Home() {
@@ -33,9 +34,7 @@ export default function Home() {
         </Waypoint>
         <HeroSection/>
         <Features/>
-        <Box mih="100vh" w={"100%"} style={{ backgroundColor: "white"}} id="section2">
-
-        </Box>
+        <StartNow />
         <FooterSection />
       </Box>
   )
