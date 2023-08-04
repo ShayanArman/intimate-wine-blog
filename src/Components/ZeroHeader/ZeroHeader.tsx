@@ -207,9 +207,9 @@ type Links = {
 const zeroLinks: Links = [
   { link: "/features", label: 'Features', newTab: false },
   {
-    link: "/privacy",
+    link: "https://zeroinbox.ai/privacy.pdf",
     label: "Privacy",
-    newTab: false,},
+    newTab: true,},
     // links: [
   //     {
   //       link: "/security",

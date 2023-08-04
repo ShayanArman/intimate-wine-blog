@@ -4,6 +4,7 @@ import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } fro
 // import { relative } from 'node:path/win32';
 // import { title } from 'node:process';
 
+
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
@@ -13,16 +14,24 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: '100vh',
+    height: '90vh',
+  },
+
+  img: {
+    objectFit: 'cover',
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    zIndex: -1,
   },
   
-
   hero: {
     width: '100%',
     height: '100%',
     position: 'relative',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    zIndex: 1,
   },
 
   container: {
@@ -100,6 +109,7 @@ export default function HeroSection() {
   return (
     <div className={classes.wrapper}>
       <div className={classes.hero}>
+      {/* <img className={classes.img} src='testimg-2.jpg'/> */}
         <Container className={classes.container}>
           <Title className={classes.title}>Clear your inbox</Title>
           <Title className={classes.title}>Clear your mind</Title>

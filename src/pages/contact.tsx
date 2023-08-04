@@ -109,16 +109,17 @@ const useStyles = createStyles((theme) => ({
   },
 
   control: {
-    color: 'white',
+    color: 'black',
     transition: '0.3s ease-out',
     fontSize: theme.fontSizes.md,
     fontWeight: 300,
-    backgroundColor: '#e65e8c',
+    backgroundColor: '#e8e8e8',
     borderRadius: '11px',
 
     "&:hover": {
       transition: '0.3s ease-in',
-      backgroundColor: "#333"
+      backgroundColor: "black",
+      color: '#e8e8e8',
     },
 
   },
