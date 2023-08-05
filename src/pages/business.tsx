@@ -9,20 +9,22 @@ const useStyles = createStyles((theme) => ({
 
   wrapper: {
     width: '100%',
-    height: '100vh',
+    height: '90vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#333',
+    backgroundImage: 'linear-gradient(161.2deg, #e8e8e8 60%, #333 calc(60% + 2px))',
   },
 
   container: {
+    marginTop: '60px',
     minHeight: 400,
     width: "50%",
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#3b3b3b',
+    backgroundColor: 'rgb(59,59,59, .95)',
+    backdropFilter: 'blur(3px)',
     borderRadius: theme.radius.lg,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
 

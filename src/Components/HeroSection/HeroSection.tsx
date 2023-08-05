@@ -15,16 +15,15 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     width: '100%',
     height: '90vh',
-    // border: '1px solid white'
   },
 
-  img: {
-    objectFit: 'cover',
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-    zIndex: -1,
-  },
+  // img: {
+  //   objectFit: 'cover',
+  //   width: '100%',
+  //   height: '100%',
+  //   position: 'relative',
+  //   zIndex: -1,
+  // },
   
   hero: {
     width: '100%',

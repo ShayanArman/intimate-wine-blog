@@ -35,6 +35,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
+    fontWeight: 300,
     transition: "0.3s ease-in",
     [theme.fn.smallerThan('sm')]: {
       marginTop: theme.spacing.lg,

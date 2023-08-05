@@ -95,7 +95,7 @@ const useStyles = createStyles(
       textDecoration: "none",
       color: 'white',
       fontSize: theme.fontSizes.md,
-      fontWeight: 400,
+      fontWeight: 100,
       transition: "0.3s ease-in",
       borderBottom: "2.5px double #333",
 
@@ -170,11 +170,11 @@ function ActionButton({
       variant='outline'
       styles={(theme) => ({
         root: {
-          border: "2px solid #E65E8C",
+          border: "1px solid #E65E8C",
           color:"white",
           transition: "0.3s ease-in",
           fontSize: theme.fontSizes.md,
-          fontWeight: 400,
+          fontWeight: 300,
         "&:hover": {
           transition: "0.3s ease-out",
           backgroundColor: "#E65E8C",

@@ -3,12 +3,12 @@ import {
   Text,
   Title,
   SimpleGrid,
-  TextInput,
   Textarea,
   Button,
   Group,
   ActionIcon,
   rem,
+  TextInput,
 } from '@mantine/core';
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
 import ContactIcons from '@/Components/ContactIcons';
@@ -20,17 +20,19 @@ const useStyles = createStyles((theme) => ({
   
   wrapper: {
     width: '100%',
-    height: '100vh',
+    height: '90vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#333',
+    backgroundImage: 'linear-gradient(161.2deg, #e8e8e8 60%, #333 calc(60% + 2px))',
   },
 
   container: {
+    marginTop: '60px',
     minHeight: 400,
     boxSizing: 'border-box',
-    backgroundColor: '#3b3b3b',
+    backgroundColor: 'rgb(59,59,59, .95)',
+    backdropFilter: 'blur(3px)',
     borderRadius: theme.radius.lg,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
 
@@ -105,17 +107,19 @@ const useStyles = createStyles((theme) => ({
   },
 
   control: {
-    color: 'black',
-    transition: '0.3s ease-out',
+    color: '#e8e8e8',
+    borderColor: '#e65e8c',
+    transition: '0.3s ease-in',
     fontSize: theme.fontSizes.md,
     fontWeight: 300,
-    backgroundColor: '#e8e8e8',
+    backgroundColor: '#333',
     borderRadius: '11px',
 
     "&:hover": {
-      transition: '0.3s ease-in',
-      backgroundColor: "black",
-      color: '#e8e8e8',
+      transition: '0.3s ease-out',
+      backgroundColor: "#e8e8e8",
+      color: 'black',
+      border: 'none',
     },
 
   },
@@ -148,6 +152,7 @@ export default function ContactUs() {
     <div className={classes.wrapper}>
     <ZeroHeader scrolledToHeader={scrolledToHeader} />
         <div className={classes.container}>
+          <div className={classes.container1}>
           <SimpleGrid cols={2} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
             <div>
               <div className={classes.titlediv}>
@@ -189,6 +194,7 @@ export default function ContactUs() {
               </Group>
             </div>
           </SimpleGrid>
+        </div>
         </div>
       </div>
       <FooterSection />
