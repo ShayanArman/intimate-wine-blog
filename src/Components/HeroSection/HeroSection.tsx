@@ -8,13 +8,14 @@ import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } fro
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    backgroundColor: 'white',
+    backgroundImage: 'linear-gradient(161.2deg, #e8e8e8 60%, #333 calc(60% + 2px))',
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
     height: '90vh',
+    // border: '1px solid white'
   },
 
   img: {
@@ -72,7 +73,7 @@ const useStyles = createStyles((theme) => ({
     color: "#333",
     maxWidth: 400,
     padding: '5px',
-    fontWeight: 200,
+    fontWeight: 240,
     fontSize: rem(25),
 
     [theme.fn.smallerThan('sm')]: {

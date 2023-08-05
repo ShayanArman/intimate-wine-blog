@@ -1,38 +1,78 @@
 import ZeroHeader from "@/Components/ZeroHeader";
-import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
-import { createStyles, Box, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
+import { createStyles, Box, SimpleGrid, Group, Textarea, TextInput, Container, Title, Button, Text, ActionIcon } from '@mantine/core';
 import { useState } from "react";
-import { Waypoint } from "react-waypoint";
 import FooterSection from "@/Components/Footer";
+import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
+import ContactIcons from '@/Components/ContactIcons/ContactIconsBusiness';
 
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
     height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#333',
   },
 
   container: {
+    minHeight: 400,
+    width: "50%",
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '75%',
-    width: '75%',
-    display: 'flex',
-    flexDirection: 'column',
+    backgroundColor: '#3b3b3b',
+    borderRadius: theme.radius.lg,
+    padding: `calc(${theme.spacing.xl} * 2.5)`,
+
+    [theme.fn.smallerThan('sm')]: {
+      padding: `calc(${theme.spacing.xl} * 1.5)`,
+    },
+  },
+
+  titlediv: {
+    width: '100%',
+    height: 'auto',
+    textAlign: 'center',
   },
 
   title: {
-    fontWeight: 300,
-    fontSize: rem(45),
+    color: 'white',
+    paddingBottom: '10px',
+    fontWeight: 400,
   },
 
-})
-)
+  underline: {
+    position: 'relative',
+    width: '100px',
+    height: '1px',
+    backgroundColor: '#e65e8c',
+    margin: '0 auto',
+  },
 
-export default function Business() {
+  description: {
+    color: 'white',
+    fontWeight: 225,
+
+    [theme.fn.smallerThan('sm')]: {
+      maxWidth: '100%',
+    },
+  },
+
+  social: {
+    color: '#333',
+
+    '&:hover': {
+      color: theme.colors[theme.primaryColor][1],
+    },
+  },
+
+}));
+
+const social = [BrandTwitter, BrandYoutube, BrandInstagram];
+
+export default function ContactUs() {
   const { classes } = useStyles();
 
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
@@ -44,24 +84,37 @@ export default function Business() {
   const onLeave = () => {
     setScrolledToHeader(true);
   };
+
+  const icons = social.map((Icon, index) => (
+    <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
+      <Icon size="1.4rem" stroke='1.5' />
+    </ActionIcon>
+  ));
+
   return (
     <>
-    <Box>
-      <ZeroHeader scrolledToHeader={scrolledToHeader} />
-      <Waypoint onLeave={onLeave}>
-        <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "#333333" }}></Box>
-      </Waypoint>
-
-      {/* EnterWaypoint  topOffset is height plus 40*/}
-      <Waypoint onEnter={onEnter} topOffset={200 + HEADER_PIXEL_HEIGHT - 20}>
-      </Waypoint>
-    </Box>
+    
     <div className={classes.wrapper}>
-      <Container className={classes.container}>
-        <Title className={classes.title}>Big time Business page</Title>
-      </Container>
-    </div>
-    <FooterSection />
+    <ZeroHeader scrolledToHeader={scrolledToHeader} />
+        <div className={classes.container}>
+          <SimpleGrid cols={1} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+            <div>
+              <div className={classes.titlediv}>
+                <Title className={classes.title}>Business Engagement</Title>
+                <div className={classes.underline}></div>
+                <Text className={classes.description} mt="sm" mb={30}>
+                  For all business inquiries please contact Shayan Arman
+                </Text>
+              </div>
+
+              <ContactIcons />
+
+              <Group mt="xl">{icons}</Group>
+            </div>
+          </SimpleGrid>
+        </div>
+      </div>
+      <FooterSection />
     </>
   );
 }

@@ -76,9 +76,7 @@ import {
     },
   
     card: {
-      border: `${rem(1)} solid ${
-        theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
-      }`,
+      backgroundColor: '#e8e8e8'
     },
   
     cardTitle: {

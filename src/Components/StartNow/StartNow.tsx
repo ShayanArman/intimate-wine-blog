@@ -9,13 +9,20 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     backgroundColor: '#333',
     width: '100%',
-    height: '300px',
+    height: '350px',
     textAlign: 'center',
   },
 
   container: {
     width: "80%",
     height: "100%"
+  },
+
+  divider: {
+    width: '100%',
+    height: '1px',
+    backgroundColor: 'grey',
+    marginBottom: '45px',
   },
 
   title: {
@@ -87,6 +94,7 @@ export default function StartNow() {
   return (
     <div className={classes.wrapper}>
         <Container className={classes.container}>
+            <div className={classes.divider}></div>
             <Logo />
             <Title className={classes.title}>It's time for <span className={classes.you}>you</span> to start organizing your inbox</Title>
             <Text className={classes.description} size="xl" mt="xl">

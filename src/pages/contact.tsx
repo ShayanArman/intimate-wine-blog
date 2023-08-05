@@ -17,11 +17,7 @@ import { useState } from "react";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 
 const useStyles = createStyles((theme) => ({
-
-  '*:focus': {
-    outline: 'none',
-  },
-
+  
   wrapper: {
     width: '100%',
     height: '100vh',

@@ -81,7 +81,7 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
   { link: '/', label: 'Features', newTab: false},
-  { link: '/privacy', label: 'Privacy', newTab: false},
+  { link: 'https://zeroinbox.ai/privacy.pdf', label: 'Privacy', newTab: true},
   { link: '/business', label: 'Business', newTab: false},
   { link: 'https://www.blog.zeroinbox.ai/', label: 'Blog', newTab: true},
   { link: '/contact', label: 'Contact Us', newTab: false},
