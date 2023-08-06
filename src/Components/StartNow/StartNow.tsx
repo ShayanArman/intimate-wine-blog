@@ -96,7 +96,7 @@ export default function StartNow() {
         <Container className={classes.container}>
             <div className={classes.divider}></div>
             <Logo />
-            <Title fw={250} className={classes.title}>It's time for <span className={classes.you}>you</span> to start organizing your inbox</Title>
+            <Title fw={250} className={classes.title}>It's time for <span className={classes.you}>you</span> to start organizing your inbox.</Title>
             <Text className={classes.description} size="xl" mt="xl">
                 Your mind will thank you
             </Text>

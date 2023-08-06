@@ -28,6 +28,11 @@ import {
       description:
         'Streamline your email sorting process from hours to minutes with Zero Inbox.',
     },
+    {
+      title: 'Step 4',
+      description:
+        'Spend your new found free time however you want',
+    },
   ];
 
   const featuredata = [
@@ -95,6 +100,8 @@ import {
     },
 
     stepscard: {
+      width: '33%',
+      height: '200px',
       background: "#333",
       boxShadow: '5px 5px 15px black'
     },
@@ -125,7 +132,8 @@ import {
     },
   
     featurecard: {
-      backgroundColor: '#e8e8e8'
+      backgroundColor: '#e8e8e8',
+      boxShadow: '2px 2px 10px black',
     },
   
     cardTitle: {
@@ -139,6 +147,7 @@ import {
       },
     },
   }));
+
   
   export default function Features() {
     const { classes } = useStyles();
@@ -171,7 +180,7 @@ import {
         <Text ta="center" mt="md" fw={250} size={rem(34)} className={classes.stepsheading}>
           Our process
         </Text>
-            <SimpleGrid cols={3} spacing="xl" mt={50} ta="left" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+            <SimpleGrid cols={1} spacing="xl" mt={50} ta="left" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
             {steps}
             </SimpleGrid>
             <Text className={classes.featuresdescription} ta="center" mt="md" fw={250} size={rem(34)}>

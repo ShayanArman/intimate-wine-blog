@@ -35,6 +35,7 @@ const useStyles = createStyles((theme) => ({
     backdropFilter: 'blur(3px)',
     borderRadius: theme.radius.lg,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
+    boxShadow: '2px 2px 10px rgb(25,25,25, .7)',
 
     [theme.fn.smallerThan('sm')]: {
       padding: `calc(${theme.spacing.xl} * 1.5)`,
