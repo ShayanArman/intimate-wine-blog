@@ -32,8 +32,9 @@ export default function Home() {
         {/* EnterWaypoint  topOffset is height plus 40*/}
         <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20}>
         </Waypoint>
-        <HeroSection/>
-        <Features/>
+        
+        <HeroSection />
+        <Features />
         <StartNow />
         <FooterSection />
       </Box>
