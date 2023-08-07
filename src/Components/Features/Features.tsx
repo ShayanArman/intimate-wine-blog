@@ -1,8 +1,5 @@
 import {
     createStyles,
-    Badge,
-    Group,
-    Title,
     Text,
     Card,
     SimpleGrid,
@@ -177,19 +174,21 @@ import {
     return (
       <div className={classes.wrapper}>  
         <Container size="lg" py="xl">
-        <Text ta="center" mt="md" fw={250} size={rem(34)} className={classes.stepsheading}>
-          Our process
-        </Text>
-            <SimpleGrid cols={1} spacing="xl" mt={50} ta="left" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+          <Text ta="center" mt="md" fw={250} size={rem(34)} className={classes.stepsheading}>
+            Our process
+          </Text>
+
+          <SimpleGrid cols={1} spacing="xl" mt={50} ta="left" breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
             {steps}
-            </SimpleGrid>
-            <Text className={classes.featuresdescription} ta="center" mt="md" fw={250} size={rem(34)}>
-            Relax and let those emails do their thing; we'll swoop in to tidy up the mess whenever you want
-            </Text>
-    
-            <SimpleGrid cols={4} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+          </SimpleGrid>
+
+          <Text className={classes.featuresdescription} ta="center" mt="md" fw={250} size={rem(34)}>
+            Relax and let those emails do their thing; we&apos;ll swoop in to tidy up the mess whenever you want
+          </Text>
+  
+          <SimpleGrid cols={4} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
             {features}
-            </SimpleGrid>
+          </SimpleGrid>
         </Container>
       </div>
     );

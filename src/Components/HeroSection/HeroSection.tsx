@@ -51,6 +51,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: rem(90),
     fontWeight: 300,
     lineHeight: 1.1,
+    letterSpacing: 0.1,
     padding: '5px',
 
     [theme.fn.smallerThan('sm')]: {
