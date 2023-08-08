@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundImage: 'linear-gradient(161.2deg, #e8e8e8 60%, #333 calc(60% + 2px))',
+    backgroundImage: 'linear-gradient(161.2deg, #333 60%, rgb(1,1,1, .83) calc(60% + 2px))',
   },
 
   container: {
@@ -23,11 +23,11 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(59,59,59, .95)',
+    backgroundColor: 'rgb(255,255,255, .9)',
     backdropFilter: 'blur(3px)',
     borderRadius: theme.radius.lg,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
-    boxShadow: '2px 2px 10px rgb(25,25,25, .7)',
+    boxShadow: '0 0 5px rgba(1,1,1), 2px 2px 10px rgb(1,1,1, .5)',
 
     [theme.fn.smallerThan('sm')]: {
       padding: `calc(${theme.spacing.xl} * 1.5)`,
@@ -41,7 +41,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    color: 'white',
+    color: 'black',
     paddingBottom: '10px',
     fontWeight: 400,
   },
@@ -55,7 +55,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: 'white',
+    color: 'black',
     fontWeight: 225,
 
     [theme.fn.smallerThan('sm')]: {
