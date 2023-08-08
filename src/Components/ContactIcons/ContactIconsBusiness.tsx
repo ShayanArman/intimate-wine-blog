@@ -31,7 +31,7 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
   },
 
   description: {
-    color: 'white',
+    color: 'black',
     fontWeight: 300,
   },
 }));
