@@ -1,9 +1,10 @@
 import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
+import { Rotate } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    backgroundImage: 'linear-gradient(161.2deg, #e8e8e8 60%, #333 calc(60% + 2px))',
+    backgroundImage: 'linear-gradient(161.2deg, white 56%, #333 calc(56% + 2px))',
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -35,7 +36,7 @@ const useStyles = createStyles((theme) => ({
     display: 'flex-box',
     flexDirection: 'column',
     left: '10%',
-    top: '15%',
+    top: '12%',
     position: 'absolute',
 
 
@@ -52,6 +53,7 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1.1,
     padding: '5px',
 
+
     [theme.fn.smallerThan('sm')]: {
       fontSize: rem(40),
       lineHeight: 1.2,
@@ -61,6 +63,15 @@ const useStyles = createStyles((theme) => ({
       fontSize: rem(28),
       lineHeight: 1.3,
     },
+  },
+
+  inbox: {
+    color: '#e65e8c'
+
+  },
+
+  mind: {
+    color: '#47AFE6'
   },
 
   description: {
@@ -76,25 +87,109 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  control: {
-    marginTop: `calc(${theme.spacing.xl} * 1.5)`,
-    display: 'flex-box',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontWeight: 300,
-    color: 'white',
-    border: "none",
-    transition: "0.3s ease",
-    backgroundColor: '#E65E8C',
+  linediv: {
+    position: 'absolute',
+    bottom: 335,
+    left: -60
+
+  },
+  
+  line: {
+    marginBottom: '5px',
+    height: '1px',
+    backgroundColor: '#e65e8c',
+    width: '2000px',
+    transform: 'Rotate(161.2deg)',
+  },
+
+  mannquote: {
+    textAlign: 'center',
+    width: '300px',
+    color: '#444',
+    position: 'absolute',
+    right: 40,
+    bottom: 340,
+    transition: "0.3s ease-in",
 
     "&:hover": {
-      backgroundColor: "#333",
-      transition: "0.3s ease",
-    },
+      color: '#47AFE6',
+      transition: "0.3s ease-out",
+    }
+  },
 
-    [theme.fn.smallerThan('sm')]: {
-      width: '25%',
-    },
+  kondoquote: {
+    textAlign: 'center',
+    width: '250px',
+    color: '#444',
+    position: 'absolute',
+    right: 590,
+    bottom: 110,
+    transition: "0.3s ease-in",
+
+    "&:hover": {
+      color: '#47AFE6',
+      transition: "0.3s ease-out",
+    }
+  },
+
+  franklinquote: {
+    textAlign: 'center',
+    width: '475px',
+    color: '#444',
+    position: 'absolute',
+    right: 650,
+    bottom: 0,
+    transition: "0.3s ease-in",
+
+    "&:hover": {
+      color: '#e65e8c',
+      transition: "0.3s ease-out",
+    }
+  },
+
+  burkequote: {
+    textAlign: 'center',
+    width: '375px',
+    color: '#444',
+    position: 'absolute',
+    right: 140,
+    bottom: 20,
+    transition: "0.3s ease-in",
+
+    "&:hover": {
+      color: '#e65e8c',
+      transition: "0.3s ease-out",
+    }
+  },
+
+  mardenquote: {
+    textAlign: 'center',
+    width: '400px',
+    color: '#444',
+    position: 'absolute',
+    right: 130,
+    bottom: 220,
+    transition: "0.3s ease-in",
+
+    "&:hover": {
+      color: 'rgb(255,255,255, .7)',
+      transition: "0.3s ease-out",
+    }
+  },
+
+  unknownquote: {
+    textAlign: 'center',
+    width: '400px',
+    color: '#444',
+    position: 'absolute',
+    right: 70,
+    bottom: 120,
+    transition: "0.3s ease-in",
+
+    "&:hover": {
+      color: '#47AFE6',
+      transition: "0.3s ease-out",
+    }
   },
 }));
 
@@ -104,17 +199,26 @@ export default function HeroSection() {
   return (
     <div className={classes.wrapper}>
       <div className={classes.hero}>
-      {/* <img className={classes.img} src='testimg-2.jpg'/> */}
         <Container className={classes.container}>
-          <Title className={classes.title}>Clear your inbox</Title>
-          <Title className={classes.title}>Clear your mind</Title>
+          <Title className={classes.title}>Clear your <span className={classes.inbox}>inbox</span></Title>
+          <Title className={classes.title}>Clear your <span className={classes.mind}>mind</span></Title>
           <Text className={classes.description} size="xl" mt="xl">
             AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.
           </Text>
-          <Button variant="outline" size="xl" radius="lg" className={classes.control}>
-            Learn more
-          </Button>   
         </Container>
+        <div className={classes.linediv}>
+          <div className={classes.line}></div>
+          <div className={classes.line}></div> 
+          <div className={classes.line}></div>
+          <div className={classes.line}></div>
+          <div className={classes.line}></div>
+        </div>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.mannquote}>"Do Email less" - Merlin Mann</Text>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.kondoquote}>“Tidying allows you to tend to your psychological space.” — Marie Kondo</Text>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.franklinquote}>“For every minute spent organizing, an hour is earned.” - Benjamin Franklin</Text>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.burkequote}>"Good order is the foundation of all things." - Edmund Burke</Text>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.mardenquote}>“A good system shortens the road to the goal.” - Orison Swett Marden</Text>
+        <Text mt="md" fw={300} size={rem(20)} className={classes.unknownquote}>“Organization begins with awareness of what doesn’t work for us.” - Unknown</Text>
       </div>
     </div>
   );

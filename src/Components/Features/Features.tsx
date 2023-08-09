@@ -1,8 +1,5 @@
 import {
     createStyles,
-    Badge,
-    Group,
-    Title,
     Text,
     Card,
     SimpleGrid,
