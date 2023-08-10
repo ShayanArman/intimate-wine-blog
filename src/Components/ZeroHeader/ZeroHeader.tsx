@@ -15,7 +15,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDisclosure } from "@mantine/hooks";
 import { BsChevronDown } from "react-icons/bs";
-import { FcEmptyFilter } from "react-icons/fc";
 import classNames from "classnames";
 
 export const HEADER_PIXEL_HEIGHT = 60;
@@ -34,6 +33,7 @@ const useStyles = createStyles(
     },
 
     headerColored: {
+      // backgroundColor: "rgba(255, 255, 255, .8)",
       backgroundColor: "#333",
       transition: "background-color 0.3s ease",
     },

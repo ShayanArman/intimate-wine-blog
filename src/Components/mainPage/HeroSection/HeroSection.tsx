@@ -117,7 +117,7 @@ export default function HeroSection() {
           ...showIndexRef.current,
           charIndex: charIndex + 1,
         };
-        timeout = setTimeout(displayChar, (newCharacter === "." || newCharacter === ",") ? 500 :  50);
+        timeout = setTimeout(displayChar, (newCharacter === "." || newCharacter === ",") ? 500 : 40);
       } else {
         setIsReading(false);
       }

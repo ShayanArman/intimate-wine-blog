@@ -1,6 +1,6 @@
 import FooterSection from "@/Components/Footer";
 import { useState } from "react";
-import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
+import ZeroHeader from '@/Components/ZeroHeader/ZeroHeader';
 import ContactForm from '@/Components/ContactForm';
   
 
