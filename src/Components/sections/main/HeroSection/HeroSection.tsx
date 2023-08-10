@@ -68,15 +68,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  inbox: {
-    color: '#e65e8c'
-
-  },
-
-  mind: {
-    color: '#47AFE6'
-  },
-
   description: {
     color: "#333",
     maxWidth: 400,
@@ -103,96 +94,6 @@ const useStyles = createStyles((theme) => ({
     width: '2000px',
     transform: 'Rotate(161.2deg)',
   },
-
-  // mannquote: {
-  //   textAlign: 'center',
-  //   width: '300px',
-  //   color: '#444',
-  //   position: 'absolute',
-  //   right: 40,
-  //   bottom: 340,
-  //   transition: "0.3s ease-in",
-
-  //   "&:hover": {
-  //     color: '#47AFE6',
-  //     transition: "0.3s ease-out",
-  //   }
-  // },
-
-  // kondoquote: {
-  //   textAlign: 'center',
-  //   width: '250px',
-  //   color: '#444',
-  //   position: 'absolute',
-  //   right: 590,
-  //   bottom: 110,
-  //   transition: "0.3s ease-in",
-
-  //   "&:hover": {
-  //     color: '#47AFE6',
-  //     transition: "0.3s ease-out",
-  //   }
-  // },
-
-  // franklinquote: {
-  //   textAlign: 'center',
-  //   width: '475px',
-  //   color: '#444',
-  //   position: 'absolute',
-  //   right: 650,
-  //   bottom: 0,
-  //   transition: "0.3s ease-in",
-
-  //   "&:hover": {
-  //     color: '#e65e8c',
-  //     transition: "0.3s ease-out",
-  //   }
-  // },
-
-  // burkequote: {
-  //   textAlign: 'center',
-  //   width: '375px',
-  //   color: '#444',
-  //   position: 'absolute',
-  //   right: 140,
-  //   bottom: 20,
-  //   transition: "0.3s ease-in",
-
-  //   "&:hover": {
-  //     color: '#e65e8c',
-  //     transition: "0.3s ease-out",
-  //   }
-  // },
-
-  // mardenquote: {
-  //   textAlign: 'center',
-  //   width: '400px',
-  //   color: '#444',
-  //   position: 'absolute',
-  //   right: 130,
-  //   bottom: 220,
-  //   transition: "0.3s ease-in",
-
-  //   "&:hover": {
-  //     color: 'rgb(255,255,255, .7)',
-  //     transition: "0.3s ease-out",
-  //   }
-  // },
-
-  // unknownquote: {
-  //   textAlign: 'center',
-  //   width: '400px',
-  //   color: '#444',
-  //   position: 'absolute',
-  //   right: 70,
-  //   bottom: 120,
-  //   transition: "0.3s ease-in",
-
-  //   "&:hover": {
-  //     color: '#47AFE6',
-  //     transition: "0.3s ease-out",
-  //   }
-  // },
 }));
 
 const description = "AI-powered, user-friendly, and secure. Simplify inbox management and save time with Zero Inbox.";
@@ -235,25 +136,15 @@ export default function HeroSection() {
     <div className={classes.wrapper}>
       <div className={classes.hero}>
         <Container className={classes.container}>
-          <Title className={classes.title}>Clear your <span className={classes.inbox}>inbox</span></Title>
-          <Title className={classes.title}>Clear your <span className={classes.mind}>mind</span></Title>
+          <Title className={classes.title}>Clear your <span style={{ color: "var(--zero-red)"}}>inbox</span></Title>
+          <Title className={classes.title}>Clear your <span style={{ color: "var(--zero-blue)"}}>mind</span></Title>
           <Text className={classes.description} size="xl" mt="xl">
             { visibleText }
           </Text>
         </Container>
         <div className={classes.linediv}>
           <div className={classes.line}></div>
-          {/* <div className={classes.line}></div> 
-          <div className={classes.line}></div>
-          <div className={classes.line}></div>
-          <div className={classes.line}></div> */}
         </div>
-        {/* <Text mt="md" fw={300} size={rem(20)} className={classes.mannquote}>"Do Email less" - Merlin Mann</Text>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.kondoquote}>“Tidying allows you to tend to your psychological space.” — Marie Kondo</Text>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.franklinquote}>“For every minute spent organizing, an hour is earned.” - Benjamin Franklin</Text>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.burkequote}>"Good order is the foundation of all things." - Edmund Burke</Text>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.mardenquote}>“A good system shortens the road to the goal.” - Orison Swett Marden</Text>
-        <Text mt="md" fw={300} size={rem(20)} className={classes.unknownquote}>“Organization begins with awareness of what doesn’t work for us.” - Unknown</Text> */}
       </div>
     </div>
   );

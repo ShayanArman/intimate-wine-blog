@@ -1,7 +1,6 @@
-import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, MantineSize } from '@mantine/core';
+import { createStyles, Container, Title, Button, Text, rem, MantineSize } from '@mantine/core';
 import Link from "next/link";
 import Image from 'next/image';
-import { ClassNames } from '@emotion/react';
 
 
 const useStyles = createStyles((theme) => ({
@@ -30,10 +29,6 @@ const useStyles = createStyles((theme) => ({
     fontSize: rem(34),
     paddingTop: '20px',
     fontWeight: 400,
-  },
-
-  you: {
-    color: '#e65e8c'
   },
 
   description: {
@@ -96,7 +91,9 @@ export default function StartNow() {
         <Container className={classes.container}>
             <div className={classes.divider}></div>
             <Logo />
-            <Title fw={250} className={classes.title}>It's time for <span className={classes.you}>you</span> to start organizing your inbox.</Title>
+            <Title fw={250} className={classes.title}>
+              It&apos;s time for <span style={{color: "var(--zero-red)"}}>AI Email</span>. It&apos;s time for <span style={{ color: "var(--zero-blue)" }}> Zero Inbox</span>.
+            </Title>
             <Text className={classes.description} size="xl" mt="xl">
                 Your mind will thank you
             </Text>

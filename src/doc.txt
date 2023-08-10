@@ -1,0 +1,2 @@
+apostrophe ' can be escaped with &apos;
+"" can be escpaced with &quot;

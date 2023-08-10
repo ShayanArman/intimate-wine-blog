@@ -1,0 +1,13 @@
+:root {
+    --orange-color: hsl(11, 100%, 60%);
+    --orange-light: hsla(11, 100%, 60%, 0.6);
+    --zero-red: #e65e8c;
+    --zero-blue: #47AFE6;
+    --green-color: #0DA2C6;
+    --green-light: #0DA2C6a1;
+    --blue-color: #2196F3;
+    --blue-light: #2195f3a1;
+    --grey-color: grey;
+    --grey-light: #eee;
+    --color-danger: #df1b41;
+}
