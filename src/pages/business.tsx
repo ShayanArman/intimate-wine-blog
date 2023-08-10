@@ -1,5 +1,5 @@
 import ZeroHeader from "@/Components/ZeroHeader";
-import { createStyles, Box, SimpleGrid, Group, Textarea, TextInput, Container, Title, Button, Text, ActionIcon } from '@mantine/core';
+import { createStyles, SimpleGrid, Group, Title, Text, ActionIcon } from '@mantine/core';
 import { useState } from "react";
 import FooterSection from "@/Components/Footer";
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';

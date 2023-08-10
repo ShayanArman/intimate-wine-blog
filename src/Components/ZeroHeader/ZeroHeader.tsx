@@ -209,32 +209,11 @@ const zeroLinks: Links = [
   {
     link: "https://zeroinbox.ai/privacy.pdf",
     label: "Privacy",
-    newTab: true,},
-    // links: [
-  //     {
-  //       link: "/security",
-  //       label: "Security",
-  //       newTab: false,
-  //       Icon: <FcEmptyFilter />,
-  //     },
-  //     {
-  //       link: "https://zeroinbox.ai/datafaq.pdf",
-  //       label: "Terms",
-  //       newTab: true,
-  //       Icon: <FcEmptyFilter />,
-  //     },
-  //     {
-  //       link: "https://zeroinbox.ai/privacy.pdf",
-  //       label: "Privacy",
-  //       newTab: true,
-  //       Icon: <FcEmptyFilter />,
-  //     },
-  //   ],
-  // },
+    newTab: true,
+  },
   { link: "/business", label: 'Business', newTab: false },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
   { link: "/contact", label: 'Contact Us', newTab: false },
-  // { link: "https://stumbleupon.com", label: "StumbleUpon", newTab: true },
 ];
 
 function LinksToItems() {

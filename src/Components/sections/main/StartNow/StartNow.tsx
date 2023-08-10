@@ -1,7 +1,6 @@
-import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, MantineSize } from '@mantine/core';
+import { createStyles, Container, Title, Button, Text, rem, MantineSize } from '@mantine/core';
 import Link from "next/link";
 import Image from 'next/image';
-import { ClassNames } from '@emotion/react';
 
 
 const useStyles = createStyles((theme) => ({

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Box, Footer } from '@mantine/core';
+import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
-import HeroSection from "@/Components/HeroSection";
+import HeroSection from "@/Components/sections/main/HeroSection";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
-import Features from "@/Components/Features";
+import Features from "@/Components/sections/main/Features";
 import FooterSection from "@/Components/Footer";
-import StartNow from "@/Components/StartNow";
+import StartNow from "@/Components/sections/main/StartNow";
 
 
 export default function Home() {
