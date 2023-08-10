@@ -33,8 +33,8 @@ const useStyles = createStyles(
     },
 
     headerColored: {
-      // backgroundColor: "rgba(255, 255, 255, .8)",
-      backgroundColor: "#333",
+      // original background color was #333"
+      backgroundColor: "rgba(51, 51, 51, 0.8)",
       transition: "background-color 0.3s ease",
     },
 
@@ -96,12 +96,9 @@ const useStyles = createStyles(
       color: 'white',
       fontSize: theme.fontSizes.md,
       fontWeight: 100,
-      transition: "0.3s ease-in",
-      borderBottom: "2.5px double #333",
 
       "&:hover": {
-        borderBottom: "2.5px double #E65E8C",
-        transition: "0.3s ease-out",
+        borderBottom: "2.5px solid #E65E8C",
       },
     },
 

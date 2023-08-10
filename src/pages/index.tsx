@@ -23,14 +23,15 @@ export default function Home() {
       <Box>
         <ZeroHeader scrolledToHeader={scrolledToHeader} />
         <Waypoint
+          onEnter={onEnter}
           onLeave={onLeave}
         >
-          <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "#333333"}}>
+          <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "white"}}>
           </Box>
         </Waypoint>
         
         { /* EnterWaypoint  topOffset is height plus 40*/ }
-        <Waypoint onEnter={onEnter} topOffset={200+HEADER_PIXEL_HEIGHT-20}>
+        <Waypoint topOffset={200+60+HEADER_PIXEL_HEIGHT-20}>
         </Waypoint>
         
         <HeroSection />
