@@ -1,2 +1,11 @@
 apostrophe ' can be escaped with &apos;
 "" can be escpaced with &quot;
+
+Hero Section Image:
+// img: {
+  //   objectFit: 'cover',
+  //   width: '100%',
+  //   height: '100%',
+  //   position: 'relative',
+  //   zIndex: -1,
+  // },

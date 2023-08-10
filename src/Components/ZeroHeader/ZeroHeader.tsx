@@ -35,7 +35,7 @@ const useStyles = createStyles(
     headerColored: {
       // original background color was #333"
       backgroundColor: "rgba(51, 51, 51, 0.8)",
-      boxShadow: "0px 0px 10px 0px #eee",
+      boxShadow: "0px 0px 30px 0px grey",
       transition: "all 0.3s"
     },
 

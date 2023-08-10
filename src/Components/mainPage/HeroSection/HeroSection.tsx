@@ -14,14 +14,6 @@ const useStyles = createStyles((theme) => ({
     width: '100%',
     height: '90vh',
   },
-
-  // img: {
-  //   objectFit: 'cover',
-  //   width: '100%',
-  //   height: '100%',
-  //   position: 'relative',
-  //   zIndex: -1,
-  // },
   
   hero: {
     width: '100%',
@@ -52,6 +44,26 @@ const useStyles = createStyles((theme) => ({
     color: '#333',
     fontSize: rem(90),
     fontWeight: 300,
+    lineHeight: 1.1,
+    letterSpacing: 0.1,
+    padding: '5px',
+
+
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: rem(40),
+      lineHeight: 1.2,
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      fontSize: rem(28),
+      lineHeight: 1.3,
+    },
+  },
+
+  subTitle: {
+    color: '#333',
+    fontSize: rem(50),
+    fontWeight: 100,
     lineHeight: 1.1,
     letterSpacing: 0.1,
     padding: '5px',
@@ -136,8 +148,9 @@ export default function HeroSection() {
     <div className={classes.wrapper}>
       <div className={classes.hero}>
         <Container className={classes.container}>
-          <Title className={classes.title}>Clear your <span style={{ color: "var(--zero-red)"}}>inbox</span></Title>
-          <Title className={classes.title}>Clear your <span style={{ color: "var(--zero-blue)"}}>mind</span></Title>
+          <Title className={classes.title}>Zero <span style={{ color: "var(--zero-red)"}}>AI</span></Title>
+          <Title className={classes.subTitle}>Email <span style={{ color: "var(--zero-blue)"}}>Manager</span></Title>
+          {/* <h2 className={classes.title}>Clear your Email, Clear your Mind</h2> */}
           <Text className={classes.description} size="xl" mt="xl">
             { visibleText }
           </Text>
