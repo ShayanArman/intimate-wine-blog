@@ -46,11 +46,13 @@ import {
       justifyContent: 'center',
       alignItems: 'center',
       padding: '45px',
-      paddingTop: '80px'
+      paddingTop: '0px',
+      paddingBottom: '150px'
+      // paddingTop: '80px'
     },  
 
     featuresdescription: {
-      maxWidth: 800,
+      width: '90%',
       margin: '0 auto',
       color: 'white',
   
@@ -87,12 +89,12 @@ import {
   export default function Features() {
     const { classes } = useStyles();
     const features = featuredata.map((feature) => (
-      <Card key={feature.title} shadow="md" radius="md" className={classes.featurecard} padding="xl">
-        <feature.icon size={rem(50)} strokeWidth={1.25} color={'#333'} />
-        <Text fz="lg" fw={250} className={classes.cardtitle} mt="md">
+      <Card key={feature.title} shadow="xl" radius="md" className={classes.featurecard} padding="xl">
+        <feature.icon size={rem(50)} strokeWidth={.8} color={'#333'} />
+        <Text fz={rem(20)} fw={250} className={classes.cardtitle} mt="md">
           {feature.title}
         </Text>
-        <Text fz="sm" fw={250} c='dimmed' mt="sm">
+        <Text fz={rem(15)} fw={225} mt="sm">
           {feature.description}
         </Text>
       </Card>
@@ -101,7 +103,7 @@ import {
     return (
       <div className={classes.wrapper}>  
         <Container size="lg" py="xl">
-          <Text className={classes.featuresdescription} ta="center" mt="md" fw={250} size={rem(34)}>
+          <Text className={classes.featuresdescription} ta="center" mt="md" fw={250} size={rem(45)}>
             Relax and let those emails do their thing; we&apos;ll swoop in to tidy up the mess whenever you want
           </Text>
   
