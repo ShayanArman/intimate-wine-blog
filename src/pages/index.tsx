@@ -40,9 +40,10 @@ export default function Home() {
         
         <HeroSection />
         <ProblemSection />
+        <Features />
         <InfoSection />
         <StepsSection />
-        <Features />
+        {/* <Features /> */}
         <StartNow />
         <FooterSection />
       </Box>

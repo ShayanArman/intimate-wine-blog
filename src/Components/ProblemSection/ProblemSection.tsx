@@ -16,7 +16,6 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: '30px',
-    paddingBottom: '30px',
   },  
 
   container: {
@@ -46,11 +45,11 @@ const useStyles = createStyles((theme) => ({
   },
 
   vertline: {
-    width: '230px',
+    width: '200px',
     borderBottom: '2px dotted #e65e8c',
     position: 'relative',
     transform: 'Rotate(90deg)',
-    left: '24%',
+    left: '25%',
     top: 253
   },
 
@@ -59,7 +58,7 @@ const useStyles = createStyles((theme) => ({
     borderBottom: '2px dotted #e65e8c',
     position: 'relative',
     left: '31.91%',
-    top: 137,
+    top: 152,
   },
 
   horizline2: {
@@ -75,7 +74,7 @@ const useStyles = createStyles((theme) => ({
     borderBottom: '2px dotted #e65e8c',
     position: 'relative',
     left: '31.91%',
-    top: 365,
+    top: 350,
   },
 
   statscontainer: {
@@ -111,7 +110,7 @@ const useStyles = createStyles((theme) => ({
   stats: {
     color: 'black',
     width: '400px',
-    height: '150px',
+    height: '120px',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
@@ -146,7 +145,7 @@ export default function ProblemSection() {
                   <Backhoe size={50} strokeWidth={0.8} />
                 </div>
                 <div>
-                  <Text fw={200} size={rem(20)}>Has 62% of their inbox filled with unimportant emails that can be processed in bulk.</Text>
+                  <Text fw={200} size={rem(18)}>Has 62% of their inbox filled with unimportant emails that can be processed in bulk.</Text>
                 </div>
               </div>
               <div className={classes.stats}>
@@ -154,7 +153,7 @@ export default function ProblemSection() {
                   <ClockHour8 size={50} strokeWidth={0.8} />
                 </div>
                 <div>
-                  <Text fw={200} size={rem(20)}>Spends 10% of the total time on email organizing messages they want to keep.</Text>
+                  <Text fw={200} size={rem(18)}>Spends 10% of the total time on email organizing messages they want to keep.</Text>
                 </div>
               </div>  
             </div>
@@ -164,7 +163,7 @@ export default function ProblemSection() {
                   <Mailbox size={50} strokeWidth={0.8} />
                 </div>
                 <div>
-                  <Text fw={200} size={rem(20)}>Wastes 27 minutes a day due to a full and unorganized inbox.</Text>
+                  <Text fw={200} size={rem(18)}>Wastes 27 minutes a day due to a full and unorganized inbox.</Text>
                 </div>
               </div>
             </div>
