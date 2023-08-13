@@ -11,25 +11,25 @@ import {
     {
       title: 'Step',
       description:
-        "Simply sign-in to your email account through Zero Inbox's web portal.",
+        "Sign-in to your email through Zero Inbox's web portal.",
       icon: HexagonNumber1,
     },
     {
       title: 'Step',
       description:
-        'Allow our AI 25 seconds to sort your email into designated folders such as personal, promotions and travel',
+        'Allow our AI 25 seconds to sort your email into designated folders.',
         icon: HexagonNumber2,
     },
     {
       title: 'Step',
       description:
-        'In one easy click, unsubscribe from all mail in your junk folder or delete all mail in a designated folder',
+        "Your inbox is now completely organized. It's your choice to reply, unsubscribe or delete.",
         icon: HexagonNumber3,
     },
     {
       title: 'Step',
       description:
-        'Spend your new found free time however you please. Email stress free thanks to Zero Inbox',
+        'Within minutes thousands of emails have been organized, unsubscribed from, and deleted. Have a break. You have the time.',
         icon: HexagonNumber4,
     },
   ];
@@ -65,9 +65,7 @@ import {
         height: '100%',
         backgroundImage: 'linear-gradient(45deg, #333 95%, white calc(95% + 2px))',
         padding: '50px',
-        display: 'block',
-        justifyContent: 'center',
-        alignItems: 'center'
+        paddingLeft: '60px'
     },
 
     stepsheading: {
@@ -82,26 +80,67 @@ import {
       height: 'auto',
       background: "#333",
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: 'left',
       alignItems: 'center'
+    },
+
+    stepicondiv: {
+        marginBottom: '10px'
     },
 
     stepstitle: {
       color: "#e65e8c",
-      textAlign: 'center'
+      textAlign: 'center',
     },
 
     stepsdescription: {
       color: 'white',
-      marginLeft: '30px'
+      marginLeft: '30px',
+      alignItems: 'center'
     },
 
-    imgdiv: {
+    contentdiv: {
         width: '50%',
         height: '100%',
         backgroundImage: 'linear-gradient(45deg, #333 5%, white calc(5% + 2px))',
         borderBottomLeftRadius: '15px',
+        padding: '60px',
+        display: 'flex-box',
+        justifyContent: 'center',
+        alignItems: 'center',
+        top: '500px'
     },
+
+    textdiv: {
+        textAlign: 'center',
+        marginTop: '15px'
+    },
+
+    inbox: {
+        marginRight: '150px'
+    },
+
+    pinkhighlight: {
+        color: '#e65e8c',
+    },
+
+    mind: {
+        marginLeft: '150px'
+    },
+
+    bluehighlight: {
+        color: '#47AFE6'
+    },
+
+    imgdiv: {
+        height: '375px',
+        width: '375px',
+        backgroundImage: 'url(./noun-yoga.png)',
+        backgroundSize: 'cover', 
+        margin: '0 auto',
+        marginTop: '15px'
+    },
+
   }));
 
   
@@ -110,11 +149,11 @@ import {
 
     const steps = stepdata.map((step) => (
       <Card key={step.title} className={classes.stepscard}>
-        <div>
+        <div className={classes.stepicondiv}>
             <Text fz={rem(25)} fw={225} className={classes.stepstitle}>
             {step.title}
             </Text>
-            <step.icon size={rem(55)} strokeWidth={1} color={'#e65e8c'} />
+            <step.icon size={rem(55)} strokeWidth={.5} color={'#e65e8c'} />
         </div>
         <Text fz={rem(17)} fw={225} className={classes.stepsdescription} >
           {step.description}
@@ -128,14 +167,15 @@ import {
             {/* steps bg div is in order to have the top right corner of stepsdiv white */}
             <div className={classes.stepsbg}>
                 <div className={classes.stepsdiv}>
-                    {/* <Text fw={225} size={rem(33)} className={classes.stepsheading}>
-                        Elevate your email experience with Zero Inbox
-                    </Text> */}
                     {steps}
                 </div>
             </div>
-            <div className={classes.imgdiv}>
-                <img></img>
+            <div className={classes.contentdiv}>
+                <div className={classes.textdiv}>
+                    <Text className={classes.inbox} fw={225} fz={rem(37)}>Clear your <span className={classes.pinkhighlight}>inbox</span></Text>
+                    <Text className={classes.mind} fw={225} fz={rem(37)}>Clear your <span className={classes.bluehighlight}>mind</span></Text>
+                </div>
+                <div className={classes.imgdiv}/>
             </div>
         </div>
       </div>
