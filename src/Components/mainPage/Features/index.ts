@@ -1,1 +1,1 @@
-export { default as default } from "./Features";
+export { default as default } from "./TextSection";

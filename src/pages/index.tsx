@@ -3,13 +3,11 @@ import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import HeroSection from "@/Components/mainPage/HeroSection";
 import ZeroHeader, { HEADER_PIXEL_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
-import Features from "@/Components/mainPage/Features";
 import FooterSection from "@/Components/Footer";
-import StartNow from "@/Components/mainPage/StartNow";
-import Statement from "@/Components/Statement";
-import ProblemSection from "@/Components/ProblemSection";
-import InfoSection from "@/Components/InfoSection";
-import StepsSection from "@/Components/StepsSection";
+import TextSection from "@/Components/mainPage/Features/TextSection";
+import InfoSectionLeft from "@/Components/InfoSectionLeft";
+import InfoSectionRight from "@/Components/InfoSectionRight";
+
 
 
 export default function Home() {
@@ -34,17 +32,17 @@ export default function Home() {
           </Box>
         </Waypoint>
         
-        { /* EnterWaypoint  topOffset is height plus 40*/ }
+        { /* EnterWaypoint  topOffset is height plus 40 */ }
         <Waypoint topOffset={200+60+HEADER_PIXEL_HEIGHT-20}>
         </Waypoint>
         
         <HeroSection />
-        <ProblemSection />
-        <Features />
-        <InfoSection />
-        <StepsSection />
-        {/* <Features /> */}
-        <StartNow />
+        <TextSection />
+        <InfoSectionLeft />
+        <InfoSectionRight /> 
+        <InfoSectionLeft />
+        <InfoSectionRight /> 
+        <InfoSectionLeft />
         <FooterSection />
       </Box>
   )

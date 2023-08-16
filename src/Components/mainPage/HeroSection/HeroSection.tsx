@@ -6,25 +6,27 @@ import { useEffect, useRef, useState } from 'react';
 const useStyles = createStyles((theme) => ({
 
   wrapper: {
-    backgroundImage: 'linear-gradient(161.2deg, white 56%, #333 calc(56% + 2px))',
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     width: '100%',
-    height: '90vh',
+    height: '100vh',
+    backgroundColor: '#fffef6',
+    paddingTop: '60px'
   },
   
-  hero: {
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    zIndex: 1,
-  },
-
   container: {
+    width: '95%',
+    height: '95%',
+    borderRadius: '30px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 auto',
+    backgroundImage: 'url(https://scontent.whatsapp.net/v/t39.8562-34/316546300_547692113846445_7299710494491288098_n.png?ccb=1-7&_nc_sid=2fbf2a&_nc_ohc=YcdYMSCdMFMAX93mIt7&_nc_ht=scontent.whatsapp.net&oh=01_AdQEo2eAtbrvdV9hFD0X3ceNdzyrONQlZIw98pJo0vN3Ow&oe=64E111E5)',
+    backgroundPosition: 'stretch',
+    position: 'relative',
+
+    },
+
+  herodiv: {
     height: '400px',
     width: '50%',
     display: 'flex-box',
@@ -32,11 +34,6 @@ const useStyles = createStyles((theme) => ({
     left: '10%',
     top: '12%',
     position: 'absolute',
-
-
-    [theme.fn.smallerThan('sm')]: {
-      height: rem(500),
-    },
   },
 
 
@@ -82,21 +79,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  linediv: {
-    position: 'absolute',
-    bottom: 355,
-    left: -60
-  },
-  
-  line: {
-    marginBottom: '5px',
-    height: '10px',
-    backgroundColor: '#e65e8c',
-    width: '2000px',
-    transform: 'Rotate(161.2deg)',
-  },
-
-  control: {
+  button: {
     marginTop: `calc(${theme.spacing.xl} * 1.5)`,
     display: 'flex-box',
     justifyContent: 'center',
@@ -154,14 +137,14 @@ export default function HeroSection() {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.hero}>
-        <Container className={classes.container}>
+      <div className={classes.container}>
+        <Container className={classes.herodiv}>
           <Title className={classes.title}>Zero <span style={{ color: "var(--zero-red)"}}>AI</span></Title>
           <Title className={classes.subTitle}>Email <span style={{ color: "var(--zero-blue)"}}>Manager</span></Title>
           <Text className={classes.description} size="xl" mt="xl">
             { visibleText }
           </Text>
-          { !isReading && <Button size="xl" radius="lg" className={classes.control}>
+          { !isReading && <Button size="xl" radius="lg" className={classes.button}>
             Learn more
           </Button> }
         </Container>

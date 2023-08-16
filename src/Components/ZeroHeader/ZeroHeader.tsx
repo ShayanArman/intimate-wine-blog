@@ -25,7 +25,7 @@ const useStyles = createStyles(
   (theme, { backgroundColor }: { backgroundColor: string }) => ({
     header: {
       position: "fixed",
-      backgroundColor: '#333',
+      backgroundColor: '#fffef6',
       borderBottom: "0px",
       top: 0,
       left: 0,
@@ -34,7 +34,7 @@ const useStyles = createStyles(
     },
 
     headerColored: {
-      backgroundColor: "rgba(51, 51, 51, 0.8)",
+      backgroundColor: "rgba(255, 254, 246, 0.8)",
       boxShadow: "0px 0px px 0px grey",
       transition: "all 0.3s"
     },
@@ -78,9 +78,9 @@ const useStyles = createStyles(
       lineHeight: 1,
       padding: `${rem(8)} ${rem(12)}`,
       textDecoration: "none",
-      color: 'white',
+      color: 'black',
       fontSize: theme.fontSizes.md,
-      fontWeight: 100,
+      fontWeight: 200,
 
       "&:hover": {
         borderBottom: "2.5px solid #E65E8C",
@@ -119,7 +119,7 @@ export default function ZeroHeader({
             color="#3DBCF8"
           />
           <Link href="/" className={classes.logo}>
-            <Image width={150} height={40} alt="zeroInbox" src="/horizLogo.png" />
+            <Image width={150} height={40} alt="zeroInbox" src="/horizontalBlack.png" />
           </Link>
         </Group>
         <Group spacing={5} className={classes.links}>
@@ -150,8 +150,8 @@ function ActionButton({
       variant='outline'
       styles={(theme) => ({
         root: {
-          border: "1px solid #E65E8C",
-          color:"white",
+          border: "1px solid black",
+          color:"black",
           transition: "0.3s ease-in",
           fontSize: theme.fontSizes.md,
           fontWeight: 300,

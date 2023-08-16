@@ -108,7 +108,6 @@ import {
         display: 'flex-box',
         justifyContent: 'center',
         alignItems: 'center',
-        top: '500px'
     },
 
     textdiv: {
