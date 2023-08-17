@@ -3,6 +3,35 @@ import {
     rem,
   } from '@mantine/core';
   import React from 'react';
+  import { useEffect, useState } from 'react';
+
+  const useFadeInOnScroll = (targetId) => {
+    const [isVisible, setIsVisible] = useState(false);
+  
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const targetElement = document.getElementById(targetId);
+  
+      if (targetElement) {
+        const elementOffset = targetElement.offsetTop;
+        const triggerPoint = elementOffset - (windowHeight * 0.8);
+  
+        setIsVisible(scrollY > triggerPoint);
+
+        if (scrollY > triggerPoint) {
+          window.removeEventListener('scroll',handleScroll)
+        }
+      }
+    };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, [isVisible]);
+  
+    return isVisible;
+  };
   
   const useStyles = createStyles((theme) => ({
   
@@ -19,7 +48,8 @@ import {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      opacity: 0
   
     },
   
@@ -77,20 +107,24 @@ import {
       display: 'block',
       objectFit: 'cover'
     },
-  
-  
-  
+
+    visible: {
+        opacity: 1,
+        transform: 'translateY(0)',
+        transition: 'opacity 2s ease, transform 2s ease',
+      }
     
   }))
   
-  export default function ProblemSection() {
+  export default function Section4() {
   
     const { classes } = useStyles();
+    const fadeInOnScroll = useFadeInOnScroll('section4');
   
     return (
   
       <div className={classes.wrapper}>
-        <div className={classes.container}>
+        <div className={`${classes.container} ${fadeInOnScroll ? classes.visible : ''}`} id="section4">
             <div className={classes.imgwrapper}>
                 <div className={classes.imgcontainer}>
                     <img className={classes.img} src='https://img.freepik.com/premium-photo/silver-smartphone-front-side-white-background_187299-20187.jpg'></img>

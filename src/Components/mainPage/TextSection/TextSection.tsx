@@ -22,7 +22,8 @@ import {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0 auto'
+    margin: '0 auto',
+
   },
 
   textdiv: {
@@ -36,7 +37,7 @@ import {
 
   text: {
     fontSize: rem(45),
-  }
+  },
 
 }));
 

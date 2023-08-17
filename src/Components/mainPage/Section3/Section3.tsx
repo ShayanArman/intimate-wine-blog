@@ -2,7 +2,37 @@ import {
   createStyles,
   rem,
 } from '@mantine/core';
+import { useEffect, useState } from "react";
 import React from 'react';
+
+const useFadeInOnScroll = (targetId) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const elementOffset = targetElement.offsetTop;
+      const triggerPoint = elementOffset - (windowHeight * 0.8);
+
+      setIsVisible(scrollY > triggerPoint);
+
+      if (scrollY > triggerPoint) {
+        window.removeEventListener('scroll',handleScroll)
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isVisible]);
+
+  return isVisible;
+};
+
 
 const useStyles = createStyles((theme) => ({
 
@@ -19,7 +49,8 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    opacity: 0,
 
   },
 
@@ -74,19 +105,22 @@ const useStyles = createStyles((theme) => ({
     objectFit: 'cover'
   },
 
-
-
+  visible: {
+    opacity: 1,
+    transform: 'translateY(0)',
+    transition: 'opacity 2s ease, transform 2s ease',
+  }
   
 }))
 
-export default function ProblemSection() {
-
+export default function Section3() {
   const { classes } = useStyles();
+  const fadeInOnScroll = useFadeInOnScroll('section3');
 
   return (
 
     <div className={classes.wrapper}>
-      <div className={classes.container}>
+      <div className={`${classes.container} ${fadeInOnScroll ? classes.visible : ''}`} id="section3">
         <div className={classes.textwrapper}>
           <div className={classes.textcontainer}>
             <div className={classes.title}>
@@ -108,4 +142,5 @@ export default function ProblemSection() {
     
   );
 }
+
 
