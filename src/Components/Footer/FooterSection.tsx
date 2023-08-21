@@ -9,9 +9,8 @@ const useStyles = createStyles((theme) => ({
     height: '90px',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#333',
+    backgroundColor: '#fffef6',
     color: 'white',
-    borderTop: ".5px solid grey",
   },
 
   inner: {
@@ -43,7 +42,7 @@ const useStyles = createStyles((theme) => ({
     },
 
     "&:hover": {
-      color: 'white',
+      color: 'black',
       textDecoration: 'none',
       transition: "0.3s ease-out",
     }
@@ -51,11 +50,11 @@ const useStyles = createStyles((theme) => ({
   },
 
   actionIcon: {
-    backgroundColor: '#333',
-    borderColor: '#333',
+    backgroundColor: '#fffef6',
+    borderColor: '#fffef6',
 
     "&:hover": {
-      backgroundColor: '#333',
+      backgroundColor: '#fffef6',
     }
   },
 
@@ -69,13 +68,11 @@ const useStyles = createStyles((theme) => ({
     transition: "0.3s ease-out",
 
     "&:hover": {
-      color: 'white',
+      color: 'black',
       transition: "0.3s ease-in",
     },
   },
-
-
-
+  
   }
 
 ));

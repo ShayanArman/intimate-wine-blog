@@ -52,7 +52,7 @@ const useStyles = createStyles(
       [theme.fn.smallerThan("lg")]: {
         display: "none",
       },
-      marginRight: "5%",
+      marginLeft: '7.25%',
     },
 
     logo: {
@@ -90,8 +90,10 @@ const useStyles = createStyles(
     linkLabel: {
       marginRight: rem(5),
     },
+
   })
 );
+
 
 export default function ZeroHeader({
   scrolledToHeader,

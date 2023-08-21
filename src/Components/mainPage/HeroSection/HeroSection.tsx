@@ -20,8 +20,8 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     margin: '0 auto',
-    backgroundImage: 'url(https://scontent.whatsapp.net/v/t39.8562-34/316546300_547692113846445_7299710494491288098_n.png?ccb=1-7&_nc_sid=2fbf2a&_nc_ohc=YcdYMSCdMFMAX93mIt7&_nc_ht=scontent.whatsapp.net&oh=01_AdQEo2eAtbrvdV9hFD0X3ceNdzyrONQlZIw98pJo0vN3Ow&oe=64E111E5)',
-    backgroundPosition: 'stretch',
+    backgroundImage: 'url(https://scontent.whatsapp.net/v/t39.8562-34/316546300_547692113846445_7299710494491288098_n.png?ccb=1-7&_nc_sid=2fbf2a&_nc_ohc=llyVo_fvkPIAX__g-22&_nc_ht=scontent.whatsapp.net&oh=01_AdROmc4i5sXxogm-QysLB2WJcHS9VeLEZ6mP3aidKSgTgQ&oe=64E8FAE5)',
+    backgroundPosition: 'center',
     position: 'relative',
   },
 
