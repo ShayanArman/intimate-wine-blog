@@ -1,10 +1,8 @@
-import { createStyles, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
-import { Rotate } from 'tabler-icons-react';
+import { createStyles, Container, Title, Button, Text, rem } from '@mantine/core';
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
-
   wrapper: {
     width: '100%',
     height: '100vh',

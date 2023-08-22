@@ -17,6 +17,7 @@ import Link from "next/link";
 import { useDisclosure } from "@mantine/hooks";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export const HEADER_PIXEL_HEIGHT = 80;
 const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -46,13 +47,18 @@ const useStyles = createStyles(
       justifyContent: "space-between",
       alignItems: "center",
       position: 'relative',
+
+      [theme.fn.smallerThan("md")]: {
+        width: "100%"
+      }
     },
 
     links: {
+      marginLeft: '7.25%',
+
       [theme.fn.smallerThan("lg")]: {
         display: "none",
       },
-      marginLeft: '7.25%',
     },
 
     logo: {
@@ -101,6 +107,7 @@ export default function ZeroHeader({
   scrolledToHeader: boolean;
 }) {
   const { classes } = useStyles({ backgroundColor: "white" });
+  const isSmallScreen = useIsMobile();
   const [opened, { toggle }] = useDisclosure(false);
 
   return (
@@ -128,7 +135,7 @@ export default function ZeroHeader({
           <LinksToItems />
         </Group>
         <Box>
-          <ActionButton buttonSize={"md"} innerText="Sign In" />
+          <ActionButton buttonSize={isSmallScreen ? "xs" : "md"} innerText="Sign In" />
         </Box>
       </Container>
     </Header>
