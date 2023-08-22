@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
-import ZeroHeader from '@/Components/ZeroHeader/ZeroHeader';
+import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import HeroSection from "@/Components/mainPage/HeroSection";
 import TextSection from "@/Components/mainPage/TextSection";
 import Section2 from "@/Components/mainPage/Section2";
@@ -9,6 +9,7 @@ import Section3 from "@/Components/mainPage/Section3";
 import Section4 from "@/Components/mainPage/Section4";
 import Section5 from "@/Components/mainPage/Section5";
 import FooterSection from "@/Components/Footer";
+import HeroSection2 from "@/Components/mainPage/HeroSection2";
 
 /**
  * Fires when the element passed in is fully in Window.
@@ -40,11 +41,24 @@ export default function Home() {
           onEnter={() => { setScrolledToHeader(false); }}
           onLeave={() => { setScrolledToHeader(true);}}
         >
-          <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "white"}}>
+          <Box mih={HEADER_HEIGHT} w={"100%"} style={{ backgroundColor: "white"}}>
           </Box>
         </Waypoint>
+
+        <HeroSection2 />
+
+        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
+        </Box>
+
+        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "black"}}>
+        </Box>
+
+        <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
+        </Box>
+
+
         
-        <HeroSection />
+        {/* <HeroSection />
 
         <WaypointWrapper Component={TextSection} innerText={"With Zero AI, organizing your overflowing inbox is easy! You can focus on what's important. While junk emails take seconds to manage."} />
         
@@ -52,7 +66,7 @@ export default function Home() {
         <Section3 /> 
         <Section4 /> 
         <Section5 /> 
-        <FooterSection />
+        <FooterSection /> */}
       </Box>
   )
 }

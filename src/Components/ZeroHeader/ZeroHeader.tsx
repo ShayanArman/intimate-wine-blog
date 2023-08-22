@@ -2,7 +2,6 @@ import {
   createStyles,
   Menu,
   Center,
-  Text,
   Header,
   Container,
   Group,
@@ -20,7 +19,7 @@ import classNames from "classnames";
 import useIsMobile from "@/hooks/useIsMobile";
 
 export const HEADER_PIXEL_HEIGHT = 80;
-const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
+export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 const useStyles = createStyles(
   (theme, { backgroundColor }: { backgroundColor: string }) => ({
