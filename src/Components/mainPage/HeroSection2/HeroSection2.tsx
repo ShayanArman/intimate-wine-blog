@@ -21,7 +21,7 @@ const useStyles = createStyles(
 
         title: {
             fontSize: "8em",
-            fontWeight: 300,
+            fontWeight: 500,
             color: "white",
             fontFamily: "helvetica",
             letterSpacing: 0,
@@ -36,7 +36,7 @@ const useStyles = createStyles(
         subTitle: {
             color: 'white',
             fontSize: "3em",
-            fontWeight: 300,
+            fontWeight: 400,
             fontFamily: "helvetica",
             lineHeight: 1.1,
             letterSpacing: 0,
@@ -60,7 +60,8 @@ const useStyles = createStyles(
           },
 
           description: {
-            color: "white"
+            color: "white",
+            fontWeight: 300,
           }
 }));
 
