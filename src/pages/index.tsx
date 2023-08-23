@@ -10,6 +10,7 @@ import Section4 from "@/Components/mainPage/Section4";
 import Section5 from "@/Components/mainPage/Section5";
 import FooterSection from "@/Components/Footer";
 import HeroSection2 from "@/Components/mainPage/HeroSection2";
+import useIsMobile from "@/hooks/useIsMobile";
 
 /**
  * Fires when the element passed in is fully in Window.
@@ -32,10 +33,11 @@ function WaypointWrapper({ Component, innerText }: {Component: typeof TextSectio
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
+  const isSmallScreen = useIsMobile();
 
   return (
       <Box>
-        <ZeroHeader scrolledToHeader={scrolledToHeader} />
+        <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
 
         <Waypoint
           onEnter={() => { setScrolledToHeader(false); }}
@@ -45,7 +47,7 @@ export default function Home() {
           </Box>
         </Waypoint>
 
-        <HeroSection2 />
+        <HeroSection2 isSmallScreen={isSmallScreen} />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
         </Box>

@@ -16,13 +16,13 @@ import Link from "next/link";
 import { useDisclosure } from "@mantine/hooks";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
-import useIsMobile from "@/hooks/useIsMobile";
+
 
 export const HEADER_PIXEL_HEIGHT = 80;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 const useStyles = createStyles(
-  (theme, { backgroundColor }: { backgroundColor: string }) => ({
+  (theme) => ({
     header: {
       position: "fixed",
       backgroundColor: '#fffef6',
@@ -102,11 +102,12 @@ const useStyles = createStyles(
 
 export default function ZeroHeader({
   scrolledToHeader,
+  isSmallScreen,
 }: {
   scrolledToHeader: boolean;
+  isSmallScreen: boolean;
 }) {
-  const { classes } = useStyles({ backgroundColor: "white" });
-  const isSmallScreen = useIsMobile();
+  const { classes } = useStyles();
   const [opened, { toggle }] = useDisclosure(false);
 
   return (
@@ -134,7 +135,7 @@ export default function ZeroHeader({
           <LinksToItems />
         </Group>
         <Box>
-          <ActionButton buttonSize={isSmallScreen ? "xs" : "md"} innerText="Sign In" />
+          <ActionButton buttonSize={isSmallScreen ? "sm" : "md"} innerText="Sign In" />
         </Box>
       </Container>
     </Header>
@@ -195,7 +196,7 @@ const zeroLinks: Links = [
 ];
 
 function LinksToItems() {
-  const { classes } = useStyles({ backgroundColor: "white" });
+  const { classes } = useStyles();
 
   return zeroLinks.map((link) => {
     const menuItems = link.links?.map((item) => (
