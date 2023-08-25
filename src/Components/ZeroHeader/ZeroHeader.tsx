@@ -124,7 +124,7 @@ export default function ZeroHeader({
             onClick={toggle}
             className={classes.burger}
             size="md"
-            color="#3DBCF8"
+            color="var(--zero-blue)"
           />
           <Link href="/" className={classes.logo}>
             <Image width={150} height={40} alt="zeroInbox" src="/horizontalBlack.png" />

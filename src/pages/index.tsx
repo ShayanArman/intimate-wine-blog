@@ -1,30 +1,11 @@
 import React, { useState } from "react";
-import { Box } from '@mantine/core';
+import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import Footer from "@/Components/Footer";
 import useIsMobile from "@/hooks/useIsMobile";
-
-/**
- * Fires when the element passed in is fully in Window.
- * @param
- * @returns 
- */
-// function WaypointWrapper({ Component, innerText }: {Component: typeof TextSection, innerText: string }) {
-//   const [isVisible, setIsVisible] = useState(false);
-//   return (
-//     <>
-//       <Component isActive={isVisible} innerText={innerText} />
-//       <Waypoint
-//         topOffset={800}
-//         onEnter={() => {
-//           setIsVisible(true);
-//         }} />
-//     </>
-//   );
-// }
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
@@ -53,9 +34,11 @@ export default function Home() {
         <TextSection 
           key="text1" 
           isVisible={seenComponents.has("text1")} 
-          innerText="With private messaging and calling, you can be yourself, speak freely
-          and feel close to the most important people in your life no matter where
-          they are."/>
+          innerText={
+          <Text>
+            Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can organize your emails in 30 seconds - no matter the size. Let annoying emails be a thing of the past! <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
+          </Text>
+        }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>

@@ -1,4 +1,4 @@
-import { createStyles, Flex, Text } from "@mantine/core";
+import { createStyles, Flex } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -11,12 +11,12 @@ const useStyles = createStyles((theme) => ({
   content: {
     fontSize: "2rem",
     textAlign: "center",
-    margin: "5rem 20%",
+    margin: "5rem 15%",
     fontWeight: 400,
     fontFamily: "inherit",
 
     [theme.fn.smallerThan("md")]: {
-      margin: "5rem 3%",
+      margin: "5rem 5%",
     },
   },
 
@@ -32,7 +32,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function TextSection({ isVisible, innerText }: { isVisible: boolean, innerText: string }) {
+export default function TextSection({ isVisible, innerText }: { isVisible: boolean, innerText: JSX.Element }) {
   const { classes } = useStyles();
 
   return (
