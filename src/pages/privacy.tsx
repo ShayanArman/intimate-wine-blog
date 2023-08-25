@@ -1,68 +1,135 @@
 import ZeroHeader from "@/Components/ZeroHeader";
-import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
-import { createStyles, Box, Overlay, Container, Title, Button, Text, rem, Flex, } from '@mantine/core';
+import {
+  createStyles,
+  SimpleGrid,
+  Group,
+  Title,
+  Text,
+  ActionIcon,
+} from "@mantine/core";
 import { useState } from "react";
-import { Waypoint } from "react-waypoint";
 import FooterSection from "@/Components/Footer";
+import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
+import ContactIcons from "@/Components/ContactIcons/ContactIconsBusiness";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const useStyles = createStyles((theme) => ({
-
   wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: '100vh',
+    width: "100%",
+    height: "90vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundImage:
+      "linear-gradient(161.2deg, #333 60%, rgb(1,1,1, .83) calc(60% + 2px))",
   },
 
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '75%',
-    width: '75%',
-    display: 'flex',
-    flexDirection: 'column',
+    marginTop: "60px",
+    minHeight: 400,
+    width: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgb(255,255,255, .9)",
+    backdropFilter: "blur(3px)",
+    borderRadius: theme.radius.lg,
+    padding: `calc(${theme.spacing.xl} * 2.5)`,
+    boxShadow: "0 0 5px rgba(1,1,1), 2px 2px 10px rgb(1,1,1, .5)",
+
+    [theme.fn.smallerThan("sm")]: {
+      padding: `calc(${theme.spacing.xl} * 1.5)`,
+    },
+  },
+
+  titlediv: {
+    width: "100%",
+    height: "auto",
+    textAlign: "center",
   },
 
   title: {
-    fontWeight: 300,
-    fontSize: rem(45),
+    color: "black",
+    paddingBottom: "10px",
+    fontWeight: 400,
   },
 
-})
-)
+  underline: {
+    position: "relative",
+    width: "100px",
+    height: "1px",
+    backgroundColor: "#e65e8c",
+    margin: "0 auto",
+  },
 
-export default function Security() {
+  description: {
+    color: "black",
+    fontWeight: 225,
+
+    [theme.fn.smallerThan("sm")]: {
+      maxWidth: "100%",
+    },
+  },
+
+  social: {
+    color: "#333",
+
+    "&:hover": {
+      color: theme.colors[theme.primaryColor][1],
+    },
+  },
+}));
+
+const social = [BrandTwitter, BrandYoutube, BrandInstagram];
+
+export default function Privacy() {
   const { classes } = useStyles();
+  const isSmallScreen = useIsMobile();
 
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
 
-  const onEnter = () => {
-    setScrolledToHeader(false);
-  };
+  const icons = social.map((Icon, index) => (
+    <ActionIcon
+      key={index}
+      size={28}
+      className={classes.social}
+      variant="transparent"
+    >
+      <Icon size="1.4rem" stroke="1.5" />
+    </ActionIcon>
+  ));
 
-  const onLeave = () => {
-    setScrolledToHeader(true);
-  };
   return (
     <>
-    <Box>
-      <ZeroHeader scrolledToHeader={scrolledToHeader} />
-      <Waypoint onLeave={onLeave}>
-        <Box mih={"60px"} w={"100%"} style={{ backgroundColor: "#333333" }}></Box>
-      </Waypoint>
+      <div className={classes.wrapper}>
+        <ZeroHeader
+          isSmallScreen={isSmallScreen}
+          scrolledToHeader={scrolledToHeader}
+        />
+        <div className={classes.container}>
+          <SimpleGrid
+            cols={1}
+            spacing={50}
+            breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+          >
+            <div>
+              <div className={classes.titlediv}>
+                <Title className={classes.title}>Business Engagement</Title>
+                <div className={classes.underline}></div>
+                <Text className={classes.description} mt="sm" mb={30}>
+                  For all business inquiries please contact Shayan Arman
+                </Text>
+              </div>
 
-      {/* EnterWaypoint  topOffset is height plus 40*/}
-      <Waypoint onEnter={onEnter} topOffset={200 + HEADER_PIXEL_HEIGHT - 20}>
-      </Waypoint>
-    </Box>
-    <div className={classes.wrapper}>
-      <Container className={classes.container}>
-        <Title className={classes.title}>Big time privacy page</Title>
-      </Container>
-    </div>
-    <FooterSection />
+              <ContactIcons />
+
+              <Group mt="xl">{icons}</Group>
+            </div>
+          </SimpleGrid>
+        </div>
+      </div>
+
+      <FooterSection />
     </>
-
   );
 }

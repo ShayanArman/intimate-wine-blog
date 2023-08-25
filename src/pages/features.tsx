@@ -82,7 +82,7 @@ const useStyles = createStyles((theme) => ({
 
 const social = [BrandTwitter, BrandYoutube, BrandInstagram];
 
-export default function ContactUs() {
+export default function Features() {
   const { classes } = useStyles();
   const isSmallScreen = useIsMobile();
 
@@ -114,7 +114,7 @@ export default function ContactUs() {
           >
             <div>
               <div className={classes.titlediv}>
-                <Title className={classes.title}>Zero Inbox for Business</Title>
+                <Title className={classes.title}>Features</Title>
                 <div className={classes.underline}></div>
                 <Text className={classes.description} mt="sm" mb={30}>
                   For all business inquiries please contact Shayan Arman
