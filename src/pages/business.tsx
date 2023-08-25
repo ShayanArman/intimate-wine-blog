@@ -4,6 +4,7 @@ import { useState } from "react";
 import FooterSection from "@/Components/Footer";
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
 import ContactIcons from '@/Components/ContactIcons/ContactIconsBusiness';
+import useIsMobile from "@/hooks/useIsMobile";
 
 const useStyles = createStyles((theme) => ({
 
@@ -77,6 +78,7 @@ const social = [BrandTwitter, BrandYoutube, BrandInstagram];
 
 export default function ContactUs() {
   const { classes } = useStyles();
+  const isSmallScreen = useIsMobile();
 
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
 
@@ -98,7 +100,7 @@ export default function ContactUs() {
     <>
     
     <div className={classes.wrapper}>
-    <ZeroHeader scrolledToHeader={scrolledToHeader} />
+    <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
         <div className={classes.container}>
           <SimpleGrid cols={1} spacing={50} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
             <div>
@@ -117,6 +119,7 @@ export default function ContactUs() {
           </SimpleGrid>
         </div>
       </div>
+      
       <FooterSection />
     </>
   );

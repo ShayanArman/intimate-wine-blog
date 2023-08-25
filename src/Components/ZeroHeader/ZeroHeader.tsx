@@ -184,14 +184,14 @@ type Links = {
 
 const zeroLinks: Links = [
   { link: "/features", label: 'Features', newTab: false },
+  { link: "/security", label: "Security", newTab: false },
+  { link: "/business", label: 'Zero AI for Business', newTab: false },
   {
     link: "https://zeroinbox.ai/privacy.pdf",
-    label: "Privacy",
+    label: "Privacy + FAQ",
     newTab: true,
   },
-  { link: "/business", label: 'Business', newTab: false },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
-  { link: "/contact", label: 'Contact Us', newTab: false },
 ];
 
 function LinksToItems() {

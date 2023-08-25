@@ -11,8 +11,7 @@ export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
-
-  // Add item to the set
+  
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
@@ -49,8 +48,6 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
         </Box>
-
-        {/* <WaypointWrapper Component={TextSection} innerText={"With Zero AI, organizing your overflowing inbox is easy! You can focus on what's important. While junk emails take seconds to manage."} /> */}
 
         <Footer />
       </Box>

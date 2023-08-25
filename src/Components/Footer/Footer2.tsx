@@ -1,6 +1,10 @@
-import { Flex, Footer, Text } from "@mantine/core";
+import { Flex, Footer } from "@mantine/core";
 import Image from "next/image";
 
+/**
+ * 
+ * TODO include Contact.
+ */
 export default function Footer2() {
   return (
     <Footer height={80} withBorder={false}>
