@@ -9,13 +9,14 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
-    fontSize: "2rem",
+    fontSize: "48px",
     textAlign: "center",
     margin: "5rem 15%",
     fontWeight: 400,
     fontFamily: "inherit",
 
     [theme.fn.smallerThan("md")]: {
+      fontSize: "32px",
       margin: "5rem 5%",
     },
   },

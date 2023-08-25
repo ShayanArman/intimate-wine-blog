@@ -35,7 +35,7 @@ export default function Home() {
           isVisible={seenComponents.has("text1")} 
           innerText={
           <Text>
-            Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can organize your emails in 30 seconds - no matter the size. Let annoying emails be a thing of the past! <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
+            Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can <span style={{color: "var(--zero-blue)"}}>organize</span> it in 30 seconds! - no matter the size. Bye annoying emails. <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
           </Text>
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
