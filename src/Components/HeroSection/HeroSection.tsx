@@ -42,8 +42,7 @@ const useStyles = createStyles((theme) => ({
     padding: 0,
 
     [theme.fn.smallerThan("sm")]: {
-      fontSize: "4em",
-      lineHeight: 1.2,
+      fontSize: "6em",
     },
   },
 

@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 400,
     fontFamily: "inherit",
 
-    [theme.fn.smallerThan("lg")]: {
+    [theme.fn.smallerThan("md")]: {
       margin: "5rem 3%",
     },
   },
@@ -28,7 +28,7 @@ const useStyles = createStyles((theme) => ({
   visible: {
     opacity: 1,
     transform: "translateY(0)",
-    transition: "all 1.1s ease-out",
+    transition: "opacity 1.1s ease-out, transform 1.3s ease-out",
   },
 }));
 
