@@ -84,7 +84,7 @@ const useStyles = createStyles(
       textDecoration: "none",
       color: 'black',
       fontSize: theme.fontSizes.md,
-      fontWeight: 200,
+      fontWeight: 400,
 
       "&:hover": {
         borderBottom: "2.5px solid #E65E8C",
