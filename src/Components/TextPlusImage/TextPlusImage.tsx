@@ -1,38 +1,50 @@
 import {
-  createStyles,
   Box,
   Flex,
   Text
 } from '@mantine/core';
-import React from 'react';
-
-
-const useStyles = createStyles((theme) => ({
-  container: {
-    width: '95%',
-    height: '95%',
-    margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    opacity: 0,
-  }
-}))
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function TextPlusImage() {
+  const [isWrapped, setIsWrapped] = useState(false);
+  const isWrappedRef = useRef(isWrapped);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    isWrappedRef.current = isWrapped;
+  }, [isWrapped]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      const resizeObserver = new ResizeObserver(() => {
+        const children: HTMLElement[] = Array.from(container.children) as HTMLElement[];
+        const isWrappedAround = children.length > 0 ? children[0].offsetTop !== children[1].offsetTop : false;
+        if (isWrappedAround !== isWrappedRef.current) {
+          setIsWrapped((prev) => !prev);
+        }
+      });
+
+      resizeObserver.observe(container);
+
+      return () => { 
+        resizeObserver.unobserve(container);
+      }
+    }
+  }, []);
+
   return (
-    <Flex justify="space-between" wrap="wrap" gap={100} ml={"10%"} mr={"20%"} style={{border: "1px solid black"}}>
-      <Flex direction="column" justify="center">
+    <Flex ref={containerRef} justify={"space-between"} wrap="wrap" gap={100} ml={"10%"} mr={"20%"} style={{border: "1px solid black"}}>
+      <Flex key="text" direction="column" justify="center">
         <Text>
           This is some text explaining how great Zero Inbox is.
         </Text>
       </Flex>
-      <Box mih={"250px"} miw={"200px"} style={{backgroundColor: "black"}}>
-        
-      </Box>
+      <Flex key="image" style={{margin: isWrapped ? "0 auto" : "0", border: "1px solid black"}}>
+        <Box mih={"250px"} miw={"200px"} style={{ backgroundColor: isWrapped ? "orange" : "black"}}>
+
+        </Box>
+      </Flex>
     </Flex>
   );
 }
-
-
