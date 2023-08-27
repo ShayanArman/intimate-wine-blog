@@ -24,10 +24,10 @@ const useStyles = createStyles((theme) => ({
     borderRadius: "30px",
     padding: "3rem 1rem 0 3rem",
     textAlign: "left",
-    border: "1px solid black",
     minHeight: "20rem",
     maxWidth: "20em",
     fontFamily: "Helvetica Neue",
+    boxShadow: "7px 7px 10px 0px var(--shadow-color)",
     width: "40%",
     [theme.fn.smallerThan("md")]: {
       width: "58%",
