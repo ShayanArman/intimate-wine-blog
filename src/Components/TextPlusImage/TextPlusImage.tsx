@@ -22,15 +22,17 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "black",
     color: "white",
     borderRadius: "30px",
-    padding: "5rem 1rem 0 3rem",
+    padding: "3rem 1rem 0 3rem",
     textAlign: "left",
     border: "1px solid black",
-    minHeight: "10rem",
+    minHeight: "20rem",
+    maxWidth: "20em",
     fontFamily: "Helvetica Neue",
     width: "40%",
     [theme.fn.smallerThan("md")]: {
       width: "58%",
-      padding: "1rem 1rem 0 1rem",
+      maxWidth: "16em",
+      padding: "2rem 1.2rem 1.2rem 1.2rem",
     }
   },
 
