@@ -24,9 +24,11 @@ const useStyles = createStyles((theme) => ({
     border: "1px solid black",
     width: "50%", 
     margin: "0",
+    backgroundColor: "black",
     [theme.fn.smallerThan("lg")]: {
       width: "100%",
       margin: "0 auto",
+      backgroundColor: "orange"
     }
   }
 }));
@@ -89,7 +91,7 @@ export default function TextPlusImage() {
           key="image" 
           justify="center"
           className={classes.imgSection}>
-          <Box mih={"400px"} miw={"200px"} style={{ backgroundColor: isWrapped ? "orange" : "black"}}>
+          <Box mih={"400px"} miw={"200px"}>
 
           </Box>
         </Flex>
