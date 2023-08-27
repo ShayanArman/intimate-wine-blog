@@ -8,8 +8,21 @@ import {
 import React, { useEffect, useRef, useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
+  container: {
+    maxWidth: "1080px",
+  },
+
+  content: {
+    [theme.fn.smallerThan("md")]: {
+      rowGap: 30,
+    }
+  },
+
   textSection: {
-    backgroundColor: "transparent",
+    backgroundColor: "black",
+    color: "white",
+    borderRadius: "10px",
+    padding: "0 10px",
     textAlign: "left",
     border: "1px solid black",
     minHeight: "10rem",
@@ -22,13 +35,14 @@ const useStyles = createStyles((theme) => ({
 
   title: {
     fontSize: "40px",
+    fontWeight: 400,
+    lineHeight: 1,
     [theme.fn.smallerThan("md")]: {
       fontSize: "32px",
     }
   },
 
   imgSection: {
-    border: "1px solid black",
     width: "50%", 
     margin: "0",
     [theme.fn.smallerThan("md")]: {
@@ -45,14 +59,47 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-
-
-
 export default function TextPlusImage() {
-  // const [isWrapped, setIsWrapped] = useState(false);
-  // const isWrappedRef = useRef(isWrapped);
   const containerRef = useRef<HTMLDivElement>(null);
   const { classes } = useStyles();
+
+  return (
+    <Flex w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
+      <Flex 
+        ref={containerRef} 
+        w={"100%"} 
+        justify={"space-between"}
+        p="88px 24px 56px 24px" 
+        wrap="wrap"
+        className={classes.content}>
+        <Flex 
+          key="textSection" 
+          gap={10}
+          direction="column" 
+          justify="center" 
+          className={classes.textSection}>
+            <Text className={classes.title}>
+              Never miss an important email
+            </Text>
+            <Text>
+              Zero AI shows you bunches of emails. You choose what to do.
+            </Text>
+        </Flex>
+        <Flex 
+          key="imageSection" 
+          justify="center"
+          className={classes.imgSection}>
+          <Box mih={"400px"} miw={"200px"} className={classes.img}>
+
+          </Box>
+        </Flex>
+    </Flex>
+    </Flex>
+  );
+}
+
+// const [isWrapped, setIsWrapped] = useState(false);
+  // const isWrappedRef = useRef(isWrapped);
 
   // useEffect(() => {
   //   isWrappedRef.current = isWrapped;
@@ -76,38 +123,3 @@ export default function TextPlusImage() {
   //     }
   //   }
   // }, []);
-
-  return (
-    <Box w="100%" mr="auto" ml="auto" style={{maxWidth: "1080px"}}>
-      <Flex 
-        ref={containerRef} 
-        w={"100%"} 
-        justify={"space-between"} 
-        gap={16} 
-        p="88px 24px 56px 24px" 
-        wrap="wrap" 
-        style={{border: "1px solid black"}}>
-        <Flex 
-          key="textSectionxxyy" 
-          direction="column" 
-          justify="center" 
-          className={classes.textSection}>
-            <Title className={classes.title}>
-              Important emails will never be lost in your junk folder
-            </Title>
-            <Text>
-              Zero AI shows you bunches of emails. You choose what to do.
-            </Text>
-        </Flex>
-        <Flex 
-          key="image" 
-          justify="center"
-          className={classes.imgSection}>
-          <Box mih={"400px"} miw={"200px"} className={classes.img}>
-
-          </Box>
-        </Flex>
-    </Flex>
-    </Box>
-  );
-}

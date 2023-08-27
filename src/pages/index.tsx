@@ -18,7 +18,7 @@ export default function Home() {
   };
 
   return (
-      <Box>
+      <Box style={{backgroundColor: "var(--landing-background)"}}>
         <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
 
         <Waypoint
