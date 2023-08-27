@@ -40,8 +40,6 @@ const useStyles = createStyles((theme) => ({
   img: {
     backgroundColor: "black",
     [theme.fn.smallerThan("md")]: {
-      width: "100%",
-      margin: "0 auto",
       backgroundColor: "orange"
     }
   }
