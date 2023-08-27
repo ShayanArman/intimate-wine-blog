@@ -20,7 +20,7 @@ export default function TextPlusImage() {
     if (container) {
       const resizeObserver = new ResizeObserver(() => {
         const children: HTMLElement[] = Array.from(container.children) as HTMLElement[];
-        const isWrappedAround = children.length > 0 ? children[0].offsetTop !== children[1].offsetTop : false;
+        const isWrappedAround = children.length > 0 ? children[1].offsetTop > children[0].offsetTop : false;
         if (isWrappedAround !== isWrappedRef.current) {
           setIsWrapped((prev) => !prev);
         }
@@ -37,7 +37,7 @@ export default function TextPlusImage() {
   return (
     <Box w="100%" mr="auto" ml="auto" style={{maxWidth: "1080px"}}>
       <Flex ref={containerRef} justify={"space-between"} p="88px 24px 56px 24px" wrap="wrap" gap={100} align="center" style={{border: "1px solid black"}}>
-        <Flex key="text" direction="column" justify="center">
+        <Flex key="text" direction="column" justify="center" style={{border: "1px solid black"}}>
           <Text>
             <Title>
               AI does not mean automatic.
