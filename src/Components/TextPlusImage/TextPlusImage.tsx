@@ -21,15 +21,16 @@ const useStyles = createStyles((theme) => ({
   textSection: {
     backgroundColor: "black",
     color: "white",
-    borderRadius: "10px",
-    padding: "0 10px",
+    borderRadius: "30px",
+    padding: "5rem 1rem 0 3rem",
     textAlign: "left",
     border: "1px solid black",
     minHeight: "10rem",
     fontFamily: "Helvetica Neue",
     width: "40%",
     [theme.fn.smallerThan("md")]: {
-      width: "58%"
+      width: "58%",
+      padding: "1rem 1rem 0 1rem",
     }
   },
 
@@ -75,8 +76,7 @@ export default function TextPlusImage() {
         <Flex 
           key="textSection" 
           gap={10}
-          direction="column" 
-          justify="center" 
+          direction="column"
           className={classes.textSection}>
             <Text className={classes.title}>
               Never miss an important email
