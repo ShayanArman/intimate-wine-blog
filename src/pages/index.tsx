@@ -41,7 +41,9 @@ export default function Home() {
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
-        <TextPlusImage />
+        <TextPlusImage
+          key="textImage1"
+        />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
         </Box>
