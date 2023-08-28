@@ -3,10 +3,8 @@ import {
   Box,
   Flex,
   Text,
-  Title,
-  Container
 } from '@mantine/core';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 
 const useStyles = createStyles((theme) => ({
