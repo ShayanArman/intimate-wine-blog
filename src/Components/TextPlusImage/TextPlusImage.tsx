@@ -82,8 +82,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function TextPlusImage() {
-  const containerRef = useRef<HTMLDivElement>(null);
+export default function TextPlusImage({title, description}: {title: string, description: string}) {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const { classes } = useStyles();
 
@@ -93,53 +92,53 @@ export default function TextPlusImage() {
 
   return (
     <Flex w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
-      <Flex 
-        ref={containerRef} 
+      <Flex
         w={"100%"} 
         justify={"space-between"}
         p="88px 24px 56px 24px" 
         wrap="wrap"
         className={classes.content}>
-        <Box className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`} style={{border: "1px solid black"}}>
-          <TextPart key="textSection" />
-          <Waypoint topOffset={100} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
+        <Box style={{border: "1px solid black"}} className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`} style={{border: "1px solid black"}}>
+          <TextPart key="textSection" title={title} description={description} />
+          <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
         </Box>
-        <Box 
+        <Flex 
+          style={{border: "1px solid black"}}
+          direction="column"
           key="imageSection"
+          align="center"
           className={`${classes.imgSection} ${seenComponents.has("imgSection") ? classes.visible : classes.nonVisible }`}>
-          <ImagePart key="imgSection" isSeen={seenComponents.has("imgSection")} />
-          <Waypoint topOffset={100} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
-        </Box>
+          <ImagePart key="imgSection" />
+          <Waypoint scrollableAncestor={"window"} topOffset={0} onEnter={() => {!seenComponents.has("imgSection") ? addSeenComponent("imgSection") : null }} />
+        </Flex>
     </Flex>
     </Flex>
   );
 }
 
-function TextPart() {
+function TextPart({title, description}: {title: string, description: string}) {
   const { classes } = useStyles();
 
   return (
-    <Flex 
-      key="textSection" 
+    <Flex
       gap={10}
       direction="column"
       className={classes.textContent}>
         <Text className={classes.title}>
-          Never miss an important email
+          { title }
         </Text>
         <Text>
-          Zero AI shows you bunches of emails. You choose what to do.
+          { description }
         </Text>
     </Flex>
   )
 }
 
-function ImagePart({isSeen}: {isSeen: boolean}) {
+function ImagePart() {
   const { classes } = useStyles();
 
   return (
-    <Box mih={"400px"} miw={"200px"} className={classes.img}>
-
+    <Box mih={"400px"} w={"200px"} className={classes.img}>
     </Box>
   )
 }

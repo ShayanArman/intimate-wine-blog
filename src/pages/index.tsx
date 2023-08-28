@@ -41,8 +41,9 @@ export default function Home() {
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
-        <TextPlusImage
-          key="textImage1"
+        <TextPlusImage 
+          title={"Never miss an important email"}
+          description={"Zero AI shows you bunches of emails. You choose what to do."}
         />
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: "white"}}>
