@@ -1,4 +1,4 @@
-import { createStyles, Flex } from "@mantine/core";
+import { createStyles, Flex, Title } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -38,9 +38,9 @@ export default function TextSection({ isVisible, innerText }: { isVisible: boole
 
   return (
     <Flex justify="center" align="center" className={classes.container}>
-      <h2 className={`${classes.content} ${isVisible ? classes.visible : classes.nonVisible}`}>
+      <Title className={`${classes.content} ${isVisible ? classes.visible : classes.nonVisible}`}>
         { innerText }
-      </h2>
+      </Title>
     </Flex>
   );
 }
