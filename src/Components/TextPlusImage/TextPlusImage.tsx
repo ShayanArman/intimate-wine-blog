@@ -47,6 +47,12 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
+  textLink: {
+    "&:hover": {
+      color: "var(--zero-blue)"
+    }
+  },
+
   title: {
     fontSize: "50px",
     fontWeight: 400,
@@ -132,7 +138,7 @@ function TextPart({title, description}: {title: string, description: string}) {
           { description }
         </Text>
         <Link href="/features" style={{marginTop: "5px"}}>
-          <Flex gap={3}>
+          <Flex gap={3} className={classes.textLink}>
             <Text style={{borderBottom: "1px solid var(--zero-blue)"}}>Features</Text>
             <Flex align="center">
               <BsArrowRightCircle />
