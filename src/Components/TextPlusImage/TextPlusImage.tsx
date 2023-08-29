@@ -138,10 +138,10 @@ function TextPart({title, description}: {title: string, description: string}) {
           { description }
         </Text>
         <Link href="/features" style={{marginTop: "5px"}}>
-          <Flex gap={3} className={classes.textLink}>
+          <Flex gap={5} className={classes.textLink}>
             <Text style={{borderBottom: "1px solid var(--zero-blue)"}}>Features</Text>
             <Flex align="center">
-              <BsArrowRightCircle />
+              <BsArrowRightCircle size="13px" />
             </Flex>
           </Flex>
         </Link>
