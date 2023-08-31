@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, Space, Text } from '@mantine/core';
+import { useEffect, useState } from "react";
+import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
@@ -7,21 +7,25 @@ import HeroSection from "@/Components/HeroSection";
 import Footer from "@/Components/Footer";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
+import NavBar from "@/Components/NavBar";
 
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
-  
+  const [menuOpened, setMenuOpened] = useState(false);
+
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
 
   return (
       <Box style={{backgroundColor: "var(--landing-background)"}}>
-        <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
-
+        <ZeroHeader isSmallScreen={isSmallScreen} opened={menuOpened} toggleMenu={() => setMenuOpened((prev) => !prev)} scrolledToHeader={scrolledToHeader} />
+        
+        <NavBar opened={menuOpened} />
+        
         <Waypoint
           onEnter={() => { setScrolledToHeader(false); }}
           onLeave={() => { setScrolledToHeader(true);}}

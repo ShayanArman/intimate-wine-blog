@@ -13,7 +13,6 @@ import {
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import { useDisclosure } from "@mantine/hooks";
 import { BsChevronDown } from "react-icons/bs";
 import classNames from "classnames";
 
@@ -25,16 +24,16 @@ const useStyles = createStyles(
   (theme) => ({
     header: {
       position: "fixed",
-      backgroundColor: '#fffef6',
+      backgroundColor: 'var(--landing-background)',
       borderBottom: "0px",
       top: 0,
       left: 0,
-      zIndex: 9999,
+      zIndex: 100,
       transition: "background-color 0.3s ease",
     },
 
     headerColored: {
-      backgroundColor: "rgba(255, 254, 246, 0.8)",
+      backgroundColor: "var(--landing-blur)",
       boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
       transition: "all 0.3s"
     },
@@ -102,12 +101,15 @@ const useStyles = createStyles(
 export default function ZeroHeader({
   scrolledToHeader,
   isSmallScreen,
+  opened,
+  toggleMenu
 }: {
   scrolledToHeader: boolean;
   isSmallScreen: boolean;
+  opened: boolean;
+  toggleMenu: () => void
 }) {
   const { classes } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
 
   return (
     <Header
@@ -121,7 +123,7 @@ export default function ZeroHeader({
         <Group>
           <Burger
             opened={opened}
-            onClick={toggle}
+            onClick={toggleMenu}
             className={classes.burger}
             size="md"
             color="var(--zero-blue)"
