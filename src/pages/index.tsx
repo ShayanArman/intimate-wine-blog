@@ -16,6 +16,10 @@ export default function Home() {
   const isLargeScreen = useIsLargeScreen();
   const [menuOpened, setMenuOpened] = useState(false);
 
+  if(menuOpened) {
+    console.log("OPENED MENU:");
+  }
+
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
