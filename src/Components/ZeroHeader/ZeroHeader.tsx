@@ -128,7 +128,7 @@ export default function ZeroHeader({
             color="var(--zero-blue)"
           />
           <Link href="/" style={{marginTop: "0.3rem"}}>
-            <Image width={200} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
+            <Image width={150} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.png" />
           </Link>
         </Flex>
         <Group spacing={5} className={classes.links}>
