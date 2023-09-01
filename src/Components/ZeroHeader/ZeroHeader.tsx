@@ -10,6 +10,7 @@ import {
   rem,
   Box,
   MantineSize,
+  Flex,
 } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
@@ -61,16 +62,14 @@ const useStyles = createStyles(
       },
     },
 
-    logo: {
-      marginTop: "0.3rem",
-      position: "absolute",
-      left: 0,
+    // logo: {
+    //   marginTop: "0.3rem",
 
-      [theme.fn.smallerThan("lg")]: {
-        marginTop: "0.3rem",
-        position: 'relative',
-      },
-    },
+    //   [theme.fn.smallerThan("lg")]: {
+    //     marginTop: "0.3rem",
+    //     position: 'relative',
+    //   },
+    // },
 
     burger: {
       [theme.fn.largerThan("lg")]: {
@@ -120,7 +119,7 @@ export default function ZeroHeader({
       })}
     >
       <Container className={classes.inner} fluid>
-        <Group>
+        <Flex align="center" style={{border: "1px solid black"}}>
           <Burger
             opened={opened}
             onClick={() => setOpened((prev) => !prev)}
@@ -128,10 +127,10 @@ export default function ZeroHeader({
             size="md"
             color="var(--zero-blue)"
           />
-          <Link href="/" className={classes.logo}>
+          <Link href="/" style={{marginTop: "0.3rem"}}>
             <Image width={200} height={50} alt="zeroInbox" src="/horizBlackBigger.svg" />
           </Link>
-        </Group>
+        </Flex>
         <Group spacing={5} className={classes.links}>
           <LinksToItems />
         </Group>
