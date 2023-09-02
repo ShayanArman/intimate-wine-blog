@@ -55,25 +55,21 @@ const useStyles = createStyles(
     },
 
     links: {
-      marginLeft: '7.25%',
-
-      [theme.fn.smallerThan("lg")]: {
+      [theme.fn.smallerThan("md")]: {
         display: "none",
       },
     },
 
-    // logo: {
-    //   marginTop: "0.3rem",
-
-    //   [theme.fn.smallerThan("lg")]: {
-    //     marginTop: "0.3rem",
-    //     position: 'relative',
-    //   },
-    // },
+    logoBurgerContainer: {
+      [theme.fn.smallerThan("md")]: {
+        columnGap: "10px",
+      }
+    },
 
     burger: {
-      [theme.fn.largerThan("lg")]: {
-        display: "none"
+      display: "none",
+      [theme.fn.smallerThan("md")]: {
+        display: "initial"
       }
     },
 
@@ -119,7 +115,7 @@ export default function ZeroHeader({
       })}
     >
       <Container className={classes.inner} fluid>
-        <Flex align="center" style={{border: "1px solid black"}}>
+        <Flex align="center" className={classes.logoBurgerContainer}>
           <Burger
             opened={opened}
             onClick={() => setOpened((prev) => !prev)}
@@ -128,7 +124,7 @@ export default function ZeroHeader({
             color="var(--zero-blue)"
           />
           <Link href="/" style={{marginTop: "0.3rem"}}>
-            <Image width={150} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
+            <Image width={192} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
           </Link>
         </Flex>
         <Group spacing={5} className={classes.links}>
