@@ -189,13 +189,13 @@ type Links = {
   links?: { link: string; label: string; Icon: JSX.Element; newTab: boolean }[];
 }[];
 
-const zeroLinks: Links = [
+export const headerLinks: Links = [
   { link: "/features", label: 'Features', newTab: false },
   { link: "/security", label: "Security", newTab: false },
-  { link: "/business", label: 'Zero AI for Business', newTab: false },
+  { link: "/business", label: 'Business', newTab: false },
   {
     link: "https://zeroinbox.ai/privacy.pdf",
-    label: "Privacy + FAQ",
+    label: "Privacy",
     newTab: true,
   },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
@@ -204,7 +204,7 @@ const zeroLinks: Links = [
 function LinksToItems() {
   const { classes } = useStyles();
 
-  return zeroLinks.map((link) => {
+  return headerLinks.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item
         component="a"

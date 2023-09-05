@@ -1,5 +1,5 @@
 import { createStyles, Flex, Button, Box } from "@mantine/core";
-import { HEADER_HEIGHT } from "../ZeroHeader/ZeroHeader";
+import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 
 const useStyles = createStyles(
     (theme) => ({
@@ -45,10 +45,10 @@ export default function NavBar({opened, isSmallScreen, scrolledToHeader}: { open
         <Flex 
           direction="column"
           className={classes.content}>
-          <Button>First</Button>
-          <Button>Second</Button>
-          <Button>Third</Button>
-          <Button>Fourth</Button>
+            { headerLinks.map((link) => (
+              <Button key={link.label}>{ link.label }</Button>
+            )) 
+            }
         </Flex>
       </Flex>
     );
