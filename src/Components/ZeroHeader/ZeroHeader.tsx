@@ -105,6 +105,18 @@ export default function ZeroHeader({
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
   const linksRef = useRef<HTMLDivElement | null>(null);
+  const burgerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    function handleClick(event: MouseEvent) {
+      if (opened && burgerRef.current && !burgerRef.current.contains(event.target as Node)) {
+        setOpened(false);
+      }
+    }
+  
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [opened, setOpened]);
 
   if (linksRef.current && opened) {
     const computedStyle = window.getComputedStyle(linksRef.current);
@@ -115,35 +127,36 @@ export default function ZeroHeader({
 
   return (
     <>
-    <Header
-      height={HEADER_HEIGHT}
-      mb={120}
-      className={classNames(classes.header, {
-        [classes.headerColored]: scrolledToHeader,
-      })}
-    >
-      <Container className={classes.inner} fluid>
-        <Flex align="center" className={classes.logoBurgerContainer}>
-          <Burger
-            opened={opened}
-            onClick={() => setOpened((prev) => !prev)}
-            className={classes.burger}
-            size="md"
-            color="var(--zero-blue)"
-          />
-          <Link href="/" style={{marginTop: "0.3rem"}}>
-            <Image width={192} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
-          </Link>
-        </Flex>
-        <Group spacing={5} className={classes.links} ref={linksRef}>
-          <LinksToItems />
-        </Group>
-        <Box>
-          <ActionButton buttonSize={isSmallScreen ? "md" : "md"} innerText={ isSmallScreen ? "Start" : "Sign In" } />
-        </Box>
-      </Container>
-    </Header>
-    <NavBar opened={opened} setOpened={() => { setOpened(false) }} isSmallScreen={isSmallScreen} />
+      <Header
+        height={HEADER_HEIGHT}
+        mb={120}
+        className={classNames(classes.header, {
+          [classes.headerColored]: scrolledToHeader,
+        })}
+      >
+        <Container className={classes.inner} fluid>
+          <Flex align="center" className={classes.logoBurgerContainer}>
+            <Burger
+              opened={opened}
+              ref={burgerRef}
+              onClick={() => { setOpened((prev) => !prev) }}
+              className={classes.burger}
+              size="md"
+              color="var(--zero-blue)"
+            />
+            <Link href="/" style={{marginTop: "0.3rem"}}>
+              <Image width={192} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
+            </Link>
+          </Flex>
+          <Group spacing={5} className={classes.links} ref={linksRef}>
+            <LinksToItems />
+          </Group>
+          <Box>
+            <ActionButton buttonSize={isSmallScreen ? "md" : "md"} innerText={ isSmallScreen ? "Start" : "Sign In" } />
+          </Box>
+        </Container>
+      </Header>
+      <NavBar opened={opened} setOpened={() => { setOpened(false) }} isSmallScreen={isSmallScreen} />
     </>
   );
 }
