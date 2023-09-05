@@ -143,7 +143,7 @@ export default function ZeroHeader({
         </Box>
       </Container>
     </Header>
-    <NavBar opened={opened} scrolledToHeader={scrolledToHeader} isSmallScreen={isSmallScreen} />
+    <NavBar opened={opened} setOpened={() => { setOpened(false) }} isSmallScreen={isSmallScreen} />
     </>
   );
 }
