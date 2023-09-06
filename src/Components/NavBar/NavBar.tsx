@@ -10,20 +10,20 @@ const useStyles = createStyles(
         zIndex: 8000, 
         backgroundColor: "var(--landing-blur)",
         padding: "20px",
-      },
 
-      phoneContainer: {
-        width: "100%",
-        height: "100%"
-      },
+        [theme.fn.largerThan("sm")]: {
+          marginLeft: "10px",
+          width: "20rem",
+          height: "initial",
+          backgroundColor: "var(--landing-blur)",
+          borderBottomLeftRadius: "10px",
+          borderBottomRightRadius: "10px",
+        },
 
-      biggerContainer: {
-        marginLeft: "10px",
-        width: "20rem",
-        height: "initial",
-        backgroundColor: "var(--landing-blur)",
-        borderBottomLeftRadius: "10px",
-        borderBottomRightRadius: "10px",
+        [theme.fn.smallerThan("sm")]: {
+          width: "100%",
+          height: "100%"
+        }
       },
 
       content: {
@@ -41,7 +41,7 @@ export default function NavBar({opened, isSmallScreen, setOpened}: { opened: boo
     }
 
     return (
-      <Flex className={`${classes.container} ${isSmallScreen ? classes.phoneContainer : classes.biggerContainer}`}>
+      <Flex className={`${classes.container}`}>
         <Flex 
           direction="column"
           className={classes.content}>
