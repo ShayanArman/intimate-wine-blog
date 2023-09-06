@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Text, LoadingOverlay, Flex } from '@mantine/core';
+import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
@@ -38,11 +38,7 @@ export default function Home() {
   };
 
   if (!pageReady) {
-    return (
-      <Flex w="100%" h="100vh" align={"center"} justify={"center"}>
-        <LoadingOverlay visible={true} />
-      </Flex>
-    );
+    return null;
   }
 
   return (
