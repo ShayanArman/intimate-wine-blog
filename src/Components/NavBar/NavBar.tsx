@@ -1,5 +1,6 @@
-import { createStyles, Flex, Button } from "@mantine/core";
+import { createStyles, Flex, Button, NavLink } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
+import { FcEnteringHeavenAlive } from "react-icons/fc";
 
 const useStyles = createStyles(
     (theme) => ({
@@ -28,12 +29,15 @@ const useStyles = createStyles(
 
       content: {
         rowGap: 5,
-        width: "100%",
+        width: "80%",
+        [theme.fn.largerThan("sm")]: {
+          width: "100%",
+        }
       }
     })
 )
 
-export default function NavBar({opened, isSmallScreen, setOpened}: { opened: boolean, isSmallScreen: boolean, setOpened: () => void }) {
+export default function NavBar({opened, setOpened}: { opened: boolean, setOpened: () => void }) {
     const { classes } = useStyles();
 
     if(!opened) {
@@ -41,10 +45,11 @@ export default function NavBar({opened, isSmallScreen, setOpened}: { opened: boo
     }
 
     return (
-      <Flex className={`${classes.container}`}>
+      <Flex justify="center" className={`${classes.container}`}>
         <Flex 
           direction="column"
           className={classes.content}>
+            <NavLink label="Features" variant="filled" icon={<FcEnteringHeavenAlive />} />
             { headerLinks.map((link) => (
               <Button key={link.label} onClick={() => { setOpened() } }>{ link.label }</Button>
             )) 
