@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Box, Text } from '@mantine/core';
+import { useEffect, useState } from "react";
+import { Box, Text, LoadingOverlay, Flex } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
@@ -12,12 +12,38 @@ import TextPlusImage from "@/Components/TextPlusImage";
 export default function Home() {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
+  const [pageReady, setPageReady] = useState(false);
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
+
+  useEffect(() => {
+    function handleLoad() {
+      alert("READY");
+      setPageReady(true);
+    }
+
+    if (document.readyState === "complete" && !pageReady) {
+      setPageReady(true);
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    }
+  }, [pageReady]);
 
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
+
+  if (!pageReady) {
+    return (
+      <Flex w="100%" h="100vh" align={"center"} justify={"center"}>
+        <LoadingOverlay visible={true} />
+      </Flex>
+    );
+  }
 
   return (
       <Box style={{backgroundColor: "var(--landing-background)"}}>
