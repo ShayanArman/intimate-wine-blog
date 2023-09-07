@@ -14,10 +14,9 @@ const useStyles = createStyles(
         backgroundColor: "var(--landing-blur)",
         padding: "20px",
 
-        [theme.fn.largerThan("sm")]: {
+        [theme.fn.largerThan("xs")]: {
           marginLeft: "10px",
           width: "20rem",
-          height: "initial",
           backgroundColor: "var(--landing-blur)",
           borderBottomLeftRadius: "10px",
           borderBottomRightRadius: "10px",
@@ -78,7 +77,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
     }
 
     return (
-      <Flex className={`${classes.container}`}>
+      <Flex className={classes.container}>
         <Flex 
           direction="column"
           className={classes.content}>
