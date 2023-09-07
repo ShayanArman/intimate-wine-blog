@@ -86,6 +86,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
                 component={"a"}
                 key={link.label}
                 label={link.label}
+                style={link.link === router.asPath ? {backgroundColor: "var(--blue-light)"}: {}}
                 classNames={{ 
                   icon: classes.icon, 
                   root: classes.rootNav,
