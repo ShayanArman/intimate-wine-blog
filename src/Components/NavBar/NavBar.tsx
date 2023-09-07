@@ -1,6 +1,7 @@
 import { createStyles, Divider, Space, Flex, NavLink } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
+import { FiChevronRight } from "react-icons/fi";
 
 
 const useStyles = createStyles(
@@ -60,7 +61,8 @@ const useStyles = createStyles(
       },
       
       rightSection: {
-        border: "1px solid black"
+        fontSize: "1.5rem",
+        fontWeight: 400
       }
     })
 )
@@ -89,6 +91,7 @@ export default function NavBar({ opened }: { opened: boolean }) {
                   label: classes.label,
                   rightSection: classes.rightSection
                 }}
+                rightSection={link.links && <FiChevronRight />}
                 href={link.link}
                 target={link.newTab ? "_blank" : "_self"}
                 variant="filled"
