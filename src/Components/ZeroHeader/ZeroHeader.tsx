@@ -17,8 +17,8 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
-import { FiChevronDown } from "react-icons/fi"
-import { FcLock, FcBookmark, FcBriefcase, FcDataSheet, FcHeatMap, FcFolder, FcAbout, FcNews } from "react-icons/fc"
+import { FiChevronDown, FiToggleRight } from "react-icons/fi"
+import { FcLock, FcBookmark, FcBriefcase, FcHeatMap, FcFolder, FcAbout, FcNews, FcDataBackup, FcAutomatic } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -193,9 +193,9 @@ type Links = {
 
 export const headerLinks: Links = [
   { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
-  { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
+  { link: "/security", label: "Security", Icon: <FiToggleRight color="var(--blue-light)" />, newTab: false, showOnHeader: true },
   { link: "/business", label: 'Business', Icon: <FcBriefcase />, newTab: false, showOnHeader: true },
-  { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
+  { link: "/privacyAndData", label: 'Privacy', Icon: <FcAutomatic />, newTab: true, showOnHeader: true,
     links: [
       {link: "/privacy", label: "Privacy Info", Icon: <FcLock />,  newTab: true},
       {link: "/data", label: "Data FAQ", Icon: <FcBookmark />, newTab: true},

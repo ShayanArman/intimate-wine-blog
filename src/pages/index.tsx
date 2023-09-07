@@ -18,7 +18,6 @@ export default function Home() {
 
   useEffect(() => {
     function handleLoad() {
-      alert("READY");
       setPageReady(true);
     }
 
