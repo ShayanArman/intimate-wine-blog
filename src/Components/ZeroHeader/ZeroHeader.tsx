@@ -109,6 +109,7 @@ export default function ZeroHeader({
 
   if (linksRef.current && opened) {
     const computedStyle = window.getComputedStyle(linksRef.current);
+
     if (computedStyle.display !== 'none') {
       setOpened(false);
     }

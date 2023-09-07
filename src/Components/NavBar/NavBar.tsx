@@ -1,4 +1,4 @@
-import { createStyles, Divider, Space, Flex, NavLink } from "@mantine/core";
+import { createStyles, Flex, NavLink } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
 import { FiChevronRight } from "react-icons/fi";
