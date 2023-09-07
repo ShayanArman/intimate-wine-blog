@@ -20,20 +20,27 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
-  textContainer: {
-    backgroundColor: "transparent",
+  textBorder: {
     // borderRadius: "30px",
-    minHeight: "20rem",
     // boxShadow: "7px 7px 10px 0px var(--shadow-color)",
-    maxWidth: "20rem",
-    [theme.fn.smallerThan("md")]: {
-      maxWidth: "15rem"
-    }
   },
 
-  textBorder: {
-    borderRadius: "30px",
-    boxShadow: "7px 7px 10px 0px var(--shadow-color)",
+  textContainer: {
+    backgroundColor: "transparent",
+    minHeight: "20rem",
+    maxWidth: "23rem",
+    
+    [theme.fn.smallerThan("lg")]: {
+      maxWidth: "23rem"
+    },
+
+    [theme.fn.smallerThan("md")]: {
+      maxWidth: "50%"
+    },
+
+    [theme.fn.smallerThan("sm")]: {
+      maxWidth: "100%"
+    },
   },
 
   textContent: {
@@ -47,18 +54,19 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
-  textLink: {
-    "&:hover": {
-      color: "var(--zero-blue)"
-    }
-  },
-
   title: {
-    fontSize: "40px",
+    fontSize: "60px",
     fontWeight: 400,
     lineHeight: 1,
     [theme.fn.smallerThan("md")]: {
+      maxWidth: "70%",
       fontSize: "35px",
+    }
+  },
+
+  textLink: {
+    "&:hover": {
+      color: "var(--zero-blue)"
     }
   },
 
@@ -122,7 +130,7 @@ export default function TextPlusImage({title, description, isSmallScreen, versio
     </Flex>);
 
   const text = (
-    <Box className={`${classes.textContainer} ${version === "black" ? classes.textBorder : null } ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
+    <Box className={`${classes.textContainer} ${seenComponents.has("textSection") ? classes.visible : classes.nonVisible }`}>
       <TextPart key="textSection" title={title} description={description} version={version} link={link} />
       <Waypoint topOffset={0} onEnter={() => {!seenComponents.has("textSection") ? addSeenComponent("textSection") : null }} />
     </Box>
