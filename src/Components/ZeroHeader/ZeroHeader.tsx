@@ -19,7 +19,7 @@ import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
 import { FiBookOpen, FiChevronDown, FiLock } from "react-icons/fi"
-import { FcClock, FcLock, FcBookmark, FcBriefcase, FcGrid, FcDataSheet, FcBarChart, FcCloth, FcHeatMap, FcEmptyFilter, FcFolder, FcKey, FcLandscape } from "react-icons/fc"
+import { FcClock, FcLock, FcBookmark, FcBriefcase, FcGrid, FcDataSheet, FcBarChart, FcCloth, FcHeatMap, FcEmptyFilter, FcFolder, FcKey, FcLandscape, FcCamera, FcAbout, FcNews } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -187,26 +187,29 @@ type Links = {
   link: string;
   label: string;
   newTab: boolean;
+  showOnHeader: boolean;
   Icon?: JSX.Element;
   links?: { link: string; label: string; Icon?: JSX.Element; newTab: boolean }[];
 }[];
 
 export const headerLinks: Links = [
-  { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false },
-  { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false },
-  { link: "/business", label: 'Business', Icon: <FcBriefcase />, newTab: false },
-  { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true,
+  { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
+  { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
+  { link: "/business", label: 'Business', Icon: <FcBriefcase />, newTab: false, showOnHeader: true },
+  { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
     links: [
       {link: "/privacy", label: "Privacy Info", Icon: <FcLandscape />,  newTab: true},
       {link: "/data", label: "Data FAQ", Icon: <FcBookmark />, newTab: true},
-    ] },
-  { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcEmptyFilter />, newTab: true },
+    ]
+  },
+  { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcNews />, newTab: true, showOnHeader: true },
+  { link: "/about", label: 'About', Icon: <FcAbout />, newTab: false, showOnHeader: false },
 ];
 
 function LinksToItems() {
   const { classes } = useStyles();
 
-  return headerLinks.map((link) => {
+  return headerLinks.filter(link => link.showOnHeader).map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item
         component="a"

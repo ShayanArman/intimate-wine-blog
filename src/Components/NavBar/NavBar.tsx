@@ -1,7 +1,5 @@
-import { createStyles, Flex, Button, NavLink } from "@mantine/core";
+import { createStyles, Divider, Space, Flex, NavLink } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
-import { FcEnteringHeavenAlive } from "react-icons/fc";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 
@@ -36,6 +34,33 @@ const useStyles = createStyles(
         [theme.fn.largerThan("sm")]: {
           width: "100%",
         }
+      },
+
+      rootNav: {
+        backgroundColor: "transparent",
+        borderRadius: "7px",
+      },
+
+      icon: {
+        fontSize: "1.3rem",
+      },
+
+      label: {
+        fontWeight: 400,
+        fontSize: "1.5rem",
+      },
+
+      iconNested: {
+        fontSize: "1.2rem",
+      },
+
+      labelNested: {
+        fontWeight: 300,
+        fontSize: "1.2rem",
+      },
+      
+      rightSection: {
+        border: "1px solid black"
       }
     })
 )
@@ -58,6 +83,12 @@ export default function NavBar({ opened }: { opened: boolean }) {
                 component={"a"}
                 key={link.label}
                 label={link.label}
+                classNames={{ 
+                  icon: classes.icon, 
+                  root: classes.rootNav,
+                  label: classes.label,
+                  rightSection: classes.rightSection
+                }}
                 href={link.link}
                 target={link.newTab ? "_blank" : "_self"}
                 variant="filled"
@@ -68,6 +99,11 @@ export default function NavBar({ opened }: { opened: boolean }) {
                       <NavLink 
                         component={"a"}
                         key={subLink.label}
+                        classNames={{
+                          root: classes.rootNav,
+                          icon: classes.iconNested, 
+                          label: classes.labelNested
+                        }}
                         label={subLink.label}
                         href={subLink.link}
                         target={subLink.newTab ? "_blank" : "_self"}
