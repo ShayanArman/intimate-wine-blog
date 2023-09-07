@@ -30,11 +30,12 @@ const useStyles = createStyles(
       },
 
       content: {
-        marginLeft: "2rem",
         rowGap: 5,
+        marginLeft: "2rem",
         width: "80%",
         [theme.fn.largerThan("sm")]: {
           width: "100%",
+          marginLeft: "0rem"
         }
       },
 
