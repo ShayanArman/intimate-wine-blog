@@ -1,6 +1,9 @@
 import { createStyles, Flex, Button, NavLink } from "@mantine/core";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { FcEnteringHeavenAlive } from "react-icons/fc";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
 
 const useStyles = createStyles(
     (theme) => ({
@@ -37,8 +40,9 @@ const useStyles = createStyles(
     })
 )
 
-export default function NavBar({opened, setOpened}: { opened: boolean, setOpened: () => void }) {
+export default function NavBar({ opened }: { opened: boolean }) {
     const { classes } = useStyles();
+    const router = useRouter();
 
     if(!opened) {
         return <></>;
@@ -49,9 +53,30 @@ export default function NavBar({opened, setOpened}: { opened: boolean, setOpened
         <Flex 
           direction="column"
           className={classes.content}>
-            <NavLink label="Features" variant="filled" icon={<FcEnteringHeavenAlive />} />
-            { headerLinks.map((link) => (
-              <Button key={link.label} onClick={() => { setOpened() } }>{ link.label }</Button>
+            { headerLinks.map((link, index) => (
+              <NavLink
+                component={"a"}
+                key={link.label}
+                label={link.label}
+                href={link.link}
+                target={link.newTab ? "_blank" : "_self"}
+                variant="filled"
+                active={router.asPath === link.link}
+                icon={link.Icon}>
+                  {
+                    link.links?.map((subLink) => (
+                      <NavLink 
+                        component={"a"}
+                        key={subLink.label}
+                        label={subLink.label}
+                        href={subLink.link}
+                        target={subLink.newTab ? "_blank" : "_self"}
+                        variant="filled"
+                        icon={subLink.Icon}
+                      />
+                    ))
+                  }
+                </NavLink>
             )) 
             }
         </Flex>

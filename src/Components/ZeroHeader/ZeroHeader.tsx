@@ -107,16 +107,16 @@ export default function ZeroHeader({
   const linksRef = useRef<HTMLDivElement | null>(null);
   const burgerRef = useRef<HTMLButtonElement | null>(null);
 
-  useEffect(() => {
-    function handleClick(event: MouseEvent) {
-      if (opened && burgerRef.current && !burgerRef.current.contains(event.target as Node)) {
-        setOpened(false);
-      }
-    }
+  // useEffect(() => {
+  //   function handleClick(event: MouseEvent) {
+  //     if (opened && burgerRef.current && !burgerRef.current.contains(event.target as Node)) {
+  //       setOpened(false);
+  //     }
+  //   }
   
-    document.addEventListener("mouseup", handleClick);
-    return () => document.removeEventListener("mouseup", handleClick);
-  }, [opened]);
+  //   document.addEventListener("mouseup", handleClick);
+  //   return () => document.removeEventListener("mouseup", handleClick);
+  // }, [opened]);
 
   if (linksRef.current && opened) {
     const computedStyle = window.getComputedStyle(linksRef.current);
@@ -156,7 +156,7 @@ export default function ZeroHeader({
           </Box>
         </Container>
       </Header>
-      <NavBar opened={opened} setOpened={() => { setOpened(false) }} />
+      <NavBar opened={opened} />
     </>
   );
 }
@@ -199,18 +199,18 @@ type Links = {
   label: string;
   newTab: boolean;
   Icon?: JSX.Element;
-  links?: { link: string; label: string; Icon: JSX.Element; newTab: boolean }[];
+  links?: { link: string; label: string; Icon?: JSX.Element; newTab: boolean }[];
 }[];
 
 export const headerLinks: Links = [
   { link: "/features", label: 'Features', newTab: false },
   { link: "/security", label: "Security", newTab: false },
   { link: "/business", label: 'Business', newTab: false },
-  {
-    link: "https://zeroinbox.ai/privacy.pdf",
-    label: "Privacy",
-    newTab: true,
-  },
+  { link: "/privacyAndData", label: 'Privacy + Data', newTab: true,
+    links: [
+      {link: "/privacy", label: "Privacy", newTab: true},
+      {link: "/data", label: "Data FAQ", newTab: true},
+    ] },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", newTab: true },
 ];
 
