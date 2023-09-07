@@ -9,3 +9,15 @@ Hero Section Image:
   //   position: 'relative',
   //   zIndex: -1,
   // },
+
+how to close NavBar
+// useEffect(() => {
+  //   function handleClick(event: MouseEvent) {
+  //     if (opened && burgerRef.current && !burgerRef.current.contains(event.target as Node)) {
+  //       setOpened(false);
+  //     }
+  //   }
+  
+  //   document.addEventListener("mouseup", handleClick);
+  //   return () => document.removeEventListener("mouseup", handleClick);
+  // }, [opened]);
