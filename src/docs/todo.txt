@@ -1,4 +1,7 @@
+Now:
 - import ZeroHeader only one placement
+
+Later:
 - make sure all screens return null when not loaded fully
 - make a simple /about page.
 - press outside of navbar close navbar.

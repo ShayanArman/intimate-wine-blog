@@ -18,7 +18,7 @@ import classNames from "classnames";
 import { useState, useRef } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
-import { FcLock, FcBookmark, FcBriefcase, FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcDatabase, FcDocument, FcClock, FcSalesPerformance } from "react-icons/fc"
+import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance } from "react-icons/fc"
 
 
 export const HEADER_PIXEL_HEIGHT = 80;
@@ -109,7 +109,6 @@ export default function ZeroHeader({
 
   if (linksRef.current && opened) {
     const computedStyle = window.getComputedStyle(linksRef.current);
-
     if (computedStyle.display !== 'none') {
       setOpened(false);
     }

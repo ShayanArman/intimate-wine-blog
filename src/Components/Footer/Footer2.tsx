@@ -1,10 +1,7 @@
 import { Flex, Footer } from "@mantine/core";
 import Image from "next/image";
 
-/**
- * 
- * TODO include Contact.
- */
+
 export default function Footer2() {
   return (
     <Footer height={80} style={{backgroundColor: "var(--landing-background)"}} withBorder={false}>
