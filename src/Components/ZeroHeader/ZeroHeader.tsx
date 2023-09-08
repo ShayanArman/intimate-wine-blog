@@ -129,7 +129,7 @@ export default function ZeroHeader({
     }
 
     handleResize();
-    const throttledHandleResize = throttle(handleResize, 250);
+    const throttledHandleResize = throttle(handleResize, 50);
     window.addEventListener('resize', throttledHandleResize);
     return () => {
       window.removeEventListener('resize', throttledHandleResize);
