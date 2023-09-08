@@ -1,57 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
-import ZeroHeader, { HEADER_HEIGHT } from '@/Components/ZeroHeader/ZeroHeader';
 import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
-import Footer from "@/Components/Footer";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
 
 
 export default function Home() {
-  const [scrolledToHeader, setScrolledToHeader] = useState(false);
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
-  const [pageReady, setPageReady] = useState(false);
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
-
-  useEffect(() => {
-    function handleLoad() {
-      setPageReady(true);
-    }
-
-    if (document.readyState === "complete" && !pageReady) {
-      setPageReady(true);
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
-
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    }
-  }, [pageReady]);
 
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
 
-  if (!pageReady) {
-    return null;
-  }
-
   return (
-      <Box style={{backgroundColor: "var(--landing-background)"}}>
-        <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
-        
-        <Waypoint
-          onEnter={() => { setScrolledToHeader(false); }}
-          onLeave={() => { setScrolledToHeader(true);}}
-        >
-          <Box mih={HEADER_HEIGHT} w={"100%"} style={{ backgroundColor: "var(--landing-background)"}}>
-          </Box>
-        </Waypoint>
-
+      <>
         <HeroSection isSmallScreen={isSmallScreen} />
 
         <TextSection 
@@ -116,8 +82,6 @@ export default function Home() {
             placement="text-first"
           />
         </Box>
-
-        <Footer />
-      </Box>
+      </>
   )
 }
