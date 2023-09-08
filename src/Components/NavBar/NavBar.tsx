@@ -1,4 +1,5 @@
-import { Box, Button, createStyles, Flex, NavLink } from "@mantine/core";
+import { createStyles, Flex, NavLink } from "@mantine/core";
+import Link from "next/link";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
 import { FiChevronRight } from "react-icons/fi";
@@ -81,42 +82,42 @@ export default function NavBar({ opened }: { opened: boolean }) {
           direction="column"
           className={classes.content}>
             { headerLinks.map((link) => (
-              <NavLink
-                component={"a"}
-                key={link.label}
-                label={link.label}
-                style={link.link === router.asPath ? {backgroundColor: "var(--blue-light)"}: {}}
-                classNames={{ 
-                  icon: classes.icon, 
-                  root: classes.rootNav,
-                  label: classes.label,
-                  rightSection: classes.rightSection
-                }}
-                rightSection={link.links && <FiChevronRight />}
-                href={link.link}
-                target={link.newTab ? "_blank" : "_self"}
-                variant="filled"
-                active={router.asPath === link.link}
-                icon={link.Icon}>
-                  {
-                    link.links?.map((subLink) => (
-                      <NavLink 
-                        component={"a"}
-                        key={subLink.label}
-                        classNames={{
-                          root: classes.rootNav,
-                          icon: classes.iconNested, 
-                          label: classes.labelNested
-                        }}
-                        label={subLink.label}
-                        href={subLink.link}
-                        target={subLink.newTab ? "_blank" : "_self"}
-                        variant="filled"
-                        icon={subLink.Icon}
-                      />
-                    ))
-                  }
-                </NavLink>
+              <Link key={link.label} href={link.link} target={link.newTab ? "_blank" : "_self"} passHref>
+                <NavLink
+                  component={"a"}
+                  key={link.label}
+                  label={link.label}
+                  style={link.link === router.asPath ? {backgroundColor: "var(--blue-light)"}: {}}
+                  classNames={{ 
+                    icon: classes.icon, 
+                    root: classes.rootNav,
+                    label: classes.label,
+                    rightSection: classes.rightSection
+                  }}
+                  rightSection={link.links && <FiChevronRight />}
+                  variant="filled"
+                  active={router.asPath === link.link}
+                  icon={link.Icon}>
+                    {
+                      link.links?.map((subLink) => (
+                        <Link key={subLink.label} href={subLink.link} target={subLink.newTab ? "_blank" : "_self"} passHref>
+                          <NavLink 
+                            component={"a"}
+                            key={subLink.label}
+                            classNames={{
+                              root: classes.rootNav,
+                              icon: classes.iconNested, 
+                              label: classes.labelNested
+                            }}
+                            label={subLink.label}
+                            variant="filled"
+                            icon={subLink.Icon}
+                          />
+                        </Link>
+                      ))
+                    }
+                  </NavLink>
+                </Link>
             )) 
             }
         </Flex>
