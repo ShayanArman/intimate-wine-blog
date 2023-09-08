@@ -143,7 +143,7 @@ export default function TextPlusImage({title, description, isSmallScreen, versio
   );
 
   return (
-    <Flex w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
+    <Flex id="features" w="100%" justify="center" mr="auto" ml="auto" className={classes.container}>
       <Flex
         w={"100%"} 
         justify={"space-between"}

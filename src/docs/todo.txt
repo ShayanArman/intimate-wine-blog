@@ -1,13 +1,15 @@
 Now:
 
 Later:
-- press outside of navbar close navbar.
-- (later) fix footer to always be at bottom of page.
+- write better copy
+- make nav links link to main page components.
+- press outside of navbar close navbar
+- (later) fix footer to always be at bottom of page
 
 Done:
-- make NavLink NextLink. not reload page.
+- make NavLink NextLink. not reload page
 - add terms of service and privacy.pdf to links
 - import ZeroHeader only one placement
-- close navbar when links are pressed.
-- close navbar when browser expanded.
+- close navbar when links are pressed
+- close navbar when browser expanded
 - save in context that ZeroAI descriptor has already been read

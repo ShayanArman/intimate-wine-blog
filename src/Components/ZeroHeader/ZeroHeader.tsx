@@ -79,12 +79,14 @@ const useStyles = createStyles(
       lineHeight: 1,
       padding: `${rem(8)} ${rem(12)}`,
       textDecoration: "none",
+      fontWeight: 500,
       color: 'black',
       fontSize: theme.fontSizes.md,
-      fontWeight: 400,
 
       "&:hover": {
-        borderBottom: "2.5px solid #E65E8C",
+        color: "var(--zero-red-darker)",
+        fontWeight: 700,
+        transition: "all 0.08s ease-out",
       },
     },
 
@@ -215,7 +217,7 @@ type Links = {
 
 export const headerLinks: Links = [
   { link: "/", label: 'Zero AI', Icon: <FcHome />, newTab: false, showOnHeader: false },
-  { link: "/features", label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
+  { link: "/#features", label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
   { link: "/security", label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
   { link: "/business", label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
   { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
