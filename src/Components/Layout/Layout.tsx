@@ -1,7 +1,7 @@
 import useIsMobile from "@/hooks/useIsMobile";
 import { Box } from "@mantine/core";
 import Head from "next/head";
-import Footer from "@/Components/Footer";
+import FooterSection from "@/Components/Footer";
 import { useEffect, useState } from "react";
 import ZeroHeader, { HEADER_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 import { Waypoint } from "react-waypoint";
@@ -54,7 +54,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
 
         { children }
 
-        <Footer />
+        <FooterSection />
       </Box>
     </>
   );

@@ -2,7 +2,7 @@ import { Flex, Footer } from "@mantine/core";
 import Image from "next/image";
 
 
-export default function Footer2() {
+export default function FooterSection() {
   return (
     <Footer height={80} style={{backgroundColor: "var(--landing-background)"}} withBorder={false}>
       <Flex h={"inherit"} justify="center" align="center" style={{backgroundColor: "transparent"}}>
