@@ -197,8 +197,8 @@ export const headerLinks: Links = [
   { link: "/business", label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
   { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
     links: [
-      {link: "/privacy", label: "Privacy Info",  newTab: true},
-      {link: "/data", label: "Data FAQ", newTab: true},
+      {link: "/privacy.pdf", label: "Privacy Info",  newTab: true},
+      {link: "/terms.pdf", label: "Data FAQ", newTab: true},
     ]
   },
   { link: "https://blog.zeroinbox.ai/", label: "Blog", Icon: <FcLibrary />, newTab: true, showOnHeader: true },
