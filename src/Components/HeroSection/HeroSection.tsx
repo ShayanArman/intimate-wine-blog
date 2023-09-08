@@ -156,7 +156,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
     return () => {
       clearTimeout(timeout);
     };
-  });
+  }, [isHeroReading]);
 
   return (
     <Box>
