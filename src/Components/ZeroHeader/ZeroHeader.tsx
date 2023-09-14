@@ -17,6 +17,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
+import { Link as ScrollLink, animateScroll } from "react-scroll";
 import { FiChevronDown } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
 
@@ -90,6 +91,7 @@ const useStyles = createStyles(
       },
     },
 
+    // for nested links
     linkOpen: {
       color: "var(--zero-red-darker)",
       fontWeight: 700,
@@ -280,15 +282,30 @@ function LinksToItems() {
       );
     }
 
-    return (
-      <Link
-        href={link.link}
-        key={link.label}
-        target={link.newTab ? "_blank" : "_self"}
-        className={classes.link}
-      >
-        {link.label}
-      </Link>
-    );
+    if (link.newTab) {
+      return (
+        <Link
+          href={link.link}
+          key={link.label}
+          target={link.newTab ? "_blank" : "_self"}
+          className={classes.link}
+        >
+          {link.label}
+        </Link>
+      );
+    } else {
+      return (
+        <ScrollLink 
+          key={link.label} 
+          to="features"
+          smooth={true}
+          duration={400}
+          offset={-1*(HEADER_PIXEL_HEIGHT+10)}
+          className={classes.link}
+        >
+          {link.label}
+        </ScrollLink>
+      )
+    }
   });
 }
