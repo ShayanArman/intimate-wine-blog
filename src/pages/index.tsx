@@ -35,7 +35,7 @@ export default function Home() {
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
           version={"reg"}
           isSmallScreen={isSmallScreen}
-          link={{text: "Features", href:"/features"}}
+          link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
           placement="text-first"
         />
 
@@ -52,11 +52,11 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} pt={30}>
           <TextPlusImage
-            title={"Never miss an important email"}
-            description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+            title={"Secure from the ground up"}
+            description={"Google Security Partner. End to End encryption, at every step."}
             version={"reg"}
             isSmallScreen={isSmallScreen}
-            link={{text: "Features", href:"/features"}}
+            link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
             placement="text-first"
           />
         </Box>
