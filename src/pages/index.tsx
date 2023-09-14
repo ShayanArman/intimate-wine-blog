@@ -5,6 +5,7 @@ import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
+import { BUSINESS_SECTION, FEATURES_SECTION, PRIVACY_SECTION, SECURITY_SECTION, UNSUBSCRIBE_SECTION } from "@/common/constants";
 
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
 
         <TextPlusImage
-          id="features"
+          id={FEATURES_SECTION}
           title={"Never miss an important email"}
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
           version={"reg"}
@@ -42,7 +43,7 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} style={{ backgroundColor: 'black' }} pt={30}>
           <TextPlusImage
-            id="unsubscribe"
+            id={UNSUBSCRIBE_SECTION}
             title={"Unsubscribe is here."}
             description={"Unsubscribe seamlessly. With the press of a button. Try it below."}
             version="black"
@@ -54,7 +55,7 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} pt={30}>
           <TextPlusImage
-            id="security"
+            id={SECURITY_SECTION}
             title={"Secure from the ground up"}
             description={"Google Security Partner. End to End encryption, at every step."}
             version={"reg"}
@@ -66,24 +67,24 @@ export default function Home() {
 
         <Box mih={"500px"} w={"100%"} pt={150}>
           <TextPlusImage
-            id="privacy"
-            title={"Never miss an important email"}
-            description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+            id={PRIVACY_SECTION}
+            title={"You're in control."}
+            description={"All your emails, your way. Complete control over your account and data. Delete everything with a simple click. All your emails stay in Gmail Folders."}
             version={"reg"}
             isSmallScreen={isSmallScreen}
-            link={{text: "Features", href:"/features"}}
+            link={{text: "Privacy", href:"https://app.zeroinbox.ai"}}
             placement={isLargeScreen ? "image-first" : "text-first"}
           />
         </Box>
 
         <Box mih={"500px"} w={"100%"} pt={150}>
           <TextPlusImage
-            id="business"
-            title={"Never miss an important email"}
-            description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
+            id={BUSINESS_SECTION}
+            title={"Zero Inbox for Business"}
+            description={"Communicate, quickly. Employee chat, with Zero AI email Manager to help you manage your emails. The average employee spends an hour a day email. Let Zero AI handle it."}
             version={"reg"}
             isSmallScreen={isSmallScreen}
-            link={{text: "Features", href:"/features"}}
+            link={{text: "Contact us", href:"https://app.zeroinbox.ai"}}
             placement="text-first"
           />
         </Box>
