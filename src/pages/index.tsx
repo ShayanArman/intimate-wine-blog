@@ -1,17 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Box, Text } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
+import { scroller } from 'react-scroll';
 import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
-import { BUSINESS_SECTION, FEATURES_SECTION, PRIVACY_SECTION, SECURITY_SECTION, UNSUBSCRIBE_SECTION } from "@/common/constants";
+import { BUSINESS_SECTION, FEATURES_SECTION, PRIVACY_SECTION, SECURITY_SECTION, UNSUBSCRIBE_SECTION, mainPageSections } from "@/common/constants";
+import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 
+type SectionKey = keyof typeof mainPageSections;
 
 export default function Home() {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
+  const router = useRouter();
+
+  useEffect(() => {
+    // If there's a section query in the URL, use react-scroll to scroll to that section
+    const { section } = router.query;
+
+    if (section && typeof section === 'string' && mainPageSections[section as SectionKey]) {
+      // Use a delay to ensure page elements have rendered, then scroll smoothly to the section
+      setTimeout(() => {
+        scroller.scrollTo(section, {
+          duration: 800,
+          delay: 0,
+          offset: -1*(HEADER_PIXEL_HEIGHT+mainPageSections[section as SectionKey].offset),
+          smooth: 'easeInOutQuart',
+        });
+      }, 50);
+    }
+  }, [router.query]);
 
   const addSeenComponent = (component: string) => {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));

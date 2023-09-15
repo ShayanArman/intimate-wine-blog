@@ -118,8 +118,8 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean, close
                         </Link>
                       ))
                     }
-                  </NavLink>
-                </Link>
+                </NavLink>
+              </Link>
             )) 
             }
         </Flex>

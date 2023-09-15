@@ -15,9 +15,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
-import { useState, useRef, useEffect, MouseEventHandler } from "react";
+import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
-import { Link as ScrollLink, scroller } from "react-scroll";
 import { FiChevronDown } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
 import { BUSINESS_SECTION, FEATURES_SECTION, PRIVACY_SECTION, SECURITY_SECTION } from "@/common/constants";
@@ -217,27 +216,21 @@ function ActionButton({
 
 type Links = {
   link: string;
-  scrollInfo?: ScrollInfo;
   label: string;
   newTab: boolean;
   showOnHeader: boolean;
   Icon?: JSX.Element;
-  links?: { link: string; scrollInfo?: ScrollInfo; label: string; Icon?: JSX.Element; newTab: boolean }[];
+  links?: { link: string; label: string; Icon?: JSX.Element; newTab: boolean }[];
 }[];
-
-type ScrollInfo = {
-  sectionId: string,
-  offset: number
-}
 
 export const headerLinks: Links = [
   { link: "/", label: 'Zero AI', Icon: <FcHome />, newTab: false, showOnHeader: false },
-  { link: "/features", scrollInfo: {sectionId: FEATURES_SECTION, offset: 40}, label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
-  { link: "/security", scrollInfo: {sectionId: SECURITY_SECTION, offset: 30}, label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
-  { link: "/business", scrollInfo: {sectionId: BUSINESS_SECTION, offset: 0}, label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
+  { link: `/?section=${FEATURES_SECTION}`, label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
+  { link: `/?section=${SECURITY_SECTION}`, label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
+  { link: `/?section=${BUSINESS_SECTION}`, label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },
   { link: "/privacyAndData", label: 'Privacy', Icon: <FcHeatMap />, newTab: true, showOnHeader: true,
     links: [
-      {link: "/privacy.pdf", scrollInfo: {sectionId: PRIVACY_SECTION, offset: 80}, label: "Privacy Info",  newTab: true},
+      {link: `/?section=${PRIVACY_SECTION}`, label: "Privacy Info",  newTab: false},
       {link: "/terms.pdf", label: "Data FAQ", newTab: true},
     ]
   },
@@ -251,31 +244,14 @@ function LinksToItems() {
 
   return headerLinks.filter(link => link.showOnHeader).map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item
-        component="button"
-        onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-          if (item.scrollInfo?.sectionId) { // Check if the link is an anchor link
-            // Use react-scroll's scroller method
-            scroller.scrollTo(item.scrollInfo.sectionId, {
-              duration: 800,
-              offset: (-1*(HEADER_PIXEL_HEIGHT+(item.scrollInfo?.offset ?? 0))),
-              delay: 0,
-              smooth: 'easeInOutQuart'
-            });
-          } else {
-            // Handle external links or other behavior here
-            if (item.newTab) {
-              window.open(item.link, '_blank');
-            } else {
-              window.location.href = item.link;
-            }
-          }
-        }}
-        icon={item.Icon}
-        key={item.label}
-      >
-        {item.label}
-      </Menu.Item>
+      <Link key={item.label} href={item.link} target={item.newTab ? "_blank" : "_self"} passHref>
+        <Menu.Item
+          component="a"
+          icon={item.Icon}
+        >
+          {item.label}
+        </Menu.Item>
+      </Link>
     ));
 
     if (menuItems) {
@@ -305,7 +281,7 @@ function LinksToItems() {
       );
     }
 
-    if (!link.scrollInfo) {
+
       return (
         <Link
           href={link.link}
@@ -316,19 +292,5 @@ function LinksToItems() {
           {link.label}
         </Link>
       );
-    } else {
-      return (
-        <ScrollLink 
-          key={link.label} 
-          to={link.scrollInfo.sectionId}
-          smooth={true}
-          duration={400}
-          offset={-1*(HEADER_PIXEL_HEIGHT+link.scrollInfo.offset)}
-          className={classes.link}
-        >
-          {link.label}
-        </ScrollLink>
-      )
-    }
-  });
+      });
 }
