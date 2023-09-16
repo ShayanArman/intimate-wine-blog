@@ -10,6 +10,7 @@ Later:
 
 Done:
 - make NavLink NextLink. not reload page
+- contact us link on business section open up mail app
 - make nav links link to main page components
 - add terms of service and privacy.pdf to links
 - import ZeroHeader only one placement
