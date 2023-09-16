@@ -176,7 +176,7 @@ export default function ZeroHeader({
               size="md"
               color="var(--zero-blue)"
             />
-            <Link href="/" style={{marginTop: "0.3rem"}}>
+            <Link href="/" style={{marginTop: "0.3rem"}} onClick={() => setOpened(false)}>
               <Image width={192} height={50} alt="zeroInbox" src="/zeroInboxLogoBlack.svg" />
             </Link>
           </Flex>
