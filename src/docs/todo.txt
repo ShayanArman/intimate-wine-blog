@@ -2,21 +2,22 @@ Now:
 
 Later:
 - write better copy
-- make nav links link to main page components
 - About page with employees
 - press outside of navbar close navbar
 - (later) fix footer to always be at bottom of page
-- copy over Header to blog.zeroinbox.ai
+- Duplicate Header components of zeroinbox.ai to blog.zeroinbox.ai
 - testimonials section like WhatsApp with pictures
 
 Done:
 - make NavLink NextLink. not reload page
+- make nav links link to main page components
 - add terms of service and privacy.pdf to links
 - import ZeroHeader only one placement
 - close navbar when links are pressed
 - close navbar when browser expanded
 - save in context that ZeroAI descriptor has already been read
 - make Privacy hover when hover
+
 
 Sections:
 - Features initial
