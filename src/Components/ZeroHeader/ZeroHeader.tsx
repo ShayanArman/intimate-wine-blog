@@ -103,7 +103,8 @@ const useStyles = createStyles(
       },
     },
 
-    subLink: {
+    // nestedLinks when link has nested links
+    nestedLink: {
       fontSize: theme.fontSizes.lg
     },
 
@@ -264,7 +265,7 @@ function LinksToItems() {
         <Menu.Item
           component="a"
           icon={item.Icon}
-          className={classes.subLink}
+          className={classes.nestedLink}
         >
           {item.label}
         </Menu.Item>
