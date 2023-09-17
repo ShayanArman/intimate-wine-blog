@@ -94,7 +94,7 @@ const useStyles = createStyles(
       textDecoration: "none",
       fontWeight: 500,
       color: 'black',
-      fontSize: theme.fontSizes.md,
+      fontSize: theme.fontSizes.xl,
 
       "&:hover": {
         color: "var(--zero-red-darker)",
@@ -293,17 +293,16 @@ function LinksToItems() {
       );
     }
 
-
-      return (
-        <Link
-          href={link.link}
-          shallow={true}
-          key={link.label}
-          target={link.newTab ? "_blank" : "_self"}
-          className={classes.link}
-        >
-          {link.label}
-        </Link>
-      );
-      });
+    return (
+      <Link
+        href={link.link}
+        shallow={true}
+        key={link.label}
+        target={link.newTab ? "_blank" : "_self"}
+        className={classes.link}
+      >
+        {link.label}
+      </Link>
+    );
+  });
 }
