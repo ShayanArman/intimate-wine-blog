@@ -45,7 +45,7 @@ export default function About() {
           Team
         </h1>
         <p className={classes.description}>
-          Our team is led by Shayan Arman, a Silicon Valley Engineer formerly at Apple.
+          Our team is led by Shayan Arman, a Silicon Valley Engineer formerly at Apple. And Connor Robertson, a Senior Software Architect with a degree from the University of British Columbia. Both Connor and Shayan live in beautiful Vancouver British Columbia, Canada.
         </p>
       </Flex>
 
