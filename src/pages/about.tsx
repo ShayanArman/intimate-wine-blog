@@ -54,7 +54,7 @@ export default function About() {
           Advisory
         </h1>
         <p className={classes.description}>
-          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/wmyork/" content="Bill York" /></span>. Currently the head of <span><a style={{textDecoration: "underline"}} href="https://www.apple.com/siri/" target="_blank">Siri</a></span> Communications.
+          We are advised by <span><PeopleLink link="https://www.linkedin.com/in/wmyork/" content="Bill York" /></span>. Currently the head of <span><PeopleLink link="https://www.apple.com/siri/" content="Siri" /></span> Communications.
         </p>
       </Flex>
 
