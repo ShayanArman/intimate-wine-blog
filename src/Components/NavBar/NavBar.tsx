@@ -48,7 +48,7 @@ const useStyles = createStyles(
       },
 
       label: {
-        fontWeight: 400,
+        fontWeight: 500,
         fontSize: "1.5rem",
       },
 
@@ -57,7 +57,7 @@ const useStyles = createStyles(
       },
 
       labelNested: {
-        fontWeight: 300,
+        fontWeight: 500,
         fontSize: "1.2rem",
       },
       
