@@ -45,7 +45,7 @@ const useStyles = createStyles(
       borderBottom: "0px",
       top: 0,
       left: 0,
-      zIndex: 100,
+      zIndex: 9999,
       transition: "background-color 0.3s ease",
     },
 
