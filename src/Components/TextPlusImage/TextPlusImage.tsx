@@ -190,7 +190,7 @@ function ImagePart() {
 
   return (
     <Box mih={"400px"} w={"200px"} style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}}>
-      <Image width={200} height={400} alt="phone" src="/examplePhone.svg" />
+      <Image width={200} height={400} alt="phone" src="/unsubscribePhone.svg" />
     </Box>
   )
 }
