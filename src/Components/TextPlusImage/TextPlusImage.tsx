@@ -8,6 +8,7 @@ import { BsArrowRightCircle } from "react-icons/bs";
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
+import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -90,13 +91,6 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("md")]: {
       width: "100%",
       margin: "0 auto"
-    }
-  },
-
-  img: {
-    backgroundColor: "black",
-    [theme.fn.smallerThan("md")]: {
-      backgroundColor: "orange"
     }
   },
 
@@ -195,7 +189,8 @@ function ImagePart() {
   const { classes } = useStyles();
 
   return (
-    <Box mih={"400px"} w={"200px"} className={classes.img}>
+    <Box mih={"400px"} w={"200px"} style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}}>
+      <Image width={200} height={400} alt="phone" src="/examplePhone.svg" />
     </Box>
   )
 }
