@@ -188,7 +188,7 @@ function TextPart({title, description, version, link}: {title: string, descripti
 function ImagePart() {
   return (
     <Box>
-      <Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />
+      <Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/BlahBlahBlah.svg" />
     </Box>
   )
 }
