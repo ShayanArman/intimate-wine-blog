@@ -83,7 +83,7 @@ export default function Home() {
             id={SECURITY_SECTION}
             title={"Secure from the ground up"}
             description={"Google Security Partner. End to End encryption, at every step."}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
+            Image={<Image style={{borderRadius: "24px"}} width={619} height={580} alt="phone" src="/Security.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
