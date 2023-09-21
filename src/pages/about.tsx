@@ -49,14 +49,14 @@ export default function About() {
         </p>
       </Flex>
 
-      {/* <Flex direction="column" className={classes.hero} gap={10}>
+      <Flex direction="column" className={classes.hero} gap={10}>
         <h1 className={classes.title}>
           Advisory
         </h1>
         <p className={classes.description}>
           We are advised by <span><PeopleLink link="https://www.linkedin.com/in/wmyork/" content="Bill York" /></span>. Currently the head of <span><PeopleLink link="https://www.apple.com/siri/" content="Siri" /></span> Communications.
         </p>
-      </Flex> */}
+      </Flex>
 
       <Flex direction="column" className={classes.hero} gap={10}>
         <h1 className={classes.title}>
