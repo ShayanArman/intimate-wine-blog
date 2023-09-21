@@ -96,7 +96,7 @@ export default function Home() {
             id={PRIVACY_SECTION}
             title={"You're in control."}
             description={"All your emails, your way. Complete control over your account and data. Delete everything with a simple click. All your emails stay in Gmail Folders."}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/UnsubSymbol.svg" />}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Privacy.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Privacy", href:"https://app.zeroinbox.ai"}}
