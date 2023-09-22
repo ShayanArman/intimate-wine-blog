@@ -58,7 +58,7 @@ export default function Home() {
           id={FEATURES_SECTION}
           title={"Never miss an important email"}
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
-          Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Features.svg" />}
+          Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/FeaturesV5.svg" />}
           version={"reg"}
           isSmallScreen={isSmallScreen}
           link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
