@@ -58,7 +58,7 @@ export default function Home() {
           id={FEATURES_SECTION}
           title={"Never miss an important email"}
           description={"Zero AI quickly sorts what you don't need. Only important emails are left."}
-          Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/FeaturesV5.svg" />}
+          Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Features.svg" />}
           version={"reg"}
           isSmallScreen={isSmallScreen}
           link={{text: "Learn more", href:"https://app.zeroinbox.ai"}}
@@ -109,7 +109,7 @@ export default function Home() {
             id={BUSINESS_SECTION}
             title={"Zero Inbox for Business"}
             description={"Communicate quickly with Zero Inbox - Email Manager. The average employee spends an hour a day on email. Let Zero AI handle it."}
-            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Percolate.svg" />}
+            Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/Business.svg" />}
             version={"reg"}
             isSmallScreen={isSmallScreen}
             link={{text: "Contact us", href:"mailto:info@zeroinbox.ai?subject=Zero Inbox: AI Email Manager for Business"}}
