@@ -2,14 +2,13 @@ Now:
 
 Later:
 - (medium) write better copy
-- (hard) testimonials section like WhatsApp with pictures
-- (hard) iPhone images of app working sections
+- (hard, maybe) testimonials section like WhatsApp with pictures
 - (easy) make info@zeroinbox.ai, jobs@zeroinbox.ai email addresses
 - (easy) update privacy document and data faq document to be up to date.
-- (maybe) press outside of navbar close navbar
 
 Done:
 - make pitch deck notes and send back to Enrico
+- (hard) iPhone images of app working sections
 - (hard) About page with employees
 - (hard) Duplicate Header components of zeroinbox.ai to blog.zeroinbox.ai
 - (later) fix footer to always be at bottom of page
