@@ -188,9 +188,18 @@ export default function ZeroHeader({
           <Group spacing={5} className={classes.links} ref={linksRef}>
             <LinksToItems />
           </Group>
-          <Box>
-            <ActionButton buttonSize={isSmallScreen ? "md" : "lg"} innerText={ isSmallScreen ? "Start" : "Sign In" } />
-          </Box>
+          <Group>
+            { !isSmallScreen &&
+              <Link
+              href={"https://app.zeroinbox.ai"}
+              shallow={true}
+              target={"_blank"}
+              className={classes.link}
+            >
+              { isSmallScreen ? "Start" : "Sign In" }
+            </Link>}
+            <ActionButton buttonSize={isSmallScreen ? "md" : "lg"} innerText={ isSmallScreen ? "Start" : "Register" } />
+          </Group>
         </Container>
       </Header>
       <NavBar opened={opened} closeNavBar={() => setOpened(false)} />
