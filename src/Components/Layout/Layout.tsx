@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
         <link rel="icon" href="/logo.ico" />
         <meta name="description" content="Clear your Email, clear your Mind." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="og:title" content={"Zero Inbox"} />
+        <meta name="og:title" content={"Zero AI"} />
       </Head>
       
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
