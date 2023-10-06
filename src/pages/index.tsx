@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from 'next/image';
-import { Box, Text } from '@mantine/core';
+import { Box, Text, Container, Grid, Flex, Title, Button } from '@mantine/core';
 import { Waypoint } from 'react-waypoint';
 import { scroller } from 'react-scroll';
 import TextSection from "@/Components/TextSection";
@@ -10,6 +10,8 @@ import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
 import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
+
+import { BsArrowRightCircle } from "react-icons/bs";
 
 type SectionKey = keyof typeof mainPageSections;
 
@@ -53,6 +55,31 @@ export default function Home() {
           </Text>
         }/>
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
+
+        <Container size="lg" mb="60px" className="container">
+          <Grid gutter="xl">
+            <Grid.Col xs={12} sm={6} md={8} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+              <Title order={2} size="h1" style={{fontSize: '60px', textAlign: 'center', marginBottom: '20px', lineHeight: 1, fontWeight: 600}}>Never miss an important email</Title>
+              <Text fz="md" align="center" mb="15px">Zero AI quickly sorts what you don&lsquo;t need. Only important emails are left.</Text>
+              <Button size="md" color="grape" component="a" href="https://app.zeroinbox.ai">
+                Learn More &nbsp; <BsArrowRightCircle size="13px"  />
+              </Button>
+            </Grid.Col>
+            <Grid.Col xs={12} sm={6} md={4} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+              <Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={300} height={600} alt="phone" src="/images/features-1200px.png" />
+            </Grid.Col>
+          </Grid>
+        </Container>
 
         <TextPlusImage
           id={FEATURES_SECTION}
