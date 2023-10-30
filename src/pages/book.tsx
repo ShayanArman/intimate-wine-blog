@@ -6,7 +6,7 @@ export default function Book() {
 
   useEffect(() => {
     if (router.isReady) {
-      router.push("/about");
+      router.push("/about?include=book");
     }
 
     return () => {
