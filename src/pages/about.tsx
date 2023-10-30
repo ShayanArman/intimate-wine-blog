@@ -46,7 +46,7 @@ export default function About() {
           <a href="https://payhip.com/b/qZ50g" target="_blank">On Change</a>
         </h1>
         <p className={classes.description}>
-          On Change was written by Shayan Arman. To read the book, click <a href="https://payhip.com/b/qZ50g" target="_blank" style={{textDecoration: "underline"}}>here</a>
+          On Change is a book about implementing positive change in our lives by Shayan Arman. To read the book, click <a href="https://payhip.com/b/qZ50g" target="_blank" style={{textDecoration: "underline"}}>here</a>
         </p>
       </Flex> }
 
