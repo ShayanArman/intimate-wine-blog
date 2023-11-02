@@ -5,6 +5,7 @@ import FooterSection from "@/Components/Footer";
 import { useEffect, useState } from "react";
 import ZeroHeader, { HEADER_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
 import { Waypoint } from "react-waypoint";
+import GoogleAnalytics from "../Analytics/GoogleAnalytics";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -53,6 +54,7 @@ export default function Layout({ children }: { children: JSX.Element }) {
       </Head>
       
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
+        <GoogleAnalytics />
         <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
 
         <Waypoint
