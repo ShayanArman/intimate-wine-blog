@@ -243,16 +243,16 @@ function ActionButton({
   );
 }
 
-type Links = {
+type Link = {
   link: string;
   label: string;
   newTab: boolean;
   showOnHeader: boolean;
   Icon?: JSX.Element;
   links?: { link: string; label: string; Icon?: JSX.Element; newTab: boolean }[];
-}[];
+};
 
-export const headerLinks: Links = [
+export const headerLinks: Link[] = [
   { link: "/", label: 'Zero AI', Icon: <FcHome />, newTab: false, showOnHeader: false },
   { link: `/?section=${FEATURES_SECTION}`, label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
   { link: `/?section=${SECURITY_SECTION}`, label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
