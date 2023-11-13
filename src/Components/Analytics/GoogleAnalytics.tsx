@@ -17,3 +17,12 @@ export default function GoogleAnalytics() {
     </>
   );
 }
+
+export function registerClickSignUpEventGoogle() {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'sign_up', {
+      'event_category': 'User Actions',
+      'value': 1
+    });
+  }
+}

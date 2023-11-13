@@ -1,7 +1,7 @@
 import { useReadingStatus } from "@/hooks/useIsReading";
 import { createStyles, Box, Flex, Text, Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-import { registerClickSignUpEventGoogle } from "../ZeroHeader/ZeroHeader";
+import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
 const useStyles = createStyles((theme) => ({
   container: {

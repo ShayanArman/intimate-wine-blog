@@ -19,6 +19,7 @@ import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
 import { FiChevronDown } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
+import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
 export const FEATURES_SECTION = "features";
 export const UNSUBSCRIBE_SECTION = "unsubscribe";
@@ -240,15 +241,6 @@ function ActionButton({
       {innerText}
     </Button>
   );
-}
-
-export function registerClickSignUpEventGoogle() {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'sign_up', {
-      'event_category': 'User Actions',
-      'value': 1
-    });
-  }
 }
 
 type Links = {
