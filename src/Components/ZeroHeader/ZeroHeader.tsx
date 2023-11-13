@@ -194,9 +194,18 @@ export default function ZeroHeader({
               href={"https://app.zeroinbox.ai"}
               shallow={true}
               target={"_blank"}
+              onClick={() => { 
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'click', {
+                    'event_category': 'Link',
+                    'event_label': 'sign_up',
+                    'value': 1
+                  });
+                }
+              }}
               className={classes.link}
             >
-              { isSmallScreen ? "Start" : "Sign In" }
+              Sign In
             </Link>}
             <ActionButton buttonSize={isSmallScreen ? "md" : "lg"} innerText={ isSmallScreen ? "Start" : "Register" } />
           </Group>
