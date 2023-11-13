@@ -1,6 +1,7 @@
 import { useReadingStatus } from "@/hooks/useIsReading";
 import { createStyles, Box, Flex, Text, Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
+import { registerClickSignUpEventGoogle } from "../ZeroHeader/ZeroHeader";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -177,6 +178,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         href={"https://app.zeroinbox.ai"}
         size={isSmallScreen ? "lg" : "xl"}
         radius="xl"
+        onClick={() => { registerClickSignUpEventGoogle() }}
         className={`${classes.learnMoreButton} ${
           !isHeroReading || showIndexRef.current.charIndex > description.length - 3
             ? classes.showButton

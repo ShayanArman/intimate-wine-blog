@@ -194,15 +194,7 @@ export default function ZeroHeader({
               href={"https://app.zeroinbox.ai"}
               shallow={true}
               target={"_blank"}
-              onClick={() => { 
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'click', {
-                    'event_category': 'Link',
-                    'event_label': 'sign_up',
-                    'value': 1
-                  });
-                }
-              }}
+              onClick={() => { registerClickSignUpEventGoogle() }}
               className={classes.link}
             >
               Sign In
@@ -231,6 +223,7 @@ function ActionButton({
       radius="xl"
       size={buttonSize}
       variant='outline'
+      onClick={() => registerClickSignUpEventGoogle() }
       styles={(theme) => ({
         root: {
           border: "none",
@@ -247,6 +240,16 @@ function ActionButton({
       {innerText}
     </Button>
   );
+}
+
+export function registerClickSignUpEventGoogle() {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'click', {
+      'event_category': 'Link',
+      'event_label': 'sign_up',
+      'value': 1
+    });
+  }
 }
 
 type Links = {
