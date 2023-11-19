@@ -57,7 +57,7 @@ export default function Home() {
         <TextPlusImage
           id={FEATURES_SECTION}
           title={"Never miss an important email"}
-          description={"Zero AI quickly sorts what you don't need. Only important emails are left. Use Zero AI Email Organizer to clean your email inbox in seconds. Feel more productive, use the best Email Productivity tool on the planet."}
+          description={"Zero AI quickly clears what you don't need. Only important emails are left. Use Zero AI Email Organizer to clean your email inbox in seconds. Feel more productive, use the best Email Productivity tool on the planet."}
           Image={<Image style={{borderRadius: "24px", boxShadow: "7px 7px 10px 0px var(--shadow-color)"}} width={200} height={400} alt="phone" src="/images/features-1200px.png" />}
           version={"reg"}
           isSmallScreen={isSmallScreen}
