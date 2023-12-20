@@ -180,7 +180,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         radius="xl"
         onClick={() => { registerClickSignUpEventGoogle() }}
         className={`${classes.learnMoreButton} ${
-          !isHeroReading || showIndexRef.current.charIndex > description.length - 3
+          !isHeroReading || showIndexRef.current.wordIndex > description.length - 3
             ? classes.showButton
             : ""
         }`}

@@ -14,7 +14,7 @@
     "@mantine/core": "^6.0.16",
     "@mantine/hooks": "^6.0.16",
     "@types/node": "20.10.5",
-    "@types/react": "18.2.45",
+    "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "add": "^2.0.6",
     "classnames": "^2.3.2",
