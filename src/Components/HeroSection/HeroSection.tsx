@@ -146,7 +146,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         };
         timeout = setTimeout(
           displayChar,
-          [".", "!", ","].some(fullStop => newWord.includes(fullStop)) ? 400 : 100
+          [".", "!", ",", "-"].some(fullStop => newWord.includes(fullStop)) ? 400 : 100
         );
       } else {
         setIsHeroReading(false);
