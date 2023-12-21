@@ -70,7 +70,7 @@ const useStyles = createStyles((theme) => ({
 
   description: {
     color: "black",
-    fontWeight: 300,
+    fontWeight: 400,
   },
 
   learnMoreButton: {
@@ -128,7 +128,7 @@ export default function HeroSection({
 }
 
 const description: string[] =
-  "Over 1 Million emails cleaned. Secure and simple - save time, let Zero AI handle it.".split(" ");
+  "Over 1 Million emails cleaned. Secure and simple. Save time, let Zero AI handle it.".split(" ");
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
