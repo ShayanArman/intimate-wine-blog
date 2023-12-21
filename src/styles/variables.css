@@ -2,9 +2,9 @@
     --zero-orange: hsl(11, 100%, 60%);
     --zero-orange-light: hsla(11, 100%, 60%, 0.6);
     --zero-red: #e65e8c;
-    --zero-red-darker: #fd4482;
+    --zero-red-darker: #ff3277;
     --zero-red-light: #f4d0dc;
-    --zero-red-hover: #e27197;
+    --zero-red-hover: #f93275;
     --landing-background: #fffef6;
     --landing-blur: rgba(255, 254, 246, 0.8);
     --zero-blue: #47AFE6;
@@ -17,4 +17,5 @@
     --shadow-color: rgba(117, 116, 116, 0.856);
     --grey-light: #eee;
     --color-danger: #df1b41;
+    --zero-light: #eeeeeeb4;
 }

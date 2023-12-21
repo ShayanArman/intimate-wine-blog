@@ -231,9 +231,9 @@ function ActionButton({
           color:"white",
           fontSize: theme.fontSizes.md,
           fontWeight: 300,
-          backgroundColor: "var(--zero-red)",
+          backgroundColor: "var(--zero-red-darker)",
         "&:hover": {
-          backgroundColor: "rgba(230, 94, 140, 0.8)",
+          backgroundColor: "#228be6",
         }
       }
       })}

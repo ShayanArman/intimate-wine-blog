@@ -2,6 +2,7 @@ import { useReadingStatus } from "@/hooks/useIsReading";
 import { createStyles, Box, Flex, Text, Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -79,10 +80,10 @@ const useStyles = createStyles((theme) => ({
     fontSize: "1.3em",
     color: "white",
     border: "none",
-    backgroundColor: "var(--zero-red)",
+    backgroundColor: "var(--zero-red-darker)",
 
     "&:hover": {
-      backgroundColor: "var(--zero-red-hover)",
+      backgroundColor: "#228be6",
     },
   },
 
@@ -99,15 +100,19 @@ export default function HeroSection({
   isSmallScreen: boolean;
 }) {
   const { classes } = useStyles();
+  const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
+  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 20 : 120}px)`;
 
   return (
     <Flex
       direction="column"
       justify={"center"}
+      mih={heroContainerHeight}
+      mah={heroContainerHeight}
       align="center"
       className={classes.container}
     >
-      <Flex mih="40rem" w="100%" align="center" className={classes.main}>
+      <Flex mih={heroMainHeight} mah={heroMainHeight} w="100%" align="center" className={classes.main}>
         <Flex direction={"column"} className={classes.content} gap={5}>
           <h1 className={classes.title}>
             Zero <span style={{ color: "var(--zero-red)" }}>AI</span>
@@ -176,7 +181,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         mt={"xl"}
         component="a"
         href={"https://app.zeroinbox.ai"}
-        size={isSmallScreen ? "lg" : "xl"}
+        size={isSmallScreen ? "xl" : "xl"}
         radius="xl"
         onClick={() => { registerClickSignUpEventGoogle() }}
         className={`${classes.learnMoreButton} ${
