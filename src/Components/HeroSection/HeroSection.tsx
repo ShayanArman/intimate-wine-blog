@@ -60,7 +60,7 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "helvetica",
     lineHeight: 1.1,
     letterSpacing: 0,
-    padding: "5px",
+    padding: 0,
 
     [theme.fn.smallerThan("sm")]: {
       fontSize: "2em",
