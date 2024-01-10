@@ -1,4 +1,4 @@
-import { createStyles, Flex, NavLink } from "@mantine/core";
+import { createStyles, Flex, Text, NavLink } from "@mantine/core";
 import Link from "next/link";
 import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
@@ -24,7 +24,7 @@ const useStyles = createStyles(
 
         [theme.fn.smallerThan("sm")]: {
           width: "100%",
-          height: "100%"
+          height: "95%"
         }
       },
 
@@ -122,6 +122,9 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean, close
               </Link>
             )) 
             }
+            <Flex align="center" justify="center" style={{backgroundColor:"var(--blue-light)", borderRadius: "10px"}} mt={10}>
+              <Text weight={500} color="white">Last Updated - Jan 10th, 2024</Text>
+            </Flex>
         </Flex>
       </Flex>
     );
