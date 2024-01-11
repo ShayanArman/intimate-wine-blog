@@ -127,6 +127,11 @@ export default function HeroSection({
   );
 }
 
+function getDescription(isSmallScreen: boolean) {
+  const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
+  return description;
+}
+
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
   const showIndexRef = useRef({ wordIndex: 0 });
@@ -134,19 +139,21 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const [description, setDescription] = useState<string[]>([]);
   const [visibleText, setVisibleText] = useState(isHeroFinishedReading ? description.join(" ") : "");
 
+  // do the first INITIAL setting of description. we cant have a default value
+  // because we dont instantly know if its a smallScreen.
   useEffect(() => {
     if (description.length === 0 && isSmallScreen !== undefined) {
-      const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
+      const description: string[] = getDescription(isSmallScreen);
       setDescription(description);
     }
   }, [isSmallScreen]);
 
   useEffect(() => {
     if (isSmallScreen !== undefined && isHeroFinishedReading) {
-      const description: string[] = `Our users have deleted over 47,181 Facebook notifications (updated Jan 11th, 2024). ${isSmallScreen ? "" : "Secure and simple. "}Save time, let Zero AI handle it.`.split(" ");
+      const description: string[] = getDescription(isSmallScreen);
       setVisibleText(description.join(" "));
     }
-  }, [isHeroFinishedReading, isSmallScreen, description])
+  }, [isHeroFinishedReading, isSmallScreen])
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
