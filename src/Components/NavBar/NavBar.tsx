@@ -122,8 +122,10 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean, close
               </Link>
             )) 
             }
-            <Flex align="center" justify="center" style={{backgroundColor:"var(--blue-light)", borderRadius: "10px"}} mt={10}>
-              <Text weight={500} color="white">Last Updated - Jan 10th, 2024</Text>
+            <Flex align="center" justify="center" px={10}>
+              <Flex align="center" justify="center" style={{backgroundColor:"var(--blue-light)", borderRadius: "10px"}} mt={10} px={5}>
+                <Text weight={500} color="white">Last Updated - Jan 11th, 2024</Text>
+              </Flex>
             </Flex>
         </Flex>
       </Flex>
