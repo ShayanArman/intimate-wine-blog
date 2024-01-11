@@ -128,7 +128,7 @@ export default function HeroSection({
 }
 
 const description: string[] =
-  "Over 1 Million emails cleaned. Secure and simple. Save time, let Zero AI handle it.".split(" ");
+  "Our users have deleted over 47,181 Facebook notifications (- updated Jan 11th, 2024). Secure and simple. Save time, let Zero AI handle it.".split(" ");
 
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
