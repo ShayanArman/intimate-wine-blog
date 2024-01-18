@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     padding: "2rem 5rem",
 
     [theme.fn.smallerThan("md")]: {
-      padding: "2rem 1rem",
+      padding: "2rem 1.3rem",
     },
   },
 
@@ -101,7 +101,7 @@ export default function HeroSection({
 }) {
   const { classes } = useStyles();
   const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
-  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 5 : 120}px)`;
+  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 40 : 120}px)`;
 
   return (
     <Flex
