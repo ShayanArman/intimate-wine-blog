@@ -70,7 +70,7 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
         <Flex direction="column" gap={"sm"} mt={10}>
           { users.sort((a, b) => b.emailsCleanedCount - a.emailsCleanedCount).map((user, i) => {
             return (
-              <Group>
+              <Group key={user.fullName}>
                 <Avatar src={user.image} radius="xl" size="lg" />
                 <Flex direction="column">
                   <Flex align="center" gap={5}><Text>{user.fullName}</Text><Image width={15} height={15} alt="zero" src={user.countryImage} /></Flex>
