@@ -101,7 +101,7 @@ export default function HeroSection({
 }) {
   const { classes } = useStyles();
   const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
-  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 40 : 120}px)`;
+  const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 20 : 120}px)`;
 
   return (
     <Flex
