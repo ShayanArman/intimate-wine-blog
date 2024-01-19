@@ -27,19 +27,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  content: {
-    fontSize: "48px",
-    textAlign: "center",
-    margin: "4rem 15%",
-    fontWeight: 400,
-    fontFamily: "inherit",
-
-    [theme.fn.smallerThan("md")]: {
-      fontSize: "32px",
-      margin: "3rem 5%",
-    },
-  },
-
   nonVisible: {
     opacity: 0,
     transform: "translateY(5rem)",
