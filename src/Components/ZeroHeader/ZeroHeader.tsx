@@ -21,6 +21,8 @@ import { FiChevronDown } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
+export const TEXT_INTRO_SECTION = "text_intro_section";
+export const USERS_STATS_SECTION = "users_section";
 export const FEATURES_SECTION = "features";
 export const UNSUBSCRIBE_SECTION = "unsubscribe";
 export const SECURITY_SECTION = "security";
@@ -28,10 +30,11 @@ export const PRIVACY_SECTION = "privacy";
 export const BUSINESS_SECTION = "business";
 
 export const mainPageSections = {
-  ["features"]: {sectionId: FEATURES_SECTION, offset: 40},
-  ["security"]: {sectionId: SECURITY_SECTION, offset: 30},
-  ["business"]: {sectionId: BUSINESS_SECTION, offset: 0},
-  ["privacy"]: {sectionId: PRIVACY_SECTION, offset: 40},
+  [FEATURES_SECTION]: {sectionId: FEATURES_SECTION, offset: 40},
+  [USERS_STATS_SECTION]: {sectionId: USERS_STATS_SECTION, offset: 40},
+  [SECURITY_SECTION]: {sectionId: SECURITY_SECTION, offset: 30},
+  [BUSINESS_SECTION]: {sectionId: BUSINESS_SECTION, offset: 0},
+  [PRIVACY_SECTION]: {sectionId: PRIVACY_SECTION, offset: 40},
 }
 
 

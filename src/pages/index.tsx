@@ -8,8 +8,9 @@ import TextSection from "@/Components/TextSection";
 import HeroSection from "@/Components/HeroSection";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import TextPlusImage from "@/Components/TextPlusImage";
-import { HEADER_PIXEL_HEIGHT } from "@/Components/ZeroHeader/ZeroHeader";
+import { HEADER_PIXEL_HEIGHT, TEXT_INTRO_SECTION, USERS_STATS_SECTION } from "@/Components/ZeroHeader/ZeroHeader";
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
+import UserStatsSection from "@/Components/UserStatsSection";
 
 type SectionKey = keyof typeof mainPageSections;
 
@@ -45,14 +46,20 @@ export default function Home() {
         <HeroSection isSmallScreen={isSmallScreen} />
 
         <TextSection
-          key="text1" 
-          isVisible={seenComponents.has("text1")} 
+          key={TEXT_INTRO_SECTION}
+          isVisible={seenComponents.has(TEXT_INTRO_SECTION)} 
           innerText={
-          <Text>
-            Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can <span style={{color: "var(--zero-blue)"}}>organize</span> it in 30 seconds! - no matter the size. Clear your annoying emails and get to Inbox Zero. <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
-          </Text>
-        }/>
-        <Waypoint topOffset={800} onEnter={() => {!seenComponents.has("text1") ? addSeenComponent("text1") : null }} />
+            <Text>
+              Overflowing inbox? <span style={{color: "var(--zero-red)"}}>Zero AI</span> can <span style={{color: "var(--zero-blue)"}}>organize</span> it in 30 seconds! - no matter the size. Clear your annoying emails and get to Inbox Zero. <span style={{color: "var(--zero-red)"}}>Zero AI</span> can do that.
+            </Text>
+          }
+        />
+        <Waypoint topOffset={800} onEnter={() => {!seenComponents.has(TEXT_INTRO_SECTION) ? addSeenComponent(TEXT_INTRO_SECTION) : null }} />
+        
+        <UserStatsSection isVisible={seenComponents.has(USERS_STATS_SECTION)} 
+        />
+        <Waypoint topOffset={800} onEnter={() => {!seenComponents.has(USERS_STATS_SECTION) ? addSeenComponent(USERS_STATS_SECTION) : null }} />
+
 
         <TextPlusImage
           id={FEATURES_SECTION}
