@@ -77,6 +77,9 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
                   <Text size="sm" c="dimmed" fw={400}>
                     {user.emailsCleanedCount} emails
                   </Text>
+                  <Text size="sm" c="dimmed" fw={400}>
+                    {user.city}
+                  </Text>
                 </Flex>
               </Group>
             );
