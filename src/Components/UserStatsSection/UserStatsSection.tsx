@@ -52,7 +52,7 @@ const users: UserInfo[] = [
   {fullName: "Jan", city: "Bern, Switzerland", image: '/images/people/icons8-homer-simpson-100.png', countryImage: "/images/countries/icons8-switzerland-48.png", emailsCleanedCount: 62787 },
   {fullName: "Alain", city: "San Francisco, CA", image: '/images/people/icons8-theodore-peterson-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 18338},
   {fullName: "Bethany", city: "Raleigh, NC", image: '/images/people/icons8-futurama-mom-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 16939},
-  {fullName: "Eric", city: "Austin, Texas", image: '/images/people/icons8-walter-white-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 22627 }]
+  {fullName: "Eric", city: "Austin, Texas", image: '/images/people/icons8-walter-white-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 63350 }]
 export default function UserStatsSection({ isVisible }: { isVisible: boolean }) {
   const { classes } = useStyles();
 
