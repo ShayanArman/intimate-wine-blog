@@ -48,7 +48,7 @@ type UserInfo = {
 }
 const users: UserInfo[] = [
   {fullName: "Lisa", city: "Victoria, BC", image: '/images/people/icons8-hello-kitty-100.png', countryImage: "/images/countries/icons8-canada-48.png", emailsCleanedCount: 30130},
-  {fullName: "Josh", city: "Austin, Texas", image: '/images/people/icons8-futurama-bender-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 55383},
+  {fullName: "Shashank", city: "Austin, Texas", image: '/images/people/icons8-futurama-bender-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 55383},
   {fullName: "Jan", city: "Bern, Switzerland", image: '/images/people/icons8-homer-simpson-100.png', countryImage: "/images/countries/icons8-switzerland-48.png", emailsCleanedCount: 62787 },
   {fullName: "Alain", city: "San Francisco, CA", image: '/images/people/icons8-theodore-peterson-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 18338},
   {fullName: "Bethany", city: "Raleigh, NC", image: '/images/people/icons8-futurama-mom-100.png', countryImage: "/images/countries/icons8-usa-48.png", emailsCleanedCount: 16939},
