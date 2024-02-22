@@ -255,8 +255,9 @@ type Link = {
   links?: { link: string; label: string; Icon?: JSX.Element; newTab: boolean }[];
 };
 
+const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
 export const headerLinks: Link[] = [
-  { link: "/", label: 'Zero AI', Icon: <FcHome />, newTab: false, showOnHeader: false },
+  { link: "/", label: `${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}`, Icon: <FcHome />, newTab: false, showOnHeader: false },
   { link: `/?section=${FEATURES_SECTION}`, label: 'Features', Icon: <FcFolder />, newTab: false, showOnHeader: true },
   { link: `/?section=${SECURITY_SECTION}`, label: "Security", Icon: <FcDataSheet />, newTab: false, showOnHeader: true },
   { link: `/?section=${BUSINESS_SECTION}`, label: 'Business', Icon: <FcSalesPerformance />, newTab: false, showOnHeader: true },

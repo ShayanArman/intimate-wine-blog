@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
 
+
 const useStyles = createStyles((theme) => ({
   container: {
     backgroundColor: "var(--landing-background)",
@@ -102,6 +103,7 @@ export default function HeroSection({
   const { classes } = useStyles();
   const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
   const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 5 : 120}px)`;
+  const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
 
   return (
     <Flex
@@ -115,7 +117,7 @@ export default function HeroSection({
       <Flex mih={heroMainHeight} mah={heroMainHeight} w="100%" align="center" className={classes.main}>
         <Flex direction={"column"} className={classes.content} gap={5}>
           <h1 className={classes.title}>
-            Zero <span style={{ color: "var(--zero-red)" }}>Inbox</span>
+            {isZeroInbox ? "Zero" : "Inbox"} <span style={{ color: "var(--zero-red)" }}>{isZeroInbox ? "Inbox" : "Zero"}</span>
           </h1>
           <h1 className={classes.subTitle}>
             Email <span style={{ color: "var(--zero-blue)" }}>Manager</span>
