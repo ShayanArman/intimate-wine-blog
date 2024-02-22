@@ -104,7 +104,7 @@ export default function HeroSection({
   const heroContainerHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
   const heroMainHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px - ${isSmallScreen ? 5 : 120}px)`;
   const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
-
+  console.log("IS ZEro INBOX: ", isZeroInbox);
   return (
     <Flex
       direction="column"
