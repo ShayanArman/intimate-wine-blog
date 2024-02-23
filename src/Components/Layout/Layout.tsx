@@ -19,6 +19,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function Layout({ children }: { children: JSX.Element }) {
   const [scrolledToHeader, setScrolledToHeader] = useState(false);
+  const isZeroInbox = process.env.NEXT_PUBLIC_IS_ZERO_INBOX === "true";
   const [pageReady, setPageReady] = useState(false);
   const isSmallScreen = useIsMobile();
   const { classes } = useStyles();
@@ -46,13 +47,15 @@ export default function Layout({ children }: { children: JSX.Element }) {
   return (
     <>
       <Head>
-        <title>Zero Inbox AI Email Organizer: Clear your Inbox, Keep your emails clean and organized with Zero Inbox.</title>
+        <title>
+          {`${isZeroInbox ? "Zero Inbox" : "Inbox Zero"} AI Email Organizer: Clear your Inbox, Keep your emails clean and organized with ${isZeroInbox ? "Zero Inbox" : "Inbox Zero"}.`}
+        </title>
         <link rel="icon" href="/logo.ico" />
-        <link rel="canonical" href="http://www.zeroinbox.ai" />
-        <meta name="description" content="Zero Inbox AI Email Organizer helps you clear your emails efficiently. Be more productive quickly. Feel lighter, by clearing your inbox. Get to inbox zero quickly using Zero Inbox AI Email Cleaner. Clear your Email with the ultimate email hack, clear your Mind." />
+        <link rel="canonical" href={isZeroInbox ? "https://www.zeroinbox.ai" : "https://www.getinboxzero.ai"} />
+        <meta name="description" content={`${isZeroInbox ? "Zero Inbox": "Inbox Zero"} AI Email Organizer helps you clear your emails efficiently. Be more productive quickly. Feel lighter, by clearing your inbox. Get to inbox zero quickly using ${isZeroInbox ? "Zero Inbox": "Inbox Zero"} AI Email Cleaner. Clear your Email with the ultimate email hack, clear your Mind.`} />
         <meta property="og:description" content="Clear your email inbox, and get to inbox zero with the ultimate email productivity tool Zero AI Email Organizer. Be more effective, use Zero AI Email Cleaner productivity tool. Stay organized and stress-free." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="og:title" content="Zero Inbox AI Email Cleaner. The ultimate email hack. Be more productive with Zero Inbox AI Email Organizer." />
+        <meta name="og:title" content={`${isZeroInbox ? "Zero Inbox": "Inbox Zero"} AI Email Cleaner. The ultimate email hack. Be more productive with ${isZeroInbox ? "Zero Inbox": "Inbox Zero"} AI Email Organizer.`} />
         <meta property="og:url" content="http://www.zeroinbox.ai" />
         <meta property="og:type" content="website" />
       </Head>
