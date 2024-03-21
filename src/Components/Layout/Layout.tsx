@@ -63,7 +63,9 @@ export default function Layout({ children }: { children: JSX.Element }) {
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
         <GoogleAnalytics />
         <ZeroHeader isSmallScreen={isSmallScreen} scrolledToHeader={scrolledToHeader} />
-
+        <a style={{display: "none"}} href="https://theresanaiforthat.com/ai/zeroinbox/?ref=featured&v=976704" target="_blank" rel="nofollow">
+          <img width="300" src="https://media.theresanaiforthat.com/featured3.png" />
+        </a>
         <Waypoint
           onEnter={() => { setScrolledToHeader(false); }}
           onLeave={() => { setScrolledToHeader(true);}}
