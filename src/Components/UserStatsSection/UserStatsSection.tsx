@@ -64,7 +64,7 @@ export default function UserStatsSection({ isVisible }: { isVisible: boolean }) 
             Leader Board
           </Title>
           <Text weight={300} size="xs">
-            Updated March 11th, 2024
+            Updated June 14th, 2024
           </Text>
         </Flex>
         <Flex direction="column" gap={"sm"} mt={10}>
