@@ -66,7 +66,7 @@ export default function About() {
           Team
         </h1>
         <p className={classes.description}>
-          Our team is led by <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman-005006280/" content="Shayan Arman" /></span>, a Silicon Valley Engineer formerly at Apple. And <span><PeopleLink link="https://www.linkedin.com/in/connor-tp-robertson/" content="Connor Robertson" /></span>, a Senior Software Architect with a degree from the University of British Columbia. Both Connor and Shayan live in beautiful Vancouver British Columbia, Canada.
+          Our team is led by <span><PeopleLink link="https://www.linkedin.com/in/eshabhatti/" content="Esha Bhatti" /></span>, a Google Women Techmaker and uWaterloo alum. Our CTO is <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman-005006280/" content="Shayan Arman" /></span>, a Silicon Valley Engineer formerly at Apple. And <span><PeopleLink link="https://www.linkedin.com/in/connor-tp-robertson/" content="Connor Robertson" /></span>, a Senior Software Architect with a degree from the University of British Columbia. Both Esha and Shayan live in beautiful Vancouver British Columbia, Canada.
         </p>
       </Flex>
 
