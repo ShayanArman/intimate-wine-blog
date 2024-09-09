@@ -132,7 +132,7 @@ export default function HeroSection({
   );
 }
 
-const description: string[] = "Our users have deleted over 8 million emails. Secure and simple. Save time, let Zero AI handle it.".split(" ");
+const description: string[] = "Our users have deleted over 10 million emails. Secure and simple. Save time, let Zero AI handle it.".split(" ");
 function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
   const { classes } = useStyles();
   const showIndexRef = useRef({ wordIndex: 0 });
