@@ -4,7 +4,7 @@ apostrophe ' can be escaped with &apos;
 Hero Section Image:
 // img: {
   //   objectFit: 'cover',
-  //   width: '100%'
+  //   width: '100%'w
   //   height: '100%',
   //   position: 'relative',
   //   zIndex: -1,

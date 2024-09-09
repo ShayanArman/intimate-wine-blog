@@ -1,4 +1,4 @@
-import { createStyles, Flex, Title, Text, Space } from "@mantine/core";
+import { createStyles, Flex } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -28,28 +28,9 @@ const useStyles = createStyles((theme) => ({
 
 export default function About() {
   const { classes } = useStyles();
-  const [includeBook, setIncludeBook] = useState(false);
-  const router = useRouter();
-  
-  useEffect(() => {
-    const { include } = router.query;
-
-    if (include && typeof include === 'string' && include === "book" && !includeBook) {
-      setIncludeBook(true);
-    }
-  }, [router.query, includeBook]);
 
   return (
     <Flex direction="column" align={"center"} className={classes.container} gap={30}>
-      { includeBook && <Flex direction="column" className={classes.hero} gap={10}>
-        <h1 className={classes.title}>
-          <a href="https://payhip.com/b/qZ50g" target="_blank">On Change</a>
-        </h1>
-        <p className={classes.description}>
-          On Change is a book about implementing positive change in our lives by Shayan Arman. To read the book, click <a href="https://payhip.com/b/qZ50g" target="_blank" style={{textDecoration: "underline"}}>here</a>
-        </p>
-      </Flex> }
-
       <Flex direction="column" className={classes.hero} gap={10}>
         <h1 className={classes.title}>
           The Future of Email
