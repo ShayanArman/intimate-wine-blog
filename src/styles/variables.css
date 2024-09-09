@@ -5,8 +5,10 @@
     --zero-red-darker: #ff3277;
     --zero-red-light: #f4d0dc;
     --zero-red-hover: #f93275;
-    --landing-background: #fffef6;
-    --landing-blur: rgba(255, 254, 246, 0.8);
+    /* --landing-background: #fffef6; */
+    --landing-background: white;
+    --landing-blur: rgba(255, 255, 255, 0.464);
+    /* --landing-blur: rgba(255, 254, 246, 0.8); */
     --zero-blue: #47AFE6;
     --zero-blue-old: #3DBCF8;
     --green-color: #0DA2C6;

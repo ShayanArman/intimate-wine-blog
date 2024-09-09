@@ -3,6 +3,7 @@ import { createStyles, Box, Flex, Text, Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
+import { FiCloudLightning } from "react-icons/fi";
 
 
 const useStyles = createStyles((theme) => ({
@@ -18,13 +19,14 @@ const useStyles = createStyles((theme) => ({
   main: {
     borderRadius: "30px",
     boxShadow: "7px 7px 10px 0px var(--shadow-color)",
-    backgroundImage: "url(HeroBackground.svg)",
+    // backgroundImage: "url(HeroBackground.svg)",
+    backgroundColor: "black",
     backgroundPosition: "center",
     position: "relative",
 
-    [theme.fn.smallerThan("sm")]: {
-      backgroundImage: "url(HeroBackgroundMobile.svg)"
-    }
+    // [theme.fn.smallerThan("sm")]: {
+    //   // backgroundImage: "url(HeroBackgroundMobile.svg)"
+    // }
   },
 
   content: {
@@ -44,7 +46,8 @@ const useStyles = createStyles((theme) => ({
   title: {
     fontSize: "8em",
     fontWeight: 500,
-    color: "black",
+    // color: "black",
+    color: "white",
     fontFamily: "helvetica",
     letterSpacing: 0,
     padding: 0,
@@ -55,7 +58,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   subTitle: {
-    color: "black",
+    color: "white",
     fontSize: "3em",
     fontWeight: 400,
     fontFamily: "helvetica",
@@ -70,7 +73,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: "black",
+    color: "white",
     fontWeight: 400,
   },
 
@@ -190,6 +193,7 @@ function TypeDescription({ isSmallScreen }: { isSmallScreen: boolean }) {
         href={"https://app.zeroinbox.ai"}
         size={isSmallScreen ? "xl" : "xl"}
         radius="xl"
+        leftIcon={<FiCloudLightning />}
         onClick={() => { registerClickSignUpEventGoogle() }}
         className={`${classes.learnMoreButton} ${
           isHeroFinishedReading || showIndexRef.current.wordIndex > description.length - 3

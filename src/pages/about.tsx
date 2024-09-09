@@ -1,13 +1,11 @@
 import { createStyles, Flex } from "@mantine/core";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   container: {
     margin: "3rem 0rem",
   },
 
-  hero: {
+  section: {
     width: "50%",
 
     [theme.fn.smallerThan("xl")]: {
@@ -31,7 +29,7 @@ export default function About() {
 
   return (
     <Flex direction="column" align={"center"} className={classes.container} gap={30}>
-      <Flex direction="column" className={classes.hero} gap={10}>
+      <Flex direction="column" className={classes.section} gap={10}>
         <h1 className={classes.title}>
           The Future of Email
         </h1>
@@ -42,7 +40,7 @@ export default function About() {
         </p>
       </Flex>
 
-      <Flex direction="column" className={classes.hero} gap={10}>
+      <Flex direction="column" className={classes.section} gap={10}>
         <h1 className={classes.title}>
           Team
         </h1>
@@ -51,7 +49,7 @@ export default function About() {
         </p>
       </Flex>
 
-      <Flex direction="column" className={classes.hero} gap={10}>
+      <Flex direction="column" className={classes.section} gap={10}>
         <h1 className={classes.title}>
           Advisory
         </h1>
@@ -60,7 +58,7 @@ export default function About() {
         </p>
       </Flex>
 
-      <Flex direction="column" className={classes.hero} gap={10}>
+      <Flex direction="column" className={classes.section} gap={10}>
         <h1 className={classes.title}>
           Join Us
         </h1>

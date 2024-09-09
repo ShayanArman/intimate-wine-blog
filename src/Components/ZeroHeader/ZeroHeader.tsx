@@ -17,7 +17,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { useState, useRef, useEffect } from "react";
 import NavBar from "../NavBar";
-import { FiChevronDown } from "react-icons/fi"
+import { FiChevronDown, FiFastForward } from "react-icons/fi"
 import { FcHeatMap, FcFolder, FcAbout, FcDataSheet, FcLibrary, FcSalesPerformance, FcHome } from "react-icons/fc"
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
@@ -47,6 +47,7 @@ const useStyles = createStyles(
       position: "fixed",
       backgroundColor: 'var(--landing-background)',
       borderBottom: "0px",
+      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
       top: 0,
       left: 0,
       zIndex: 9999,
@@ -55,7 +56,8 @@ const useStyles = createStyles(
 
     headerColored: {
       backgroundColor: "var(--landing-blur)",
-      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
+      // boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
+      boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.5)",
       transition: "all 0.3s"
     },
 
@@ -226,6 +228,7 @@ function ActionButton({
       href="https://app.zeroinbox.ai"
       radius="xl"
       size={buttonSize}
+      leftIcon={<FiFastForward />}
       variant='outline'
       onClick={() => registerClickSignUpEventGoogle() }
       styles={(theme) => ({
