@@ -30,7 +30,7 @@ declare global {
   namespace JSX {
     interface IntrinsicElements {
       'stripe-buy-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        'buy-button-id'?: string; // Add any specific attributes you use
+        'buy-button-id'?: string; // Add any specific attributes you use.
         'publishable-key'?: string; // Add any specific attributes you use
         };
     }
