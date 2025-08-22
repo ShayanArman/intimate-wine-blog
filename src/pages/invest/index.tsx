@@ -69,10 +69,10 @@ export default function Invest() {
 
       <Flex direction="column" align="center" className={classes.section} gap={10}>
         <h1 className={classes.title}>
-          Zero Inbox - AI Workflows
+          AI Workflows
         </h1>
         <Text className={classes.description}>
-          The goal of ZeroInbox.ai AI Workflows is to redesign work. We believe that mundane tasks in office work can be automated.
+          The goal of AI Workflows is to redesign work. We believe that mundane tasks in office work can be automated.
           The current industry approach are AI Agents - that can completely automate work, such as emailing clients,
           automating away Junior Accountants. We think a better approach is Workflows. Where competent individuals use Workflows
           to aid them in their day to day tasks. For example an accountant quickly looking through a Customers emails for receipts.
