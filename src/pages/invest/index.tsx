@@ -1,5 +1,5 @@
-import { Button, createStyles, Flex, List, Text, Title } from "@mantine/core";
-import Script from "next/script";
+import { Button, createStyles, Flex, Text } from "@mantine/core";
+import { FaBandcamp, FaDocker } from "react-icons/fa";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -42,16 +42,23 @@ export default function Invest() {
 
   return (
     <Flex direction="column" align={"center"} className={classes.container} gap={30}>
-      <Script async src="https://js.stripe.com/v3/buy-button.js"></Script>
       <Flex direction="column" align="center" className={classes.section} gap={10}>
         <h1 className={classes.title}>
           Join Us
         </h1>
-        <stripe-buy-button
-          buy-button-id="buy_btn_1RyxVRDiSp5w1D9ctMJQJuP2"
-          publishable-key="pk_live_51LkBIzDiSp5w1D9cTkO1gzwjZNmn8FCzO2UMApwriY75CMKNU1fKLyi9ZuLQwJtosnQUC2gnTu3zm5sqUVe9fGDt006NbdBfVf"
+        <Button 
+          mt={15}
+          radius="lg" 
+          component="a"
+          href="https://buy.stripe.com/6oU3cv9CF9OL5EH62z7kc06"
+          size={ "xl"}
+          color="dark"
+          target="_blank"
+          variant="outline"
+          leftIcon={<FaBandcamp />}
         >
-        </stripe-buy-button>
+          Click Here
+        </Button>
       </Flex>
 
       <Flex direction="column" align="center" className={classes.section} gap={10}>
@@ -75,6 +82,7 @@ export default function Invest() {
           color="dark"
           target="_blank"
           variant="outline"
+          leftIcon={<FaDocker />}
         >
           Click Here
         </Button>
@@ -123,3 +131,11 @@ function PeopleLink({link, content}: {link: string, content: string}) {
   <Text size="lg" mb="md"><Text weight={700} span={true} style={{ color: '#1e293b' }}>For Sale:</Text> <Text span={true} style={{ color: '#dc2626', fontWeight: 600 }}>100,000 at $1 each</Text></Text>
   <Text size="lg"><Text weight={700} span={true} style={{ color: '#1e293b' }}>Share Type:</Text> <Text span={true} style={{ color: '#7c3aed', fontWeight: 600 }}>Class A Voting</Text></Text>
 </Text> */}
+
+
+{/* <Script async src="https://js.stripe.com/v3/buy-button.js"></Script>
+      <stripe-buy-button
+          buy-button-id="buy_btn_1RyxVRDiSp5w1D9ctMJQJuP2"
+          publishable-key="pk_live_51LkBIzDiSp5w1D9cTkO1gzwjZNmn8FCzO2UMApwriY75CMKNU1fKLyi9ZuLQwJtosnQUC2gnTu3zm5sqUVe9fGDt006NbdBfVf"
+        >
+      </stripe-buy-button> */}
