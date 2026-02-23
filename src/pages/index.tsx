@@ -1,6 +1,5 @@
 import { FEATURES_SECTION, UNSUBSCRIBE_SECTION, PRIVACY_SECTION, SECURITY_SECTION, BUSINESS_SECTION, mainPageSections } from "@/Components/ZeroHeader/ZeroHeader";
 import { HEADER_PIXEL_HEIGHT, TEXT_INTRO_SECTION, USERS_STATS_SECTION } from "@/Components/ZeroHeader/ZeroHeader";
-import AnnouncementModal from "@/Components/WelcomeModal/WelcomeModal";
 import useIsMobile, { useIsLargeScreen } from "@/hooks/useIsMobile";
 import UserStatsSection from "@/Components/UserStatsSection";
 import TextPlusImage from "@/Components/TextPlusImage";
@@ -17,8 +16,6 @@ type SectionKey = keyof typeof mainPageSections;
 
 export default function Home() {
   const [seenComponents, setSeenComponents] = useState<Set<string>>(new Set());
-  const [isTypewriteFinished, setIsTypewriteFinished] = useState<boolean>(false);
-  const [seenWelcomeModal, setSeenWelcomeModal] = useState(false);
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
   const router = useRouter();
@@ -45,11 +42,9 @@ export default function Home() {
     setSeenComponents((prevItems) => new Set(prevItems).add(component));
   };
 
-  const shouldShowWelcomeModal = (isTypewriteFinished && !seenWelcomeModal) ? true : false;
-
   return (
       <>
-        <HeroSection isSmallScreen={isSmallScreen} onFinishedReading={() => { if (!isTypewriteFinished) { setIsTypewriteFinished(true); }}} />
+        <HeroSection isSmallScreen={isSmallScreen} onFinishedReading={() => undefined} />
 
         <TextSection
           key={TEXT_INTRO_SECTION}
@@ -61,7 +56,6 @@ export default function Home() {
           }
         />
         <Waypoint topOffset={800} onEnter={() => {!seenComponents.has(TEXT_INTRO_SECTION) ? addSeenComponent(TEXT_INTRO_SECTION) : null }} />
-        { (shouldShowWelcomeModal) && <AnnouncementModal opened={shouldShowWelcomeModal} onClose={() => { setSeenWelcomeModal(true) }} />}
         
         <UserStatsSection isVisible={seenComponents.has(USERS_STATS_SECTION)} 
         />
