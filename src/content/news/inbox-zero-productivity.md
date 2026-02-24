@@ -1,6 +1,6 @@
 ---
 title: "The Science Behind Inbox Zero and Productivity"
-date: "2026-02-24"
+date: "2025-08-19"
 category: "Research"
 excerpt: "Research shows that a clean inbox isn't just satisfying — it measurably reduces stress and boosts deep-work output. We dug into the data."
 thumbnail: "/images/news/inbox-zero-productivity.png"

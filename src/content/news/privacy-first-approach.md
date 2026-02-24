@@ -1,6 +1,6 @@
 ---
 title: "Our Privacy-First Approach to Email Cleaning"
-date: "2026-02-24"
+date: "2025-12-13"
 category: "Security"
 excerpt: "We built Zero Inbox on a simple principle — your emails are yours. Here's how our architecture ensures that no message content ever touches our servers."
 thumbnail: "/images/news/privacy-first-approach.png"
