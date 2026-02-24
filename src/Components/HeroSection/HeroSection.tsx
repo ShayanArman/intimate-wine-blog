@@ -2,6 +2,7 @@ import { createStyles, Flex, Text, Button, Box } from "@mantine/core";
 import { FiZap } from "react-icons/fi";
 import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import HeroLiveMetric from "../HeroLiveMetric";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -134,6 +135,8 @@ export default function HeroSection({
             Get Started
           </Button>
         </Flex>
+
+        <HeroLiveMetric />
       </Box>
     </Flex>
   );
