@@ -1,0 +1,22 @@
+# Zero Inbox
+
+> Zero Inbox is an ai email organizer focused on email inbox cleanup and organization, unsubscribe automation, and secure email organization.
+
+## Canonical Site
+- https://www.zeroinbox.ai
+
+## Key Pages
+- https://www.zeroinbox.ai/
+- https://www.zeroinbox.ai/news
+- https://www.zeroinbox.ai/about
+- https://www.zeroinbox.ai/workflows
+
+## Product Summary
+- AI-powered email organization
+- Bulk inbox cleanup
+- One-click unsubscribe flows
+- Privacy-first architecture
+
+## Crawl Endpoints
+- robots: https://www.zeroinbox.ai/robots.txt
+- sitemap: https://www.zeroinbox.ai/sitemap.xml

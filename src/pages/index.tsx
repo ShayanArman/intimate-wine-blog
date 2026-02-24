@@ -13,6 +13,9 @@ import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
 import UserCards from "@/Components/UserCards";
 import Image from "next/image";
+import Head from "next/head";
+import { faqItems } from "@/Components/FAQSection";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 type SectionKey = keyof typeof mainPageSections;
 
@@ -20,6 +23,42 @@ export default function Home() {
   const isSmallScreen = useIsMobile();
   const isLargeScreen = useIsLargeScreen();
   const router = useRouter();
+
+  const softwareApplicationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: SITE_NAME,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: SITE_URL,
+    image: DEFAULT_OG_IMAGE,
+    description:
+      "Zero Inbox is an ai email organizer that helps users clean email, unsubscribe from noise, and keep important messages.",
+    featureList: [
+      "AI email categorization",
+      "Bulk inbox cleanup",
+      "One-click unsubscribe",
+      "Inbox organization",
+    ],
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   useEffect(() => {
     const { section } = router.query;
@@ -37,6 +76,19 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <script
+          key="ld-software-application"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationStructuredData) }}
+        />
+        <script
+          key="ld-faq-page"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+      </Head>
+
       {/* ── Hero ── */}
       <HeroSection isSmallScreen={isSmallScreen} />
 

@@ -4,6 +4,7 @@ import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Link from "next/link";
 import Head from "next/head";
 import { FiArrowLeft } from "react-icons/fi";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -152,12 +153,55 @@ export const getStaticProps: GetStaticProps<{ article: NewsArticle }> = async ({
 
 export default function ArticlePage({ article }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { classes } = useStyles();
+  const canonicalUrl = `${SITE_URL}/news/${article.slug}`;
+  const articleImageUrl = article.thumbnail ? `${SITE_URL}${article.thumbnail}` : DEFAULT_OG_IMAGE;
+  const isoDate = new Date(`${article.date}T00:00:00Z`).toISOString();
+
+  const articleStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: isoDate,
+    dateModified: isoDate,
+    image: [articleImageUrl],
+    mainEntityOfPage: canonicalUrl,
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/zeroInboxLogoBlack.svg`,
+      },
+    },
+  };
 
   return (
     <>
       <Head>
-        <title>{`${article.title} — Zero Inbox`}</title>
-        <meta name="description" content={article.excerpt} />
+        <title key="title">{`${article.title} - Zero Inbox`}</title>
+        <link key="canonical" rel="canonical" href={canonicalUrl} />
+        <meta key="description" name="description" content={article.excerpt} />
+        <meta key="og:title" property="og:title" content={`${article.title} - Zero Inbox`} />
+        <meta key="og:description" property="og:description" content={article.excerpt} />
+        <meta key="og:type" property="og:type" content="article" />
+        <meta key="og:url" property="og:url" content={canonicalUrl} />
+        <meta key="og:image" property="og:image" content={articleImageUrl} />
+        <meta key="article:published_time" property="article:published_time" content={isoDate} />
+        <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
+        <meta key="twitter:title" name="twitter:title" content={`${article.title} - Zero Inbox`} />
+        <meta key="twitter:description" name="twitter:description" content={article.excerpt} />
+        <meta key="twitter:image" name="twitter:image" content={articleImageUrl} />
+        <script
+          key="ld-news-article"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
+        />
       </Head>
 
       <Box className={classes.container}>

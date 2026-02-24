@@ -7,7 +7,7 @@ interface FAQItem {
   answer: string;
 }
 
-const faqs: FAQItem[] = [
+export const faqItems: FAQItem[] = [
   {
     question: "Is it fully automated? Does the AI just delete everything?",
     answer: "No. Zero AI categorizes and recommends what to clean, but it always asks for your approval before making any changes to your inbox. You stay in full control of what gets deleted, unsubscribed, or kept.",
@@ -147,7 +147,7 @@ export default function FAQSection() {
     <Box className={classes.section}>
       <Box className={classes.inner}>
         <Text className={classes.heading}>Questions? Answered.</Text>
-        {faqs.map((faq, i) => (
+        {faqItems.map((faq, i) => (
           <AccordionItem key={i} item={faq} />
         ))}
       </Box>
