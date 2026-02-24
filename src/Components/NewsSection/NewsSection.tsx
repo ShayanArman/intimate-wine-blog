@@ -158,6 +158,9 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
         <Link href="/ai-email-organizer" className={classes.intentLink}>AI Email Organizer</Link>
         <Link href="/best-ai-email-organizer" className={classes.intentLink}>Best AI Email Organizer</Link>
         <Link href="/clean-and-organize-emails" className={classes.intentLink}>How to Clean and Organize Emails</Link>
+        <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.intentLink}>
+          Exact Match Answer
+        </Link>
       </div>
 
       <div className={classes.grid}>

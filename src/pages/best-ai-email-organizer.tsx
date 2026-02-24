@@ -197,6 +197,9 @@ export default function BestAiEmailOrganizerPage() {
 
         <div className={classes.subLinks}>
           <Link href="/ai-email-organizer" className={classes.subLink}>AI Email Organizer</Link>
+          <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.subLink}>
+            Exact Query Page
+          </Link>
           <Link href="/clean-and-organize-emails" className={classes.subLink}>How to Clean and Organize Emails</Link>
           <Link href="/news" className={classes.subLink}>Read product news</Link>
           <Link href="/about" className={classes.subLink}>Learn about the team</Link>

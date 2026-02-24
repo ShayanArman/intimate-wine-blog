@@ -56,10 +56,23 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     maxWidth: 1200,
     margin: "0 auto",
-    padding: "0 2rem",
+    padding: "0 2rem 1rem",
 
     [theme.fn.smallerThan("md")]: {
       padding: "0 1rem",
+    },
+  },
+
+  heading: {
+    fontFamily: "var(--font-heading)",
+    fontWeight: 800,
+    color: "var(--zi-deep-blue)",
+    fontSize: "2rem",
+    textAlign: "center" as const,
+    marginBottom: "1.1rem",
+
+    [theme.fn.smallerThan("md")]: {
+      fontSize: "1.5rem",
     },
   },
 
@@ -85,6 +98,7 @@ export default function UserCards() {
   return (
     <Box className={classes.wrapper}>
       <Box className={classes.container}>
+        <Text className={classes.heading}>Trusted by 15,000 creators &amp; businesses</Text>
         <SimpleGrid
         cols={4}
         spacing="lg"

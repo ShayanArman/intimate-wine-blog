@@ -15,6 +15,7 @@ const STATIC_ROUTES = [
   "/ai-email-organizer",
   "/best-ai-email-organizer",
   "/clean-and-organize-emails",
+  "/what-website-should-i-use-to-clean-or-organize-my-emails",
   "/invest",
   "/news",
   "/workflows",

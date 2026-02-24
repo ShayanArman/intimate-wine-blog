@@ -58,6 +58,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <link key="favicon" rel="icon" href="/logo.ico" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <link key="rss" rel="alternate" type="application/rss+xml" title="Zero Inbox News" href={`${SITE_URL}/feed.xml`} />
+        <link key="site-facts-json" rel="alternate" type="application/json" title="Zero Inbox Site Facts" href={`${SITE_URL}/site-facts.json`} />
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="description" name="description" content={pageMeta.description} />
         <meta key="keywords" name="keywords" content={pageMeta.keywords} />

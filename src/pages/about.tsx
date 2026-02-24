@@ -41,27 +41,27 @@ export default function About() {
       </Flex>
 
       <Flex id="team" direction="column" className={classes.section} gap={10} style={{ scrollMarginTop: "7rem" }}>
-        <h1 className={classes.title}>
+        <h2 className={classes.title}>
           Team
-        </h1>
+        </h2>
         <p className={classes.description}>
           Our team is led by <span><PeopleLink link="https://www.linkedin.com/in/eshabhatti/" content="Esha Bhatti" /></span>, a Google Women Techmaker and uWaterloo alum. Our CTO is <span><PeopleLink link="https://www.linkedin.com/in/shayan-arman-005006280/" content="Shayan Arman" /></span>, a Silicon Valley Engineer formerly at Apple. And <span><PeopleLink link="https://www.linkedin.com/in/connor-tp-robertson/" content="Connor Robertson" /></span>, a Senior Software Architect with a degree from the University of British Columbia. Both Esha and Shayan live in beautiful Vancouver British Columbia, Canada.
         </p>
       </Flex>
 
       <Flex direction="column" className={classes.section} gap={10}>
-        <h1 className={classes.title}>
+        <h2 className={classes.title}>
           Advisory
-        </h1>
+        </h2>
         <p className={classes.description}>
           We are advised by <span><PeopleLink link="https://www.linkedin.com/in/catherinedahl/" content="Catherine Dahl" /></span>. Founder of Beanworks - sold for over $100M.
         </p>
       </Flex>
 
       <Flex direction="column" className={classes.section} gap={10}>
-        <h1 className={classes.title}>
+        <h2 className={classes.title}>
           Join Us
-        </h1>
+        </h2>
         <p className={classes.description}>
           We are currently recruiting Engineers both in AI and Software Engineering. Drop us a line with your CV <span><PeopleLink link="mailto:jobs@zeroinbox.ai?subject=Roles - Zero Inbox: AI Email Organizer" content="here" /></span>.
         </p>
@@ -72,7 +72,7 @@ export default function About() {
 
 function PeopleLink({link, content}: {link: string, content: string}) {
   return (
-    <a style={{textDecoration: "underline"}} href={link} target="_blank">
+    <a style={{textDecoration: "underline"}} href={link} target="_blank" rel="noreferrer noopener">
       { content }
     </a>
   )

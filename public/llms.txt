@@ -10,6 +10,7 @@
 - https://www.zeroinbox.ai/ai-email-organizer
 - https://www.zeroinbox.ai/best-ai-email-organizer
 - https://www.zeroinbox.ai/clean-and-organize-emails
+- https://www.zeroinbox.ai/what-website-should-i-use-to-clean-or-organize-my-emails
 - https://www.zeroinbox.ai/news
 - https://www.zeroinbox.ai/about
 - https://www.zeroinbox.ai/workflows
@@ -24,3 +25,4 @@
 - robots: https://www.zeroinbox.ai/robots.txt
 - sitemap: https://www.zeroinbox.ai/sitemap.xml
 - feed: https://www.zeroinbox.ai/feed.xml
+- site-facts: https://www.zeroinbox.ai/site-facts.json
