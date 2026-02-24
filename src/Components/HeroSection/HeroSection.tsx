@@ -7,12 +7,12 @@ import HeroLiveMetric from "../HeroLiveMetric";
 const useStyles = createStyles((theme) => ({
   container: {
     background: "#007aff",
-    padding: "0 5rem",
+    padding: `${HEADER_PIXEL_HEIGHT}px 5rem 0`,
     position: "relative",
     overflow: "hidden",
 
     [theme.fn.smallerThan("md")]: {
-      padding: "0 1.5rem",
+      padding: `calc(${HEADER_PIXEL_HEIGHT}px + env(safe-area-inset-top)) 1.5rem 0`,
     },
   },
 
@@ -99,12 +99,12 @@ export default function HeroSection({
   onFinishedReading?: () => void;
 }) {
   const { classes } = useStyles();
-  const heroMinHeight = `calc(100svh - ${HEADER_PIXEL_HEIGHT}px)`;
+  const heroMinHeight = "100svh";
 
   return (
     <Flex
       direction="column"
-      justify="center"
+      justify={isSmallScreen ? "flex-start" : "center"}
       mih={heroMinHeight}
       className={classes.container}
     >

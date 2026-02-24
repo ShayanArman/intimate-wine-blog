@@ -16,7 +16,7 @@ import NavBar from "../NavBar";
 import { FiFastForward } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
-export const HEADER_PIXEL_HEIGHT = 80;
+export const HEADER_PIXEL_HEIGHT = 88;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 /* ─── Section IDs (unchanged) ─── */
