@@ -1,6 +1,21 @@
+import { keyframes } from "@emotion/react";
 import { createStyles, Box, Text, Button, Flex } from "@mantine/core";
-import { FiZap } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+
+const pulse = keyframes`
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+`;
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -53,6 +68,33 @@ const useStyles = createStyles((theme) => ({
       boxShadow: "0 8px 24px rgba(255,50,119,0.35)",
     },
   },
+
+  liveDotWrap: {
+    position: "relative",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    width: 10,
+    height: 10,
+  },
+
+  liveDotPulse: {
+    position: "absolute",
+    inset: 0,
+    borderRadius: "50%",
+    backgroundColor: "#52d86a",
+    animation: `${pulse} 1.8s ease-out infinite`,
+  },
+
+  liveDot: {
+    position: "relative",
+    display: "inline-block",
+    width: 10,
+    height: 10,
+    borderRadius: "50%",
+    backgroundColor: "#52d86a",
+  },
 }));
 
 export default function CTABanner() {
@@ -72,7 +114,12 @@ export default function CTABanner() {
             target="_blank"
             size="xl"
             radius="xl"
-            leftIcon={<FiZap />}
+            leftIcon={
+              <span className={classes.liveDotWrap}>
+                <span className={classes.liveDotPulse} />
+                <span className={classes.liveDot} />
+              </span>
+            }
             onClick={() => registerClickSignUpEventGoogle()}
             className={classes.ctaButton}
           >
