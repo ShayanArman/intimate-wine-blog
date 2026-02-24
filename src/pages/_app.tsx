@@ -1,15 +1,14 @@
 import '@/styles/globals.css'
 import "@/styles/variables.css"
 import Layout from '@/Components/Layout';
-import { MantineProvider, createEmotionCache } from '@mantine/core'
+import { MantineProvider } from '@mantine/core'
 import { AppProps } from 'next/app'
-
-const myCache = createEmotionCache({ key: 'mantine' })
+import { mantineEmotionCache } from '@/lib/mantineEmotionCache';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider
-      emotionCache={myCache}
+      emotionCache={mantineEmotionCache}
       withGlobalStyles
       withNormalizeCSS
       theme={{ colorScheme: 'light' }}
