@@ -16,7 +16,7 @@ import NavBar from "../NavBar";
 import { FiFastForward } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
-export const HEADER_PIXEL_HEIGHT = 72;
+export const HEADER_PIXEL_HEIGHT = 80;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 /* ─── Section IDs (unchanged) ─── */
@@ -63,19 +63,18 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease",
+    transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
     backgroundColor: "transparent",
   },
 
   headerHidden: {
     transform: "translateY(-100%)",
-    opacity: 0,
   },
 
   pill: {
     width: "92%",
     maxWidth: 1200,
-    height: 56,
+    height: 74,
     borderRadius: "var(--radius-pill)",
     backgroundColor: "rgba(255,255,255,0.95)",
     backdropFilter: "blur(16px)",
