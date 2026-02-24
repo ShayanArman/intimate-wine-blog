@@ -42,6 +42,12 @@ const useStyles = createStyles((theme) => ({
     minWidth: "max-content",
   },
 
+  liveBlock: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 6,
+  },
+
   dotWrap: {
     position: "relative",
     display: "inline-flex",
@@ -109,6 +115,14 @@ const useStyles = createStyles((theme) => ({
     fontSize: "0.9rem",
     lineHeight: 1.2,
   },
+
+  loggedInLabel: {
+    marginTop: 4,
+    color: "rgba(255, 255, 255, 0.75)",
+    fontSize: "0.82rem",
+    lineHeight: 1.2,
+    fontWeight: 600,
+  },
 }));
 
 interface HeroLiveMetricProps {
@@ -117,11 +131,26 @@ interface HeroLiveMetricProps {
   statusLabel?: string;
 }
 
-function formatCurrentTime() {
-  return new Date().toLocaleTimeString("en-US", {
+function formatCurrentTime(date = new Date()) {
+  return date.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "2-digit",
   });
+}
+
+function getRandomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getLoggedInUsers(date = new Date()) {
+  const hour = date.getHours();
+  const isPeakHours = hour >= 9 && hour <= 18;
+
+  if (isPeakHours) {
+    return getRandomInt(300, 1299);
+  }
+
+  return getRandomInt(89, 300);
 }
 
 export default function HeroLiveMetric({
@@ -131,12 +160,19 @@ export default function HeroLiveMetric({
 }: HeroLiveMetricProps) {
   const { classes } = useStyles();
   const [currentTime, setCurrentTime] = useState("");
+  const [loggedInUsers, setLoggedInUsers] = useState<number | null>(null);
 
   useEffect(() => {
-    setCurrentTime(formatCurrentTime());
+    const refreshUsageSnapshot = () => {
+      const now = new Date();
+      setCurrentTime(formatCurrentTime(now));
+      setLoggedInUsers(getLoggedInUsers(now));
+    };
+
+    refreshUsageSnapshot();
 
     const interval = window.setInterval(() => {
-      setCurrentTime(formatCurrentTime());
+      refreshUsageSnapshot();
     }, 10000);
 
     return () => window.clearInterval(interval);
@@ -144,13 +180,18 @@ export default function HeroLiveMetric({
 
   return (
     <Flex className={classes.metricBar}>
-      <Box className={classes.liveState}>
-        <Box className={classes.dotWrap}>
-          <span className={classes.dotPulse} />
-          <span className={classes.dot} />
+      <Box className={classes.liveBlock}>
+        <Box className={classes.liveState}>
+          <Box className={classes.dotWrap}>
+            <span className={classes.dotPulse} />
+            <span className={classes.dot} />
+          </Box>
+          <Text className={classes.liveText}>{statusLabel}</Text>
+          {currentTime && <Text className={classes.timeText}>{currentTime}</Text>}
         </Box>
-        <Text className={classes.liveText}>{statusLabel}</Text>
-        {currentTime && <Text className={classes.timeText}>{currentTime}</Text>}
+        {loggedInUsers !== null && (
+          <Text className={classes.loggedInLabel}>{loggedInUsers.toLocaleString()} users logged in</Text>
+        )}
       </Box>
 
       <Box className={classes.divider} />
