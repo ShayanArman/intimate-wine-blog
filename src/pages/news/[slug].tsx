@@ -1,0 +1,185 @@
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { getAllNews, getNewsArticle, NewsArticle } from "@/lib/news";
+import { createStyles, Box, Text, Flex } from "@mantine/core";
+import Link from "next/link";
+import Head from "next/head";
+import { FiArrowLeft } from "react-icons/fi";
+
+const useStyles = createStyles((theme) => ({
+  container: {
+    width: "100%",
+    maxWidth: 760,
+    margin: "0 auto",
+    padding: "6rem 2rem 4rem",
+
+    [theme.fn.smallerThan("sm")]: {
+      padding: "5rem 1.2rem 3rem",
+    },
+  },
+
+  backLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    fontSize: "0.9rem",
+    fontWeight: 500,
+    color: "rgba(15, 29, 61, 0.5)",
+    textDecoration: "none",
+    marginBottom: "2rem",
+    transition: "color var(--transition-fast)",
+
+    "&:hover": {
+      color: "var(--zi-deep-blue)",
+    },
+  },
+
+  meta: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    fontSize: "0.85rem",
+    color: "rgba(15, 29, 61, 0.5)",
+    fontWeight: 500,
+    marginBottom: "1rem",
+  },
+
+  category: {
+    color: "rgba(15, 29, 61, 0.7)",
+    fontWeight: 600,
+  },
+
+  dot: {
+    width: 3,
+    height: 3,
+    borderRadius: "50%",
+    backgroundColor: "rgba(15, 29, 61, 0.3)",
+  },
+
+  title: {
+    fontFamily: "var(--font-heading)",
+    fontWeight: 700,
+    fontSize: "2.4rem",
+    lineHeight: 1.15,
+    color: "var(--zi-deep-blue)",
+    marginBottom: "1rem",
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: "1.8rem",
+    },
+  },
+
+  excerpt: {
+    fontSize: "1.15rem",
+    lineHeight: 1.7,
+    color: "rgba(15, 29, 61, 0.6)",
+    marginBottom: "2.5rem",
+    borderBottom: "1px solid rgba(15, 29, 61, 0.08)",
+    paddingBottom: "2rem",
+  },
+
+  body: {
+    fontSize: "1.05rem",
+    lineHeight: 1.8,
+    color: "var(--zi-deep-blue)",
+
+    "& h2": {
+      fontFamily: "var(--font-heading)",
+      fontWeight: 700,
+      fontSize: "1.5rem",
+      marginTop: "2rem",
+      marginBottom: "0.8rem",
+    },
+
+    "& p": {
+      marginBottom: "1.2rem",
+    },
+
+    "& ul, & ol": {
+      paddingLeft: "1.5rem",
+      marginBottom: "1.2rem",
+    },
+
+    "& li": {
+      marginBottom: "0.5rem",
+    },
+
+    "& strong": {
+      fontWeight: 700,
+    },
+
+    "& table": {
+      width: "100%",
+      borderCollapse: "collapse" as const,
+      marginBottom: "1.5rem",
+      fontSize: "0.95rem",
+    },
+
+    "& th, & td": {
+      padding: "10px 14px",
+      border: "1px solid rgba(15, 29, 61, 0.1)",
+      textAlign: "left" as const,
+    },
+
+    "& th": {
+      backgroundColor: "rgba(15, 29, 61, 0.04)",
+      fontWeight: 700,
+    },
+  },
+}));
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const articles = getAllNews();
+  return {
+    paths: articles.map((a) => ({ params: { slug: a.slug } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<{ article: NewsArticle }> = async ({ params }) => {
+  const article = await getNewsArticle(params?.slug as string);
+  if (!article) return { notFound: true };
+  return { props: { article } };
+};
+
+export default function ArticlePage({ article }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { classes } = useStyles();
+
+  return (
+    <>
+      <Head>
+        <title>{`${article.title} — Zero Inbox`}</title>
+        <meta name="description" content={article.excerpt} />
+      </Head>
+
+      <Box className={classes.container}>
+        <Link href="/news" className={classes.backLink}>
+          <FiArrowLeft size={16} />
+          Back to News
+        </Link>
+
+        <Flex className={classes.meta}>
+          <span className={classes.category}>{article.category}</span>
+          <span className={classes.dot} />
+          <span>{formatDate(article.date)}</span>
+        </Flex>
+
+        <h1 className={classes.title}>{article.title}</h1>
+        <Text className={classes.excerpt}>{article.excerpt}</Text>
+
+        <div
+          className={classes.body}
+          dangerouslySetInnerHTML={{ __html: article.content ?? "" }}
+        />
+      </Box>
+    </>
+  );
+}

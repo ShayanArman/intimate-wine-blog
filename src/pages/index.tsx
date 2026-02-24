@@ -11,6 +11,7 @@ import HeroSection from "@/Components/HeroSection";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { scroller } from "react-scroll";
+import UserCards from "@/Components/UserCards";
 import Image from "next/image";
 
 type SectionKey = keyof typeof mainPageSections;
@@ -38,6 +39,9 @@ export default function Home() {
     <>
       {/* ── Hero ── */}
       <HeroSection isSmallScreen={isSmallScreen} />
+
+      {/* ── User Cards ── */}
+      <UserCards />
 
       {/* ── Feature: Delete Spam ── */}
       <FeatureSection
