@@ -12,7 +12,7 @@ export interface SeoMeta {
 }
 
 const DEFAULT_META: SeoMeta = {
-  title: "Zero Inbox - AI Email Organizer. Clean your inbox, keep what matters.",
+  title: "Zero Inbox - AI Email Organizer. Clean your inbox, organize your emails.",
   description:
     "Zero Inbox is the AI email organizer that deletes spam, unsubscribes from noise, and organizes what is left in seconds.",
   keywords: DEFAULT_KEYWORDS,
@@ -21,7 +21,7 @@ const DEFAULT_META: SeoMeta = {
 
 const PATH_META: Record<string, Partial<SeoMeta>> = {
   "/": {
-    title: "Zero Inbox - AI Email Organizer. Clean your inbox, keep what matters.",
+    title: "Zero Inbox - AI Email Organizer. Clean your inbox, organize your emails.",
     description:
       "Zero Inbox is an ai email organizer that helps you clean your inbox, bulk-delete clutter, and stay focused on important email.",
   },

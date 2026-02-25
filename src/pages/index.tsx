@@ -101,7 +101,7 @@ export default function Home() {
         title="Delete spam fast with Zero Inbox."
         description="Zero Inbox quickly clears what you don't need. Only important emails are left. Clean your email inbox in seconds."
         checks={[
-          "AI-powered email categorization in seconds.",
+          "AI-powered email organization in seconds.",
           "Bulk delete thousands of emails with one click.",
           "Smart filters keep what matters to you.",
         ]}

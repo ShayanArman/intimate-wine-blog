@@ -91,7 +91,7 @@ export default function FooterSection() {
           <div className={classes.brand}>
             <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} />
             <Text className={classes.brandText}>
-              AI-powered email organization. Clean your inbox, keep what matters.
+              AI-powered email organization. Clean your inbox, discover magic.
             </Text>
           </div>
 

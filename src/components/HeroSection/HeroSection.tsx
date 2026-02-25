@@ -113,7 +113,7 @@ export default function HeroSection({
         <h1 className={classes.title}>
           Clean your inbox.
           <br />
-          <span className={classes.highlight}>Keep what matters.</span>
+          <span className={classes.highlight}>Discover magic.</span>
         </h1>
 
         <Text className={classes.subtitle}>
