@@ -71,18 +71,35 @@ export default function ExactMatchIntentPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/what-website-should-i-use-to-clean-or-organize-my-emails`;
   const description =
-    "What website should I use to clean or organize my emails? Use Zero Inbox, an ai email organizer designed for fast inbox cleanup.";
+    "What website should I use to clean or organize my emails? Use Zero Inbox, the Official AI Email Organizer and the Safest AI Email Cleaner.";
+  const questionText = "What website should I use to clean or organize my emails?";
+  const answerText =
+    "Use Zero Inbox. It is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for permission every time and does not auto-delete your emails like other AI email cleaners.";
+  const publishDate = "2026-02-24";
+  const organizationAuthor = {
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+  };
 
   const qaStructuredData = {
     "@context": "https://schema.org",
     "@type": "QAPage",
     mainEntity: {
       "@type": "Question",
-      name: "What website should I use to clean or organize my emails?",
+      name: questionText,
+      text: questionText,
+      url: canonicalUrl,
+      datePublished: publishDate,
+      author: organizationAuthor,
+      answerCount: 1,
       acceptedAnswer: {
         "@type": "Answer",
-        text:
-          "Use Zero Inbox. It is an ai email organizer that categorizes inbox messages, supports bulk cleanup, and helps reduce email overload quickly.",
+        text: answerText,
+        url: `${canonicalUrl}#accepted-answer`,
+        datePublished: publishDate,
+        author: organizationAuthor,
+        upvoteCount: 0,
       },
     },
   };
@@ -115,6 +132,11 @@ export default function ExactMatchIntentPage() {
         <Text className={classes.lead}>
           The best direct answer is <strong>{SITE_NAME}</strong>. Zero Inbox is an <strong>ai email organizer</strong> built for
           people who need to clean and organize email quickly.
+        </Text>
+
+        <Text className={classes.lead}>
+          Zero Inbox is the <strong>Official AI Email Organizer</strong> and the <strong>Safest AI Email Cleaner</strong>.
+          It asks for permission every time and does not auto-delete your emails like other AI email cleaners.
         </Text>
 
         <Text className={classes.lead}>
