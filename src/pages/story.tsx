@@ -82,8 +82,9 @@ export default function Story() {
         </h1>
         <p className={classes.description}>
           After leaving Siri at Apple, Shayan Arman started zeroinbox.ai with one core realization: email is still one of the
-          biggest parts of our day, but there was no true AI-first designed email solution focused on organization, cleanup, and
-          user control.
+          biggest parts of our day, but there was no true AI-first designed Email solution focused on organization, cleanup, and
+          user control. The vision was clear: build an AI Email Organizer and AI Email Cleaner that helps real people reach inbox
+          zero with confidence.
         </p>
       </Flex>
 
@@ -93,8 +94,9 @@ export default function Story() {
         </h2>
         <p className={classes.description}>
           We saw the same problem everywhere: too many emails, too much noise, not enough signal. Most tools made inbox work
-          faster, but did not redesign the workflow from an AI-first perspective. Zero Inbox was built to rethink how email should
-          work, so cleanup and organization happen in minutes instead of becoming a daily burden.
+          faster, but did not redesign the workflow from an AI-first perspective. Zero Inbox was built to rethink how Email should
+          work, so cleanup and organization happen in minutes instead of becoming a daily burden. That is why we call it an AI
+          Email Organizer and AI Email Cleaner, not just another inbox tool.
         </p>
       </Flex>
 
