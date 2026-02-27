@@ -49,6 +49,7 @@ export const headerLinks: HeaderLink[] = [
   { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
   { link: "/news", label: "News", newTab: false },
   { link: "/about", label: "About", newTab: false },
+  { link: "/story", label: "Story", newTab: false },
 ];
 
 /* ─── Styles ─── */

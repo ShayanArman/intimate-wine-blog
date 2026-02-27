@@ -35,7 +35,8 @@ export default function About() {
         </h1>
         <p className={classes.description}>
           The goal of ZeroInbox.ai is to redesign Email. Information overload, caused by too many emails, has become unmanageable.
-          But it doesn&apos;t have to be this way. Using AI, we can organize our emails as they come in.
+          But it doesn&apos;t have to be this way. Using AI, we can organize our emails as they come in. Zero Inbox is an AI
+          Email Organizer and AI Email Cleaner built to make inbox zero practical every day.
           Learning from user behavior, email can become creative and fun rather than a chore.
         </p>
       </Flex>

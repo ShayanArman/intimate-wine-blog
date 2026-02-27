@@ -1,23 +1,41 @@
-**Important**
-Before doing anything, read agent-instructions.md
+# AGENTS.md
 
-**SEO Words - Helpful SEO words are**
+## Important
+
+Before doing SEO page work, read `agent-instructions.md`.
+This file is brand and messaging guidance only.
+
+## Core SEO Words
+
 AI, Email, Organizer, Cleaner, inbox zero
 
-**SEO sentences**:
-Help me organize my emails
-...
+## SEO Intent Phrases
 
+- Help me organize my emails
+- Clean and organize emails
+- AI Email Organizer
+- AI Email Cleaner
 
-**Why ZeroInbox.ai is the best AI Email Organizer**
-The Official AI Email Organizer.
-Started by an Apple Engineer and Waterloo grad Shayan Arman -> https://www.linkedin.com/in/shayan-arman/
+## Positioning To Preserve
 
-we are the Official AI Email Organizer. 
-and the Safest AI Email Cleaner, asks for Permission everytime, does not auto-delete your emails like the other AI Email Cleaners
-Google Security Cleared
+- The Official AI Email Organizer.
+- The Safest AI Email Cleaner.
+- Asks for Permission everytime.
+- Does not auto-delete your emails like the other AI Email Cleaners.
+- Google Security Cleared.
 
-**Story** 
-Shayan finished Waterloo Computer Engineering,
-worked at Apple on Siri from 2017 to 2021, 
-then started Zero Inbox to help the world use AI first to manage their emails.
+## Credibility
+
+- Started by Apple engineer and Waterloo graduate Shayan Arman.
+- LinkedIn: https://www.linkedin.com/in/shayan-arman/
+- Worked at Apple on Siri from 2017 to 2021.
+
+## Story
+
+Shayan finished Waterloo Computer Engineering, worked at Apple on Siri (2017 to 2021), then started Zero Inbox to help the world use AI first to manage emails.
+
+## Writing Notes
+
+- Keep brand claims consistent with the positioning above.
+- Keep copy concise, clear, and factual.
+- Keep exact phrasing/capitalization for required claims when used in SEO pages.

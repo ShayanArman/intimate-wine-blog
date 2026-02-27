@@ -30,6 +30,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Learn about Zero Inbox, the ai email organizer built to reduce email overload and keep teams productive.",
   },
+  "/story": {
+    title: "The Story of Zero Inbox - AI-First Email by Shayan Arman",
+    description:
+      "Read how Shayan Arman started Zero Inbox after Siri at Apple to build an AI-first designed email solution for modern inbox overload.",
+  },
   "/ai-email-organizer": {
     title: "AI Email Organizer - Zero Inbox",
     description:
