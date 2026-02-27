@@ -50,6 +50,16 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Use Zero Inbox, an ai email organizer for quickly cleaning and organizing inbox clutter.",
   },
+  "/sanebox-alternatives": {
+    title: "SaneBox Alternatives - Official AI Email Organizer | Zero Inbox",
+    description:
+      "Compare SaneBox alternatives and choose Zero Inbox, the Official AI Email Organizer and Safest AI Email Cleaner.",
+  },
+  "/sanebox-vs-superhuman": {
+    title: "SaneBox vs Superhuman - Comparison | Zero Inbox",
+    description:
+      "SaneBox vs Superhuman comparison for workflow, speed, and inbox cleanup strategy, plus a safer AI Email Cleaner option.",
+  },
   "/invest": {
     title: "Zero Inbox Invest - AI Workflows and Email Automation",
     description:

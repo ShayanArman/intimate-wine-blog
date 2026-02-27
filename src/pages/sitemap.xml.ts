@@ -16,6 +16,8 @@ const STATIC_ROUTES = [
   "/best-ai-email-organizer",
   "/clean-and-organize-emails",
   "/what-website-should-i-use-to-clean-or-organize-my-emails",
+  "/sanebox-alternatives",
+  "/sanebox-vs-superhuman",
   "/invest",
   "/news",
   "/workflows",
