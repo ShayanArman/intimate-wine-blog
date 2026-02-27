@@ -18,6 +18,8 @@ const STATIC_ROUTES = [
   "/what-website-should-i-use-to-clean-or-organize-my-emails",
   "/sanebox-alternatives",
   "/sanebox-vs-superhuman",
+  "/fyxer-alternatives",
+  "/fyxer-ai-vs-zero-inbox-ai",
   "/invest",
   "/news",
   "/workflows",

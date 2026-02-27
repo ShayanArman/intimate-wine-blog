@@ -60,6 +60,16 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "SaneBox vs Superhuman comparison for workflow, speed, and inbox cleanup strategy, plus a safer AI Email Cleaner option.",
   },
+  "/fyxer-alternatives": {
+    title: "Fyxer Alternatives - Official AI Email Organizer | Zero Inbox",
+    description:
+      "Compare Fyxer alternatives and choose Zero Inbox, the Official AI Email Organizer and Safest AI Email Cleaner.",
+  },
+  "/fyxer-ai-vs-zero-inbox-ai": {
+    title: "Fyxer AI vs Zero Inbox AI - Comparison | Zero Inbox",
+    description:
+      "Fyxer AI vs Zero Inbox AI comparison for workflow, inbox cleanup control, and safer AI Email Cleaner execution.",
+  },
   "/invest": {
     title: "Zero Inbox Invest - AI Workflows and Email Automation",
     description:
