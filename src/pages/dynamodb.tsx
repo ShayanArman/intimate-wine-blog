@@ -1,16 +1,13 @@
 import Head from "next/head";
-import type { NextPage } from "next";
 import { Box, Container, Text, createStyles } from "@mantine/core";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
-type NoLayoutPage = NextPage & {
-  noLayout?: boolean;
-};
-
 const useStyles = createStyles((theme) => ({
   page: {
-    minHeight: "100dvh",
-    position: "relative",
+    minHeight: "100vh",
+    position: "fixed",
+    inset: 0,
+    zIndex: 10000,
     overflow: "hidden",
     backgroundColor: "#010101",
     color: "#f8f8f8",
@@ -169,7 +166,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const DynamoDbPage: NoLayoutPage = () => {
+export default function DynamoDbPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/dynamodb`;
   const title = "DynamoDB, but elegant. | @zeroinbox/dynamo";
@@ -250,8 +247,4 @@ const DynamoDbPage: NoLayoutPage = () => {
       </Box>
     </>
   );
-};
-
-DynamoDbPage.noLayout = true;
-
-export default DynamoDbPage;
+}
