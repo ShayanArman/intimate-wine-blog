@@ -11,6 +11,7 @@ export interface NewsArticle {
   category: string;
   excerpt: string;
   thumbnail: string;
+  videoEmbedUrl: string | null;
   content?: string;       // rendered HTML (only for single-article views)
 }
 
@@ -32,6 +33,7 @@ export function getAllNews(): NewsArticle[] {
       category: data.category,
       excerpt: data.excerpt,
       thumbnail: data.thumbnail,
+      videoEmbedUrl: data.videoEmbedUrl ?? null,
     } as NewsArticle;
   });
 
@@ -60,6 +62,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
     category: data.category,
     excerpt: data.excerpt,
     thumbnail: data.thumbnail,
+    videoEmbedUrl: data.videoEmbedUrl ?? null,
     content: processed.toString(),
   };
 }

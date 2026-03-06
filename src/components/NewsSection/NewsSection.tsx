@@ -182,6 +182,10 @@ function getThumbnailCenterText(article: NewsArticle): string | null {
     return "Inbox Zero and Productivity";
   }
 
+  if (article.slug === "inbox-zero") {
+    return "Inbox Zero";
+  }
+
   return null;
 }
 

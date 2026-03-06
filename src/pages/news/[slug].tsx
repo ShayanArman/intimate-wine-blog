@@ -1,9 +1,10 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { getAllNews, getNewsArticle, NewsArticle } from "@/lib/news";
-import { createStyles, Box, Text, Flex } from "@mantine/core";
+import { createStyles, Box, Text, Flex, Button } from "@mantine/core";
 import Link from "next/link";
 import Head from "next/head";
 import { FiArrowLeft } from "react-icons/fi";
+import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
@@ -76,6 +77,42 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "2.5rem",
     borderBottom: "1px solid rgba(15, 29, 61, 0.08)",
     paddingBottom: "2rem",
+  },
+
+  ctaWrap: {
+    marginBottom: "2.5rem",
+  },
+
+  ctaButton: {
+    backgroundColor: "var(--zero-red-darker)",
+    border: "none",
+    fontWeight: 700,
+    fontSize: "1rem",
+    transition: "all var(--transition-smooth)",
+
+    "&:hover": {
+      backgroundColor: "#d4205a",
+      transform: "translateY(-2px)",
+      boxShadow: "0 10px 24px rgba(255, 50, 119, 0.25)",
+    },
+  },
+
+  videoWrap: {
+    position: "relative" as const,
+    width: "100%",
+    aspectRatio: "16 / 9",
+    marginBottom: "2rem",
+    borderRadius: "var(--radius-md)",
+    overflow: "hidden",
+    backgroundColor: "#000000",
+    boxShadow: "0 14px 40px rgba(15, 29, 61, 0.12)",
+  },
+
+  videoFrame: {
+    width: "100%",
+    height: "100%",
+    border: 0,
+    display: "block",
   },
 
   body: {
@@ -217,7 +254,36 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
         </Flex>
 
         <h1 className={classes.title}>{article.title}</h1>
+
+        {article.videoEmbedUrl ? (
+          <div className={classes.videoWrap}>
+            <iframe
+              className={classes.videoFrame}
+              src={article.videoEmbedUrl}
+              title={`${article.title} video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        ) : null}
+
         <Text className={classes.excerpt}>{article.excerpt}</Text>
+
+        <div className={classes.ctaWrap}>
+          <Button
+            component="a"
+            href="https://app.zeroinbox.ai"
+            target="_blank"
+            rel="noreferrer"
+            radius="xl"
+            size="lg"
+            onClick={() => registerClickSignUpEventGoogle()}
+            className={classes.ctaButton}
+          >
+            Try Zero Inbox today
+          </Button>
+        </div>
 
         <div
           className={classes.body}
