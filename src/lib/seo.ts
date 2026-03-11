@@ -137,6 +137,32 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
   },
 };
 
+const PATH_LAST_MODIFIED: Record<string, string> = {
+  "/": "2026-03-03T00:11:55-08:00",
+  "/about": "2026-02-27T10:49:51-08:00",
+  "/story": "2026-02-27T10:50:24-08:00",
+  "/ai-email-organizer": "2026-03-05T14:36:43-08:00",
+  "/best-ai-email-organizer": "2026-02-27T10:18:19-08:00",
+  "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
+  "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",
+  "/sanebox-alternatives": "2026-02-27T10:27:58-08:00",
+  "/sanebox-vs-superhuman": "2026-02-27T10:27:58-08:00",
+  "/fyxer-alternatives": "2026-02-27T10:37:07-08:00",
+  "/fyxer-ai-vs-zero-inbox-ai": "2026-02-27T10:34:40-08:00",
+  "/fyxer-ai-vs-superhuman": "2026-02-27T10:37:07-08:00",
+  "/invest": "2026-02-24T00:41:59-08:00",
+  "/news": "2026-02-24T14:16:45-08:00",
+  "/dynamodb": "2026-03-02T23:51:39-08:00",
+  "/workflows": "2025-08-23T08:33:12-07:00",
+  "/workflows/accounting": "2025-08-23T08:33:12-07:00",
+  "/workflows/email-management": "2025-08-23T08:33:12-07:00",
+  "/workflows/sales": "2025-08-23T08:33:12-07:00",
+  "/workflows/workflow/contacts-sync": "2025-08-23T08:33:12-07:00",
+  "/workflows/workflow/email-cleaner": "2025-08-23T08:33:12-07:00",
+  "/workflows/workflow/sequencer": "2025-08-23T08:33:12-07:00",
+  "/workflows/workflow/transaction-summary": "2025-08-23T08:33:12-07:00",
+};
+
 export function normalizePath(inputPath: string): string {
   const [withoutHash] = inputPath.split("#");
   const [withoutQuery] = withoutHash.split("?");
@@ -151,6 +177,11 @@ export function normalizePath(inputPath: string): string {
 export function toCanonicalUrl(path: string): string {
   const normalizedPath = normalizePath(path);
   return normalizedPath === "/" ? SITE_URL : `${SITE_URL}${normalizedPath}`;
+}
+
+export function getPathLastModified(pathname: string): string | null {
+  const normalizedPath = normalizePath(pathname);
+  return PATH_LAST_MODIFIED[normalizedPath] ?? null;
 }
 
 export function getSeoMeta(pathname: string): SeoMeta {

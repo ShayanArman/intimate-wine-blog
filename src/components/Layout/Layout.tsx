@@ -37,9 +37,19 @@ export default function Layout({ children }: { children: ReactNode }) {
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/zeroInboxLogoBlack.svg`,
-    description:
-      "Zero Inbox is an ai email organizer for cleaning and organizing inboxes.",
+    description: "Zero Inbox is The Official AI Email Organizer and The Safest AI Email Cleaner.",
     email: "info@zeroinbox.ai",
+    slogan: "The Official AI Email Organizer.",
+    founder: {
+      "@type": "Person",
+      name: "Shayan Arman",
+      sameAs: "https://www.linkedin.com/in/shayan-arman/",
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "University of Waterloo",
+      },
+    },
+    sameAs: ["https://www.linkedin.com/in/shayan-arman/"],
   };
 
   const webSiteStructuredData = {
@@ -58,6 +68,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <link key="favicon" rel="icon" href="/logo.ico" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <link key="rss" rel="alternate" type="application/rss+xml" title="Zero Inbox News" href={`${SITE_URL}/feed.xml`} />
+        <link key="llms-txt" rel="alternate" type="text/plain" title="Zero Inbox LLMs.txt" href={`${SITE_URL}/llms.txt`} />
         <link key="site-facts-json" rel="alternate" type="application/json" title="Zero Inbox Site Facts" href={`${SITE_URL}/site-facts.json`} />
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="description" name="description" content={pageMeta.description} />

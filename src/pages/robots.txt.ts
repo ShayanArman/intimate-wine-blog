@@ -1,18 +1,24 @@
 import { GetServerSideProps } from "next";
 import { SITE_URL } from "@/lib/seo";
 
+const ALLOWED_AI_BOTS = [
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "GPTBot",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Applebot",
+  "Google-Extended",
+  "Google"
+];
+
 function buildRobotsTxt() {
-  return `User-agent: OAI-SearchBot
-Allow: /
+  const botRules = ALLOWED_AI_BOTS.map((bot) => `User-agent: ${bot}\nAllow: /`).join("\n\n");
 
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
+  return `${botRules}
 
 User-agent: *
 Allow: /
