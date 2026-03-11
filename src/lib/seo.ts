@@ -45,6 +45,16 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "AI Tool Reviews from Shayan Arman help you find the best AI tools for the job with human-tested, 5-star reviews, Last Tried dates, and frequent updates.",
   },
+  "/tools": {
+    title: "AI Tools - Human-Tested Reviews by Shayan Arman",
+    description:
+      "Browse AI tools reviewed by Shayan Arman with human-tested notes, ratings, and direct links to each tool review.",
+  },
+  "/tools/superhuman": {
+    title: "Superhuman Review - 3.5 / 5 Stars",
+    description:
+      "Read the human-tested Superhuman review from Shayan Arman with a 3.5 / 5 star rating and a concise verdict.",
+  },
   "/best-ai-email-organizer": {
     title: "What Website Should I Use to Clean or Organize My Emails? - Zero Inbox",
     description:
@@ -153,6 +163,8 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/story": "2026-02-27T10:50:24-08:00",
   "/ai-email-organizer": "2026-03-05T14:36:43-08:00",
   "/ai-tool-reviews": "2026-03-10T00:00:00-07:00",
+  "/tools": "2026-03-10T00:00:00-07:00",
+  "/tools/superhuman": "2026-03-10T00:00:00-07:00",
   "/best-ai-email-organizer": "2026-02-27T10:18:19-08:00",
   "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
   "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",

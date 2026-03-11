@@ -317,6 +317,7 @@ export default function AiToolReviewsPage() {
         </ul>
 
         <div className={classes.links}>
+          <Link href="/tools" className={classes.link}>Browse all tools</Link>
           <Link href="/story" className={classes.link}>Read Shayan&apos;s story</Link>
           <Link href="/about" className={classes.link}>About Zero Inbox</Link>
           <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
