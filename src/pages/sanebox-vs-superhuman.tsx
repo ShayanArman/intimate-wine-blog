@@ -219,6 +219,7 @@ export default function SaneboxVsSuperhumanPage() {
 
         <div className={classes.links}>
           <Link href="/sanebox-alternatives" className={classes.link}>SaneBox Alternatives</Link>
+          <Link href="/superhuman-alternatives" className={classes.link}>Superhuman Alternatives</Link>
           <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
           <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
           <Link href="/clean-and-organize-emails" className={classes.link}>Help me organize my emails</Link>

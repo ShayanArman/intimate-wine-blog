@@ -61,6 +61,11 @@ const STATIC_ROUTES: StaticRoute[] = [
     priority: "0.8",
   },
   {
+    route: "/superhuman-alternatives",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
     route: "/fyxer-alternatives",
     changefreq: "weekly",
     priority: "0.8",
@@ -104,31 +109,6 @@ const STATIC_ROUTES: StaticRoute[] = [
     route: "/workflows/email-management",
     changefreq: "monthly",
     priority: "0.65",
-  },
-  {
-    route: "/workflows/sales",
-    changefreq: "monthly",
-    priority: "0.65",
-  },
-  {
-    route: "/workflows/workflow/contacts-sync",
-    changefreq: "monthly",
-    priority: "0.6",
-  },
-  {
-    route: "/workflows/workflow/email-cleaner",
-    changefreq: "monthly",
-    priority: "0.6",
-  },
-  {
-    route: "/workflows/workflow/sequencer",
-    changefreq: "monthly",
-    priority: "0.6",
-  },
-  {
-    route: "/workflows/workflow/transaction-summary",
-    changefreq: "monthly",
-    priority: "0.6",
   },
 ];
 
@@ -181,7 +161,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     loc: `${SITE_URL}/news/${article.slug}`,
     lastmod: new Date(`${article.date}T00:00:00Z`).toISOString(),
     changefreq: "monthly",
-    priority: "0.7",
+    priority: "0.8",
   }));
 
   const allUrls = [...staticUrls, ...newsUrls];

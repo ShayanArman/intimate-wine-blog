@@ -28,9 +28,6 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-User-agent: Google
-Allow: /
-
 User-agent: *
 Allow: /
 

@@ -46,6 +46,7 @@ function getFactsPayload() {
       `${SITE_URL}/what-website-should-i-use-to-clean-or-organize-my-emails`,
       `${SITE_URL}/sanebox-alternatives`,
       `${SITE_URL}/sanebox-vs-superhuman`,
+      `${SITE_URL}/superhuman-alternatives`,
       `${SITE_URL}/fyxer-alternatives`,
       `${SITE_URL}/fyxer-ai-vs-zero-inbox-ai`,
       `${SITE_URL}/fyxer-ai-vs-superhuman`,

@@ -213,6 +213,7 @@ export default function AiEmailOrganizerPage() {
           <Link href="/news/ai-email-organizer" className={classes.link}>AI Email Organizer Guide</Link>
           <Link href="/sanebox-alternatives" className={classes.link}>SaneBox Alternatives</Link>
           <Link href="/sanebox-vs-superhuman" className={classes.link}>SaneBox vs Superhuman</Link>
+          <Link href="/superhuman-alternatives" className={classes.link}>Superhuman Alternatives</Link>
           <Link href="/fyxer-alternatives" className={classes.link}>Fyxer Alternatives</Link>
           <Link href="/fyxer-ai-vs-zero-inbox-ai" className={classes.link}>Fyxer AI vs Zero Inbox AI</Link>
           <Link href="/fyxer-ai-vs-superhuman" className={classes.link}>Fyxer AI vs Superhuman</Link>
