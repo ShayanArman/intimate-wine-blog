@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import html from "remark-html";
 
 export interface NewsArticle {
@@ -69,7 +70,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
   const fileContents = fs.readFileSync(path.join(newsDirectory, match), "utf8");
   const { data, content } = matter(fileContents);
 
-  const processed = await remark().use(html).process(content);
+  const processed = await remark().use(remarkGfm).use(html).process(content);
 
   return {
     slug: data.slug ?? match.replace(/\.md$/, ""),
