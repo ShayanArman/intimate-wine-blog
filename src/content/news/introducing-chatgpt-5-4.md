@@ -77,3 +77,5 @@ That is the deeper signal in this launch. The model got better, but the product 
 [GPT-5.4](https://openai.com/index/introducing-gpt-5-4/) looks like a meaningful step toward AI systems that can do more real professional work with less friction. For [Zero Inbox](https://www.zeroinbox.ai/), that is exactly the direction that matters.
 
 We want the best models available inside a product that stays safe, permission-first, and useful on real inboxes.
+
+Written by [Shayan Arman](/story), CEO of Zero Inbox AI Technologies LTD.

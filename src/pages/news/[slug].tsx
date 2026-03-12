@@ -75,9 +75,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "1.15rem",
     lineHeight: 1.7,
     color: "rgba(15, 29, 61, 0.6)",
-    marginBottom: "2.5rem",
-    borderBottom: "1px solid rgba(15, 29, 61, 0.08)",
-    paddingBottom: "2rem",
+    marginBottom: "1rem",
   },
 
   ctaWrap: {
@@ -102,7 +100,7 @@ const useStyles = createStyles((theme) => ({
     position: "relative" as const,
     width: "100%",
     aspectRatio: "16 / 9",
-    marginBottom: "2rem",
+    marginBottom: "1.25rem",
     borderRadius: "var(--radius-md)",
     overflow: "hidden",
     backgroundColor: "#000000",
@@ -286,6 +284,8 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
 
         <h1 className={classes.title}>{article.title}</h1>
 
+        <Text className={classes.excerpt}>{article.excerpt}</Text>
+
         {article.videoEmbedUrl ? (
           <div className={classes.videoWrap}>
             <iframe
@@ -318,8 +318,6 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
             </div>
           </div>
         )}
-
-        <Text className={classes.excerpt}>{article.excerpt}</Text>
 
         <div className={classes.ctaWrap}>
           <Button
