@@ -71,6 +71,19 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  subtitle: {
+    fontFamily: "var(--font-heading)",
+    fontWeight: 600,
+    fontSize: "1.3rem",
+    lineHeight: 1.45,
+    color: "rgba(15, 29, 61, 0.72)",
+    marginBottom: "0.9rem",
+
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: "1.1rem",
+    },
+  },
+
   excerpt: {
     fontSize: "1.15rem",
     lineHeight: 1.7,
@@ -283,6 +296,10 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
         </Flex>
 
         <h1 className={classes.title}>{article.title}</h1>
+
+        {article.subtitle ? (
+          <Text className={classes.subtitle}>{article.subtitle}</Text>
+        ) : null}
 
         <Text className={classes.excerpt}>{article.excerpt}</Text>
 

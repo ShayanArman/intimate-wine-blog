@@ -8,6 +8,7 @@ import html from "remark-html";
 export interface NewsArticle {
   slug: string;
   title: string;
+  subtitle: string | null;
   date: string;
   category: string;
   excerpt: string;
@@ -45,6 +46,7 @@ export function getAllNews(): NewsArticle[] {
     return {
       slug: data.slug ?? filename.replace(/\.md$/, ""),
       title: data.title,
+      subtitle: data.subtitle ?? null,
       date: data.date,
       category: data.category,
       excerpt: data.excerpt,
@@ -75,6 +77,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
   return {
     slug: data.slug ?? match.replace(/\.md$/, ""),
     title: data.title,
+    subtitle: data.subtitle ?? null,
     date: data.date,
     category: data.category,
     excerpt: data.excerpt,
