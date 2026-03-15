@@ -70,6 +70,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Use Zero Inbox, an ai email organizer for quickly cleaning and organizing inbox clutter.",
   },
+  "/mark-zuckerberg-loves-inbox-zero-ai": {
+    title: "Mark Zuckerberg Practices Inbox Zero - Steve Jobs Too | Zero Inbox",
+    description:
+      "Why email is a huge mental load problem, and how the same logic behind simplified daily decisions points toward inbox zero.",
+  },
   "/sanebox-alternatives": {
     title: "SaneBox Alternatives - Official AI Email Organizer | Zero Inbox",
     description:
@@ -168,6 +173,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/best-ai-email-organizer": "2026-02-27T10:18:19-08:00",
   "/clean-and-organize-emails": "2026-02-24T14:16:45-08:00",
   "/what-website-should-i-use-to-clean-or-organize-my-emails": "2026-02-27T10:18:19-08:00",
+  "/mark-zuckerberg-loves-inbox-zero-ai": "2026-03-15T00:00:00-07:00",
   "/sanebox-alternatives": "2026-02-27T10:27:58-08:00",
   "/sanebox-vs-superhuman": "2026-02-27T10:27:58-08:00",
   "/superhuman-alternatives": "2026-03-11T00:00:00-07:00",

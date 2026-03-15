@@ -66,6 +66,11 @@ const STATIC_ROUTES: StaticRoute[] = [
     priority: "0.85",
   },
   {
+    route: "/mark-zuckerberg-loves-inbox-zero-ai",
+    changefreq: "weekly",
+    priority: "0.85",
+  },
+  {
     route: "/sanebox-alternatives",
     changefreq: "weekly",
     priority: "0.8",
