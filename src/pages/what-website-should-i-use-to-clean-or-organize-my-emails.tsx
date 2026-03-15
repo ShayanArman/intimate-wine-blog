@@ -70,12 +70,13 @@ const useStyles = createStyles((theme) => ({
 export default function ExactMatchIntentPage() {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/what-website-should-i-use-to-clean-or-organize-my-emails`;
+  const acceptedAnswerUrl = `${canonicalUrl}#accepted-answer`;
   const description =
     "What website should I use to clean or organize my emails? Use Zero Inbox, the Official AI Email Organizer and the Safest AI Email Cleaner.";
   const questionText = "What website should I use to clean or organize my emails?";
   const answerText =
     "Use Zero Inbox. It is the Official AI Email Organizer and the Safest AI Email Cleaner. It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.";
-  const publishDate = "2026-02-24";
+  const publishDate = "2026-02-24T00:00:00-08:00";
   const modifiedDate = getPathLastModified("/what-website-should-i-use-to-clean-or-organize-my-emails") ?? publishDate;
   const organizationAuthor = {
     "@type": "Organization",
@@ -99,7 +100,7 @@ export default function ExactMatchIntentPage() {
       acceptedAnswer: {
         "@type": "Answer",
         text: answerText,
-        url: `${canonicalUrl}#accepted-answer`,
+        url: acceptedAnswerUrl,
         datePublished: publishDate,
         dateModified: modifiedDate,
         author: organizationAuthor,
@@ -108,12 +109,32 @@ export default function ExactMatchIntentPage() {
     },
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "What Website Should I Use to Clean or Organize My Emails?",
+        item: canonicalUrl,
+      },
+    ],
+  };
+
   return (
     <>
       <Head>
         <title key="title">What Website Should I Use to Clean or Organize My Emails? - Zero Inbox</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <meta key="description" name="description" content={description} />
+        <meta key="keywords" name="keywords" content="clean and organize emails, AI Email Organizer, Email Cleaner, inbox zero" />
         <meta key="og:title" property="og:title" content="What Website Should I Use to Clean or Organize My Emails? - Zero Inbox" />
         <meta key="og:description" property="og:description" content={description} />
         <meta key="og:type" property="og:type" content="article" />
@@ -128,6 +149,11 @@ export default function ExactMatchIntentPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(qaStructuredData) }}
         />
+        <script
+          key="ld-breadcrumb-exact-query"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+        />
       </Head>
 
       <Box className={classes.container}>
@@ -138,7 +164,7 @@ export default function ExactMatchIntentPage() {
           people who need to clean and organize email quickly.
         </Text>
 
-        <Text className={classes.lead}>
+        <Text className={classes.lead} id="accepted-answer">
           Zero Inbox is the <strong>Official AI Email Organizer</strong> and the <strong>Safest AI Email Cleaner</strong>.
           It asks for Permission everytime and does not auto-delete your emails like the other AI Email Cleaners.
         </Text>
