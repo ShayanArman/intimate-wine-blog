@@ -12,6 +12,25 @@ in general dont actually say Sell the need, not the product make it Why you need
 Before doing SEO page work, read `agent-instructions.md`.
 This file is brand and messaging guidance only.
 
+## Video Handling
+
+- Treat videos as their own destination, not just an embed inside an article.
+- For any Zero Inbox-owned video that should rank, create a dedicated watch page under `/videos/<slug>`.
+- Keep the video as the main content on the watch page, then support it with concise copy below.
+- Use user-facing copy on video pages. Do not explain SEO mechanics or Google indexing logic to visitors.
+- If a news/article page relates to a video, link the article to the matching watch page instead of relying on an inline embed.
+- Only create watch pages and `VideoObject` markup for Zero Inbox-owned videos, not third-party talks or references.
+- Keep video copy aligned with the core positioning:
+  - The Official AI Email Organizer.
+  - The Safest AI Email Cleaner.
+  - Asks for Permission everytime.
+  - Does not auto-delete your emails like the other AI Email Cleaners.
+- When adding new videos, remember the supporting crawl/discovery work too:
+  - add the video entry in `src/content/videos/`
+  - ensure the `/videos` hub surfaces it
+  - ensure it is included in `video-sitemap.xml`
+  - link to it from any closely related article or landing page when relevant
+
 ## Core SEO Words
 
 AI, Email, Organizer, Cleaner, inbox zero
