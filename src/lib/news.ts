@@ -15,6 +15,7 @@ export interface NewsArticle {
   thumbnail: string | null;
   imageFallbackText: string | null;
   videoEmbedUrl: string | null;
+  videoSlug: string | null;
   content?: string; // rendered HTML (only for single-article views)
 }
 
@@ -53,6 +54,7 @@ export function getAllNews(): NewsArticle[] {
       thumbnail: normalizeThumbnail(data.thumbnail),
       imageFallbackText: data.imageFallbackText ?? null,
       videoEmbedUrl: data.videoEmbedUrl ?? null,
+      videoSlug: data.videoSlug ?? null,
     } as NewsArticle;
   });
 
@@ -84,6 +86,7 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
     thumbnail: normalizeThumbnail(data.thumbnail),
     imageFallbackText: data.imageFallbackText ?? null,
     videoEmbedUrl: data.videoEmbedUrl ?? null,
+    videoSlug: data.videoSlug ?? null,
     content: processed.toString(),
   };
 }

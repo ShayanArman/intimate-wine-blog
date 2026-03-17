@@ -162,6 +162,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
       <h1 className={classes.heading}>News</h1>
       <div className={classes.intentLinks}>
         <Link href="/ai-email-organizer" className={classes.intentLink}>AI Email Organizer</Link>
+        <Link href="/videos" className={classes.intentLink}>Videos</Link>
         <Link href="/best-ai-email-organizer" className={classes.intentLink}>Best AI Email Organizer</Link>
         <Link href="/clean-and-organize-emails" className={classes.intentLink}>How to Clean and Organize Emails</Link>
         <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.intentLink}>

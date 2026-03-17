@@ -1,10 +1,11 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { getAllNews, getNewsArticle, NewsArticle } from "@/lib/news";
+import { getVideoBySlug, VideoEntry } from "@/lib/videos";
 import { createStyles, Box, Text, Flex, Button } from "@mantine/core";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
@@ -154,6 +155,77 @@ const useStyles = createStyles((theme) => ({
     display: "block",
   },
 
+  videoLinkCard: {
+    display: "block",
+    textDecoration: "none",
+    color: "inherit",
+    marginBottom: "1.25rem",
+  },
+
+  videoPoster: {
+    position: "relative" as const,
+    width: "100%",
+    height: "100%",
+  },
+
+  watchBadge: {
+    position: "absolute" as const,
+    top: 16,
+    left: 16,
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    padding: "0.45rem 0.8rem",
+    borderRadius: 999,
+    backgroundColor: "rgba(15, 29, 61, 0.8)",
+    color: "#ffffff",
+    fontWeight: 700,
+    fontSize: "0.9rem",
+    zIndex: 1,
+  },
+
+  watchOverlay: {
+    position: "absolute" as const,
+    inset: 0,
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+    gap: 16,
+    padding: "1.3rem",
+    background: "linear-gradient(180deg, rgba(15, 29, 61, 0.05) 0%, rgba(15, 29, 61, 0.7) 100%)",
+  },
+
+  watchOverlayContent: {
+    color: "#ffffff",
+  },
+
+  watchTitle: {
+    fontFamily: "var(--font-heading)",
+    fontSize: "1.4rem",
+    fontWeight: 700,
+    lineHeight: 1.1,
+    marginBottom: "0.35rem",
+  },
+
+  watchCopy: {
+    fontSize: "0.95rem",
+    lineHeight: 1.55,
+    color: "rgba(255, 255, 255, 0.9)",
+    maxWidth: 520,
+  },
+
+  watchButton: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    padding: "0.75rem 1rem",
+    borderRadius: 999,
+    backgroundColor: "#ffffff",
+    color: "var(--zi-deep-blue)",
+    fontWeight: 700,
+    whiteSpace: "nowrap" as const,
+  },
+
   body: {
     fontSize: "1.05rem",
     lineHeight: 1.8,
@@ -221,13 +293,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<{ article: NewsArticle }> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<{ article: NewsArticle; relatedVideo: VideoEntry | null }> = async ({ params }) => {
   const article = await getNewsArticle(params?.slug as string);
   if (!article) return { notFound: true };
-  return { props: { article } };
+  const relatedVideo = article.videoSlug ? await getVideoBySlug(article.videoSlug) : null;
+  return { props: { article, relatedVideo } };
 };
 
-export default function ArticlePage({ article }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function ArticlePage({ article, relatedVideo }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { classes } = useStyles();
   const canonicalUrl = `${SITE_URL}/news/${article.slug}`;
   const articleImageUrl = article.thumbnail ? `${SITE_URL}${article.thumbnail}` : DEFAULT_OG_IMAGE;
@@ -303,17 +376,40 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
 
         <Text className={classes.excerpt}>{article.excerpt}</Text>
 
-        {article.videoEmbedUrl ? (
-          <div className={classes.videoWrap}>
-            <iframe
-              className={classes.videoFrame}
-              src={article.videoEmbedUrl}
-              title={`${article.title} video`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
+        {relatedVideo ? (
+          <Link href={`/videos/${relatedVideo.slug}`} className={classes.videoLinkCard}>
+            <div className={classes.videoWrap}>
+              <span className={classes.watchBadge}>
+                <FiPlayCircle size={18} />
+                Watch video
+              </span>
+              <div className={classes.videoPoster}>
+                {relatedVideo.posterImage ? (
+                  <Image
+                    className={classes.mediaImage}
+                    src={relatedVideo.posterImage}
+                    alt={relatedVideo.title}
+                    fill
+                    priority
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 760px"
+                  />
+                ) : (
+                  <div className={classes.mediaFallback}>
+                    <span className={classes.mediaFallbackText}>{relatedVideo.title}</span>
+                  </div>
+                )}
+
+                <div className={classes.watchOverlay}>
+                  <div className={classes.watchOverlayContent}>
+                    <div className={classes.watchTitle}>{relatedVideo.title}</div>
+                    <div className={classes.watchCopy}>{relatedVideo.excerpt}</div>
+                  </div>
+                  <span className={classes.watchButton}>Open watch page</span>
+                </div>
+              </div>
+            </div>
+          </Link>
         ) : article.thumbnail ? (
           <div className={classes.videoWrap}>
             <Image

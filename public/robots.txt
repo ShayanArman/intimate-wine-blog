@@ -32,3 +32,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.zeroinbox.ai/sitemap.xml
+Sitemap: https://www.zeroinbox.ai/video-sitemap.xml

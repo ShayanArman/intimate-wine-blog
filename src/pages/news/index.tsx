@@ -45,6 +45,7 @@ export default function NewsPage({ articles }: InferGetStaticPropsType<typeof ge
       <Head>
         <title key="title">News - Zero Inbox</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
+        <link key="related-videos" rel="related" href={`${SITE_URL}/videos`} />
         <meta key="description" name="description" content={description} />
         <meta key="og:title" property="og:title" content="News - Zero Inbox" />
         <meta key="og:description" property="og:description" content={description} />

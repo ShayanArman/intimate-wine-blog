@@ -7,6 +7,7 @@ thumbnail: "/images/news/interactive_learning.png"
 slug: "ai-email-organizer"
 imageFallbackText: "AI Email Organizer"
 videoEmbedUrl: "https://www.youtube.com/embed/IiinhK72hhE?si=pduJI9sGHOH01Fxx"
+videoSlug: "ai-email-organizer"
 ---
 
 The average professional gets flooded with email every week. Between newsletters, promotions, spam, internal threads, and real work, the inbox becomes a running cleanup project. That is exactly why more people are searching for an **AI Email Organizer** or **AI Email Cleaner**.

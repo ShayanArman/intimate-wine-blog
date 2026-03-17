@@ -115,6 +115,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     description:
       "Read Zero Inbox updates, product news, and research on inbox zero, privacy, and AI email management.",
   },
+  "/videos": {
+    title: "Zero Inbox Videos - AI Email Organizer Watch Pages",
+    description:
+      "Watch Zero Inbox videos about inbox zero, AI email organizer workflows, and how to clean and organize emails faster.",
+  },
   "/dynamodb": {
     title: "DynamoDB, but elegant. | @zeroinbox/dynamo",
     description:
@@ -182,6 +187,7 @@ const PATH_LAST_MODIFIED: Record<string, string> = {
   "/fyxer-ai-vs-superhuman": "2026-02-27T10:37:07-08:00",
   "/invest": "2026-02-24T00:41:59-08:00",
   "/news": "2026-03-06T00:00:00.000Z",
+  "/videos": "2026-03-16T00:00:00-07:00",
   "/dynamodb": "2026-03-02T23:51:39-08:00",
   "/workflows": "2025-08-23T08:33:12-07:00",
   "/workflows/accounting": "2025-08-23T08:33:12-07:00",

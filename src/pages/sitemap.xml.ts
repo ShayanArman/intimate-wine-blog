@@ -1,6 +1,7 @@
 import { createHash } from "crypto";
 import { GetServerSideProps } from "next";
 import { getAllNews } from "@/lib/news";
+import { getAllVideos } from "@/lib/videos";
 import { SITE_URL, getPathLastModified } from "@/lib/seo";
 
 interface SitemapUrl {
@@ -111,6 +112,11 @@ const STATIC_ROUTES: StaticRoute[] = [
     priority: "0.75",
   },
   {
+    route: "/videos",
+    changefreq: "weekly",
+    priority: "0.8",
+  },
+  {
     route: "/dynamodb",
     changefreq: "monthly",
     priority: "0.7",
@@ -184,7 +190,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     priority: "0.8",
   }));
 
-  const allUrls = [...staticUrls, ...newsUrls];
+  const videoUrls: SitemapUrl[] = getAllVideos().map((video) => ({
+    loc: `${SITE_URL}/videos/${video.slug}`,
+    lastmod: new Date(`${video.date}T00:00:00Z`).toISOString(),
+    changefreq: "weekly",
+    priority: "0.85",
+  }));
+
+  const allUrls = [...staticUrls, ...newsUrls, ...videoUrls];
   const sitemap = buildSitemap(allUrls);
   const sitemapLastModifiedAt = allUrls.reduce((latestTimestamp, url) => {
     return Math.max(latestTimestamp, Date.parse(url.lastmod));
