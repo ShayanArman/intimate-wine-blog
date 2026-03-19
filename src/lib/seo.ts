@@ -38,7 +38,7 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
   "/ai-email-organizer": {
     title: "AI Email Organizer - Zero Inbox",
     description:
-      "Zero Inbox is an ai email organizer for inbox cleanup, unsubscribe management, and faster email organization.",
+      "Zero Inbox is an ai email organizer for Gmail, Outlook, and Hotmail inbox cleanup, unsubscribe management, and faster email organization.",
   },
   "/ai-tool-reviews": {
     title: "AI Tool Reviews by Shayan Arman - Human Reviews, Star Ratings, Last Tried",
