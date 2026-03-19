@@ -21,8 +21,8 @@ export const faqItems: FAQItem[] = [
     answer: "Absolutely. Zero Inbox is a Google Security Partner. All data is encrypted end-to-end. We never store, read, or share your email content. You can delete your account and all data at any time.",
   },
   {
-    question: "Does Zero Inbox work with Gmail and Outlook?",
-    answer: "Yes! Zero Inbox supports Gmail, Google Workspace, and Outlook accounts. Connect securely with your Google or Microsoft account and start cleaning right away.",
+    question: "Does Zero Inbox work with Gmail, Outlook, and Hotmail?",
+    answer: "Yes! Zero Inbox supports Gmail, Google Workspace, Outlook, and Hotmail accounts. Connect securely with your Google or Microsoft account and start cleaning right away.",
   },
   {
     question: "How many emails can Zero Inbox handle?",
