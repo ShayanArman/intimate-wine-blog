@@ -11,6 +11,15 @@ Create high-intent SEO landing pages (for example `X Alternatives`, `X vs Y`) th
 3. Are discoverable by crawlers via sitemap and internal links.
 4. Avoid Search Console Q&A schema validation issues.
 
+## Project Structure
+
+- `src/pages/sitemap.xml.ts` is the actual Next.js route that serves `/sitemap.xml`.
+- `src/lib/sitemaps.ts` is the shared sitemap helper/config file. `src/pages/sitemap.xml.ts` imports it.
+- Static sitemap route groups such as `PAGES_STATIC_ROUTES`, `TOOLS_STATIC_ROUTES`, and `NEWS_STATIC_ROUTES` live in `src/lib/sitemaps.ts`.
+- Child sitemap pages such as `src/pages/news-sitemap.xml.ts` use shared helpers from `src/lib/sitemaps.ts` and add dynamic content URLs.
+- For static SEO landing pages, update `src/lib/sitemaps.ts` so the page is included in sitemap coverage.
+- For markdown-driven news posts in `src/content/news/`, no manual sitemap route entry is needed because `news-sitemap.xml.ts` pulls articles dynamically through `getAllNews()`.
+
 ## Inputs To Collect Before Writing
 
 1. Page pair (example: `SaneBox Alternatives`, `SaneBox vs Superhuman`).
@@ -86,7 +95,7 @@ When creating a new SEO page or page pair, update files in this order:
 
 1. Create new page files in `src/pages/`.
 2. Add route metadata entries in `src/lib/seo.ts` (`PATH_META`).
-3. Add routes to `STATIC_ROUTES` in `src/pages/sitemap.xml.ts`.
+3. Add routes to the correct static route group in `src/lib/sitemaps.ts`.
 4. Add internal links from existing authority pages (currently `src/pages/ai-email-organizer.tsx`).
 5. Run lint/verification and confirm schema fields are present.
 
@@ -94,7 +103,7 @@ Reason for this order:
 
 1. Page files define the actual indexable content and schema.
 2. `seo.ts` keeps shared title/description behavior consistent across layout/system usage.
-3. `sitemap.xml.ts` ensures crawl discoverability.
+3. `sitemaps.ts` plus the sitemap page routes ensure crawl discoverability.
 4. Internal links improve crawl paths and topical clustering.
 5. Verification catches regressions before deploy.
 
@@ -123,7 +132,7 @@ Why:
 
 ### 3) Updated XML sitemap route list
 
-- `src/pages/sitemap.xml.ts`
+- `src/lib/sitemaps.ts`
 
 Why:
 
@@ -144,7 +153,7 @@ For each pair request (`A Alternatives`, `A vs B`):
 1. Create `src/pages/a-alternatives.tsx`.
 2. Create `src/pages/a-vs-b.tsx` (or exact requested slug).
 3. Include full metadata + QAPage + BreadcrumbList in both.
-4. Add both routes to `seo.ts` and `sitemap.xml.ts`.
+4. Add both routes to `seo.ts` and `src/lib/sitemaps.ts`.
 5. Add both to internal links in `ai-email-organizer.tsx`.
 6. Run:
    - `yarn lint`
