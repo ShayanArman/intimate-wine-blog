@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
   footer: {
     width: "100%",
     padding: "4rem 2rem 2rem",
-    backgroundColor: "var(--zi-dark)",
+    backgroundColor: "var(--initimate-wine-green)",
 
     [theme.fn.smallerThan("md")]: {
       padding: "3rem 1.5rem 2rem",

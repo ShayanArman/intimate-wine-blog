@@ -18,6 +18,12 @@
     --zi-dark: #111111;
     --zi-white: #ffffff;
 
+    /* Intimate.Wine Palette */
+    --initimate-wine-burgundy: #6c1e20;
+    --initimate-wine-green: #3a4126;
+    --initimate-wine-stone: #9f9d91;
+    --initimate-wine-text: #54514b;
+
     /* Landing */
     --landing-background: white;
     --landing-blur: rgba(255, 255, 255, 0.85);
