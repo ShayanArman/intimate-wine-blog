@@ -1,5 +1,7 @@
 # AGENTS.md
 
+This repo is for `blog.intimate.wine` only. Do not use it to modify the main `intimate.wine` site.
+
 ## Marketing Philosophy
 Go read Philosophy.md, we are looking to sell the need not the product. Email Cleaning and Organizing with ai is like flossing. You need to do it everyday because email does not end.
 You are always going to more shops, using things online, email will always be there. What we can do is use ai to help us manage it.
