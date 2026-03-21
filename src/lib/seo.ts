@@ -1,5 +1,6 @@
 export const SITE_NAME = "Zero Inbox";
 export const SITE_URL = "https://www.zeroinbox.ai";
+export const INTIMATE_WINE_MAIN_SITE_URL = "https://intimate.wine";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/features-1200px.png`;
 export const DEFAULT_KEYWORDS =
   "ai email organizer, inbox zero, email cleaner, email management, unsubscribe tool, productivity";

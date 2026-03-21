@@ -2,6 +2,8 @@ import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 
+import { INTIMATE_WINE_MAIN_SITE_URL } from "@/lib/seo";
+
 const useStyles = createStyles((theme) => ({
   footer: {
     width: "100%",
@@ -107,6 +109,7 @@ export default function FooterSection() {
           {/* Resources Column */}
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
+            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}`} className={classes.link}>Home</Link>
             <Link href="/news" className={classes.link}>News</Link>
             <Link href="/about" className={classes.link}>About</Link>
             <Link href="/about#team" className={classes.link}>Team</Link>
