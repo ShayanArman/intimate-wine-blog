@@ -110,12 +110,15 @@ export default function FooterSection() {
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}`} className={classes.link}>Home</Link>
-            <Link href="/news" className={classes.link}>News</Link>
+            <Link href="/" className={classes.link}>Blog</Link>
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about`} className={classes.link}>About</Link>
-            <Link href="/about#team" className={classes.link}>Team</Link>
-            <Link href="/story" className={classes.link}>Story</Link>
-            <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
-            <Link href="/terms.pdf" target="_blank" className={classes.link}>Terms</Link>
+            {/* TODO: SARAH_O add #team to about About. */}
+            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#team`} className={classes.link}>Team</Link>
+            {/* TODO: SARAH_O add #team to about Background. */}
+            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#background`} className={classes.link}>Story</Link>
+            {/* TODO: SARAH_O add #team to about Philosophy. */}
+            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
+            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/contact`} className={classes.link}>Contact</Link>
           </div>
 
           {/* Learn More Column */}
