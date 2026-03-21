@@ -136,7 +136,7 @@ export default function FooterSection() {
         </div>
 
         <Flex justify="space-between" align="center" className={classes.divider} wrap="wrap" gap={12}>
-          <Text className={classes.bottomText}>© {new Date().getFullYear()} Zero Inbox. All rights reserved.</Text>
+          <Text className={classes.bottomText}>© {new Date().getFullYear()} Intimate.Wine. All rights reserved.</Text>
           <Flex gap={20}>
             <Link href="/terms.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Terms</Link>
             <Link href="/privacy.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Privacy</Link>
