@@ -91,9 +91,10 @@ export default function FooterSection() {
         <div className={classes.grid}>
           {/* Brand Column */}
           <div className={classes.brand}>
-            <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} />
+            {/* TODO_P0: SEND ME A LOGO TO ADD HERE. */}
+            {/* <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} /> */}
             <Text className={classes.brandText}>
-              AI-powered email organization. Clean your inbox, keep what matters.
+              From Dream to Reality
             </Text>
           </div>
 
@@ -112,11 +113,11 @@ export default function FooterSection() {
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}`} className={classes.link}>Home</Link>
             <Link href="/" className={classes.link}>Blog</Link>
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about`} className={classes.link}>About</Link>
-            {/* TODO: SARAH_O add #team to about About. */}
+            {/* TODO_P0: SARAH_O add #team to about About. */}
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#team`} className={classes.link}>Team</Link>
-            {/* TODO: SARAH_O add #team to about Background. */}
+            {/* TODO_P0: SARAH_O add #team to about Background. */}
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#background`} className={classes.link}>Story</Link>
-            {/* TODO: SARAH_O add #team to about Philosophy. */}
+            {/* TODO_P0: SARAH_O add #team to about Philosophy. */}
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/contact`} className={classes.link}>Contact</Link>
           </div>
