@@ -5,7 +5,7 @@ date: "2026-03-21"
 category: "Sales"
 excerpt: "Most people first want an AI Email Organizer to reduce spam and clutter. The bigger sales opportunity is to turn your email into your own personal CRM with contacts, follow-up tasks, and better visibility."
 slug: "zero-inbox-sales-contact-management"
-thumbnail: "/images/news/aurora_green.png"
+thumbnail: "/images/news/aurora_orange_pink_blue.png"
 imageFallbackText: "Zero Inbox for Sales Contact Management"
 ---
 
