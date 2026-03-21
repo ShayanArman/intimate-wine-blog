@@ -120,6 +120,7 @@ export default function FooterSection() {
             {/* TODO_P0: SARAH_O add #team to about Philosophy. */}
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/contact`} className={classes.link}>Contact</Link>
+            {/* TODO_P0: SHAYAN add Booking link so customers can book from this blog -> main page booking. */}
           </div>
 
           {/* Learn More Column */}
