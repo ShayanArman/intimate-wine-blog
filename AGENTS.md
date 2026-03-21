@@ -39,7 +39,7 @@ This file is brand and messaging guidance only.
   - `/tools-sitemap.xml`
   - `/news-sitemap.xml`
   - `/video-sitemap.xml`
-- `public/robots.txt` should only advertise the main sitemap entrypoint: `https://www.zeroinbox.ai/sitemap.xml`
+- `public/robots.txt` should only advertise the main sitemap entrypoint: `https://www.blog.intimate.wine/sitemap.xml`
 - Static route groups live in `src/lib/sitemaps.ts`:
   - `PAGES_STATIC_ROUTES`
   - `TOOLS_STATIC_ROUTES`
