@@ -111,7 +111,7 @@ export default function FooterSection() {
             <Text className={classes.columnTitle}>Resources</Text>
             <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}`} className={classes.link}>Home</Link>
             <Link href="/news" className={classes.link}>News</Link>
-            <Link href="/about" className={classes.link}>About</Link>
+            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about`} className={classes.link}>About</Link>
             <Link href="/about#team" className={classes.link}>Team</Link>
             <Link href="/story" className={classes.link}>Story</Link>
             <Link href="mailto:info@zeroinbox.ai" className={classes.link}>Contact</Link>
