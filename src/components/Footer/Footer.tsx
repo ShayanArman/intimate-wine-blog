@@ -92,7 +92,7 @@ export default function FooterSection() {
           {/* Brand Column */}
           <div className={classes.brand}>
             {/* TODO_P0: SEND ME A LOGO TO ADD HERE. */}
-            {/* <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} /> */}
+            <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} />
             <Text className={classes.brandText}>
               From Dream to Reality
             </Text>
