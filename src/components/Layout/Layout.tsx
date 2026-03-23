@@ -2,7 +2,6 @@ import ZeroHeader from "@/components/ZeroHeader/ZeroHeader";
 import GoogleAnalytics from "../Analytics/GoogleAnalytics";
 import { createStyles, Box, Flex } from "@mantine/core";
 import FooterSection from "@/components/Footer";
-import useIsMobile from "@/hooks/useIsMobile";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
@@ -26,7 +25,6 @@ const useStyles = createStyles(() => ({
 }));
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const isSmallScreen = useIsMobile();
   const { classes } = useStyles();
   const router = useRouter();
   const pageMeta = getSeoMeta(router.pathname);
@@ -141,7 +139,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
         <GoogleAnalytics />
-        <ZeroHeader isSmallScreen={isSmallScreen} />
+        <ZeroHeader />
 
         <Box className={classes.content}>
           {children}

@@ -1,18 +1,17 @@
 import { createStyles, Flex, Text, Button, Box } from "@mantine/core";
 import { FiZap } from "react-icons/fi";
-import { HEADER_PIXEL_HEIGHT } from "../ZeroHeader/ZeroHeader";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 import HeroLiveMetric from "../HeroLiveMetric";
 
 const useStyles = createStyles((theme) => ({
   container: {
     background: "#007aff",
-    padding: `${HEADER_PIXEL_HEIGHT}px 5rem 0`,
+    padding: "0 5rem",
     position: "relative",
     overflow: "hidden",
 
     [theme.fn.smallerThan("md")]: {
-      padding: `calc(${HEADER_PIXEL_HEIGHT}px + env(safe-area-inset-top)) 1.5rem 0`,
+      padding: "0 1.5rem",
     },
   },
 

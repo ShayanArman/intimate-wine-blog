@@ -159,7 +159,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
 
   return (
     <Box className={classes.container}>
-      <h1 className={classes.heading}>News</h1>
+      <h1 className={classes.heading}>Blog</h1>
       <div className={classes.intentLinks}>
         <Link href="/ai-email-organizer" className={classes.intentLink}>AI Email Organizer</Link>
         <Link href="/videos" className={classes.intentLink}>Videos</Link>

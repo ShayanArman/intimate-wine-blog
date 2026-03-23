@@ -1,48 +1,48 @@
-import { createStyles, Flex, Text, NavLink } from "@mantine/core";
+import { createStyles, Flex, rem } from "@mantine/core";
 import Link from "next/link";
-import { HEADER_HEIGHT, headerLinks } from "../ZeroHeader/ZeroHeader";
+import { headerLinks } from "../ZeroHeader/ZeroHeader";
 import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   container: {
-    position: "fixed",
-    top: HEADER_HEIGHT,
+    position: "absolute",
+    top: "100%",
     left: 0,
+    right: 0,
     zIndex: 8000,
-    backgroundColor: "var(--landing-blur)",
-    backdropFilter: "blur(16px)",
-    padding: "20px",
+    backgroundColor: "white",
+    borderBottom: "1px solid rgba(108, 30, 32, 0.12)",
+    boxShadow: "0 18px 40px rgba(0, 0, 0, 0.08)",
+    padding: `0 ${rem(16)} ${rem(16)}`,
 
-    [theme.fn.largerThan("xs")]: {
-      width: "20rem",
-      borderBottomLeftRadius: "10px",
-      borderBottomRightRadius: "10px",
-    },
-
-    [theme.fn.smallerThan("sm")]: {
-      width: "100%",
-      height: "95%",
+    [theme.fn.largerThan("md")]: {
+      display: "none",
     },
   },
 
   content: {
-    rowGap: 5,
-    marginLeft: "2rem",
-    width: "80%",
-    [theme.fn.largerThan("sm")]: {
-      width: "100%",
-      marginLeft: "0rem",
+    rowGap: 0,
+  },
+
+  link: {
+    display: "block",
+    padding: `${rem(14)} 0`,
+    borderTop: "1px solid rgba(108, 30, 32, 0.08)",
+    color: "var(--initimate-wine-burgundy)",
+    fontFamily: "var(--font-heading)",
+    fontWeight: 500,
+    fontSize: rem(14),
+    textTransform: "uppercase",
+    letterSpacing: "0.08em",
+    transition: "color var(--transition-fast)",
+
+    "&:hover": {
+      color: "var(--initimate-wine-text)",
     },
   },
 
-  rootNav: {
-    backgroundColor: "transparent",
-    borderRadius: "7px",
-  },
-
-  label: {
-    fontWeight: 500,
-    fontSize: "1.5rem",
+  activeLink: {
+    color: "var(--initimate-wine-text)",
   },
 }));
 
@@ -58,40 +58,23 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
     <Flex className={classes.container}>
       <Flex direction="column" className={classes.content}>
         {headerLinks.map((link) => (
-          <Link key={link.label} shallow={true} href={link.link} target={link.newTab ? "_blank" : "_self"} passHref>
-            <NavLink
-              component="a"
-              label={link.label}
-              style={link.link === router.asPath ? { backgroundColor: "var(--blue-light)" } : {}}
-              classNames={{
-                root: classes.rootNav,
-                label: classes.label,
-              }}
-              onClick={() => closeNavBar()}
-              variant="filled"
-              active={router.asPath === link.link}
-            />
+          <Link
+            key={link.label}
+            shallow={true}
+            href={link.link}
+            target={link.newTab ? "_blank" : "_self"}
+            className={`${classes.link} ${router.asPath === link.link ? classes.activeLink : ""}`}
+            onClick={() => closeNavBar()}
+          >
+            {link.label}
           </Link>
         ))}
 
-        {/* App links */}
-        <Link href="https://app.zeroinbox.ai" target="_blank" passHref>
-          <NavLink
-            component="a"
-            label="Log In"
-            classNames={{ root: classes.rootNav, label: classes.label }}
-            onClick={() => closeNavBar()}
-            variant="filled"
-          />
+        <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link} onClick={() => closeNavBar()}>
+          Log In
         </Link>
-        <Link href="https://app.zeroinbox.ai" target="_blank" passHref>
-          <NavLink
-            component="a"
-            label="Sign Up"
-            classNames={{ root: classes.rootNav, label: classes.label }}
-            onClick={() => closeNavBar()}
-            variant="filled"
-          />
+        <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link} onClick={() => closeNavBar()}>
+          Sign Up
         </Link>
       </Flex>
     </Flex>
