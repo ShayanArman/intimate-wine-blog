@@ -11,7 +11,7 @@ import { useState } from "react";
 import NavBar from "../NavBar";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
 
-export const HEADER_PIXEL_HEIGHT = 108;
+export const HEADER_PIXEL_HEIGHT = 84;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
 
 /* ─── Section IDs (unchanged) ─── */
@@ -58,9 +58,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   header: {
-    maxWidth: 1320,
     minHeight: HEADER_HEIGHT,
-    margin: "0 auto",
     padding: `0 ${rem(28)}`,
     display: "flex",
     alignItems: "center",
@@ -68,7 +66,7 @@ const useStyles = createStyles((theme) => ({
     gap: rem(24),
 
     [theme.fn.smallerThan("md")]: {
-      minHeight: rem(88),
+      minHeight: rem(76),
       padding: `0 ${rem(16)}`,
     },
   },
