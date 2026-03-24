@@ -1,7 +1,7 @@
-import { GetServerSideProps } from "next";
-import { getAllVideos } from "@lib/videos";
-import { SITE_URL } from "@lib/seo";
 import { escapeXml, getLatestLastModifiedTimestamp, writeXmlResponse } from "@lib/sitemaps";
+import { getAllVideos } from "@lib/videos";
+import { GetServerSideProps } from "next";
+import { SITE_URL } from "@lib/info";
 
 function buildVideoSitemap() {
   const videos = getAllVideos();

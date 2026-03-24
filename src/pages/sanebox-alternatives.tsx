@@ -1,8 +1,8 @@
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import EditorialHeroMedia from "@/components/EditorialHeroMedia";
-import { getPathLastModified } from "@lib/seo";
 import { SITE_NAME, SITE_URL } from "@lib/info";
+import { getPathLastModified } from "@lib/seo";
 import { FiArrowRight } from "react-icons/fi";
 import Head from "next/head";
 import Link from "next/link";

@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { getAllNews } from "@lib/news";
+import { SITE_URL } from "@lib/info";
 import {
   NEWS_STATIC_ROUTES,
   buildUrlSitemap,
@@ -7,7 +8,6 @@ import {
   mapStaticRoutesToUrls,
   writeXmlResponse,
 } from "@lib/sitemaps";
-import { SITE_URL } from "@lib/seo";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const hubUrls = mapStaticRoutesToUrls(NEWS_STATIC_ROUTES);
