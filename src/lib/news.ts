@@ -5,6 +5,9 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import html from "remark-html";
 
+type NewsArticleChangefreq = "daily" | "weekly" | "monthly";
+type NewsArticlePriority = "0.5" | "0.6" | "0.7" | "0.8" | "0.9";
+
 export interface NewsArticle {
   slug: string;
   title: string;
@@ -12,6 +15,8 @@ export interface NewsArticle {
   date: string;
   category: string;
   excerpt: string;
+  changefreq: NewsArticleChangefreq;
+  priority: NewsArticlePriority;
   thumbnail: string | null;
   imageFallbackText: string | null;
   videoEmbedUrl: string | null;
@@ -35,6 +40,18 @@ function normalizeThumbnail(thumbnail: unknown): string | null {
   return trimmedThumbnail.startsWith("/") ? trimmedThumbnail : `/${trimmedThumbnail}`;
 }
 
+function normalizeChangefreq(value: unknown): NewsArticleChangefreq {
+  return value === "daily" || value === "weekly" || value === "monthly"
+    ? value
+    : "monthly";
+}
+
+function normalizePriority(value: unknown): NewsArticlePriority {
+  return value === "0.5" || value === "0.6" || value === "0.7" || value === "0.8" || value === "0.9"
+    ? value
+    : "0.8";
+}
+
 /** Return every article, newest first. */
 export function getAllNews(): NewsArticle[] {
   const filenames = fs.readdirSync(newsDirectory).filter((f) => f.endsWith(".md"));
@@ -51,6 +68,8 @@ export function getAllNews(): NewsArticle[] {
       date: data.date,
       category: data.category,
       excerpt: data.excerpt,
+      changefreq: normalizeChangefreq(data.changefreq),
+      priority: normalizePriority(data.priority),
       thumbnail: normalizeThumbnail(data.thumbnail),
       imageFallbackText: data.imageFallbackText ?? null,
       videoEmbedUrl: data.videoEmbedUrl ?? null,
@@ -83,6 +102,8 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
     date: data.date,
     category: data.category,
     excerpt: data.excerpt,
+    changefreq: normalizeChangefreq(data.changefreq),
+    priority: normalizePriority(data.priority),
     thumbnail: normalizeThumbnail(data.thumbnail),
     imageFallbackText: data.imageFallbackText ?? null,
     videoEmbedUrl: data.videoEmbedUrl ?? null,

@@ -5,6 +5,8 @@ category: "AI"
 excerpt: "OpenAI released GPT-5.4 on March 5, 2026. This article explains what changed and why stronger frontier models matter for Zero Inbox and modern AI email workflows."
 thumbnail: "/images/news/5.4_Thinking_Art_Card.webp"
 slug: "introducing-chatgpt-5-4"
+changefreq: "monthly"
+priority: "0.5"
 imageFallbackText: "Introducing ChatGPT 5.4"
 ---
 

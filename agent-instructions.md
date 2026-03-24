@@ -1,225 +1,139 @@
-# Zero Inbox SEO Post Creation Playbook
+# Intimate Wine Blog Content and SEO Playbook
 
-This file documents the exact pattern used to create SEO comparison posts/pages in this repo and keep them aligned with Google Search Console structured data requirements.
+This file documents the current content, routing, and crawl rules for `blog.intimate.wine`.
+
+Use it before making SEO or editorial changes in this repo.
 
 ## Goal
 
-Create high-intent SEO landing pages (for example `X Alternatives`, `X vs Y`) that:
+Keep the blog simple, crawlable, and easy to reuse for future customers:
 
-1. Match Zero Inbox brand positioning from `AGENTS.md`.
-2. Include complete metadata and structured data.
-3. Are discoverable by crawlers via sitemap and internal links.
-4. Avoid Search Console Q&A schema validation issues.
+1. The homepage `/` is the blog index.
+2. Articles live at root-level URLs like `/<slug>`.
+3. Sitemap coverage should reflect the real route structure without legacy sections.
+4. Customer-specific copy should live in shared config where possible, not be scattered through page files.
 
-## Project Structure
+## Current Structure
 
-- `src/pages/sitemap.xml.ts` is the actual Next.js route that serves `/sitemap.xml`.
-- `src/lib/sitemaps.ts` is the shared sitemap helper/config file. `src/pages/sitemap.xml.ts` imports it.
-- Static sitemap route groups such as `PAGES_STATIC_ROUTES`, `TOOLS_STATIC_ROUTES`, and `NEWS_STATIC_ROUTES` live in `src/lib/sitemaps.ts`.
-- Child sitemap pages such as `src/pages/news-sitemap.xml.ts` use shared helpers from `src/lib/sitemaps.ts` and add dynamic content URLs.
-- For static SEO landing pages, update `src/lib/sitemaps.ts` so the page is included in sitemap coverage.
-- For markdown-driven news posts in `src/content/news/`, no manual sitemap route entry is needed because `news-sitemap.xml.ts` pulls articles dynamically through `getAllNews()`.
-
-## Inputs To Collect Before Writing
-
-1. Page pair (example: `SaneBox Alternatives`, `SaneBox vs Superhuman`).
-2. Target slugs (example: `/sanebox-alternatives`, `/sanebox-vs-superhuman`).
-3. Brand copy constraints from `AGENTS.md`:
-   - "Official AI Email Organizer"
-   - "Safest AI Email Cleaner"
-   - "asks for Permission everytime"
-   - "does not auto-delete your emails like the other AI Email Cleaners"
-
-## Required SEO Page Pattern
-
-Each comparison page should follow the same structure used in:
-
-- `src/pages/sanebox-alternatives.tsx`
-- `src/pages/sanebox-vs-superhuman.tsx`
-- `src/pages/fyxer-alternatives.tsx`
-- `src/pages/fyxer-ai-vs-zero-inbox-ai.tsx`
-
-Page structure:
-
-1. `Head` metadata:
-   - `title`
-   - `canonical`
-   - `description`
-   - `keywords`
-   - Open Graph tags
-   - Twitter tags
-2. On-page copy:
-   - Clear `h1` for query intent
-   - Intro with brand differentiation
-   - Comparison sections (`Key differences`, `Where Zero Inbox fits`, etc.)
-   - CTA button to `https://app.zeroinbox.ai`
-   - Internal links to related SEO pages
-3. Structured data:
-   - `QAPage` JSON-LD
-   - `BreadcrumbList` JSON-LD
-
-## Meta Description Guidance
-
-Write page descriptions for humans first. Follow Google Search Central guidance:
-
-- Make the description unique to the specific page.
-- Summarize the actual page content instead of writing a generic brand line.
-- Include the concrete entities or options a searcher expects to see on the page.
-- Add the Zero Inbox differentiator after the specific page summary when it helps clickthrough.
-- Treat the meta description like a snippet pitch, not a ranking hack.
-
-Good example from `fyxer-alternatives`:
-
-`Compare Fyxer alternatives including Zero Inbox, Superhuman, Shortwave, Missive, Front, and SaneBox. Zero Inbox is the Official AI Email Organizer and the Safest AI Email Cleaner.`
-
-Why this works:
-
-- It is specific to the page.
-- It names real alternatives users expect on that URL.
-- It still gives Zero Inbox a strong differentiator in the second sentence.
-- It matches Google's guidance that good meta descriptions should be descriptive, page-specific, and useful for snippets/clickthrough.
-
-For link text on-page, use clear descriptive labels that match user intent and destination. Prefer labels like `SaneBox Alternatives`, `Fyxer AI vs Superhuman`, or `AI Email Organizer` over vague labels like `Click here` or `Learn more`.
-
-Google sources:
-
-- [Google Search Central: Control your snippets in search results](https://developers.google.com/search/docs/appearance/snippet)
-- [Google Search Central blog: Improve snippets with a meta description makeover](https://developers.google.com/search/blog/2007/09/improve-snippets-with-meta-description)
-
-## Google Search Console QAPage Compliance Checklist
-
-The previous Search Console issues were around missing Q&A fields. Use this full field set on every `QAPage`:
-
-`mainEntity` (`Question`) must include:
-
-- `@type: "Question"`
-- `name`
-- `text`
-- `url`
-- `datePublished`
-- `author`
-- `answerCount`
-
-`mainEntity.acceptedAnswer` (`Answer`) must include:
-
-- `@type: "Answer"`
-- `text`
-- `url`
-- `datePublished`
-- `author`
-- `upvoteCount`
-
-Recommended constants in each page:
-
-- `publishDate` (ISO date string)
-- `organizationAuthor`:
-  - `@type: "Organization"`
-  - `name: SITE_NAME`
-  - `url: SITE_URL`
-
-## Exact File Update Order
-
-When creating a new SEO page or page pair, update files in this order:
-
-1. Create new page files in `src/pages/`.
-2. Add route metadata entries in `src/lib/seo.ts` (`PATH_META`).
-3. Add route last-modified entries in `src/lib/seo.ts` (`PATH_LAST_MODIFIED`).
-4. Add routes to the correct static route group in `src/lib/sitemaps.ts`.
-5. Add internal links from existing authority pages (currently `src/pages/ai-email-organizer.tsx`).
-6. Run lint/verification and confirm schema fields are present.
-
-Reason for this order:
-
-1. Page files define the actual indexable content and schema.
-2. `seo.ts` keeps shared title/description behavior consistent across layout/system usage.
-3. `PATH_LAST_MODIFIED` is required for sitemap last-modified values on static routes.
-4. `sitemaps.ts` plus the sitemap page routes ensure crawl discoverability.
-5. Internal links improve crawl paths and topical clustering.
-6. Verification catches regressions before deploy.
-
-## What Was Changed In This Session And Why
-
-### 1) Created new comparison pages
-
-- `src/pages/sanebox-alternatives.tsx`
-- `src/pages/sanebox-vs-superhuman.tsx`
-- `src/pages/fyxer-alternatives.tsx`
-- `src/pages/fyxer-ai-vs-zero-inbox-ai.tsx`
-
-Why:
-
-- Add new SEO surfaces for comparison and alternatives intents.
-- Include complete QAPage + BreadcrumbList JSON-LD.
-- Encode AGENTS brand language in visible and structured copy.
-
-### 2) Updated global SEO metadata map
-
+- `src/content/news/*.md`
+  Source files for blog articles.
+- `src/pages/index.tsx`
+  Renders the blog homepage and the article list structured data.
+- `src/pages/[slug].tsx`
+  Renders article pages at root-level URLs like `/<slug>`.
+- `src/pages/sitemap.xml.ts`
+  Serves the sitemap index at `/sitemap.xml`.
+- `src/pages/pages-sitemap.xml.ts`
+  Serves the URL sitemap for `/` plus all article URLs.
+- `src/lib/news.ts`
+  Loads markdown articles from `src/content/news/`.
+- `src/lib/info.ts`
+  Shared brand and site constants.
 - `src/lib/seo.ts`
-
-Why:
-
-- Register new routes in `PATH_META` so default metadata resolution returns the intended titles/descriptions.
-
-### 3) Updated XML sitemap route list
-
+  Shared metadata and last-modified data for static routes.
 - `src/lib/sitemaps.ts`
+  Shared sitemap helpers and static route config.
+- `public/robots.txt`
+  Crawl policy. Keep it minimal.
+- `public/llms.txt`
+  Machine-readable summary for the blog domain.
+- `src/pages/site-facts.json.ts`
+  Machine-readable site facts endpoint.
 
-Why:
+## Routing Rules
 
-- Include new static routes so search engines can discover/crawl them quickly.
+- The homepage `/` should continue to act as the main blog hub.
+- News/blog content lives at root-level URLs on the blog domain, not under a `/news` subdirectory.
+- Each article should resolve at `https://www.blog.intimate.wine/<slug>`.
 
-### 4) Added internal links from an existing SEO hub page
+## Sitemap Rules
 
-- `src/pages/ai-email-organizer.tsx`
+- `/sitemap.xml` is the sitemap index, not the full URL list.
+- The sitemap index should currently reference only:
+  - `/pages-sitemap.xml`
+- `/pages-sitemap.xml` should include:
+  - `/`
+  - every root-level article URL from `src/content/news/`
+- Do not recreate `news-sitemap.xml` unless the route structure changes again.
+- If you add a new static page outside the markdown article flow:
+  - add metadata in `src/lib/seo.ts`
+  - add last-modified data in `src/lib/seo.ts`
+  - add the route to `PAGES_STATIC_ROUTES` in `src/lib/sitemaps.ts`
 
-Why:
+## Shared Config Rules
 
-- Strengthen internal linking and crawl graph to new comparison pages.
+When this repo is reused for another customer, the first place to update should be shared config files:
 
-## Reusable "Comparison Pair" Workflow
+- `src/lib/info.ts`
+  - `SITE_NAME`
+  - `SITE_URL`
+  - `LINKED_SITE_URL`
+  - `BUSINESS_TITLE`
+  - `BUSINESS_DESCRIPTION`
+  - `MAIN_PAGE_DESCRIPTION`
+  - founder/social constants
+- `public/llms.txt`
+- `src/pages/site-facts.json.ts`
 
-For each pair request (`A Alternatives`, `A vs B`):
+If you find customer-specific copy hardcoded in page components, prefer moving it into shared config instead of duplicating strings.
 
-1. Create `src/pages/a-alternatives.tsx`.
-2. Create `src/pages/a-vs-b.tsx` (or exact requested slug).
-3. Include full metadata + QAPage + BreadcrumbList in both.
-4. Add both routes to `src/lib/seo.ts` in `PATH_META`.
-5. Add both routes to `src/lib/seo.ts` in `PATH_LAST_MODIFIED`.
-6. Add both routes to `src/lib/sitemaps.ts`.
-7. Add both to internal links in `ai-email-organizer.tsx`.
-8. Run:
-   - `yarn lint`
-   - `rg` checks for required schema fields
-9. Deploy and validate in Search Console.
+## Homepage Rules
 
-## Validation Commands Used
+- Keep the homepage description sourced from `MAIN_PAGE_DESCRIPTION` in `src/lib/info.ts`.
+- Keep homepage structured data aligned with the actual blog index.
+- Homepage article links and structured data URLs should use root-level article URLs: `${SITE_URL}/${article.slug}`.
+- If the homepage changes meaningfully, make sure the title, description, structured data, and sitemap last-modified behavior still match.
 
-Use these command patterns after edits:
+## Article Workflow
 
-1. `yarn lint`
-2. `rg -n "answerCount|upvoteCount|datePublished|author|text: questionText|acceptedAnswer" src/pages/<new-page>.tsx`
-3. `git diff -- <changed-files>`
-4. `git status --short`
+When adding or updating an article:
 
-## Post-Deploy Search Console Steps
+1. Create or edit the markdown file in `src/content/news/`.
+2. Keep the slug unique and appropriate for a root-level URL.
+3. Ensure the article appears correctly on `/`.
+4. Ensure the generated article URL is `/<slug>`.
+5. Keep internal links consistent with the root-level article pattern.
+6. Verify the article is included in `/pages-sitemap.xml`.
 
-1. Open Google Search Console for `zeroinbox.ai`.
-2. Use URL Inspection for each new page URL.
-3. Request indexing.
-4. If Q&A report had issues previously, click `Validate Fix` after deployment.
-5. Monitor both `error` and `warning` sections for regressions.
+## Article Frontmatter
 
-## Copy Rules To Preserve
+Current article files commonly use:
 
-From current project guidance:
+- `title`
+- `date`
+- `category`
+- `excerpt`
+- `slug`
+- `thumbnail`
+- `imageFallbackText`
+- `subtitle` when needed
 
-1. Keep target terms represented naturally: `AI`, `Email`, `Organizer`, `Cleaner`, `inbox zero`.
-2. Keep brand differentiation language consistent.
-3. Preserve requested phrasing from `AGENTS.md` where explicitly required.
+Legacy fields may still exist in older content, but do not assume legacy video-related fields are part of the active routing or sitemap model.
+
+## Verification
+
+Run these after relevant SEO or content changes:
+
+1. `yarn build`
+2. `git diff -- <changed-files>`
+3. `git status --short`
+
+If you touched sitemap behavior, also manually confirm:
+
+1. `/sitemap.xml`
+2. `/pages-sitemap.xml`
+3. the intended article URL pattern
+
+## Search Console Follow-Up
+
+After adding a new indexable page or materially changing crawl structure:
+
+1. Request indexing for the changed URL in Google Search Console.
+2. Confirm sitemap coverage for `https://www.blog.intimate.wine/sitemap.xml`.
 
 ## Do Not Forget
 
-1. Never ship a `QAPage` missing the fields listed above.
-2. Never create a new SEO page without adding sitemap and metadata entries.
-3. Always include internal links to new pages from at least one existing SEO page.
-4. Run lint before handing off.
+1. Keep the blog on `blog.intimate.wine`, not the main `intimate.wine` site.
+2. Keep the article URL structure flat at the root.
+3. Keep sitemap, robots, `llms.txt`, and `site-facts.json` aligned with the current brand and domain.
+4. Prefer shared constants for reusable customer-specific copy.

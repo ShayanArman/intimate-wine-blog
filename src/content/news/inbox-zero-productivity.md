@@ -5,6 +5,8 @@ category: "Research"
 excerpt: "Research and Zero Inbox usage data suggest cleaner inboxes reduce stress, improve focus, and recover more time for deep work."
 thumbnail: "/images/news/inbox-zero-productivity.webp"
 slug: "inbox-zero-productivity"
+changefreq: "monthly"
+priority: "0.6"
 imageFallbackText: "Inbox Zero and Productivity"
 ---
 

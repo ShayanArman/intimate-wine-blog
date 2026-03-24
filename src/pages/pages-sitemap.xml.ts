@@ -14,8 +14,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const articleUrls = getAllNews().map((article) => ({
     loc: `${SITE_URL}/${article.slug}`,
     lastmod: new Date(`${article.date}T00:00:00Z`).toISOString(),
-    changefreq: "monthly" as const,
-    priority: "0.8",
+    changefreq: article.changefreq,
+    priority: article.priority,
   }));
   const latestArticleTimestamp = articleUrls.length > 0
     ? getLatestLastModifiedTimestamp(articleUrls.map((url) => url.lastmod))

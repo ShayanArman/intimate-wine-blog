@@ -5,6 +5,8 @@ category: "Productivity"
 excerpt: "Inbox Zero is a popular email management method that helps you keep your inbox organized and free of clutter. Learn the steps, strategies, and tools to achieve and maintain it."
 slug: "inbox-zero"
 thumbnail: "/images/news/inbox-zero.webp"
+changefreq: "monthly"
+priority: "0.9"
 imageFallbackText: "Inbox Zero"
 videoEmbedUrl: "https://www.youtube.com/embed/z9UjeTMb3Yk?si=nujO2vZ7rroXs071"
 ---

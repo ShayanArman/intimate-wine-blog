@@ -5,6 +5,8 @@ category: "Product"
 excerpt: "AI is changing email management by replacing one-message-at-a-time cleanup with smarter categorization, bulk actions, and faster inbox organization."
 thumbnail: "/images/news/ai-email-revolution.webp"
 slug: "ai-email-revolution"
+changefreq: "monthly"
+priority: "0.6"
 imageFallbackText: "AI Email Revolution"
 ---
 

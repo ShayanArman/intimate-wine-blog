@@ -5,6 +5,8 @@ category: "Security"
 excerpt: "Zero Inbox uses a privacy-first architecture for AI email cleanup that never stores email bodies, giving users a safer way to clean and organize email."
 thumbnail: "/images/news/privacy-first-approach.webp"
 slug: "privacy-first-approach"
+changefreq: "monthly"
+priority: "0.8"
 imageFallbackText: "Privacy First AI"
 ---
 

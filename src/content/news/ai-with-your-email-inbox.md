@@ -6,6 +6,8 @@ category: "Philosophy"
 excerpt: "Email can contain anything and your inbox can keep filling forever. That is why people need an AI Email Organizer and AI Email Cleaner to reach inbox zero without losing control."
 slug: "ai-with-your-email-inbox"
 thumbnail: "/images/news/stacking_logic.png"
+changefreq: "monthly"
+priority: "0.7"
 imageFallbackText: "AI With Your Email Inbox"
 videoSlug: "why-zero-inbox"
 ---

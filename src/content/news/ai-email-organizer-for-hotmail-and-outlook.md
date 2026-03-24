@@ -6,6 +6,8 @@ category: "Product"
 excerpt: "Looking for an AI Email Organizer for Hotmail or Outlook? Zero Inbox now helps Hotmail and Outlook users clean and organize email with a permission-first AI Email Cleaner."
 thumbnail: "/images/news/ai-email-organizer.webp"
 slug: "ai-email-organizer-for-hotmail-and-outlook"
+changefreq: "monthly"
+priority: "0.7"
 imageFallbackText: "AI Email Organizer for Hotmail and Outlook"
 ---
 
