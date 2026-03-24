@@ -1,6 +1,7 @@
-import Head from "next/head";
 import { Box, Container, Text, createStyles } from "@mantine/core";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@lib/info";
+import { getPathLastModified } from "@lib/seo";
+import Head from "next/head";
 
 const useStyles = createStyles((theme) => ({
   page: {
