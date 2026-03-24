@@ -172,7 +172,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
 
       <div className={classes.grid}>
         {articles.map((article) => (
-          <Link key={article.slug} href={`/news/${article.slug}`} className={classes.card}>
+          <Link key={article.slug} href={`/${article.slug}`} className={classes.card}>
             <div className={`${classes.thumbnail} ${THUMBNAIL_HOVER_CLASS}`}>
               {article.thumbnail ? (
                 <Image

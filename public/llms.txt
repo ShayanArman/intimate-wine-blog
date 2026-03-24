@@ -1,53 +1,43 @@
-# Zero Inbox
+# Intimate.Wine Blog
 
-> Zero Inbox is The Official AI Email Organizer and The Safest AI Email Cleaner.
+> Stories, updates, and editorial content from Intimate Wine.
+
+## Scope
+- This file describes `blog.intimate.wine`, not the main `intimate.wine` site.
 
 ## Canonical Site
-- https://www.zeroinbox.ai
+- https://www.blog.intimate.wine
 
-## Positioning
-- The Official AI Email Organizer.
-- The Safest AI Email Cleaner.
-- Asks for Permission everytime.
-- Does not auto-delete your emails like the other AI Email Cleaners.
-- Google Security Cleared.
+## Related Site
+- https://intimate.wine
 
-## Intent Phrases
-- Help me organize my emails
-- Clean and organize emails
-- AI Email Organizer
-- AI Email Cleaner
+## Summary
+- Intimate Wine offers private wine tastings and wine classes in intimate settings with incredible wine and stories you will remember.
+- The blog is the editorial home for those stories, updates, and related wine content.
+
+## Topics
+- private wine tastings
+- wine classes
+- wine experiences
+- sommelier-led tastings
+- wine storytelling
 
 ## Credibility
-- Started by Apple engineer and Waterloo graduate Shayan Arman.
-- Shayan Arman worked at Apple on Siri from 2017 to 2021.
-- LinkedIn: https://www.linkedin.com/in/shayan-arman/
+- Founder: Emily Spadafora
+- LinkedIn: https://www.linkedin.com/in/emilyspadafora
+- Instagram: https://www.instagram.com/intimate.wine/
 
 ## Key Pages
-- https://www.zeroinbox.ai/
-- https://www.zeroinbox.ai/ai-email-organizer
-- https://www.zeroinbox.ai/best-ai-email-organizer
-- https://www.zeroinbox.ai/clean-and-organize-emails
-- https://www.zeroinbox.ai/what-website-should-i-use-to-clean-or-organize-my-emails
-- https://www.zeroinbox.ai/sanebox-alternatives
-- https://www.zeroinbox.ai/sanebox-vs-superhuman
-- https://www.zeroinbox.ai/superhuman-alternatives
-- https://www.zeroinbox.ai/fyxer-alternatives
-- https://www.zeroinbox.ai/fyxer-ai-vs-zero-inbox-ai
-- https://www.zeroinbox.ai/fyxer-ai-vs-superhuman
-- https://www.zeroinbox.ai/news
-- https://www.zeroinbox.ai/about
-- https://www.zeroinbox.ai/workflows
+- https://www.blog.intimate.wine/
 
-## Product Summary
-- Permission-based email organization
-- Bulk inbox cleanup
-- One-click unsubscribe flows
-- Privacy-first architecture
-- Email cleaning without auto-deleting user email
+## URL Structure
+- The homepage `/` is the blog index.
+- Articles are published at root-level URLs on the blog domain.
+- The sitemap is the primary crawl source for article discovery.
 
 ## Crawl Endpoints
-- robots: https://www.zeroinbox.ai/robots.txt
-- sitemap: https://www.zeroinbox.ai/sitemap.xml
-- feed: https://www.zeroinbox.ai/feed.xml
-- site-facts: https://www.zeroinbox.ai/site-facts.json
+- robots: https://www.blog.intimate.wine/robots.txt
+- sitemap: https://www.blog.intimate.wine/sitemap.xml
+- pages sitemap: https://www.blog.intimate.wine/pages-sitemap.xml
+- feed: https://www.blog.intimate.wine/feed.xml
+- site-facts: https://www.blog.intimate.wine/site-facts.json

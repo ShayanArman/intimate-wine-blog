@@ -5,6 +5,7 @@ export const LINKED_SITE_URL = "https://intimate.wine";
 export const BUSINESS_TITLE = "Intimate Wine - Intimate settings, incredible wine, stories you will remember.";
 export const BUSINESS_DESCRIPTION =
   "Intimate Wine offers private wine tastings and wine classes in intimate settings with incredible wine and stories you will remember.";
+export const MAIN_PAGE_DESCRIPTION = "Stories, updates, and editorial content from Intimate Wine.";
 export const socials_links_map = {
   instagram: "https://www.instagram.com/intimate.wine/",
   founderLinkedIn: "https://www.linkedin.com/in/emilyspadafora",

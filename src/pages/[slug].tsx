@@ -1,9 +1,7 @@
-import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { createStyles, Box, Text, Flex, Button } from "@mantine/core";
+import { createStyles, Box, Text, Flex } from "@mantine/core";
 import { getAllNews, getNewsArticle, NewsArticle } from "@lib/news";
-import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
-import { getVideoBySlug, VideoEntry } from "@lib/videos";
+import { FiArrowLeft } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
@@ -92,24 +90,6 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "1rem",
   },
 
-  ctaWrap: {
-    marginBottom: "2.5rem",
-  },
-
-  ctaButton: {
-    backgroundColor: "var(--zero-red-darker)",
-    border: "none",
-    fontWeight: 700,
-    fontSize: "1rem",
-    transition: "all var(--transition-smooth)",
-
-    "&:hover": {
-      backgroundColor: "#d4205a",
-      transform: "translateY(-2px)",
-      boxShadow: "0 10px 24px rgba(255, 50, 119, 0.25)",
-    },
-  },
-
   videoWrap: {
     position: "relative" as const,
     width: "100%",
@@ -146,84 +126,6 @@ const useStyles = createStyles((theme) => ({
     color: "#ffffff",
     textAlign: "center" as const,
     textWrap: "balance" as const,
-  },
-
-  videoFrame: {
-    width: "100%",
-    height: "100%",
-    border: 0,
-    display: "block",
-  },
-
-  videoLinkCard: {
-    display: "block",
-    textDecoration: "none",
-    color: "inherit",
-    marginBottom: "1.25rem",
-  },
-
-  videoPoster: {
-    position: "relative" as const,
-    width: "100%",
-    height: "100%",
-  },
-
-  watchBadge: {
-    position: "absolute" as const,
-    top: 16,
-    left: 16,
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    padding: "0.45rem 0.8rem",
-    borderRadius: 999,
-    backgroundColor: "rgba(15, 29, 61, 0.8)",
-    color: "#ffffff",
-    fontWeight: 700,
-    fontSize: "0.9rem",
-    zIndex: 1,
-  },
-
-  watchOverlay: {
-    position: "absolute" as const,
-    inset: 0,
-    display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "space-between",
-    gap: 16,
-    padding: "1.3rem",
-    background: "linear-gradient(180deg, rgba(15, 29, 61, 0.05) 0%, rgba(15, 29, 61, 0.7) 100%)",
-  },
-
-  watchOverlayContent: {
-    color: "#ffffff",
-  },
-
-  watchTitle: {
-    fontFamily: "var(--font-heading)",
-    fontSize: "1.4rem",
-    fontWeight: 700,
-    lineHeight: 1.1,
-    marginBottom: "0.35rem",
-  },
-
-  watchCopy: {
-    fontSize: "0.95rem",
-    lineHeight: 1.55,
-    color: "rgba(255, 255, 255, 0.9)",
-    maxWidth: 520,
-  },
-
-  watchButton: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    padding: "0.75rem 1rem",
-    borderRadius: 999,
-    backgroundColor: "#ffffff",
-    color: "var(--zi-deep-blue)",
-    fontWeight: 700,
-    whiteSpace: "nowrap" as const,
   },
 
   body: {
@@ -293,18 +195,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<{ article: NewsArticle; relatedVideo: VideoEntry | null }> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<{ article: NewsArticle }> = async ({ params }) => {
   const article = await getNewsArticle(params?.slug as string);
   if (!article) return { notFound: true };
-  const relatedVideo = article.videoSlug ? await getVideoBySlug(article.videoSlug) : null;
-  return { props: { article, relatedVideo } };
+  return { props: { article } };
 };
 
-export default function ArticlePage({ article, relatedVideo }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function ArticlePage({ article }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { classes } = useStyles();
-  const canonicalUrl = `${SITE_URL}/news/${article.slug}`;
+  const canonicalUrl = `${SITE_URL}/${article.slug}`;
   const articleImageUrl = article.thumbnail ? `${SITE_URL}${article.thumbnail}` : DEFAULT_OG_IMAGE;
   const isoDate = new Date(`${article.date}T00:00:00Z`).toISOString();
+  const articlePageTitle = `${article.title} - ${SITE_NAME}`;
 
   const articleStructuredData = {
     "@context": "https://schema.org",
@@ -325,7 +227,7 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
       name: SITE_NAME,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/zeroInboxLogoBlack.svg`,
+        url: `${SITE_URL}/logoHorizontal.svg`,
       },
     },
   };
@@ -333,10 +235,10 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
   return (
     <>
       <Head>
-        <title key="title">{`${article.title} - Zero Inbox`}</title>
+        <title key="title">{articlePageTitle}</title>
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <meta key="description" name="description" content={article.excerpt} />
-        <meta key="og:title" property="og:title" content={`${article.title} - Zero Inbox`} />
+        <meta key="og:title" property="og:title" content={articlePageTitle} />
         <meta key="og:description" property="og:description" content={article.excerpt} />
         <meta key="og:type" property="og:type" content="article" />
         <meta key="og:url" property="og:url" content={canonicalUrl} />
@@ -346,7 +248,7 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
         <meta key="article:published_time" property="article:published_time" content={isoDate} />
         <meta key="article:modified_time" property="article:modified_time" content={isoDate} />
         <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-        <meta key="twitter:title" name="twitter:title" content={`${article.title} - Zero Inbox`} />
+        <meta key="twitter:title" name="twitter:title" content={articlePageTitle} />
         <meta key="twitter:description" name="twitter:description" content={article.excerpt} />
         <meta key="twitter:image" name="twitter:image" content={articleImageUrl} />
         <script
@@ -357,9 +259,9 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
       </Head>
 
       <Box className={classes.container}>
-        <Link href="/news" className={classes.backLink}>
+        <Link href="/" className={classes.backLink}>
           <FiArrowLeft size={16} />
-          Back to News
+          Back to Blog
         </Link>
 
         <Flex className={classes.meta}>
@@ -376,41 +278,7 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
 
         <Text className={classes.excerpt}>{article.excerpt}</Text>
 
-        {relatedVideo ? (
-          <Link href={`/videos/${relatedVideo.slug}`} className={classes.videoLinkCard}>
-            <div className={classes.videoWrap}>
-              <span className={classes.watchBadge}>
-                <FiPlayCircle size={18} />
-                Watch video
-              </span>
-              <div className={classes.videoPoster}>
-                {relatedVideo.posterImage ? (
-                  <Image
-                    className={classes.mediaImage}
-                    src={relatedVideo.posterImage}
-                    alt={relatedVideo.title}
-                    fill
-                    priority
-                    unoptimized
-                    sizes="(max-width: 768px) 100vw, 760px"
-                  />
-                ) : (
-                  <div className={classes.mediaFallback}>
-                    <span className={classes.mediaFallbackText}>{relatedVideo.title}</span>
-                  </div>
-                )}
-
-                <div className={classes.watchOverlay}>
-                  <div className={classes.watchOverlayContent}>
-                    <div className={classes.watchTitle}>{relatedVideo.title}</div>
-                    <div className={classes.watchCopy}>{relatedVideo.excerpt}</div>
-                  </div>
-                  <span className={classes.watchButton}>Open watch page</span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ) : article.thumbnail ? (
+        {article.thumbnail ? (
           <div className={classes.videoWrap}>
             <Image
               className={classes.mediaImage}
@@ -431,21 +299,6 @@ export default function ArticlePage({ article, relatedVideo }: InferGetStaticPro
             </div>
           </div>
         )}
-
-        <div className={classes.ctaWrap}>
-          <Button
-            component="a"
-            href="https://app.zeroinbox.ai"
-            target="_blank"
-            rel="noreferrer"
-            radius="xl"
-            size="lg"
-            onClick={() => registerClickSignUpEventGoogle()}
-            className={classes.ctaButton}
-          >
-            Try Zero Inbox today
-          </Button>
-        </div>
 
         <div
           className={classes.body}

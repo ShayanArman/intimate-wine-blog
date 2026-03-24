@@ -14,7 +14,7 @@ function escapeXml(value: string) {
 function buildRss() {
   const items = getAllNews()
     .map((article) => {
-      const link = `${SITE_URL}/news/${article.slug}`;
+      const link = `${SITE_URL}/${article.slug}`;
       const pubDate = new Date(`${article.date}T00:00:00Z`).toUTCString();
 
       return `<item>
@@ -31,7 +31,7 @@ function buildRss() {
 <rss version="2.0">
   <channel>
     <title>${SITE_NAME} News</title>
-    <link>${SITE_URL}/news</link>
+    <link>${SITE_URL}</link>
     <description>Product updates and research from ${SITE_NAME}</description>
     ${items}
   </channel>
