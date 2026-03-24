@@ -1,6 +1,9 @@
 export const SITE_NAME = "Intimate Wine";
 export const SITE_URL = "https://www.blog.intimate.wine";
 export const LINKED_SITE_URL = "https://intimate.wine";
+export const socials_links_map = {
+  instagram: "https://www.instagram.com/intimate.wine/",
+} as const;
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/features-1200px.png`;
 export const DEFAULT_KEYWORDS =
   "ai email organizer, inbox zero, email cleaner, email management, unsubscribe tool, productivity";

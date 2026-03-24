@@ -8,9 +8,10 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 import NavBar from "../NavBar";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { SITE_NAME } from "@/lib/seo";
+import { LINKED_SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const HEADER_PIXEL_HEIGHT = 84;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -34,9 +35,10 @@ export const mainPageSections = {
 
 /* ─── Header Links ─── */
 type HeaderLink = {
-  link: string;
+  link?: string;
   label: string;
-  newTab: boolean;
+  newTab?: boolean;
+  children?: HeaderLink[];
 };
 
 export const headerLinks: HeaderLink[] = [
@@ -45,7 +47,14 @@ export const headerLinks: HeaderLink[] = [
   // { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
   { link: "/home", label: "Home", newTab: false },
   { link: "/about", label: "About", newTab: false },
-  // add Services
+  {
+    label: "Services",
+    children: [
+      { link: "https://intimate.wine/private-wine-tastings/", label: "Private Wine Tastings", newTab: true },
+      { link: "https://intimate.wine/wine-classes/", label: "Wine Classes", newTab: true },
+      { link: "https://intimate.wine/private-chef-dinners/", label: "Private Chef Dinners", newTab: true },
+    ],
+  },
   { link: "/reviews", label: "Reviews", newTab: false },
   { link: "/", label: "Blog", newTab: false },
   { link: "/contact", label: "Contact", newTab: false },
@@ -85,9 +94,68 @@ const useStyles = createStyles((theme) => ({
   desktopNav: {
     marginLeft: "auto",
     gap: rem(2),
+    overflow: "visible",
 
     [theme.fn.smallerThan("md")]: {
       display: "none",
+    },
+  },
+
+  desktopDropdown: {
+    position: "relative",
+  },
+
+  desktopDropdownTrigger: {
+    gap: rem(6),
+    backgroundColor: "transparent",
+    border: 0,
+    cursor: "pointer",
+  },
+
+  desktopDropdownChevron: {
+    flexShrink: 0,
+    transition: "transform var(--transition-fast)",
+  },
+
+  desktopDropdownMenu: {
+    position: "absolute",
+    top: "calc(100% - 2px)",
+    left: 0,
+    minWidth: rem(220),
+    backgroundColor: "white",
+    borderTop: "4px solid var(--initimate-wine-burgundy)",
+    boxShadow: "0 18px 40px rgba(0, 0, 0, 0.12)",
+    padding: `${rem(14)} 0`,
+    opacity: 0,
+    visibility: "hidden",
+    transform: "translateY(8px)",
+    pointerEvents: "none",
+    transition: "opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast)",
+  },
+
+  desktopDropdownMenuOpen: {
+    opacity: 1,
+    visibility: "visible",
+    transform: "translateY(0)",
+    pointerEvents: "auto",
+  },
+
+  desktopDropdownLink: {
+    display: "block",
+    padding: `${rem(12)} ${rem(22)}`,
+    color: "var(--initimate-wine-burgundy)",
+    fontFamily: "var(--font-heading)",
+    fontWeight: 500,
+    fontSize: rem(14),
+    textDecoration: "none",
+    textTransform: "none",
+    letterSpacing: "0.02em",
+    whiteSpace: "nowrap",
+    transition: "background-color var(--transition-fast), color var(--transition-fast)",
+
+    "&:hover": {
+      backgroundColor: "rgba(108, 30, 32, 0.06)",
+      color: "var(--initimate-wine-text)",
     },
   },
 
@@ -122,6 +190,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function ZeroHeader() {
   const [opened, setOpened] = useState(false);
+  const [servicesHovered, setServicesHovered] = useState(false);
   const { classes } = useStyles();
 
   return (
@@ -141,18 +210,63 @@ export default function ZeroHeader() {
         </Flex>
 
         <Group spacing={2} className={classes.desktopNav}>
-          {headerLinks.map((item) => (
-            <Link
-              key={item.label}
-              href={item.link}
-              target={item.newTab ? "_blank" : "_self"}
-              className={classes.link}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {headerLinks.map((item) => {
+            if (item.children?.length) {
+              return (
+                <div
+                  key={item.label}
+                  className={classes.desktopDropdown}
+                  onMouseEnter={() => setServicesHovered(true)}
+                  onMouseLeave={() => setServicesHovered(false)}
+                >
+                  <button
+                    type="button"
+                    className={`${classes.link} ${classes.desktopDropdownTrigger}`}
+                    aria-expanded={servicesHovered}
+                    aria-haspopup="menu"
+                  >
+                    {item.label}
+                    <FiChevronDown
+                      size={16}
+                      className={classes.desktopDropdownChevron}
+                      style={{ transform: servicesHovered ? "rotate(180deg)" : "rotate(0deg)" }}
+                    />
+                  </button>
+
+                  <div
+                    className={`${classes.desktopDropdownMenu} ${servicesHovered ? classes.desktopDropdownMenuOpen : ""}`}
+                    role="menu"
+                    aria-label={`${item.label} links`}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.label}
+                        href={child.link ?? "/"}
+                        target={child.newTab ? "_blank" : "_self"}
+                        className={classes.desktopDropdownLink}
+                        role="menuitem"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={item.label}
+                href={item.link ?? "/"}
+                target={item.newTab ? "_blank" : "_self"}
+                className={classes.link}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
-            href="https://app.zeroinbox.ai"
+            href={`${LINKED_SITE_URL}/contact`}
             target="_blank"
             className={classes.link}
           >

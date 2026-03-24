@@ -1,7 +1,8 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
-import { LINKED_SITE_URL } from "@/lib/seo";
+import { LINKED_SITE_URL, socials_links_map } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
+import { FiInstagram } from "react-icons/fi";
 
 
 const useStyles = createStyles((theme) => ({
@@ -80,6 +81,18 @@ const useStyles = createStyles((theme) => ({
     color: "rgba(255,255,255,0.4)",
     fontSize: "0.8rem",
   },
+
+  socialLink: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "rgba(255,255,255,0.4)",
+    transition: "color var(--transition-fast)",
+
+    "&:hover": {
+      color: "white",
+    },
+  },
 }));
 
 export default function FooterSection() {
@@ -143,8 +156,16 @@ export default function FooterSection() {
         <Flex justify="space-between" align="center" className={classes.divider} wrap="wrap" gap={12}>
           <Text className={classes.bottomText}>© {new Date().getFullYear()} Intimate.Wine. All rights reserved.</Text>
           <Flex gap={20}>
-            <Link href="/terms.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Terms</Link>
-            <Link href="/privacy.pdf" target="_blank" className={classes.link} style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Privacy</Link>
+            <Link
+              href={socials_links_map.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Intimate Wine on Instagram"
+              title="Instagram"
+              className={classes.socialLink}
+            >
+              <FiInstagram size={18} />
+            </Link>
           </Flex>
         </Flex>
       </Box>
