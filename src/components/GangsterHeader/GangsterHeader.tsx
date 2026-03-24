@@ -1,3 +1,9 @@
+import { LINKED_SITE_URL, SITE_NAME } from "@lib/info";
+import { FiChevronDown } from "react-icons/fi";
+import { useState } from "react";
+import NavBar from "../NavBar";
+import Image from "next/image";
+import Link from "next/link";
 import {
   createStyles,
   Group,
@@ -5,13 +11,6 @@ import {
   rem,
   Flex,
 } from "@mantine/core";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
-import NavBar from "../NavBar";
-import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
-import { LINKED_SITE_URL, SITE_NAME } from "@/lib/seo";
 
 export const HEADER_PIXEL_HEIGHT = 84;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -42,6 +41,7 @@ type HeaderLink = {
 };
 
 export const headerLinks: HeaderLink[] = [
+  // keep these here.
   // { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
   // { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
   // { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
@@ -188,7 +188,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function ZeroHeader() {
+export default function GangsterHeader() {
   const [opened, setOpened] = useState(false);
   const [servicesHovered, setServicesHovered] = useState(false);
   const { classes } = useStyles();
@@ -205,7 +205,7 @@ export default function ZeroHeader() {
             color="var(--initimate-wine-burgundy)"
           />
           <Link href={`${LINKED_SITE_URL}`} className={classes.brand} onClick={() => setOpened(false)}>
-            <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoBlackHorizontal.svg" />
+            <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoHorizontal.svg" />
           </Link>
         </Flex>
 

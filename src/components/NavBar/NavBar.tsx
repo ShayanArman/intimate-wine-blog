@@ -1,6 +1,6 @@
 import { createStyles, Flex, rem } from "@mantine/core";
 import Link from "next/link";
-import { headerLinks } from "../ZeroHeader/ZeroHeader";
+import { headerLinks } from "../GangsterHeader/GangsterHeader";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";

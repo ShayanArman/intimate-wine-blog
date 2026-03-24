@@ -105,7 +105,7 @@ export default function FooterSection() {
           {/* Brand Column */}
           <div className={classes.brand}>
             {/* TODO_P0: SEND ME A LOGO TO ADD HERE. */}
-            <Image width={140} height={37} alt="Intimate Wine" src="/logoBlackHorizontal.svg" style={{ filter: "brightness(0) invert(1)" }} />
+            <Image width={140} height={37} alt="Intimate Wine" src="/logoHorizontal.svg" style={{ filter: "brightness(0) invert(1)" }} />
             <Text className={classes.brandText}>
               From Dream to Reality
             </Text>
@@ -130,11 +130,10 @@ export default function FooterSection() {
             {/* TODO_P0: SARAH_O add #team to about Philosophy. */}
             <Link href={`${LINKED_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
             <Link href={`${LINKED_SITE_URL}/contact`} className={classes.link}>Contact</Link>
-            {/* TODO_P0: SHAYAN add Booking link so customers can book from this blog -> main page booking. */}
           </div>
 
           {/* Learn More Column */}
-          {/* TODO_PL: Add Alternatives section */}
+          {/* TODO_PostLaunch: Add Alternatives section */}
           {/* <div>
             <Text className={classes.columnTitle}>Learn more</Text>
             <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>

@@ -1,18 +1,24 @@
-import ZeroHeader from "@/components/ZeroHeader/ZeroHeader";
 import GoogleAnalytics from "../Analytics/GoogleAnalytics";
 import { createStyles, Box, Flex } from "@mantine/core";
+import GangsterHeader from "@/components/GangsterHeader";
 import FooterSection from "@/components/Footer";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
+import Head from "next/head";
 import {
+  BUSINESS_DESCRIPTION,
   DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+  SITE_FOUNDER,
   SITE_NAME,
   SITE_URL,
+  socials_links_map,
+} from "@lib/info";
+import {
   getPathLastModified,
   getSeoMeta,
   toCanonicalUrl,
-} from "@/lib/seo";
+} from "@lib/seo";
 
 const useStyles = createStyles(() => ({
   container: {
@@ -36,20 +42,10 @@ export default function Layout({ children }: { children: ReactNode }) {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logoBlackHorizontal.svg`,
-    description: "Zero Inbox is The Official AI Email Organizer and The Safest AI Email Cleaner.",
-    email: "info@zeroinbox.ai",
-    slogan: "The Official AI Email Organizer.",
-    founder: {
-      "@type": "Person",
-      name: "Shayan Arman",
-      sameAs: "https://www.linkedin.com/in/shayan-arman/",
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "University of Waterloo",
-      },
-    },
-    sameAs: ["https://www.linkedin.com/in/shayan-arman/"],
+    logo: `${SITE_URL}/logoHorizontal.svg`,
+    description: BUSINESS_DESCRIPTION,
+    founder: SITE_FOUNDER,
+    sameAs: [socials_links_map.instagram],
   };
 
   const webSiteStructuredData = {
@@ -81,9 +77,9 @@ export default function Layout({ children }: { children: ReactNode }) {
         <title key="title">{pageMeta.title}</title>
         <link key="favicon" rel="icon" href="/logo.ico" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
-        <link key="rss" rel="alternate" type="application/rss+xml" title="Zero Inbox News" href={`${SITE_URL}/feed.xml`} />
-        <link key="llms-txt" rel="alternate" type="text/plain" title="Zero Inbox LLMs.txt" href={`${SITE_URL}/llms.txt`} />
-        <link key="site-facts-json" rel="alternate" type="application/json" title="Zero Inbox Site Facts" href={`${SITE_URL}/site-facts.json`} />
+        <link key="rss" rel="alternate" type="application/rss+xml" title={`${SITE_NAME} News`} href={`${SITE_URL}/feed.xml`} />
+        <link key="llms-txt" rel="alternate" type="text/plain" title={`${SITE_NAME} LLMs.txt`} href={`${SITE_URL}/llms.txt`} />
+        <link key="site-facts-json" rel="alternate" type="application/json" title={`${SITE_NAME} Site Facts`} href={`${SITE_URL}/site-facts.json`} />
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="description" name="description" content={pageMeta.description} />
         <meta key="keywords" name="keywords" content={pageMeta.keywords} />
@@ -109,7 +105,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <meta key="og:site_name" property="og:site_name" content={SITE_NAME} />
         <meta key="og:locale" property="og:locale" content="en_US" />
         <meta key="og:image" property="og:image" content={DEFAULT_OG_IMAGE} />
-        <meta key="og:image:alt" property="og:image:alt" content="Zero Inbox dashboard preview" />
+        <meta key="og:image:alt" property="og:image:alt" content={DEFAULT_OG_IMAGE_ALT} />
         {lastModified ? <meta key="og:updated_time" property="og:updated_time" content={lastModified} /> : null}
         {pageMeta.ogType === "article" && lastModified ? (
           <meta key="article:modified_time" property="article:modified_time" content={lastModified} />
@@ -139,7 +135,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
         <GoogleAnalytics />
-        <ZeroHeader />
+        <GangsterHeader />
 
         <Box className={classes.content}>
           {children}
