@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import "@/styles/variables.css"
-import { mantineEmotionCache } from '@/lib/mantineEmotionCache';
+import { mantineEmotionCache } from '@lib/mantineEmotionCache';
 import { MantineProvider } from '@mantine/core'
 import Layout from '@/components/Layout';
 import { AppProps } from 'next/app'

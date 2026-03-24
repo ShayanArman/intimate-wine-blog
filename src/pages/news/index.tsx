@@ -1,8 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getAllNews, NewsArticle } from "@lib/news";
 import NewsSection from "@/components/NewsSection";
-import { getAllNews, NewsArticle } from "@/lib/news";
+import { SITE_NAME, SITE_URL } from "@lib/info";
+import { getPathLastModified } from "@lib/seo";
 import Head from "next/head";
-import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 export const getStaticProps: GetStaticProps<{ articles: NewsArticle[] }> = async () => {
   const articles = getAllNews();

@@ -1,4 +1,5 @@
 import { createStyles, Flex, Text } from "@mantine/core";
+import { getPathLastModified } from "@lib/seo";
 import {
   FiBookOpen,
   FiGithub,
@@ -7,7 +8,6 @@ import {
   FiTwitter,
   FiYoutube,
 } from "react-icons/fi";
-import { getPathLastModified } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {

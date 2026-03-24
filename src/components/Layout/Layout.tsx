@@ -134,6 +134,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       </Head>
 
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
+        {/* TODO_PostLaunch Add Google Analytics here */}
         <GangsterHeader />
 
         <Box className={classes.content}>

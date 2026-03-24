@@ -1,5 +1,5 @@
 import { createStyles, Flex, Text } from "@mantine/core";
-import { getPathLastModified } from "@/lib/seo";
+import { getPathLastModified } from "@lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {

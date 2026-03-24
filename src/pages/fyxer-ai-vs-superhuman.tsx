@@ -4,7 +4,7 @@ import { Box, Button, Flex, Text, createStyles } from "@mantine/core";
 import { FiArrowRight } from "react-icons/fi";
 import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import EditorialHeroMedia from "@/components/EditorialHeroMedia";
-import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, getPathLastModified } from "@lib/seo";
 
 const useStyles = createStyles((theme) => ({
   container: {

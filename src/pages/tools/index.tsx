@@ -1,7 +1,8 @@
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@lib/info";
+import { Box, Paper, Text, createStyles } from "@mantine/core";
+import { getPathLastModified } from "@lib/seo";
 import Head from "next/head";
 import Link from "next/link";
-import { Box, Paper, Text, createStyles } from "@mantine/core";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
 
 const PUBLISH_DATE_LABEL = "March 10, 2026";
 const PUBLISH_DATE_ISO = "2026-03-10T00:00:00-07:00";

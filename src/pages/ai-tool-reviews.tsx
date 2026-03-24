@@ -1,8 +1,9 @@
-import Head from "next/head";
-import Link from "next/link";
 import { Box, Paper, SimpleGrid, Text, createStyles } from "@mantine/core";
 import EditorialHeroMedia from "@/components/EditorialHeroMedia";
-import { SITE_NAME, SITE_URL, getPathLastModified } from "@/lib/seo";
+import { getPathLastModified } from "@lib/seo";
+import { SITE_NAME, SITE_URL } from "@lib/info";
+import Head from "next/head";
+import Link from "next/link";
 
 const REVIEW_DATE_LABEL = "March 10, 2026";
 const REVIEW_DATE_ISO = "2026-03-10T00:00:00-07:00";

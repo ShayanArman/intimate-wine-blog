@@ -1,4 +1,4 @@
-import { mantineEmotionCache } from '@/lib/mantineEmotionCache';
+import { mantineEmotionCache } from '@lib/mantineEmotionCache';
 import { Html, Head, Main, NextScript } from 'next/document'
 import { createGetInitialProps } from '@mantine/next'
 

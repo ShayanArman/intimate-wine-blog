@@ -1,13 +1,13 @@
 import { GetServerSideProps } from "next";
-import { getAllNews } from "@/lib/news";
+import { getAllNews } from "@lib/news";
 import {
   NEWS_STATIC_ROUTES,
   buildUrlSitemap,
   getLatestLastModifiedTimestamp,
   mapStaticRoutesToUrls,
   writeXmlResponse,
-} from "@/lib/sitemaps";
-import { SITE_URL } from "@/lib/seo";
+} from "@lib/sitemaps";
+import { SITE_URL } from "@lib/seo";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const hubUrls = mapStaticRoutesToUrls(NEWS_STATIC_ROUTES);

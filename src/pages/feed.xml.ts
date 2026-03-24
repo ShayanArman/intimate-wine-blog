@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
-import { getAllNews } from "@/lib/news";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { getAllNews } from "@lib/news";
+import { SITE_NAME, SITE_URL } from "@lib/seo";
 
 function escapeXml(value: string) {
   return value

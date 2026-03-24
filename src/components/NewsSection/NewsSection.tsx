@@ -1,5 +1,5 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
-import type { NewsArticle } from "@/lib/news";
+import type { NewsArticle } from "@lib/news";
 import Link from "next/link";
 import Image from "next/image";
 

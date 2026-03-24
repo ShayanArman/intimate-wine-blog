@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext } from "next";
-import { getPathLastModified } from "@/lib/seo";
+import { getPathLastModified } from "@lib/seo";
 import { createHash } from "crypto";
 import { SITE_URL } from "./info";
 

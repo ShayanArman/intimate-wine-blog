@@ -1,4 +1,4 @@
-import { BUSINESS_NAME, LINKED_SITE_URL, SITE_NAME, socials_links_map } from "@/lib/info";
+import { BUSINESS_NAME, LINKED_SITE_URL, SITE_NAME, socials_links_map } from "@lib/info";
 import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";

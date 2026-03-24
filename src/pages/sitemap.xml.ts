@@ -1,7 +1,7 @@
+import { getAllVideos } from "@lib/videos";
 import { GetServerSideProps } from "next";
-import { getAllNews } from "@/lib/news";
-import { SITE_URL } from "@/lib/seo";
-import { getAllVideos } from "@/lib/videos";
+import { getAllNews } from "@lib/news";
+import { SITE_URL } from "@lib/info";
 import {
   NEWS_STATIC_ROUTES,
   PAGES_STATIC_ROUTES,
@@ -10,7 +10,7 @@ import {
   getLatestLastModifiedTimestamp,
   mapStaticRoutesToUrls,
   writeXmlResponse,
-} from "@/lib/sitemaps";
+} from "@lib/sitemaps";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const pageUrls = mapStaticRoutesToUrls(PAGES_STATIC_ROUTES);

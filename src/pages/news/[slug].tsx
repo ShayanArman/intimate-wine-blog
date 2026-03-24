@@ -1,13 +1,13 @@
+import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllNews, getNewsArticle, NewsArticle } from "@/lib/news";
-import { getVideoBySlug, VideoEntry } from "@/lib/videos";
 import { createStyles, Box, Text, Flex, Button } from "@mantine/core";
+import { getAllNews, getNewsArticle, NewsArticle } from "@lib/news";
+import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
+import { getVideoBySlug, VideoEntry } from "@lib/videos";
+import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
-import { FiArrowLeft, FiPlayCircle } from "react-icons/fi";
-import { registerClickSignUpEventGoogle } from "@/components/Analytics/GoogleAnalytics";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@lib/info";
 
 const useStyles = createStyles((theme) => ({
   container: {

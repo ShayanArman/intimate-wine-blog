@@ -1,5 +1,5 @@
+import { SITE_NAME, SITE_URL } from "@lib/info";
 import { GetServerSideProps } from "next";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 function getFactsPayload() {
   return {

@@ -5,7 +5,7 @@ import {
   getLatestLastModifiedTimestamp,
   mapStaticRoutesToUrls,
   writeXmlResponse,
-} from "@/lib/sitemaps";
+} from "@lib/sitemaps";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const urls = mapStaticRoutesToUrls(TOOLS_STATIC_ROUTES);
