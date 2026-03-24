@@ -1,5 +1,5 @@
+import { BUSINESS_NAME, LINKED_SITE_URL, SITE_NAME, socials_links_map } from "@/lib/info";
 import { createStyles, Box, Text, Flex } from "@mantine/core";
-import { LINKED_SITE_URL, socials_links_map } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { FiInstagram } from "react-icons/fi";
@@ -114,22 +114,21 @@ export default function FooterSection() {
           {/* Product Column */}
           <div>
             <Text className={classes.columnTitle}>Business</Text>
-            <Link href={`${LINKED_SITE_URL}/about/#background`} className={classes.link}>Background</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#background`} target="_blank" className={classes.link}>Background</Link>
           </div>
 
           {/* Resources Column */}
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
-            <Link href={`${LINKED_SITE_URL}`} className={classes.link}>Home</Link>
+            <Link href={`${LINKED_SITE_URL}`} target="_blank" className={classes.link}>Home</Link>
             <Link href="/" className={classes.link}>Blog</Link>
-            <Link href={`${LINKED_SITE_URL}/about`} className={classes.link}>About</Link>
+            <Link href={`${LINKED_SITE_URL}/about`} target="_blank" className={classes.link}>About</Link>
             {/* TODO_P0: SARAH_O add #team to about About. */}
-            <Link href={`${LINKED_SITE_URL}/about/#team`} className={classes.link}>Team</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#team`} target="_blank" className={classes.link}>Team</Link>
             {/* TODO_P0: SARAH_O add #team to about Background. */}
-            <Link href={`${LINKED_SITE_URL}/about/#background`} className={classes.link}>Story</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#background`} target="_blank" className={classes.link}>Story</Link>
             {/* TODO_P0: SARAH_O add #team to about Philosophy. */}
-            <Link href={`${LINKED_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
-            <Link href={`${LINKED_SITE_URL}/contact`} className={classes.link}>Contact</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#philosophy`} target="_blank" className={classes.link}>Philosophy</Link>
           </div>
 
           {/* Learn More Column */}
@@ -149,17 +148,18 @@ export default function FooterSection() {
           <div>
             <Text className={classes.columnTitle}>Book</Text>
             <Link href={`${LINKED_SITE_URL}/contact`} target="_blank" className={classes.link}>Book</Link>
+            <Link href={`${LINKED_SITE_URL}/contact`} target="_blank" className={classes.link}>Contact</Link>
           </div>
         </div>
 
         <Flex justify="space-between" align="center" className={classes.divider} wrap="wrap" gap={12}>
-          <Text className={classes.bottomText}>© {new Date().getFullYear()} Intimate.Wine. All rights reserved.</Text>
+          <Text className={classes.bottomText}>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</Text>
           <Flex gap={20}>
             <Link
               href={socials_links_map.instagram}
               target="_blank"
               rel="noreferrer"
-              aria-label="Intimate Wine on Instagram"
+              aria-label={`${BUSINESS_NAME} on Instagram`}
               title="Instagram"
               className={classes.socialLink}
             >

@@ -1,6 +1,7 @@
-import { createHash } from "crypto";
 import { GetServerSidePropsContext } from "next";
-import { SITE_URL, getPathLastModified } from "@/lib/seo";
+import { getPathLastModified } from "@/lib/seo";
+import { createHash } from "crypto";
+import { SITE_URL } from "./info";
 
 export interface SitemapUrl {
   loc: string;

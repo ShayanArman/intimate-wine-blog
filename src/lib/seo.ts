@@ -1,5 +1,3 @@
-export * from "@lib/info";
-
 import { BUSINESS_DESCRIPTION, BUSINESS_TITLE, DEFAULT_KEYWORDS, LINKED_SITE_URL } from "@lib/info";
 
 export interface SeoMeta {

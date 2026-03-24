@@ -1,3 +1,4 @@
+export const BUSINESS_NAME = "Intimate Wine";
 export const SITE_NAME = "Intimate.Wine";
 export const SITE_URL = "https://www.blog.intimate.wine";
 export const LINKED_SITE_URL = "https://intimate.wine";
