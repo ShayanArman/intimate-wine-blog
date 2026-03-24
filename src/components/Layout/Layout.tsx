@@ -36,7 +36,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/zeroInboxLogoBlack.svg`,
+    logo: `${SITE_URL}/logoBlackHorizontal.svg`,
     description: "Zero Inbox is The Official AI Email Organizer and The Safest AI Email Cleaner.",
     email: "info@zeroinbox.ai",
     slogan: "The Official AI Email Organizer.",

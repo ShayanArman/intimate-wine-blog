@@ -1,6 +1,6 @@
-export const SITE_NAME = "Zero Inbox";
-export const SITE_URL = "https://www.zeroinbox.ai";
-export const INTIMATE_WINE_MAIN_SITE_URL = "https://intimate.wine";
+export const SITE_NAME = "Intimate Wine";
+export const SITE_URL = "https://www.blog.intimate.wine";
+export const LINKED_SITE_URL = "https://intimate.wine";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/features-1200px.png`;
 export const DEFAULT_KEYWORDS =
   "ai email organizer, inbox zero, email cleaner, email management, unsubscribe tool, productivity";
@@ -213,7 +213,7 @@ export function normalizePath(inputPath: string): string {
 
 export function toCanonicalUrl(path: string): string {
   const normalizedPath = normalizePath(path);
-  return normalizedPath === "/" ? SITE_URL : `${SITE_URL}${normalizedPath}`;
+  return normalizedPath === "/" ? LINKED_SITE_URL : `${LINKED_SITE_URL}${normalizedPath}`;
 }
 
 export function getPathLastModified(pathname: string): string | null {

@@ -1,8 +1,8 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
+import { LINKED_SITE_URL } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 
-import { INTIMATE_WINE_MAIN_SITE_URL } from "@/lib/seo";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -92,7 +92,7 @@ export default function FooterSection() {
           {/* Brand Column */}
           <div className={classes.brand}>
             {/* TODO_P0: SEND ME A LOGO TO ADD HERE. */}
-            <Image width={140} height={37} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" style={{ filter: "brightness(0) invert(1)" }} />
+            <Image width={140} height={37} alt="Intimate Wine" src="/logoBlackHorizontal.svg" style={{ filter: "brightness(0) invert(1)" }} />
             <Text className={classes.brandText}>
               From Dream to Reality
             </Text>
@@ -100,31 +100,29 @@ export default function FooterSection() {
 
           {/* Product Column */}
           <div>
-            <Text className={classes.columnTitle}>Product</Text>
-            <Link href="/?section=features" className={classes.link}>Features</Link>
-            <Link href="/?section=security" className={classes.link}>Security</Link>
-            <Link href="/?section=privacy" className={classes.link}>Privacy</Link>
-            <Link href="/?section=business" className={classes.link}>Business</Link>
+            <Text className={classes.columnTitle}>Business</Text>
+            <Link href={`${LINKED_SITE_URL}/about/#background`} className={classes.link}>Background</Link>
           </div>
 
           {/* Resources Column */}
           <div>
             <Text className={classes.columnTitle}>Resources</Text>
-            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}`} className={classes.link}>Home</Link>
+            <Link href={`${LINKED_SITE_URL}`} className={classes.link}>Home</Link>
             <Link href="/" className={classes.link}>Blog</Link>
-            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about`} className={classes.link}>About</Link>
+            <Link href={`${LINKED_SITE_URL}/about`} className={classes.link}>About</Link>
             {/* TODO_P0: SARAH_O add #team to about About. */}
-            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#team`} className={classes.link}>Team</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#team`} className={classes.link}>Team</Link>
             {/* TODO_P0: SARAH_O add #team to about Background. */}
-            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#background`} className={classes.link}>Story</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#background`} className={classes.link}>Story</Link>
             {/* TODO_P0: SARAH_O add #team to about Philosophy. */}
-            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
-            <Link href={`${INTIMATE_WINE_MAIN_SITE_URL}/contact`} className={classes.link}>Contact</Link>
+            <Link href={`${LINKED_SITE_URL}/about/#philosophy`} className={classes.link}>Philosophy</Link>
+            <Link href={`${LINKED_SITE_URL}/contact`} className={classes.link}>Contact</Link>
             {/* TODO_P0: SHAYAN add Booking link so customers can book from this blog -> main page booking. */}
           </div>
 
           {/* Learn More Column */}
-          <div>
+          {/* TODO_PL: Add Alternatives section */}
+          {/* <div>
             <Text className={classes.columnTitle}>Learn more</Text>
             <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
             <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
@@ -133,13 +131,12 @@ export default function FooterSection() {
             <Link href="/mark-zuckerberg-loves-inbox-zero-ai" className={classes.link}>Mark Zuckerberg</Link>
             <Link href="/news/why-zero-inbox" className={classes.link}>Why Zero Inbox</Link>
             <Link href="/superhuman-alternatives" className={classes.link}>Superhuman Alternatives</Link>
-          </div>
+          </div> */}
 
           {/* Account Column */}
           <div>
-            <Text className={classes.columnTitle}>Account</Text>
-            <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>Log In</Link>
-            <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>Sign Up</Link>
+            <Text className={classes.columnTitle}>Book</Text>
+            <Link href={`${LINKED_SITE_URL}/contact`} target="_blank" className={classes.link}>Book</Link>
           </div>
         </div>
 

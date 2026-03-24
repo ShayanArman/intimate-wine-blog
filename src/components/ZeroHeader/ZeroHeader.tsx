@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 import NavBar from "../NavBar";
 import { registerClickSignUpEventGoogle } from "../Analytics/GoogleAnalytics";
+import { SITE_NAME } from "@/lib/seo";
 
 export const HEADER_PIXEL_HEIGHT = 84;
 export const HEADER_HEIGHT = rem(HEADER_PIXEL_HEIGHT);
@@ -39,12 +40,15 @@ type HeaderLink = {
 };
 
 export const headerLinks: HeaderLink[] = [
-  { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
-  { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
-  { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
-  { link: "/news", label: "News", newTab: false },
+  // { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
+  // { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
+  // { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
+  { link: "/home", label: "Home", newTab: false },
   { link: "/about", label: "About", newTab: false },
-  { link: "/story", label: "Story", newTab: false },
+  // add Services
+  { link: "/reviews", label: "Reviews", newTab: false },
+  { link: "/", label: "Blog", newTab: false },
+  { link: "/contact", label: "Contact", newTab: false },
 ];
 
 /* ─── Styles ─── */
@@ -132,7 +136,7 @@ export default function ZeroHeader() {
             color="var(--initimate-wine-burgundy)"
           />
           <Link href="/" className={classes.brand} onClick={() => setOpened(false)}>
-            <Image width={160} height={42} alt="Zero Inbox" src="/zeroInboxLogoBlack.svg" />
+            <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoBlackHorizontal.svg" />
           </Link>
         </Flex>
 
@@ -147,16 +151,12 @@ export default function ZeroHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link}>
-            Log In
-          </Link>
           <Link
             href="https://app.zeroinbox.ai"
             target="_blank"
             className={classes.link}
-            onClick={() => registerClickSignUpEventGoogle()}
           >
-            Sign Up
+            Book
           </Link>
         </Group>
       </div>
