@@ -45,19 +45,19 @@ export const headerLinks: HeaderLink[] = [
   // { link: `/?section=${FEATURES_SECTION}`, label: "Features", newTab: false },
   // { link: `/?section=${SECURITY_SECTION}`, label: "Security", newTab: false },
   // { link: `/?section=${BUSINESS_SECTION}`, label: "Business", newTab: false },
-  { link: "/home", label: "Home", newTab: false },
-  { link: "/about", label: "About", newTab: false },
+  { link: `${LINKED_SITE_URL}`, label: "Home", newTab: false },
+  { link: `${LINKED_SITE_URL}/about`, label: "About", newTab: false },
   {
     label: "Services",
     children: [
-      { link: "https://intimate.wine/private-wine-tastings/", label: "Private Wine Tastings", newTab: true },
-      { link: "https://intimate.wine/wine-classes/", label: "Wine Classes", newTab: true },
-      { link: "https://intimate.wine/private-chef-dinners/", label: "Private Chef Dinners", newTab: true },
+      { link: `${LINKED_SITE_URL}/private-wine-tastings/`, label: "Private Wine Tastings", newTab: true },
+      { link: `${LINKED_SITE_URL}/wine-classes/`, label: "Wine Classes", newTab: true },
+      { link: `${LINKED_SITE_URL}/private-chef-dinners/`, label: "Private Chef Dinners", newTab: true },
     ],
   },
-  { link: "/reviews", label: "Reviews", newTab: false },
+  { link: `${LINKED_SITE_URL}/reviews`, label: "Reviews", newTab: false },
   { link: "/", label: "Blog", newTab: false },
-  { link: "/contact", label: "Contact", newTab: false },
+  { link: `${LINKED_SITE_URL}/contact`, label: "Contact", newTab: false },
 ];
 
 /* ─── Styles ─── */
@@ -204,7 +204,7 @@ export default function ZeroHeader() {
             size="sm"
             color="var(--initimate-wine-burgundy)"
           />
-          <Link href="/" className={classes.brand} onClick={() => setOpened(false)}>
+          <Link href={`${LINKED_SITE_URL}`} className={classes.brand} onClick={() => setOpened(false)}>
             <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoBlackHorizontal.svg" />
           </Link>
         </Flex>
