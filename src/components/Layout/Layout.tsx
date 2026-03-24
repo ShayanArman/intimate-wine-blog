@@ -1,4 +1,3 @@
-import GoogleAnalytics from "../Analytics/GoogleAnalytics";
 import { createStyles, Box, Flex } from "@mantine/core";
 import GangsterHeader from "@/components/GangsterHeader";
 import FooterSection from "@/components/Footer";
@@ -6,6 +5,7 @@ import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import Head from "next/head";
 import {
+  BROWSER_MAIN_PAGE_TITLE,
   BUSINESS_DESCRIPTION,
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
@@ -77,7 +77,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <title key="title">{pageMeta.title}</title>
         <link key="favicon" rel="icon" href="/logo.ico" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
-        <link key="rss" rel="alternate" type="application/rss+xml" title={`${SITE_NAME} News`} href={`${SITE_URL}/feed.xml`} />
+        <link key="rss" rel="alternate" type="application/rss+xml" title={`${BROWSER_MAIN_PAGE_TITLE}`} href={`${SITE_URL}/feed.xml`} />
         <link key="llms-txt" rel="alternate" type="text/plain" title={`${SITE_NAME} LLMs.txt`} href={`${SITE_URL}/llms.txt`} />
         <link key="site-facts-json" rel="alternate" type="application/json" title={`${SITE_NAME} Site Facts`} href={`${SITE_URL}/site-facts.json`} />
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
@@ -134,7 +134,6 @@ export default function Layout({ children }: { children: ReactNode }) {
       </Head>
 
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>
-        <GoogleAnalytics />
         <GangsterHeader />
 
         <Box className={classes.content}>

@@ -17,3 +17,4 @@ export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/features-1200px.png`;
 export const DEFAULT_OG_IMAGE_ALT = "Intimate Wine preview";
 export const DEFAULT_KEYWORDS =
   "intimate wine, private wine tastings, wine classes, wine experiences, sommelier-led tastings, wine storytelling";
+export const BROWSER_MAIN_PAGE_TITLE = `${SITE_NAME} Blog`
