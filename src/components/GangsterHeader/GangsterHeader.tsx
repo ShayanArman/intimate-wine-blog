@@ -92,6 +92,12 @@ const useStyles = createStyles((theme) => ({
 
   brandImage: {
     display: "block",
+    width: "auto",
+    height: rem(28),
+
+    [theme.fn.smallerThan("md")]: {
+      height: rem(24),
+    },
   },
 
   desktopNav: {
@@ -208,7 +214,7 @@ export default function GangsterHeader() {
             color="var(--initimate-wine-burgundy)"
           />
           <Link href={`${LINKED_SITE_URL}`} className={classes.brand} onClick={() => setOpened(false)}>
-            <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoHorizontal.svg" className={classes.brandImage} />
+            <Image width={364} height={52} alt={`${SITE_NAME}`} src="/logoHorizontal.svg" className={classes.brandImage} />
           </Link>
         </Flex>
 
