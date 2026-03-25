@@ -12,8 +12,8 @@
 - https://intimate.wine
 
 ## Summary
-- Intimate Wine offers private wine tastings and wine classes in intimate settings with incredible wine and stories you will remember.
-- The blog is the editorial home for those stories, updates, and related wine content.
+- Intimate Wine offers private wine tastings, wine classes, and memorable wine experiences in intimate settings.
+- The blog is the editorial home for brand stories, updates, guides, and wine-related content tied to those experiences.
 
 ## Topics
 - private wine tastings
@@ -21,6 +21,7 @@
 - wine experiences
 - sommelier-led tastings
 - wine storytelling
+- hospitality stories
 
 ## Credibility
 - Founder: Emily Spadafora
@@ -29,11 +30,13 @@
 
 ## Key Pages
 - https://www.blog.intimate.wine/
+- https://intimate.wine/
 
 ## URL Structure
 - The homepage `/` is the blog index.
 - Articles are published at root-level URLs on the blog domain.
-- The sitemap is the primary crawl source for article discovery.
+- `/sitemap.xml` is the sitemap index.
+- `/pages-sitemap.xml` is the URL sitemap for the homepage and article pages.
 
 ## Crawl Endpoints
 - robots: https://www.blog.intimate.wine/robots.txt
