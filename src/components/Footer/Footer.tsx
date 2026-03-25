@@ -1,4 +1,4 @@
-import { BUSINESS_NAME, LINKED_SITE_URL, SITE_NAME, socials_links_map } from "@lib/info";
+import { BUSINESS_NAME, LINKED_SITE_URL, MAIN_PAGE_DESCRIPTION, SITE_NAME, SITE_SLOGAN, socials_links_map } from "@lib/info";
 import { createStyles, Box, Text, Flex } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
 
   grid: {
     display: "grid",
-    gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr",
+    gridTemplateColumns: "2fr 1fr 1fr 1fr",
     gap: 40,
     marginBottom: 48,
 
@@ -104,51 +104,31 @@ export default function FooterSection() {
         <div className={classes.grid}>
           {/* Brand Column */}
           <div className={classes.brand}>
-            {/* TODO_P0: SEND ME A LOGO TO ADD HERE. */}
             <Image width={140} height={37} alt="Intimate Wine" src="/logoHorizontal.svg" style={{ filter: "brightness(0) invert(1)" }} />
             <Text className={classes.brandText}>
-              From Dream to Reality
+              { SITE_SLOGAN }
             </Text>
           </div>
 
-          {/* Product Column */}
           <div>
-            <Text className={classes.columnTitle}>Business</Text>
-            <Link href={`${LINKED_SITE_URL}/about/#background`} target="_blank" className={classes.link}>Background</Link>
-          </div>
-
-          {/* Resources Column */}
-          <div>
-            <Text className={classes.columnTitle}>Resources</Text>
-            <Link href={`${LINKED_SITE_URL}`} target="_blank" className={classes.link}>Home</Link>
+            <Text className={classes.columnTitle}>Explore</Text>
+            <Link href={`${LINKED_SITE_URL}`} className={classes.link}>Home</Link>
             <Link href="/" className={classes.link}>Blog</Link>
-            <Link href={`${LINKED_SITE_URL}/about`} target="_blank" className={classes.link}>About</Link>
-            {/* TODO_P0: SARAH_O add #team to about About. */}
-            <Link href={`${LINKED_SITE_URL}/about/#team`} target="_blank" className={classes.link}>Team</Link>
-            {/* TODO_P0: SARAH_O add #team to about Background. */}
-            <Link href={`${LINKED_SITE_URL}/about/#background`} target="_blank" className={classes.link}>Story</Link>
-            {/* TODO_P0: SARAH_O add #team to about Philosophy. */}
-            <Link href={`${LINKED_SITE_URL}/about/#philosophy`} target="_blank" className={classes.link}>Philosophy</Link>
+            <Link href={`${LINKED_SITE_URL}/about`} className={classes.link}>About</Link>
+            <Link href={`${LINKED_SITE_URL}/reviews`} className={classes.link}>Reviews</Link>
           </div>
 
-          {/* Learn More Column */}
-          {/* TODO_PostLaunch: Add Alternatives section */}
-          {/* <div>
-            <Text className={classes.columnTitle}>Learn more</Text>
-            <Link href="/ai-email-organizer" className={classes.link}>AI Email Organizer</Link>
-            <Link href="/best-ai-email-organizer" className={classes.link}>Best AI Email Organizer</Link>
-            <Link href="/clean-and-organize-emails" className={classes.link}>Clean and Organize Emails</Link>
-            <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.link}>Organize My Emails</Link>
-            <Link href="/mark-zuckerberg-loves-inbox-zero-ai" className={classes.link}>Mark Zuckerberg</Link>
-            <Link href="/news/why-zero-inbox" className={classes.link}>Why Zero Inbox</Link>
-            <Link href="/superhuman-alternatives" className={classes.link}>Superhuman Alternatives</Link>
-          </div> */}
-
-          {/* Account Column */}
           <div>
-            <Text className={classes.columnTitle}>Book</Text>
-            <Link href={`${LINKED_SITE_URL}/contact`} target="_blank" className={classes.link}>Book</Link>
-            <Link href={`${LINKED_SITE_URL}/contact`} target="_blank" className={classes.link}>Contact</Link>
+            <Text className={classes.columnTitle}>Experiences</Text>
+            <Link href={`${LINKED_SITE_URL}/private-wine-tastings/`} className={classes.link}>Private Wine Tastings</Link>
+            <Link href={`${LINKED_SITE_URL}/wine-classes/`} className={classes.link}>Wine Classes</Link>
+            <Link href={`${LINKED_SITE_URL}/private-chef-dinners/`} className={classes.link}>Private Chef Dinners</Link>
+          </div>
+
+          <div>
+            <Text className={classes.columnTitle}>Visit</Text>
+            <Link href={`${LINKED_SITE_URL}/contact`} className={classes.link}>Book</Link>
+            <Link href={`${LINKED_SITE_URL}/contact`} className={classes.link}>Contact</Link>
           </div>
         </div>
 
