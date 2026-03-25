@@ -85,10 +85,13 @@ const useStyles = createStyles((theme) => ({
   },
 
   brand: {
-    display: "inline-flex",
-    alignItems: "center",
+    display: "block",
     lineHeight: 0,
     flexShrink: 0,
+  },
+
+  brandImage: {
+    display: "block",
   },
 
   desktopNav: {
@@ -163,7 +166,7 @@ const useStyles = createStyles((theme) => ({
     display: "none",
 
     [theme.fn.smallerThan("md")]: {
-      display: "inline-flex",
+      display: "initial",
     },
   },
 
@@ -196,7 +199,7 @@ export default function GangsterHeader() {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <Flex align="center" gap={12}>
+        <Flex align="center" gap={10}>
           <Burger
             opened={opened}
             onClick={() => setOpened((prev) => !prev)}
@@ -205,7 +208,7 @@ export default function GangsterHeader() {
             color="var(--initimate-wine-burgundy)"
           />
           <Link href={`${LINKED_SITE_URL}`} className={classes.brand} onClick={() => setOpened(false)}>
-            <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoHorizontal.svg" />
+            <Image width={160} height={42} alt={`${SITE_NAME}`} src="/logoHorizontal.svg" className={classes.brandImage} />
           </Link>
         </Flex>
 
