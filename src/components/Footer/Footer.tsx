@@ -105,7 +105,7 @@ export default function FooterSection() {
               src="logoHorizontal.svg"
               style={{ width: "auto", height: 24, filter: "brightness(0) invert(1)" }}
             />
-            <Text c="white">{SITE_SLOGAN}</Text>
+            <Text size="sm" italic={true} style={{color: "rgba(255,255,255,0.7)"}}>{SITE_SLOGAN}</Text>
           </div>
 
           <div>
