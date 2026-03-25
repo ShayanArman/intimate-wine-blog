@@ -48,7 +48,7 @@ export const headerLinks: HeaderLink[] = [
   { link: `${LINKED_SITE_URL}`, label: "Home", newTab: false },
   { link: `${LINKED_SITE_URL}/about`, label: "About", newTab: false },
   {
-    label: "Services",
+    label: "Experiences",
     children: [
       { link: `${LINKED_SITE_URL}/private-wine-tastings/`, label: "Private Wine Tastings", newTab: true },
       { link: `${LINKED_SITE_URL}/wine-classes/`, label: "Wine Classes", newTab: true },
