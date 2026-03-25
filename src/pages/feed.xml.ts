@@ -1,4 +1,4 @@
-import { SITE_NAME, SITE_URL } from "@lib/info";
+import { MAIN_PAGE_DESCRIPTION, SITE_NAME, SITE_URL } from "@lib/info";
 import { GetServerSideProps } from "next";
 import { getAllNews } from "@lib/news";
 
@@ -30,9 +30,9 @@ function buildRss() {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>${SITE_NAME} News</title>
+    <title>${SITE_NAME} Blog</title>
     <link>${SITE_URL}</link>
-    <description>Product updates and research from ${SITE_NAME}</description>
+    <description>${escapeXml(MAIN_PAGE_DESCRIPTION)}</description>
     ${items}
   </channel>
 </rss>`;

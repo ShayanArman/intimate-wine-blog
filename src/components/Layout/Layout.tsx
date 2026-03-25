@@ -9,6 +9,8 @@ import {
   BUSINESS_DESCRIPTION,
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
+  LINKED_SITE_URL,
+  MAIN_PAGE_DESCRIPTION,
   SITE_FOUNDER,
   SITE_NAME,
   SITE_URL,
@@ -35,17 +37,18 @@ export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pageMeta = getSeoMeta(router.pathname);
   const canonicalUrl = toCanonicalUrl(router.asPath || "/");
-  const lastModified = getPathLastModified(router.pathname);
+  const lastModified = getPathLastModified(router.asPath || router.pathname);
+  const isHomePage = router.pathname === "/";
 
   const organizationStructuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_NAME,
-    url: SITE_URL,
+    url: LINKED_SITE_URL,
     logo: `${SITE_URL}/logoHorizontal.svg`,
     description: BUSINESS_DESCRIPTION,
     founder: SITE_FOUNDER,
-    sameAs: [socials_links_map.instagram],
+    sameAs: [socials_links_map.instagram, socials_links_map.founderLinkedIn],
   };
 
   const webSiteStructuredData = {
@@ -53,7 +56,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
-    description: pageMeta.description,
+    description: MAIN_PAGE_DESCRIPTION,
     inLanguage: "en-US",
   };
 
@@ -126,11 +129,13 @@ export default function Layout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteStructuredData) }}
         />
-        <script
-          key="ld-webpage"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageStructuredData) }}
-        />
+        {isHomePage ? (
+          <script
+            key="ld-webpage"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageStructuredData) }}
+          />
+        ) : null}
       </Head>
 
       <Flex id="#top" direction="column" mih="100vh" className={classes.container}>

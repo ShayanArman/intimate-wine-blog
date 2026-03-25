@@ -18,6 +18,5 @@ export const SITE_FOUNDER = {
 } as const;
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/features-1200px.png`;
 export const DEFAULT_OG_IMAGE_ALT = "Intimate Wine preview";
-export const DEFAULT_KEYWORDS =
-  "intimate wine, private wine tastings, wine classes, wine experiences, sommelier-led tastings, wine storytelling";
 export const BROWSER_MAIN_PAGE_TITLE = `${SITE_NAME} Blog`
+export const BUSINESS_STORY = "Intimate Wine brings people together through private wine tastings, wine classes, and intimate wine experiences. The blog is where those stories, updates, and related editorial pieces live.";

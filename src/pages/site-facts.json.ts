@@ -1,47 +1,47 @@
-import { SITE_NAME, SITE_URL } from "@lib/info";
+import {
+  BUSINESS_DESCRIPTION,
+  BUSINESS_STORY,
+  LINKED_SITE_URL,
+  MAIN_PAGE_DESCRIPTION,
+  SITE_CATEGORY,
+  SITE_FOUNDER,
+  SITE_NAME,
+  SITE_URL,
+  socials_links_map,
+} from "@lib/info";
 import { GetServerSideProps } from "next";
+
+import * as Keywords from "@lib/keywords";
 
 function getFactsPayload() {
   return {
     site: SITE_NAME,
     url: SITE_URL,
-    category: "Wine Blog",
-    summary:
-      "Intimate.Wine Blog shares stories, updates, and editorial content about private wine tastings, wine classes, and memorable wine experiences.",
-    positioning: [
-      "Private wine tastings in intimate settings.",
-      "Wine classes with incredible wine.",
-      "Stories you will remember.",
-    ],
+    related_site: LINKED_SITE_URL,
+    category: SITE_CATEGORY,
+    summary: MAIN_PAGE_DESCRIPTION,
+    positioning: Keywords.positioning,
     credibility: {
-      founder: "Emily Spadafora",
-      linkedin: "https://www.linkedin.com/in/emilyspadafora",
+      founder: SITE_FOUNDER.name,
+      linkedin: socials_links_map.founderLinkedIn,
+      instagram: socials_links_map.instagram,
       background: [
-        "Founded by Emily Spadafora.",
-        "Built around intimate wine tastings, wine classes, and story-led experiences.",
+        `Founded by ${SITE_FOUNDER.name}.`,
+        BUSINESS_DESCRIPTION,
       ],
     },
-    story:
-      "Intimate Wine creates private tastings and wine classes focused on intimate settings, incredible wine, and stories guests will remember.",
-    seo_terms: ["intimate wine", "private wine tastings", "wine classes", "wine experiences", "wine storytelling"],
-    intent_phrases: [
-      "Private wine tastings",
-      "Wine classes",
-      "Intimate wine experiences",
-      "Sommelier-led tastings",
-    ],
-    target_queries: [
-      "private wine tastings",
-      "wine classes",
-      "intimate wine experiences",
-      "sommelier-led tastings",
-    ],
+    story: BUSINESS_STORY,
+    seo_terms: Keywords.seo_terms,
+    intent_phrases: Keywords.intent_phrases,
+    target_queries: Keywords.target_queries,
     key_pages: [
       `${SITE_URL}/`,
+      LINKED_SITE_URL,
     ],
     crawl_endpoints: {
       robots: `${SITE_URL}/robots.txt`,
       sitemap: `${SITE_URL}/sitemap.xml`,
+      pages_sitemap: `${SITE_URL}/pages-sitemap.xml`,
       feed: `${SITE_URL}/feed.xml`,
       llms: `${SITE_URL}/llms.txt`,
       site_facts: `${SITE_URL}/site-facts.json`,

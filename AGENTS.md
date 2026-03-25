@@ -1,103 +1,128 @@
 # AGENTS.md
 
-This repo is for `blog.intimate.wine` only. Do not use it to modify the main `intimate.wine` site.
+This repo is only for `blog.intimate.wine`.
 
-## Marketing Philosophy
-Go read Philosophy.md, we are looking to sell the need not the product. Email Cleaning and Organizing with ai is like flossing. You need to do it everyday because email does not end.
-You are always going to more shops, using things online, email will always be there. What we can do is use ai to help us manage it.
-
-in general dont actually say Sell the need, not the product make it Why you need Zero Inbox or highlight their biggest pain point. go read /content/news/why-zero-inbox to understand.
-
+Do not treat it as the main `intimate.wine` site, and do not assume old Zero Inbox landing-page files still exist just because some legacy copy remains in the codebase.
 
 ## Important
 
 Before doing SEO page work, read `agent-instructions.md`.
-This file is brand and messaging guidance only.
 
-## Video Handling
+## Keywords
 
-- Treat videos as their own destination, not just an embed inside an article.
-- For any Zero Inbox-owned video that should rank, create a dedicated watch page under `/videos/<slug>`.
-- Keep the video as the main content on the watch page, then support it with concise copy below.
-- Use user-facing copy on video pages. Do not explain SEO mechanics or Google indexing logic to visitors.
-- If a news/article page relates to a video, link the article to the matching watch page instead of relying on an inline embed.
-- Only create watch pages and `VideoObject` markup for Zero Inbox-owned videos, not third-party talks or references.
-- Keep video copy aligned with the core positioning:
-  - The Official AI Email Organizer.
-  - The Safest AI Email Cleaner.
-  - Asks for Permission everytime.
-  - Does not auto-delete your emails like the other AI Email Cleaners.
-- When adding new videos, remember the supporting crawl/discovery work too:
-  - add the video entry in `src/content/videos/`
-  - ensure the `/videos` hub surfaces it
-  - ensure it is included in `video-sitemap.xml`
-  - link to it from any closely related article or landing page when relevant
-
-## Sitemap Handling
-
-- Treat `/sitemap.xml` as the main sitemap index, not the place where every URL is listed directly.
-- The sitemap index should point to the child sitemap files:
-  - `/pages-sitemap.xml`
-  - `/tools-sitemap.xml`
-  - `/news-sitemap.xml`
-  - `/video-sitemap.xml`
-- `public/robots.txt` should only advertise the main sitemap entrypoint: `https://www.blog.intimate.wine/sitemap.xml`
-- Static route groups live in `src/lib/sitemaps.ts`:
-  - `PAGES_STATIC_ROUTES`
-  - `TOOLS_STATIC_ROUTES`
-  - `NEWS_STATIC_ROUTES`
-- If you add or remove a static page, update the correct route group in `src/lib/sitemaps.ts`.
-- If you add a new sitemap section, update `src/pages/sitemap.xml.ts` so the main index references it.
-- Child sitemap files live in:
-  - `src/pages/pages-sitemap.xml.ts`
-  - `src/pages/tools-sitemap.xml.ts`
-  - `src/pages/news-sitemap.xml.ts`
-  - `src/pages/video-sitemap.xml.ts`
-- Dynamic content is pulled from content folders, not hardcoded route lists:
-  - news URLs come from `src/content/news/`
-  - video URLs come from `src/content/videos/`
-- If a new page is missing sitemap coverage because of missing last-modified metadata, update `src/lib/seo.ts`.
-- Keep sitemap coverage aligned with internal linking. If a new section matters for crawl/discovery, make sure it has:
-  - a sitemap entry
-  - at least one internal link from an existing indexable page
-
-## Core SEO Words
-
-AI, Email, Organizer, Cleaner, inbox zero
-
-
-## SEO Intent Phrases
-
-- Help me organize my emails
-- Clean and organize emails
-- AI Email Organizer
-- AI Email Cleaner
-
-## Positioning To Preserve
-
-- The Official AI Email Organizer.
-- The Safest AI Email Cleaner.
-- Asks for Permission everytime.
-- Does not auto-delete your emails like the other AI Email Cleaners.
-- Google Security Cleared.
+Before doing keyword planning, blog SEO work, or article ideation, read the `## Keywords` section in `agent-instructions.md`.
 
 ## Credibility
 
-- Started by Apple engineer and Waterloo graduate Shayan Arman.
-- LinkedIn: https://www.linkedin.com/in/shayan-arman/
-- Worked at Apple on Siri from 2017 to 2021.
+- Founder: Emily Spadafora
+- LinkedIn: https://www.linkedin.com/in/emilyspadafora
+- Intimate Wine is built around private wine tastings, wine classes, and intimate wine experiences.
 
-## Story
+## What This Site Actually Is
 
-Shayan finished Waterloo Computer Engineering, worked at Apple on Siri (2017 to 2021), then started Zero Inbox to help the world use AI first to manage emails.
+This is a small Next.js blog with:
 
-## Writing Notes
+- `/` as the homepage and article index
+- `/<slug>` article pages generated from `src/content/news/*.md`
+- machine-readable endpoints for crawl/discovery:
+  - `/sitemap.xml`
+  - `/pages-sitemap.xml`
+  - `/feed.xml`
+  - `/site-facts.json`
+  - `/robots.txt`
+  - `/llms.txt`
 
-- Keep brand claims consistent with the positioning above.
-- Keep copy concise, clear, and factual.
-- Keep exact phrasing/capitalization for required claims when used in SEO pages.
+There is no live `/news` route, no `/videos` section, no `/tools` section, and no extra marketing page set in this repo right now.
 
-## Search Console Follow-up
+## Source Of Truth
 
-- After adding any new indexable page, tell Shayan to go to Google Search Console and request crawling/indexing for that URL.
-- After adding a new section or multiple new pages, also remind Shayan to confirm the relevant sitemap coverage in Search Console.
+When you need to understand the live site, start here:
+
+- `src/pages/index.tsx`
+- `src/pages/[slug].tsx`
+- `src/lib/news.ts`
+- `src/content/news/*.md`
+- `src/pages/sitemap.xml.ts`
+- `src/pages/pages-sitemap.xml.ts`
+- `src/pages/feed.xml.ts`
+- `src/pages/site-facts.json.ts`
+- `public/robots.txt`
+- `public/llms.txt`
+- `src/lib/info.ts`
+- `src/lib/seo.ts`
+- `src/components/Layout/Layout.tsx`
+- `src/components/NewsSection/NewsSection.tsx`
+- `src/components/GangsterHeader/GangsterHeader.tsx`
+- `src/components/Footer/Footer.tsx`
+
+## Routing Rules
+
+- Keep the homepage at `/`.
+- Keep article URLs flat at the root: `https://www.blog.intimate.wine/<slug>`.
+- Do not move articles under `/news` unless the route model is intentionally being changed.
+- Do not add references to `/videos`, `/tools`, or other sections unless those routes are actually being created in this repo.
+
+## Sitemap Rules
+
+- `/sitemap.xml` is the sitemap index.
+- The sitemap index should reference only `/pages-sitemap.xml`.
+- `/pages-sitemap.xml` should contain:
+  - `/`
+  - every article slug from `src/content/news/*.md`
+- Article sitemap entries are generated dynamically from `getAllNews()`, not from a hardcoded list.
+- If you add or remove a non-article static route in the future:
+  - add metadata in `src/lib/seo.ts`
+  - add last-modified data in `src/lib/seo.ts`
+  - add the route to `PAGES_STATIC_ROUTES` in `src/lib/sitemaps.ts`
+
+## SEO And Metadata
+
+The site currently has shared metadata spread across:
+
+- `src/lib/info.ts`
+- `src/lib/seo.ts`
+- `src/components/Layout/Layout.tsx`
+- `src/pages/index.tsx`
+- `src/pages/[slug].tsx`
+- `public/llms.txt`
+- `src/pages/site-facts.json.ts`
+- `src/pages/feed.xml.ts`
+
+If you change site identity, positioning, founder/brand details, or canonical assumptions, update those files together.
+
+Do not assume shared metadata is fully aligned already. Verify the rendered output.
+
+## Legacy Code Warning
+
+There are many older components and scripts in this repo from prior site iterations.
+
+- Some component files under `src/components/` are not mounted by the live blog.
+- Before editing an older component, confirm it is actually imported by the active route tree.
+- `scripts/check_unique_editorial_images.py` is legacy and references deleted page files. Do not rely on it as an authoritative check unless you update it first.
+
+## Content Rules
+
+- Articles live in `src/content/news/*.md`.
+- The homepage article list and sitemap coverage both come from that folder.
+- Keep slugs unique.
+- If you update article routing behavior, verify:
+  - `/`
+  - one article URL
+  - `/sitemap.xml`
+  - `/pages-sitemap.xml`
+  - `/feed.xml`
+
+## Verification
+
+Use these after SEO, routing, sitemap, or metadata changes:
+
+1. `yarn build`
+2. `git diff -- <changed-files>`
+3. `git status --short`
+
+`yarn build` is the main verification path for this repo.
+
+## Search Console Follow-Up
+
+- After adding any new indexable page, tell Emily Spadafora to go to Google Search Console and request crawling/indexing for that URL.
+- After adding a new section or multiple new pages, also remind Emily Spadafora to confirm the relevant sitemap coverage in Search Console.

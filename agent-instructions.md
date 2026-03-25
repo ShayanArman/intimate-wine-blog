@@ -110,6 +110,10 @@ Current article files commonly use:
 
 Legacy fields may still exist in older content, but do not assume legacy video-related fields are part of the active routing or sitemap model.
 
+## Keywords
+
+Read this section before doing blog keyword planning, article ideation, or SEO page work. Go read the files @lib/keywords.ts and @lib/keywords.md
+
 ## Verification
 
 Run these after relevant SEO or content changes:

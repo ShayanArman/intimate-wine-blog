@@ -1,4 +1,11 @@
-import { BUSINESS_DESCRIPTION, BUSINESS_TITLE, DEFAULT_KEYWORDS, LINKED_SITE_URL, MAIN_PAGE_DESCRIPTION } from "@lib/info";
+import { DEFAULT_KEYWORDS } from "./keywords";
+import {
+  BROWSER_MAIN_PAGE_TITLE,
+  BUSINESS_DESCRIPTION,
+  BUSINESS_TITLE,
+  MAIN_PAGE_DESCRIPTION,
+  SITE_URL,
+} from "@lib/info";
 
 export interface SeoMeta {
   title: string;
@@ -19,6 +26,11 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
     title: BUSINESS_TITLE,
     description: MAIN_PAGE_DESCRIPTION,
   },
+  "/[slug]": {
+    title: BROWSER_MAIN_PAGE_TITLE,
+    description: MAIN_PAGE_DESCRIPTION,
+    ogType: "article",
+  },
 };
 
 const PATH_LAST_MODIFIED: Record<string, string> = {
@@ -38,7 +50,7 @@ export function normalizePath(inputPath: string): string {
 
 export function toCanonicalUrl(path: string): string {
   const normalizedPath = normalizePath(path);
-  return normalizedPath === "/" ? LINKED_SITE_URL : `${LINKED_SITE_URL}${normalizedPath}`;
+  return normalizedPath === "/" ? SITE_URL : `${SITE_URL}${normalizedPath}`;
 }
 
 export function getPathLastModified(pathname: string): string | null {
