@@ -78,7 +78,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <>
       <Head>
         <title key="title">{pageMeta.title}</title>
-        <link key="favicon" rel="icon" href="/logo.ico" />
+        <link key="favicon" rel="icon" href="/wine-glass.ico" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
         <link key="rss" rel="alternate" type="application/rss+xml" title={`${BROWSER_MAIN_PAGE_TITLE}`} href={`${SITE_URL}/feed.xml`} />
         <link key="llms-txt" rel="alternate" type="text/plain" title={`${SITE_NAME} LLMs.txt`} href={`${SITE_URL}/llms.txt`} />

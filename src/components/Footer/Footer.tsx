@@ -97,13 +97,16 @@ export default function FooterSection() {
       <Box className={classes.inner}>
         <div className={classes.grid}>
           {/* Brand Column */}
-          <Image
-            width={364}
-            height={52}
-            alt="Intimate Wine"
-            src="logoHorizontalSlogan.svg"
-            style={{ width: "auto", height: 24, filter: "brightness(0) invert(1)" }}
-          />
+          <div className={classes.brandText}>
+            <Image
+              width={364}
+              height={52}
+              alt="Intimate Wine"
+              src="logoHorizontal.svg"
+              style={{ width: "auto", height: 24, filter: "brightness(0) invert(1)" }}
+            />
+            <Text c="white">{SITE_SLOGAN}</Text>
+          </div>
 
           <div>
             <Text className={classes.columnTitle}>Explore</Text>
