@@ -4,6 +4,7 @@ import { headerLinks } from "../GangsterHeader/GangsterHeader";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { LINKED_SITE_URL } from "@lib/info";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -147,12 +148,13 @@ export default function NavBar({ opened, closeNavBar }: { opened: boolean; close
             </Link>
           );
         })}
-
-        <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link} onClick={() => closeNavBar()}>
-          Log In
-        </Link>
-        <Link href="https://app.zeroinbox.ai" target="_blank" className={classes.link} onClick={() => closeNavBar()}>
-          Sign Up
+        <Link
+          href={`${LINKED_SITE_URL}/contact`}
+          target="_blank"
+          className={classes.link}
+          onClick={() => closeNavBar()}
+        >
+          Book
         </Link>
       </Flex>
     </Flex>
