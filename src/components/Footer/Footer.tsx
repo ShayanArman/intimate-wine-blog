@@ -37,12 +37,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  brand: {
-    display: "flex",
-    flexDirection: "column",
-    gap: 16,
-  },
-
   brandText: {
     color: "rgba(255,255,255,0.6)",
     fontSize: "0.9rem",
@@ -103,12 +97,13 @@ export default function FooterSection() {
       <Box className={classes.inner}>
         <div className={classes.grid}>
           {/* Brand Column */}
-          <div className={classes.brand}>
-            <Image width={140} height={37} alt="Intimate Wine" src="/logoHorizontal.svg" style={{ filter: "brightness(0) invert(1)" }} />
-            <Text className={classes.brandText}>
-              { SITE_SLOGAN }
-            </Text>
-          </div>
+          <Image
+            width={364}
+            height={52}
+            alt="Intimate Wine"
+            src="logoHorizontalSlogan.svg"
+            style={{ width: "auto", height: 24, filter: "brightness(0) invert(1)" }}
+          />
 
           <div>
             <Text className={classes.columnTitle}>Explore</Text>

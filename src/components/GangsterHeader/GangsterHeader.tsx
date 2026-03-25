@@ -214,7 +214,12 @@ export default function GangsterHeader() {
             color="var(--initimate-wine-burgundy)"
           />
           <Link href={`${LINKED_SITE_URL}`} className={classes.brand} onClick={() => setOpened(false)}>
-            <Image width={364} height={52} alt={`${SITE_NAME}`} src="/logoHorizontal.svg" className={classes.brandImage} />
+            <Image 
+              width={364} height={52} 
+              alt={`${SITE_NAME}`} 
+              src="intimate_wine_logo_horizontal.svg" 
+              // src="logoHorizontalSlogan.svg"
+              className={classes.brandImage} />
           </Link>
         </Flex>
 
