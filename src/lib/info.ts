@@ -1,6 +1,7 @@
 export const BUSINESS_NAME = "Intimate Wine";
 export const SITE_NAME = "Intimate.Wine";
 export const SITE_URL = "https://www.blog.intimate.wine";
+export const SITE_SLOGAN = "From Dream to Reality"
 export const LINKED_SITE_URL = "https://intimate.wine";
 export const SITE_CATEGORY = "Wine Blog";
 export const BUSINESS_TITLE = "Intimate Wine - Intimate settings, incredible wine, stories you will remember.";
