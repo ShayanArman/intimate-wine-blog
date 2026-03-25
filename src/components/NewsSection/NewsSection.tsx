@@ -160,6 +160,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
   return (
     <Box className={classes.container}>
       <h1 className={classes.heading}>Blog</h1>
+      {/* TODO_PostLaunch Keep this here once we expand the site to include Videos, Chefs, Experiences etc.
       <div className={classes.intentLinks}>
         <Link href="/ai-email-organizer" className={classes.intentLink}>AI Email Organizer</Link>
         <Link href="/videos" className={classes.intentLink}>Videos</Link>
@@ -168,7 +169,7 @@ export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
         <Link href="/what-website-should-i-use-to-clean-or-organize-my-emails" className={classes.intentLink}>
           Exact Match Answer
         </Link>
-      </div>
+      </div> */}
 
       <div className={classes.grid}>
         {articles.map((article) => (
