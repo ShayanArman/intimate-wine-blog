@@ -1,6 +1,6 @@
 ---
 title: "Rituals Of Taste: An Invitation To Experience Intimate.Wine"
-subtitle: "How do you explain something that feels more like a memory than a moment?"
+subtitle: "An invitation to slow down, gather, and taste Tuscany with intention"
 date: "2025-06-01"
 category: "Experience"
 excerpt: "A reflection on intimate tastings, thoughtful pairings, and the rituals that turn a wine experience in Tuscany into a memory."
@@ -10,6 +10,8 @@ changefreq: "monthly"
 priority: "0.8"
 imageFallbackText: "Rituals Of Taste: An Invitation To Experience Intimate.Wine"
 ---
+
+## How do you explain something that feels more like a memory than a moment?
 
 I've been searching for the right words to describe Intimate.Wine. It's not just a wine tasting - it's an immersion. A connection. A way of honoring place, people, and presence. It's the gentle swirl of Chianti in your glass as dusk settles over the Tuscan hills. It's the stories told around a villa table, laughter echoing between sips. It's the land speaking through the wine - and you listening with every sense.
 
