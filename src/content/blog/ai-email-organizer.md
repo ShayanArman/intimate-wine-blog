@@ -3,7 +3,7 @@ title: "The Complete Guide to AI Email Organizers in 2026: Remove Spam, Delete J
 date: "2026-03-05"
 category: "Guide"
 excerpt: "Looking for an AI Email Organizer or AI Email Cleaner? Zero Inbox helps remove spam, delete junk, and organize email faster with permission-first cleanup."
-thumbnail: "/images/news/interactive_learning.png"
+thumbnail: "/images/blog/interactive_learning.png"
 slug: "ai-email-organizer"
 changefreq: "monthly"
 priority: "0.8"
