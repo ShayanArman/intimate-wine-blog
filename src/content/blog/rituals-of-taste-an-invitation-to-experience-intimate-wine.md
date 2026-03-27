@@ -1,0 +1,27 @@
+---
+title: "Rituals Of Taste: An Invitation To Experience Intimate.Wine"
+subtitle: "Slow tastings, shared tables, and the small rituals that make Tuscany feel personal"
+date: "2025-06-01"
+category: "Experience"
+excerpt: "A reflection on intimate tastings, thoughtful pairings, and the rituals that turn a wine experience in Tuscany into a memory."
+slug: "rituals-of-taste-an-invitation-to-experience-intimate-wine"
+thumbnail: "/images/blog/moss_green.png"
+changefreq: "monthly"
+priority: "0.8"
+imageFallbackText: "Rituals Of Taste: An Invitation To Experience Intimate.Wine"
+---
+
+How do you explain something that feels more like a memory than a moment?
+
+I've been searching for the right words to describe Intimate.Wine. It's not just a wine tasting - it's an immersion. A connection. A way of honoring place, people, and presence. It's the gentle swirl of Chianti in your glass as dusk settles over the Tuscan hills. It's the stories told around a villa table, laughter echoing between sips. It's the land speaking through the wine - and you listening with every sense.
+
+That's the difference. In a world full of fast experiences and curated packages, we choose depth. We choose intimacy. Each tasting we create is a celebration of slowness, of intention, of the beauty found in simplicity. Whether you're staying in a farmhouse in Greve or a villa in Montepulciano, you're not just booking a service - you're being welcomed into a living story.
+
+The wines we pour are curated with care, sourced from producers we know by name. Winemakers who walk their vineyards barefoot. Families who have tended these vines for generations. Bottles that aren't found on store shelves, but tucked in cellars, waiting for the right moment. We bring them to your table - and with them, a sense of place that you can feel in your bones.
+
+Over time, we've added more than wine. Art. Food. Light. Story. Sound. Our collaborations with chefs, artists, and musicians reflect something bigger than just a tasting: they're rituals. Ways of remembering what it means to gather. To be nourished. To be human.
+
+So now, we invite you - wherever you are in the world - come to Italy and experience this magic with us through Rituals of Taste. Think: sunset tastings, dinners under olive trees, and soulful soundtracks that pair perfectly with a glass of Brunello. It's our way of bringing Tuscany closer to you - gather your loved ones and visit us. Let us share a glass with you. Let us share a story.
+
+With love from Tuscany,
+Emily Spadafora + Massimiliano Nava, Owners of Intimate.Wine
