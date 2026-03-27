@@ -16,7 +16,7 @@ FOOTER_EDITORIAL_ITEMS = [
     ("src/pages/clean-and-organize-emails.tsx", "heroImagePath"),
     ("src/pages/what-website-should-i-use-to-clean-or-organize-my-emails.tsx", "heroImagePath"),
     ("src/pages/mark-zuckerberg-loves-inbox-zero-ai.tsx", "heroImagePath"),
-    ("src/content/news/why-zero-inbox.md", "thumbnail"),
+    ("src/content/blog/why-zero-inbox.md", "thumbnail"),
     ("src/pages/superhuman-alternatives.tsx", "heroImagePath"),
 ]
 

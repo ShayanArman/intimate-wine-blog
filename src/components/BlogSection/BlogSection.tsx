@@ -1,9 +1,9 @@
 import { createStyles, Box, Text, Flex } from "@mantine/core";
-import type { NewsArticle } from "@lib/news";
+import type { BlogArticle } from "@lib/blog";
 import Link from "next/link";
 import Image from "next/image";
 
-const THUMBNAIL_HOVER_CLASS = "news-thumbnail";
+const THUMBNAIL_HOVER_CLASS = "blog-thumbnail";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -154,7 +154,7 @@ function formatDate(dateStr: string): string {
   });
 }
 
-export default function NewsSection({ articles }: { articles: NewsArticle[] }) {
+export default function BlogSection({ articles }: { articles: BlogArticle[] }) {
   const { classes } = useStyles();
 
   return (

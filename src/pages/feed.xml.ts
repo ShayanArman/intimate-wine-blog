@@ -1,6 +1,6 @@
 import { MAIN_PAGE_DESCRIPTION, SITE_NAME, SITE_URL } from "@lib/info";
+import { getAllBlogArticles } from "@lib/blog";
 import { GetServerSideProps } from "next";
-import { getAllNews } from "@lib/news";
 
 function escapeXml(value: string) {
   return value
@@ -12,7 +12,7 @@ function escapeXml(value: string) {
 }
 
 function buildRss() {
-  const items = getAllNews()
+  const articles = getAllBlogArticles()
     .map((article) => {
       const link = `${SITE_URL}/${article.slug}`;
       const pubDate = new Date(`${article.date}T00:00:00Z`).toUTCString();
@@ -33,7 +33,7 @@ function buildRss() {
     <title>${SITE_NAME} Blog</title>
     <link>${SITE_URL}</link>
     <description>${escapeXml(MAIN_PAGE_DESCRIPTION)}</description>
-    ${items}
+    ${articles}
   </channel>
 </rss>`;
 }

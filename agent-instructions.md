@@ -15,7 +15,7 @@ Keep the blog simple, crawlable, and easy to reuse for future customers:
 
 ## Current Structure
 
-- `src/content/news/*.md`
+- `src/content/blog/*.md`
   Source files for blog articles.
 - `src/pages/index.tsx`
   Renders the blog homepage and the article list structured data.
@@ -25,8 +25,8 @@ Keep the blog simple, crawlable, and easy to reuse for future customers:
   Serves the sitemap index at `/sitemap.xml`.
 - `src/pages/pages-sitemap.xml.ts`
   Serves the URL sitemap for `/` plus all article URLs.
-- `src/lib/news.ts`
-  Loads markdown articles from `src/content/news/`.
+- `src/lib/blog.ts`
+  Loads markdown articles from `src/content/blog/`.
 - `src/lib/info.ts`
   Shared brand and site constants.
 - `src/lib/seo.ts`
@@ -43,7 +43,7 @@ Keep the blog simple, crawlable, and easy to reuse for future customers:
 ## Routing Rules
 
 - The homepage `/` should continue to act as the main blog hub.
-- News/blog content lives at root-level URLs on the blog domain, not under a `/news` subdirectory.
+- Blog content lives at root-level URLs on the blog domain, not under a `/blog` subdirectory.
 - Each article should resolve at `https://www.blog.intimate.wine/<slug>`.
 
 ## Sitemap Rules
@@ -53,8 +53,8 @@ Keep the blog simple, crawlable, and easy to reuse for future customers:
   - `/pages-sitemap.xml`
 - `/pages-sitemap.xml` should include:
   - `/`
-  - every root-level article URL from `src/content/news/`
-- Do not recreate `news-sitemap.xml` unless the route structure changes again.
+  - every root-level article URL from `src/content/blog/`
+- Do not recreate `blog-sitemap.xml` unless the route structure changes again.
 - If you add a new static page outside the markdown article flow:
   - add metadata in `src/lib/seo.ts`
   - add last-modified data in `src/lib/seo.ts`
@@ -88,7 +88,7 @@ If you find customer-specific copy hardcoded in page components, prefer moving i
 
 When adding or updating an article:
 
-1. Create or edit the markdown file in `src/content/news/`.
+1. Create or edit the markdown file in `src/content/blog/`.
 2. Keep the slug unique and appropriate for a root-level URL.
 3. Ensure the article appears correctly on `/`.
 4. Ensure the generated article URL is `/<slug>`.

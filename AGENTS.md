@@ -23,7 +23,7 @@ Before doing keyword planning, blog SEO work, or article ideation, read the `## 
 This is a small Next.js blog with:
 
 - `/` as the homepage and article index
-- `/<slug>` article pages generated from `src/content/news/*.md`
+- `/<slug>` article pages generated from `src/content/blog/*.md`
 - machine-readable endpoints for crawl/discovery:
   - `/sitemap.xml`
   - `/pages-sitemap.xml`
@@ -32,7 +32,7 @@ This is a small Next.js blog with:
   - `/robots.txt`
   - `/llms.txt`
 
-There is no live `/news` route, no `/videos` section, no `/tools` section, and no extra marketing page set in this repo right now.
+There is no live `/blog` route, no `/videos` section, no `/tools` section, and no extra marketing page set in this repo right now.
 
 ## Source Of Truth
 
@@ -40,8 +40,8 @@ When you need to understand the live site, start here:
 
 - `src/pages/index.tsx`
 - `src/pages/[slug].tsx`
-- `src/lib/news.ts`
-- `src/content/news/*.md`
+- `src/lib/blog.ts`
+- `src/content/blog/*.md`
 - `src/pages/sitemap.xml.ts`
 - `src/pages/pages-sitemap.xml.ts`
 - `src/pages/feed.xml.ts`
@@ -51,7 +51,7 @@ When you need to understand the live site, start here:
 - `src/lib/info.ts`
 - `src/lib/seo.ts`
 - `src/components/Layout/Layout.tsx`
-- `src/components/NewsSection/NewsSection.tsx`
+- `src/components/BlogSection/BlogSection.tsx`
 - `src/components/GangsterHeader/GangsterHeader.tsx`
 - `src/components/Footer/Footer.tsx`
 
@@ -59,7 +59,7 @@ When you need to understand the live site, start here:
 
 - Keep the homepage at `/`.
 - Keep article URLs flat at the root: `https://www.blog.intimate.wine/<slug>`.
-- Do not move articles under `/news` unless the route model is intentionally being changed.
+- Do not move articles under `/blog` unless the route model is intentionally being changed.
 - Do not add references to `/videos`, `/tools`, or other sections unless those routes are actually being created in this repo.
 
 ## Sitemap Rules
@@ -68,8 +68,8 @@ When you need to understand the live site, start here:
 - The sitemap index should reference only `/pages-sitemap.xml`.
 - `/pages-sitemap.xml` should contain:
   - `/`
-  - every article slug from `src/content/news/*.md`
-- Article sitemap entries are generated dynamically from `getAllNews()`, not from a hardcoded list.
+  - every article slug from `src/content/blog/*.md`
+- Article sitemap entries are generated dynamically from `getAllBlogArticles()`, not from a hardcoded list.
 - If you add or remove a non-article static route in the future:
   - add metadata in `src/lib/seo.ts`
   - add last-modified data in `src/lib/seo.ts`
@@ -102,7 +102,7 @@ There are many older components and scripts in this repo from prior site iterati
 
 ## Content Rules
 
-- Articles live in `src/content/news/*.md`.
+- Articles live in `src/content/blog/*.md`.
 - The homepage article list and sitemap coverage both come from that folder.
 - Keep slugs unique.
 - If you update article routing behavior, verify:

@@ -1,5 +1,5 @@
+import { getAllBlogArticles } from "@lib/blog";
 import { GetServerSideProps } from "next";
-import { getAllNews } from "@lib/news";
 import { SITE_URL } from "@lib/info";
 import {
   PAGES_STATIC_ROUTES,
@@ -11,7 +11,7 @@ import {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const staticUrls = mapStaticRoutesToUrls(PAGES_STATIC_ROUTES);
-  const articleUrls = getAllNews().map((article) => ({
+  const articleUrls = getAllBlogArticles().map((article) => ({
     loc: `${SITE_URL}/${article.slug}`,
     lastmod: new Date(`${article.date}T00:00:00Z`).toISOString(),
     changefreq: article.changefreq,

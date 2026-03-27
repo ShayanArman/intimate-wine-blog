@@ -1,12 +1,12 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllNews, NewsArticle } from "@lib/news";
-import NewsSection from "@/components/NewsSection";
-import { getPathLastModified } from "@lib/seo";
 import { MAIN_PAGE_DESCRIPTION, SITE_NAME, SITE_URL } from "@lib/info";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getAllBlogArticles, BlogArticle } from "@lib/blog";
+import BlogSection from "@/components/BlogSection";
+import { getPathLastModified } from "@lib/seo";
 import Head from "next/head";
 
-export const getStaticProps: GetStaticProps<{ articles: NewsArticle[] }> = async () => {
-  const articles = getAllNews();
+export const getStaticProps: GetStaticProps<{ articles: BlogArticle[] }> = async () => {
+  const articles = getAllBlogArticles();
   return { props: { articles } };
 };
 
@@ -37,11 +37,11 @@ function getLatestModifiedDate(articleDates: string[], pageModifiedDate?: string
 export default function HomePage({ articles }: InferGetStaticPropsType<typeof getStaticProps>) {
   const canonicalUrl = SITE_URL;
   const description = MAIN_PAGE_DESCRIPTION;
-  const collectionImageUrl = `${SITE_URL}/images/news/ai-email-revolution.webp`;
+  const collectionImageUrl = `${SITE_URL}/images/blog/ai-email-revolution.webp`;
   const articleDates = articles.map((article) => toArticleIsoDate(article.date));
   const modifiedDate = getLatestModifiedDate(articleDates, getPathLastModified("/"));
 
-  const newsCollectionStructuredData = {
+  const blogCollectionStructuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `${SITE_NAME} Blog`,
@@ -83,12 +83,12 @@ export default function HomePage({ articles }: InferGetStaticPropsType<typeof ge
         <meta key="twitter:description" name="twitter:description" content={description} />
         <meta key="twitter:image" name="twitter:image" content={collectionImageUrl} />
         <script
-          key="ld-news-collection"
+          key="ld-blog-collection"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(newsCollectionStructuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCollectionStructuredData) }}
         />
       </Head>
-      <NewsSection articles={articles} />
+      <BlogSection articles={articles} />
     </>
   );
 }

@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { getAllBlogArticles, getBlogArticle, BlogArticle } from "@lib/blog";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@lib/info";
 import { createStyles, Box, Text, Flex } from "@mantine/core";
-import { getAllNews, getNewsArticle, NewsArticle } from "@lib/news";
 import { FiArrowLeft } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@lib/info";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -188,15 +188,15 @@ function formatDate(dateStr: string): string {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articles = getAllNews();
+  const articles = getAllBlogArticles();
   return {
     paths: articles.map((a) => ({ params: { slug: a.slug } })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<{ article: NewsArticle }> = async ({ params }) => {
-  const article = await getNewsArticle(params?.slug as string);
+export const getStaticProps: GetStaticProps<{ article: BlogArticle }> = async ({ params }) => {
+  const article = await getBlogArticle(params?.slug as string);
   if (!article) return { notFound: true };
   return { props: { article } };
 };
@@ -210,7 +210,7 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
 
   const articleStructuredData = {
     "@context": "https://schema.org",
-    "@type": "NewsArticle",
+    "@type": "BlogArticle",
     headline: article.title,
     description: article.excerpt,
     datePublished: isoDate,
@@ -252,7 +252,7 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
         <meta key="twitter:description" name="twitter:description" content={article.excerpt} />
         <meta key="twitter:image" name="twitter:image" content={articleImageUrl} />
         <script
-          key="ld-news-article"
+          key="ld-blog-article"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleStructuredData) }}
         />

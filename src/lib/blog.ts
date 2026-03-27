@@ -5,18 +5,18 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import html from "remark-html";
 
-type NewsArticleChangefreq = "daily" | "weekly" | "monthly";
-type NewsArticlePriority = "0.5" | "0.6" | "0.7" | "0.8" | "0.9";
+type BlogArticleChangefreq = "daily" | "weekly" | "monthly";
+type BlogArticlePriority = "0.5" | "0.6" | "0.7" | "0.8" | "0.9";
 
-export interface NewsArticle {
+export interface BlogArticle {
   slug: string;
   title: string;
   subtitle: string | null;
   date: string;
   category: string;
   excerpt: string;
-  changefreq: NewsArticleChangefreq;
-  priority: NewsArticlePriority;
+  changefreq: BlogArticleChangefreq;
+  priority: BlogArticlePriority;
   thumbnail: string | null;
   imageFallbackText: string | null;
   videoEmbedUrl: string | null;
@@ -24,7 +24,7 @@ export interface NewsArticle {
   content?: string; // rendered HTML (only for single-article views)
 }
 
-const newsDirectory = path.join(process.cwd(), "src/content/news");
+const blogDirectory = path.join(process.cwd(), "src/content/blog");
 
 function normalizeThumbnail(thumbnail: unknown): string | null {
   if (typeof thumbnail !== "string") {
@@ -40,24 +40,24 @@ function normalizeThumbnail(thumbnail: unknown): string | null {
   return trimmedThumbnail.startsWith("/") ? trimmedThumbnail : `/${trimmedThumbnail}`;
 }
 
-function normalizeChangefreq(value: unknown): NewsArticleChangefreq {
+function normalizeChangefreq(value: unknown): BlogArticleChangefreq {
   return value === "daily" || value === "weekly" || value === "monthly"
     ? value
     : "monthly";
 }
 
-function normalizePriority(value: unknown): NewsArticlePriority {
+function normalizePriority(value: unknown): BlogArticlePriority {
   return value === "0.5" || value === "0.6" || value === "0.7" || value === "0.8" || value === "0.9"
     ? value
     : "0.8";
 }
 
 /** Return every article, newest first. */
-export function getAllNews(): NewsArticle[] {
-  const filenames = fs.readdirSync(newsDirectory).filter((f) => f.endsWith(".md"));
+export function getAllBlogArticles(): BlogArticle[] {
+  const filenames = fs.readdirSync(blogDirectory).filter((f) => f.endsWith(".md"));
 
   const articles = filenames.map((filename) => {
-    const filePath = path.join(newsDirectory, filename);
+    const filePath = path.join(blogDirectory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
 
@@ -74,23 +74,23 @@ export function getAllNews(): NewsArticle[] {
       imageFallbackText: data.imageFallbackText ?? null,
       videoEmbedUrl: data.videoEmbedUrl ?? null,
       videoSlug: data.videoSlug ?? null,
-    } as NewsArticle;
+    } as BlogArticle;
   });
 
   return articles.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
 /** Return a single article with its rendered HTML body. */
-export async function getNewsArticle(slug: string): Promise<NewsArticle | null> {
-  const filenames = fs.readdirSync(newsDirectory).filter((f) => f.endsWith(".md"));
+export async function getBlogArticle(slug: string): Promise<BlogArticle | null> {
+  const filenames = fs.readdirSync(blogDirectory).filter((f) => f.endsWith(".md"));
   const match = filenames.find((f) => {
-    const { data } = matter(fs.readFileSync(path.join(newsDirectory, f), "utf8"));
+    const { data } = matter(fs.readFileSync(path.join(blogDirectory, f), "utf8"));
     return (data.slug ?? f.replace(/\.md$/, "")) === slug;
   });
 
   if (!match) return null;
 
-  const fileContents = fs.readFileSync(path.join(newsDirectory, match), "utf8");
+  const fileContents = fs.readFileSync(path.join(blogDirectory, match), "utf8");
   const { data, content } = matter(fileContents);
 
   const processed = await remark().use(remarkGfm).use(html).process(content);
