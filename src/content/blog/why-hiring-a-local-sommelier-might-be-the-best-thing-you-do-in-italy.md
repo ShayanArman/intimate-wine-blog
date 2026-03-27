@@ -25,7 +25,7 @@ Before there were cobblestone streets, before the cathedrals and the trattorie a
 
 Viticulture in Italy dates back to at least 1000 BCE, when Etruscans were cultivating grapes long before the Romans made it a trademark of empire. In fact, ancient Greek settlers called southern Italy "Oenotria", meaning the land of vines.
 
-"Wine is not just a beverage in Italy - it is part of the national identity," says Professor Attilio Scienza, one of the country's leading wine historians. "The Italian landscape, cuisine, and lifestyle are all shaped by its vineyards." [Source: The World Atlas of Wine by Hugh Johnson & Jancis Robinson, 2020]
+"Wine is not just a beverage in Italy - it is part of the national identity," says **Professor Attilio Scienza**, one of the country's leading wine historians. "The Italian landscape, cuisine, and lifestyle are all shaped by its vineyards." [Source: The World Atlas of Wine by Hugh Johnson & Jancis Robinson, 2020]
 
 ## Why Hire a Sommelier?
 
@@ -33,7 +33,7 @@ Wine is everywhere in Italy - but that doesn't mean it's all the same. Every reg
 
 Hiring a local sommelier is like getting a backstage pass to the heart of Italian culture. Here's why it's worth it:
 
-1. Decoding the Mystery of Italian Wine
+1. **Decoding the Mystery of Italian Wine**
 
 With over 545 native grape varieties, Italy is the most diverse wine-producing country on Earth. You've probably heard of Chianti or Barolo... but what about Pecorino, Schioppettino, or Frappato?
 
@@ -41,13 +41,13 @@ A sommelier doesn't just pour. They decode labels, explain traditions, and bring
 
 "Wine in Italy is hyper-local. To understand it, you need someone who speaks the language - not just Italian, but the language of place, soil, and heritage," says sommelier Filippo Bartolotta, who's led tastings for the Obamas and George Clooney. [Source: Decanter Magazine, 2021]. And we at Intimate.Wine agree with this statement wholeheartedly.
 
-2. Personalized Access to Boutique Wineries
+2. **Personalized Access to Boutique Wineries**
 
 Sure, you can visit big-name estates. But what about that tiny organic vineyard where the collective family still bottles the rosato by hand?
 
 Local sommeliers often have relationships with family-run cantinas that don't appear on Google Maps. They can unlock experiences that are off the radar but rich in authenticity - think barrel tastings, vineyard lunches, and cellar tours hosted by the winemakers themselves.
 
-3. Food Pairing that Transforms a Meal
+3. **Food Pairing that Transforms a Meal**
 
 You might already be dreaming of fresh pasta, grilled meats, and endless cheese boards - but wine pairing takes it to another level. A sommelier knows how to bring harmony to a meal, highlighting ingredients with local wines that were practically made for each other (because they were).
 
