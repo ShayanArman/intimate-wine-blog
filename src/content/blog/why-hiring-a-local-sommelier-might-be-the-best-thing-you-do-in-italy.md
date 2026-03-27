@@ -2,7 +2,7 @@
 title: "Why Hiring a Local Sommelier Might Be the Best Thing You Do in Italy"
 subtitle: "Why a local guide turns Italian wine into a deeper, more intimate trip"
 date: "2025-06-30"
-category: "Wine Travel"
+category: "Sommelier"
 excerpt: "A local sommelier can unlock Italy's wine regions, boutique wineries, and food pairings that turn a trip into a richer story."
 slug: "why-hiring-a-local-sommelier-might-be-the-best-thing-you-do-in-italy"
 thumbnail: "/images/blog/moss_green.png"
