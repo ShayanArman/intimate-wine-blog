@@ -1,14 +1,14 @@
 ---
-title: "Why Zero Inbox?"
+title: "Why Chianti? Why Now? Why with a Sommelier?"
 subtitle: "Email is a continual problem, not a one-time cleanup"
-date: "2026-03-15"
+date: "2025-07-28"
 category: "Philosophy"
 excerpt: "Email never really ends. That is why people need an AI Email Organizer and AI Email Cleaner to clean and organize emails safely over time."
-slug: "why-zero-inbox"
+slug: "why-chianti-why-now-why-with-a-sommelier"
 thumbnail: "/images/blog/moss_green.png"
 changefreq: "monthly"
 priority: "0.8"
-imageFallbackText: "Why Zero Inbox"
+imageFallbackText: "Why Chianti? Why now?"
 ---
 
 People sometimes hear the name **Zero Inbox** and assume it means a one-time victory: clear everything out, hit zero, and never think about email again.
