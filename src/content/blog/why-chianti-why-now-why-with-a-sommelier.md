@@ -60,4 +60,4 @@ We love sharing what we know. Whether it's helping you plan a few tastings, offe
 
 We'd love to hear from you.
 
-Greve in Chianti | @intimate.wine | info@intimate.wine
+📍 Greve in Chianti | [🍷 @intimate.wine](https://www.instagram.com/intimate.wine/) | ✉️ info@intimate.wine
