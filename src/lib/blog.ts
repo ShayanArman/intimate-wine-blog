@@ -11,7 +11,7 @@ export type {
 type BlogArticleEntry = {
   slug: string;
   metadata: BlogArticleMetadata;
-  Component: BlogArticleComponent;
+  Content: BlogArticleComponent;
 };
 
 type BlogArticleModule = {
@@ -41,7 +41,7 @@ blogContext.keys().forEach((key) => {
   BLOG_ARTICLES_BY_SLUG.set(slugMatch[1], {
     slug: slugMatch[1],
     metadata: articleModule.metadata,
-    Component: articleModule.default,
+    Content: articleModule.default,
   });
 });
 
@@ -110,5 +110,5 @@ export function getBlogArticle(slug: string): BlogArticle | null {
 
 /** Return the MDX component for a single article. */
 export function getBlogArticleComponent(slug: string): BlogArticleComponent | null {
-  return getBlogArticleEntry(slug)?.Component ?? null;
+  return getBlogArticleEntry(slug)?.Content ?? null;
 }
