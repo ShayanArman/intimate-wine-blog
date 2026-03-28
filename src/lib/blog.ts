@@ -1,32 +1,53 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import html from "remark-html";
+import type { BlogArticle, BlogArticleChangefreq, BlogArticleComponent, BlogArticleMetadata, BlogArticlePriority } from "./blog-types";
 
-type BlogArticleChangefreq = "daily" | "weekly" | "monthly";
-type BlogArticlePriority = "0.5" | "0.6" | "0.7" | "0.8" | "0.9";
+export type {
+  BlogArticle,
+  BlogArticleChangefreq,
+  BlogArticleComponent,
+  BlogArticleMetadata,
+  BlogArticlePriority,
+} from "./blog-types";
 
-export interface BlogArticle {
+type BlogArticleEntry = {
   slug: string;
-  title: string;
-  subtitle: string | null;
-  date: string;
-  category: string;
-  excerpt: string;
-  changefreq: BlogArticleChangefreq;
-  priority: BlogArticlePriority;
-  thumbnail: string | null;
-  imageFallbackText: string | null;
-  videoEmbedUrl: string | null;
-  videoSlug: string | null;
-  content?: string; // rendered HTML (only for single-article views)
-}
+  metadata: BlogArticleMetadata;
+  Component: BlogArticleComponent;
+};
 
-const blogDirectory = path.join(process.cwd(), "src/content/blog");
+type BlogArticleModule = {
+  default: BlogArticleComponent;
+  metadata: BlogArticleMetadata;
+};
 
-function normalizeThumbnail(thumbnail: unknown): string | null {
+type BlogContext = {
+  keys(): string[];
+  <T = BlogArticleModule>(key: string): T;
+};
+
+const blogContext = (require as NodeRequire & {
+  context: (directory: string, useSubdirectories: boolean, regExp: RegExp) => BlogContext;
+}).context("../content/blog", false, /\.mdx$/);
+
+const BLOG_ARTICLES_BY_SLUG = new Map<string, BlogArticleEntry>();
+
+blogContext.keys().forEach((key) => {
+  const articleModule = blogContext<BlogArticleModule>(key);
+  const slugMatch = key.match(/([^/]+)\.mdx$/);
+
+  if (!slugMatch) {
+    return;
+  }
+
+  BLOG_ARTICLES_BY_SLUG.set(slugMatch[1], {
+    slug: slugMatch[1],
+    metadata: articleModule.metadata,
+    Component: articleModule.default,
+  });
+});
+
+const BLOG_ARTICLES: BlogArticleEntry[] = Array.from(BLOG_ARTICLES_BY_SLUG.values());
+
+function normalizeThumbnail(thumbnail: string | null): string | null {
   if (typeof thumbnail !== "string") {
     return null;
   }
@@ -40,74 +61,54 @@ function normalizeThumbnail(thumbnail: unknown): string | null {
   return trimmedThumbnail.startsWith("/") ? trimmedThumbnail : `/${trimmedThumbnail}`;
 }
 
-function normalizeChangefreq(value: unknown): BlogArticleChangefreq {
+function normalizeChangefreq(value: BlogArticleChangefreq): BlogArticleChangefreq {
   return value === "daily" || value === "weekly" || value === "monthly"
     ? value
     : "monthly";
 }
 
-function normalizePriority(value: unknown): BlogArticlePriority {
+function normalizePriority(value: BlogArticlePriority): BlogArticlePriority {
   return value === "0.5" || value === "0.6" || value === "0.7" || value === "0.8" || value === "0.9"
     ? value
     : "0.8";
 }
 
-/** Return every article, newest first. */
-export function getAllBlogArticles(): BlogArticle[] {
-  const filenames = fs.readdirSync(blogDirectory).filter((f) => f.endsWith(".md"));
-
-  const articles = filenames.map((filename) => {
-    const filePath = path.join(blogDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(fileContents);
-
-    return {
-      slug: data.slug ?? filename.replace(/\.md$/, ""),
-      title: data.title,
-      subtitle: data.subtitle ?? null,
-      date: data.date,
-      category: data.category,
-      excerpt: data.excerpt,
-      changefreq: normalizeChangefreq(data.changefreq),
-      priority: normalizePriority(data.priority),
-      thumbnail: normalizeThumbnail(data.thumbnail),
-      imageFallbackText: data.imageFallbackText ?? null,
-      videoEmbedUrl: data.videoEmbedUrl ?? null,
-      videoSlug: data.videoSlug ?? null,
-    } as BlogArticle;
-  });
-
-  return articles.sort((a, b) => (a.date > b.date ? -1 : 1));
+function toBlogArticle({ slug, metadata }: BlogArticleEntry): BlogArticle {
+  return {
+    slug,
+    title: metadata.title,
+    subtitle: metadata.subtitle ?? null,
+    date: metadata.date,
+    category: metadata.category,
+    excerpt: metadata.excerpt,
+    changefreq: normalizeChangefreq(metadata.changefreq),
+    priority: normalizePriority(metadata.priority),
+    thumbnail: normalizeThumbnail(metadata.thumbnail),
+    imageFallbackText: metadata.imageFallbackText ?? null,
+    videoEmbedUrl: metadata.videoEmbedUrl ?? null,
+    videoSlug: metadata.videoSlug ?? null,
+  };
 }
 
-/** Return a single article with its rendered HTML body. */
-export async function getBlogArticle(slug: string): Promise<BlogArticle | null> {
-  const filenames = fs.readdirSync(blogDirectory).filter((f) => f.endsWith(".md"));
-  const match = filenames.find((f) => {
-    const { data } = matter(fs.readFileSync(path.join(blogDirectory, f), "utf8"));
-    return (data.slug ?? f.replace(/\.md$/, "")) === slug;
-  });
+function getBlogArticleEntry(slug: string): BlogArticleEntry | null {
+  return BLOG_ARTICLES.find((article) => article.slug === slug) ?? null;
+}
 
-  if (!match) return null;
+/** Return every article, newest first. */
+export function getAllBlogArticles(): BlogArticle[] {
+  return [...BLOG_ARTICLES]
+    .map(toBlogArticle)
+    .sort((a, b) => (a.date > b.date ? -1 : 1));
+}
 
-  const fileContents = fs.readFileSync(path.join(blogDirectory, match), "utf8");
-  const { data, content } = matter(fileContents);
+/** Return a single article's metadata. */
+export function getBlogArticle(slug: string): BlogArticle | null {
+  const article = getBlogArticleEntry(slug);
 
-  const processed = await remark().use(remarkGfm).use(html).process(content);
+  return article ? toBlogArticle(article) : null;
+}
 
-  return {
-    slug: data.slug ?? match.replace(/\.md$/, ""),
-    title: data.title,
-    subtitle: data.subtitle ?? null,
-    date: data.date,
-    category: data.category,
-    excerpt: data.excerpt,
-    changefreq: normalizeChangefreq(data.changefreq),
-    priority: normalizePriority(data.priority),
-    thumbnail: normalizeThumbnail(data.thumbnail),
-    imageFallbackText: data.imageFallbackText ?? null,
-    videoEmbedUrl: data.videoEmbedUrl ?? null,
-    videoSlug: data.videoSlug ?? null,
-    content: processed.toString(),
-  };
+/** Return the MDX component for a single article. */
+export function getBlogArticleComponent(slug: string): BlogArticleComponent | null {
+  return getBlogArticleEntry(slug)?.Component ?? null;
 }

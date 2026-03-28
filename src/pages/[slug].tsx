@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAllBlogArticles, getBlogArticle, BlogArticle } from "@lib/blog";
+import { getAllBlogArticles, getBlogArticle, getBlogArticleComponent, BlogArticle } from "@lib/blog";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@lib/info";
 import { createStyles, Box, Text, Flex } from "@mantine/core";
 import { FiArrowLeft } from "react-icons/fi";
@@ -196,13 +196,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<{ article: BlogArticle }> = async ({ params }) => {
-  const article = await getBlogArticle(params?.slug as string);
+  const article = getBlogArticle(params?.slug as string);
   if (!article) return { notFound: true };
   return { props: { article } };
 };
 
 export default function ArticlePage({ article }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { classes } = useStyles();
+  const ArticleContent = getBlogArticleComponent(article.slug);
   const canonicalUrl = `${SITE_URL}/${article.slug}`;
   const articleImageUrl = article.thumbnail ? `${SITE_URL}${article.thumbnail}` : DEFAULT_OG_IMAGE;
   const isoDate = new Date(`${article.date}T00:00:00Z`).toISOString();
@@ -300,10 +301,7 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
           </div>
         )}
 
-        <div
-          className={classes.body}
-          dangerouslySetInnerHTML={{ __html: article.content ?? "" }}
-        />
+        <div className={classes.body}>{ArticleContent ? <ArticleContent /> : null}</div>
       </Box>
     </>
   );
