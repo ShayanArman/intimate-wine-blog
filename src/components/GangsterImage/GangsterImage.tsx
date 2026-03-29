@@ -21,8 +21,8 @@ const useStyles = createStyles(() => ({
     inset: 0,
     zIndex: 1,
     background:
-      "linear-gradient(110deg, rgba(15, 29, 61, 0.08) 8%, rgba(255, 255, 255, 0.5) 18%, rgba(15, 29, 61, 0.08) 33%)",
-    backgroundSize: "220% 100%",
+      "linear-gradient(110deg, #ffffff 0%, #ffffff 34%, #9ea5b4 50%, #ffffff 66%, #ffffff 100%)",
+    backgroundSize: "200% 100%",
     animation: "gangsterImageShimmer 1.5s linear infinite",
     transition: "opacity 220ms ease",
     pointerEvents: "none" as const,
