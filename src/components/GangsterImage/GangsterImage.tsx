@@ -1,6 +1,6 @@
 import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
 import Image, { type ImageProps } from "next/image";
-import { createStyles } from "@mantine/core";
+import { Skeleton, createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   figure: {
@@ -20,10 +20,6 @@ const useStyles = createStyles(() => ({
     position: "absolute" as const,
     inset: 0,
     zIndex: 1,
-    background:
-      "linear-gradient(110deg, #ffffff 0%, #ffffff 34%, #9ea5b4 50%, #ffffff 66%, #ffffff 100%)",
-    backgroundSize: "200% 100%",
-    animation: "gangsterImageShimmer 1.5s linear infinite",
     transition: "opacity 220ms ease",
     pointerEvents: "none" as const,
   },
@@ -58,15 +54,6 @@ const useStyles = createStyles(() => ({
     color: "rgba(15, 29, 61, 0.64)",
     textAlign: "center" as const,
     textWrap: "balance" as const,
-  },
-
-  "@keyframes gangsterImageShimmer": {
-    "0%": {
-      backgroundPosition: "100% 0",
-    },
-    "100%": {
-      backgroundPosition: "-100% 0",
-    },
   },
 }));
 
@@ -114,7 +101,12 @@ export default function GangsterImage({
         className={cx(classes.frame, frameClassName)}
         style={resolvedAspectRatio ? { aspectRatio: resolvedAspectRatio } : undefined}
       >
-        <div className={cx(classes.skeleton, isLoaded && classes.skeletonHidden)} aria-hidden="true" />
+        <Skeleton
+          className={cx(classes.skeleton, isLoaded && classes.skeletonHidden)}
+          height="100%"
+          width="100%"
+          aria-hidden="true"
+        />
         <Image
           {...imageProps}
           alt={alt}
