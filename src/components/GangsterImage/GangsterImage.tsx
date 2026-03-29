@@ -1,12 +1,14 @@
 import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
 import Image, { type ImageProps } from "next/image";
 import { Skeleton, createStyles } from "@mantine/core";
+import { crispShadow1px } from "@/styles/styles";
 
 const useStyles = createStyles(() => ({
   frame: {
     position: "relative" as const,
     overflow: "hidden",
     borderRadius: "var(--radius-md)",
+    boxShadow: crispShadow1px,
   },
 
   skeleton: {
