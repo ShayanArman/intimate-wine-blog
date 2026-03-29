@@ -3,17 +3,10 @@ import Image, { type ImageProps } from "next/image";
 import { Skeleton, createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
-  figure: {
-    margin: "2rem 0",
-  },
-
   frame: {
     position: "relative" as const,
     overflow: "hidden",
     borderRadius: "var(--radius-md)",
-    background:
-      "linear-gradient(180deg, rgba(15, 29, 61, 0.02) 0%, rgba(15, 29, 61, 0.06) 100%)",
-    boxShadow: "0 16px 40px rgba(15, 29, 61, 0.12)",
   },
 
   skeleton: {
@@ -59,9 +52,6 @@ const useStyles = createStyles(() => ({
 
 export type GangsterImageProps = ImageProps & {
   caption?: ReactNode;
-  figureClassName?: string;
-  frameClassName?: string;
-  captionClassName?: string;
   aspectRatio?: CSSProperties["aspectRatio"];
 };
 
@@ -69,9 +59,6 @@ export default function GangsterImage({
   alt,
   src,
   caption,
-  figureClassName,
-  frameClassName,
-  captionClassName,
   aspectRatio,
   className,
   fill,
@@ -96,9 +83,9 @@ export default function GangsterImage({
   }, [src]);
 
   return (
-    <figure className={cx(classes.figure, figureClassName)}>
+    <figure>
       <div
-        className={cx(classes.frame, frameClassName)}
+        className={cx(classes.frame)}
         style={resolvedAspectRatio ? { aspectRatio: resolvedAspectRatio } : undefined}
       >
         <Skeleton
@@ -131,7 +118,7 @@ export default function GangsterImage({
         />
       </div>
 
-      {caption ? <figcaption className={cx(classes.caption, captionClassName)}>{caption}</figcaption> : null}
+      {caption ? <figcaption className={cx(classes.caption)}>{caption}</figcaption> : null}
     </figure>
   );
 }
