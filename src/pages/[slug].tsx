@@ -128,6 +128,20 @@ const useStyles = createStyles((theme) => ({
     textWrap: "balance" as const,
   },
 
+  mediaFigure: {
+    margin: "0 0 1.25rem",
+  },
+
+  mediaCaption: {
+    maxWidth: 640,
+    margin: "0.9rem auto 0",
+    fontSize: "0.95rem",
+    lineHeight: 1.6,
+    color: "rgba(15, 29, 61, 0.64)",
+    textAlign: "center" as const,
+    textWrap: "balance" as const,
+  },
+
   body: {
     fontSize: "1.05rem",
     lineHeight: 1.8,
@@ -280,17 +294,22 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
         <Text className={classes.excerpt}>{article.excerpt}</Text>
 
         {article.thumbnail ? (
-          <div className={classes.videoWrap}>
-            <Image
-              className={classes.mediaImage}
-              src={article.thumbnail}
-              alt={article.title}
-              fill
-              priority
-              unoptimized
-              sizes="(max-width: 768px) 100vw, 760px"
-            />
-          </div>
+          <figure className={classes.mediaFigure}>
+            <div className={classes.videoWrap}>
+              <Image
+                className={classes.mediaImage}
+                src={article.thumbnail}
+                alt={article.title}
+                fill
+                priority
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 760px"
+              />
+            </div>
+            {article.thumbnailCaption ? (
+              <figcaption className={classes.mediaCaption}>{article.thumbnailCaption}</figcaption>
+            ) : null}
+          </figure>
         ) : (
           <div className={classes.videoWrap}>
             <div className={classes.mediaFallback}>

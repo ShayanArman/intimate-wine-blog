@@ -47,18 +47,28 @@ blogContext.keys().forEach((key) => {
 
 const BLOG_ARTICLES: BlogArticleEntry[] = Array.from(BLOG_ARTICLES_BY_SLUG.values());
 
-function normalizeThumbnail(thumbnail: string | null): string | null {
-  if (typeof thumbnail !== "string") {
+function normalizeText(value: string | null | undefined): string | null {
+  if (typeof value !== "string") {
     return null;
   }
 
-  const trimmedThumbnail = thumbnail.trim();
+  const trimmedValue = value.trim();
 
-  if (!trimmedThumbnail) {
+  if (!trimmedValue) {
     return null;
   }
 
-  return trimmedThumbnail.startsWith("/") ? trimmedThumbnail : `/${trimmedThumbnail}`;
+  return trimmedValue;
+}
+
+function normalizeThumbnail(thumbnail: string | null | undefined): string | null {
+  const normalizedThumbnail = normalizeText(thumbnail);
+
+  if (!normalizedThumbnail) {
+    return null;
+  }
+
+  return normalizedThumbnail.startsWith("/") ? normalizedThumbnail : `/${normalizedThumbnail}`;
 }
 
 function normalizeChangefreq(value: BlogArticleChangefreq): BlogArticleChangefreq {
@@ -84,7 +94,8 @@ function toBlogArticle({ slug, metadata }: BlogArticleEntry): BlogArticle {
     changefreq: normalizeChangefreq(metadata.changefreq),
     priority: normalizePriority(metadata.priority),
     thumbnail: normalizeThumbnail(metadata.thumbnail),
-    imageFallbackText: metadata.imageFallbackText ?? null,
+    thumbnailCaption: normalizeText(metadata.thumbnailCaption),
+    imageFallbackText: normalizeText(metadata.imageFallbackText),
     videoEmbedUrl: metadata.videoEmbedUrl ?? null,
     videoSlug: metadata.videoSlug ?? null,
   };

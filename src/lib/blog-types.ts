@@ -13,6 +13,7 @@ export interface BlogArticleMetadata {
   changefreq: BlogArticleChangefreq;
   priority: BlogArticlePriority;
   thumbnail: string | null;
+  thumbnailCaption?: string | null;
   imageFallbackText: string | null;
   videoEmbedUrl: string | null;
   videoSlug: string | null;
