@@ -102,6 +102,7 @@ export default function GangsterImage({
         style={resolvedAspectRatio ? { aspectRatio: resolvedAspectRatio } : undefined}
       >
         <Skeleton
+          className={cx(classes.skeleton, isLoaded && classes.skeletonHidden)}
           visible={!isLoaded}
           height="100%"
           width="100%"
