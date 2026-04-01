@@ -6,6 +6,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import ProductLinks from "@/components/ProductLinks";
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -321,6 +322,7 @@ export default function ArticlePage({ article }: InferGetStaticPropsType<typeof 
         )}
 
         <div className={classes.body}>{ArticleContent ? <ArticleContent /> : null}</div>
+        <ProductLinks />
       </Box>
     </>
   );
