@@ -34,7 +34,7 @@ const PATH_META: Record<string, Partial<SeoMeta>> = {
 };
 
 const PATH_LAST_MODIFIED: Record<string, string> = {
-  "/": "2026-03-29T00:00:00-07:00",
+  "/": "2026-04-01T13:35:00-07:00",
 };
 
 export function normalizePath(inputPath: string): string {
