@@ -60,6 +60,8 @@ export const headerLinks: HeaderLink[] = [
   { link: `${LINKED_SITE_URL}/contact`, label: "Contact", newTab: false },
 ];
 
+const BOOKING_URL = `${LINKED_SITE_URL}/contact`;
+
 /* ─── Styles ─── */
 const useStyles = createStyles((theme) => ({
   root: {
@@ -84,10 +86,21 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  leadingGroup: {
+    gap: rem(10),
+    minWidth: 0,
+
+    [theme.fn.smallerThan("md")]: {
+      gap: rem(8),
+      flex: 1,
+    },
+  },
+
   brand: {
     display: "block",
     lineHeight: 0,
     flexShrink: 0,
+    minWidth: 0,
   },
 
   brandImage: {
@@ -97,6 +110,44 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("md")]: {
       height: rem(24),
+      maxWidth: rem(172),
+    },
+  },
+
+  mobileBookButton: {
+    display: "none",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    minHeight: rem(40),
+    padding: `0 ${rem(16)}`,
+    borderRadius: rem(999),
+    border: "1px solid rgba(108, 30, 32, 0.18)",
+    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 241, 238, 0.96) 100%)",
+    boxShadow: "0 10px 24px rgba(108, 30, 32, 0.10), inset 0 0 0 1px rgba(255, 255, 255, 0.72)",
+    color: "var(--initimate-wine-burgundy)",
+    textDecoration: "none",
+    fontFamily: "var(--font-heading)",
+    fontWeight: 600,
+    fontSize: rem(13),
+    lineHeight: 1,
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    transition:
+      "transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast)",
+
+    "&:hover": {
+      borderColor: "rgba(108, 30, 32, 0.26)",
+      boxShadow: "0 12px 28px rgba(108, 30, 32, 0.14), inset 0 0 0 1px rgba(255, 255, 255, 0.82)",
+      transform: "translateY(-1px)",
+    },
+
+    "&:active": {
+      transform: "translateY(0)",
+    },
+
+    [theme.fn.smallerThan("md")]: {
+      display: "inline-flex",
     },
   },
 
@@ -205,7 +256,7 @@ export default function GangsterHeader() {
   return (
     <div className={classes.root}>
       <div className={classes.header}>
-        <Flex align="center" gap={10}>
+        <Flex align="center" className={classes.leadingGroup}>
           <Burger
             opened={opened}
             onClick={() => setOpened((prev) => !prev)}
@@ -222,6 +273,14 @@ export default function GangsterHeader() {
               className={classes.brandImage} />
           </Link>
         </Flex>
+
+        <Link
+          href={BOOKING_URL}
+          target="_blank"
+          className={classes.mobileBookButton}
+        >
+          Book
+        </Link>
 
         <Group spacing={2} className={classes.desktopNav}>
           {headerLinks.map((item) => {
@@ -280,7 +339,7 @@ export default function GangsterHeader() {
             );
           })}
           <Link
-            href={`${LINKED_SITE_URL}/contact`}
+            href={BOOKING_URL}
             target="_blank"
             className={classes.link}
           >
